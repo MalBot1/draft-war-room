@@ -1,0 +1,16 @@
+DRAFT WAR ROOM
+==============
+
+1. Double-click  draft-war-room.html   (opens in your browser)
+2. Go to the DATA tab
+3. Upload         war_room_import.csv
+4. Go to the LEAGUE tab and set up both of your leagues
+5. Export a backup from the Data tab
+
+That is the whole setup. The tool works offline and saves to your browser.
+
+To regenerate projections later:
+    pip install -r requirements.txt
+    ./run_all.sh
+
+Read README.md for everything else.

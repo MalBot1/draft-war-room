@@ -1,0 +1,7 @@
+# credentials — never commit these
+.env
+espn_raw.json
+# personal league data
+calibration.json
+__pycache__/
+*.pyc
