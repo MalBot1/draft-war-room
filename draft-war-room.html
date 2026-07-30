@@ -326,7 +326,7 @@ function ptsAt(arr, idx) {
 function buildValues(players, lg) {
   var scored = players.filter(function (p) { return VAL_POS.indexOf(p.pos) >= 0; })
     .map(function (p) {
-      var c = { id:p.id, name:p.name, team:p.team, pos:p.pos, stats:p.stats, pts:p.pts };
+      var c = { id:p.id, name:p.name, team:p.team, pos:p.pos, stats:p.stats, pts:p.pts, adp:p.adp, stdev:p.stdev };
       c.pts = Math.round(scorePlayer(p, lg.scoring) * 10) / 10;
       return c;
     });
@@ -454,6 +454,45 @@ function fitFor(p, team, roster, repl, baseLineup) {
   return Math.round(v * 10) / 10;
 }
 
+/* ---------- ADP survival probability ----------
+   "Gone before you pick again" used to just take the top N players on the
+   BOARD by our own value and assume the room drafts in that exact order —
+   chalk. Real rooms reach. ADP (adp.py, from Fantasy Football Calculator)
+   gives an actual empirical pick position per player, and a standard
+   deviation for how much that varies. That's enough to ask the real
+   question: given how this player is actually drafted across thousands of
+   real rooms, what's the chance he's still there at a specific future pick —
+   not just "is he in our top N." */
+function erf(x) {
+  // Abramowitz & Stegun 7.1.26 — accurate to ~1.5e-7, far past what a pick
+  // model built on someone else's ADP sample needs
+  var sign = x < 0 ? -1 : 1;
+  x = Math.abs(x);
+  var a1=0.254829592, a2=-0.284496736, a3=1.421413741, a4=-1.453152027, a5=1.061405429, p=0.3275911;
+  var t = 1 / (1 + p * x);
+  var y = 1 - (((((a5*t + a4)*t) + a3)*t + a2)*t + a1)*t*Math.exp(-x*x);
+  return sign * y;
+}
+function normalCDF(x, mean, sd) {
+  if (!sd || sd <= 0) return x < mean ? 0 : 1;
+  return 0.5 * (1 + erf((x - mean) / (sd * Math.SQRT2)));
+}
+/* Which ADP column applies to this league — matches PRESETS keys exactly
+   except superflex, which FFC tracks separately since it moves QBs so much. */
+function adpFormatFor(lg) {
+  return (lg.roster.SUPERFLEX || 0) > 0 ? "2qb" : lg.preset;
+}
+/* Probability a player is still on the board at a given future pick number.
+   null means "no ADP for this player" — not "certain," an honest unknown,
+   distinct from a computed probability so callers don't confuse the two. */
+function survivalProb(p, lg, atPick) {
+  var fmt = adpFormatFor(lg);
+  var adp = (p.adp || {})[fmt];
+  if (adp == null) return null;
+  var sd = (p.stdev || {})[fmt] || 2.5;   // a mild default so a missing stdev doesn't read as dead-certain
+  return Math.max(0, Math.min(1, 1 - normalCDF(atPick, adp, sd)));
+}
+
 /* How many players come off the board between your next pick and the one after.
    That window is what "waiting" actually costs you. */
 function waitGap() {
@@ -548,7 +587,12 @@ var HEADER_MAP = {
   "rec yds":"recYd", recyds:"recYd", recyd:"recYd", "receiving yards":"recYd", rec_yds:"recYd",
   "rec tds":"recTD", rectds:"recTD", rectd:"recTD", rec_tds:"recTD",
   fl:"fl", fum:"fl", fumbles:"fl", "fumbles lost":"fl", fmb:"fl",
-  fpts:"pts", points:"pts", proj:"pts", projection:"pts", "fantasy points":"pts"
+  fpts:"pts", points:"pts", proj:"pts", projection:"pts", "fantasy points":"pts",
+  // "adp:standard" / "stdev:half" etc — colon splits into (kind, format) in
+  // parseCSV below, so one player can carry ADP for every scoring format at
+  // once and the board picks whichever matches the active league
+  adp_standard:"adp:standard", adp_half:"adp:half", adp_ppr:"adp:ppr", adp_2qb:"adp:2qb",
+  stdev_standard:"stdev:standard", stdev_half:"stdev:half", stdev_ppr:"stdev:ppr", stdev_2qb:"stdev:2qb"
 };
 function splitLine(line) {
   var out = [], cur = "", q = false, i, ch;
@@ -570,14 +614,16 @@ function parseCSV(text) {
   var rows = [];
   lines.slice(1).forEach(function (line, i) {
     var cells = splitLine(line);
-    var p = { id: "u" + i, name: "", team: "", pos: "", stats: {} };
+    var p = { id: "u" + i, name: "", team: "", pos: "", stats: {}, adp: {}, stdev: {} };
     heads.forEach(function (h, j) {
       if (!h) return;
       var raw = cells[j] || "";
       if (h === "name" || h === "team" || h === "pos") { p[h] = raw; return; }
       var num = parseFloat(raw.replace(/,/g, ""));           // "1,200" -> 1200
-      if (h === "pts") { if (!isNaN(num)) p.pts = num; }
-      else p.stats[h] = isNaN(num) ? 0 : num;
+      if (h === "pts") { if (!isNaN(num)) p.pts = num; return; }
+      if (h.indexOf("adp:") === 0) { if (!isNaN(num)) p.adp[h.slice(4)] = num; return; }
+      if (h.indexOf("stdev:") === 0) { if (!isNaN(num)) p.stdev[h.slice(6)] = num; return; }
+      p.stats[h] = isNaN(num) ? 0 : num;
     });
     p.pos = (p.pos || "").toUpperCase().replace(/[0-9]/g, "").trim();
     if (p.name && p.pos) rows.push(p);
@@ -758,7 +804,24 @@ function viewBoard() {
   var runCount = {};
   recent.forEach(function (p) { runCount[p.pos] = (runCount[p.pos] || 0) + 1; });
   var runPos = Object.keys(runCount).sort(function (a, b) { return runCount[b] - runCount[a]; })[0];
-  var atRisk = c.until ? BOARD.slice(0, c.until) : [];
+  // ADP-aware "at risk": among the players worth caring about (top of the
+  // board by our own value), who does the real ADP data say is unlikely to
+  // survive to our next pick — not just "whoever's ranked in the next N
+  // slots," which silently assumes the room drafts in our exact order.
+  var nextPick = c.until == null ? null : c.onClock + c.until;
+  var candidates = BOARD.slice(0, 80);
+  var withProb = nextPick == null ? [] : candidates.map(function (p) {
+    return { p: p, prob: survivalProb(p, lg, nextPick) };
+  }).filter(function (x) { return x.prob != null; });
+  var haveADP = withProb.length > 0;
+  var atRisk = haveADP
+    ? withProb.filter(function (x) { return x.prob < 0.45; })
+        .sort(function (a, b) { return a.prob - b.prob; })
+        .slice(0, 8)
+        .map(function (x) { return x.p; })
+    : (c.until ? BOARD.slice(0, c.until) : []);
+  var atRiskProb = {};
+  withProb.forEach(function (x) { atRiskProb[x.p.id] = x.prob; });
 
   // fill the starting lineup
   var pool = MYTEAM.slice(), starters = [], i, idx;
@@ -781,8 +844,14 @@ function viewBoard() {
       recCard() +
       (c.until != null && c.until > 0 && atRisk.length ?
         '<div class="card"><div class="h" style="margin:0 0 7px">Gone before you pick again</div>' +
-        '<div class="note">' + c.until + " picks between now and your turn. If the board goes chalk, these come off: <b>" +
-        atRisk.map(function (p) { return esc(p.name); }).join(", ") + "</b>.</div>" +
+        (haveADP ?
+          '<div class="note">' + c.until + ' picks between now and your turn. By real ADP (not just our own rankings), these are ' +
+          'unlikely to survive: <b>' + atRisk.map(function (p) {
+            return esc(p.name) + ' (' + Math.round(atRiskProb[p.id] * 100) + '%)';
+          }).join(', ') + '</b>.</div>' :
+          '<div class="note">' + c.until + " picks between now and your turn. If the board goes chalk, these come off: <b>" +
+          atRisk.map(function (p) { return esc(p.name); }).join(", ") + '</b>. <span style="color:var(--dim)">(No ADP data imported ' +
+          'yet — this assumes the room drafts in our exact value order, which real rooms don\'t. Run adp.py for real odds.)</span></div>') +
         (runPos && runCount[runPos] >= 3 ? '<div class="note" style="margin-top:7px;color:var(--alert)">' + runCount[runPos] + " of the last " + recent.length + " picks were " + runPos + "s &mdash; that run is live.</div>" : "") +
         '<div class="run">' + recent.map(function (p) {
           return '<div class="run-c" style="background:var(' + (POSVAR[p.pos] || "--flx") + ')" title="' + esc(p.name) + '"></div>';

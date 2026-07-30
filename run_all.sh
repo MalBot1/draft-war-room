@@ -22,6 +22,11 @@ echo "== veteran projections + rookie merge + context adjustment =="
 # pass through the same O-line/weapons context step every veteran gets.
 $PY profiles.py
 echo
+echo "== ADP =="
+# runs after profiles.py on purpose — it appends adp_*/stdev_* columns onto
+# the file profiles.py already wrote, rather than feeding into projections
+$PY adp.py
+echo
 echo "== sanity check =="
 $PY validate.py
 echo

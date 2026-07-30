@@ -127,6 +127,23 @@ def check_war_room(path="war_room_import.csv"):
     if n > 900:
         f.warn("%d players in the file — expected under 700, check for accidental duplication" % n)
 
+    adp_cols = [c for c in df.columns if c.startswith("adp_")]
+    if adp_cols:
+        for c in adp_cols:
+            bad = df[df[c].notna() & (df[c] <= 0)]
+            for _, r in bad.iterrows():
+                f.err("%s: %s = %.1f — ADP must be positive (pick 1 or later)" % (r["Player"], c, r[c]))
+        stdev_cols = [c for c in df.columns if c.startswith("stdev_")]
+        for c in stdev_cols:
+            bad = df[df[c].notna() & (df[c] < 0)]
+            for _, r in bad.iterrows():
+                f.err("%s: %s = %.1f — a standard deviation can't be negative" % (r["Player"], c, r[c]))
+        matched = df[adp_cols].notna().any(axis=1).sum()
+        if matched < 100:
+            f.warn("only %d players have any ADP data — expected 150+ (adp.py name-matching may be failing)" % matched)
+    else:
+        f.warn("no adp_* columns found — run adp.py to add draft-position data")
+
     return f
 
 

@@ -29,16 +29,18 @@ Everything below is about regenerating and improving that file.
 | `profiles.py` | Veteran + rookie projections, merged, context-adjusted. Writes `war_room_import.csv` |
 | `rookies.py` | Rookie projection engine (draft capital + vacated opportunity). `profiles.py` imports this directly |
 | `teams.py` | Team context, O-line grading, depth chart competition |
+| `adp.py` | Real average draft position + variance, from Fantasy Football Calculator. Appends onto `war_room_import.csv` after `profiles.py` runs |
 | `validate.py` | Sanity-checks the generated files — run after every regeneration |
 | `espn_history.py` | Pulls your ESPN league to measure real replacement level |
 
 | Data file | Contents |
 |---|---|
-| `war_room_import.csv` | **The one you import.** ~630 players (veterans + rookies), component stats |
+| `war_room_import.csv` | **The one you import.** ~630 players (veterans + rookies), component stats + ADP |
 | `profiles.csv` | Full output with all inputs and context notes, for auditing |
 | `rookies.csv` | 2026 rookies, standalone comp-based report (same numbers, before merge) |
 | `team_profiles.csv` | 32 offenses: pace, EPA, pass tendency, line, volume pools |
 | `player_context.csv` | 913 players: depth rank and volume ahead of them |
+| `adp.csv` | ADP + standard deviation, per scoring format (standard/half/PPR/2QB) |
 | `ol_grades.csv` | Run blocking graded left / middle / right, separately per team |
 
 ---
@@ -95,6 +97,8 @@ python profiles.py --scoring ppr    # if a league is full PPR
 python rookies.py                   # -> rookies.csv (standalone report only)
 python teams.py                     # -> team_profiles.csv, player_context.csv, ol_grades.csv
 python teams.py --team KC           # one team's depth chart
+python adp.py                       # -> adp.csv, appends adp_*/stdev_* onto war_room_import.csv
+python adp.py --teams 10            # match your league size — who's rosterable shifts with it
 python validate.py                  # sanity-check everything above
 ```
 
@@ -168,9 +172,7 @@ T-minus, so it works whether the draft is two weeks out or four.
 
 ### T-7 — model
 - [ ] Replace estimated replacement level with your measured ESPN numbers.
-- [ ] Add ADP from Fantasy Football Calculator, then survival probability. This
-      retires the "assume the room drafts by value" assumption, which is the
-      weakest thing in the model.
+- [ ] Re-run `adp.py` — ADP moves fast in the week before a draft as mocks pile up.
 - [ ] Research the twenty or thirty players whose situation changed. The model
       flags team changes and depth competition; it cannot judge them.
 
@@ -218,8 +220,14 @@ degrade gracefully if you spend your clock on data entry.
 
 ## Known gaps
 
-- **ADP is not in yet.** Until it is, "who survives to your next pick" assumes the
-  room drafts strictly by value. Real rooms reach. Biggest open weakness.
+- **ADP survival is a probability, not a guarantee.** `war_room_import.csv` now
+  carries real ADP + standard deviation (`adp.py`, Fantasy Football Calculator,
+  free), and the Board tab's "Gone before you pick again" card uses it to
+  compute an actual survival probability per player instead of assuming the
+  room drafts in our own value order. It's still an aggregate of *other*
+  people's drafts, not a model of your specific league mates — treat it as the
+  room's default behavior, not a prophecy. Falls back to the old value-order
+  assumption if `adp.py` hasn't been run.
 - **Context only reaches RB and QB.** WR/TE get no O-line or supporting-cast
   adjustment yet — a receiver on a fast pass-heavy offense gets no credit for it
   beyond his raw target count. RB and QB do get this now (`context_mult` /
