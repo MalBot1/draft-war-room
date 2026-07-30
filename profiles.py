@@ -84,7 +84,17 @@ BASE_GAMES = {"RB": 15.0, "WR": 15.5, "TE": 15.0, "QB": 15.5}
 # Shrinkage constants: how much evidence before we believe a player's own
 # efficiency over the positional average. Touchdown rate gets the harshest
 # treatment because it is the noisiest thing in fantasy football.
-SHRINK = {"ypt": 45, "ypc": 90, "td_rate": 130, "catch_rate": 45}
+#
+# "volume_games" is a second kind of shrinkage, in games rather than
+# targets/carries: how many games of his own involvement before we trust HIS
+# per-game volume over the positional average, instead of taking it at face
+# value regardless of sample size. Missing before this was added — a player
+# with a single unusually busy game (one trick-play pass, one four-carry
+# gadget series) had that single game's rate extrapolated across a full
+# 15-game season with no regression at all. Six games is enough to mostly
+# trust an established role; a 2-3 game flash gets pulled hard toward the
+# positional average instead of being taken as his real workload.
+SHRINK = {"ypt": 45, "ypc": 90, "td_rate": 130, "catch_rate": 45, "volume_games": 6}
 
 SCORING = {
     "ppr":      dict(rec=1.0, recYd=0.1, recTD=6, rushYd=0.1, rushTD=6, passYd=0.04, passTD=4, int=-2, fl=-2),
@@ -184,6 +194,18 @@ def load_expected_td_rates():
     season_w = {recent: 0.70, prior: 0.30}
     season_tot["w"] = season_tot["season"].map(season_w).fillna(0.0)
 
+    # A player's own expected-TD rate is only used downstream as the shrink
+    # TARGET for his actual TD rate — but project()'s shrink() trusts whatever
+    # target it's given almost completely when the player's OWN sample is
+    # thin (that's the point of shrinkage: lean on the prior). If the prior
+    # itself is one guy's 1-target game (rec_td_exp/rec_att = 0.46, a "46%
+    # touchdown rate" that is pure noise), shrinking toward it doesn't fix
+    # the outlier, it manufactures a new one — exactly what produced a
+    # 1-game receiver projected for 28 touchdowns. Require enough of his own
+    # attempts here before trusting this rate at all; below that, no entry
+    # is returned and project() correctly falls back to the safe positional
+    # mean instead.
+    MIN_ATT = 15
     out = {}
     for pid, g in season_tot.groupby("player_id"):
         tw = g["w"].sum()
@@ -192,9 +214,9 @@ def load_expected_td_rates():
         rush_att = (g["rush_att"] * g["w"]).sum() / tw
         rec_att = (g["rec_att"] * g["w"]).sum() / tw
         entry = {}
-        if rush_att > 0:
+        if rush_att >= MIN_ATT:
             entry["rush"] = ((g["rush_td_exp"] * g["w"]).sum() / tw) / rush_att
-        if rec_att > 0:
+        if rec_att >= MIN_ATT:
             entry["rec"] = ((g["rec_td_exp"] * g["w"]).sum() / tw) / rec_att
         if entry:
             out[pid] = entry
@@ -335,12 +357,21 @@ def project(df, ros_now, ros_prev, scoring, exp_td_rates=None):
     for pos in POS:
         p = df[df["pos"] == pos]
         tg, ca = p["targets"].sum(), p["carries"].sum()
+        gs = p["games_sample"].sum()
         means[pos] = {
             "ypt": (p["rec_yards"].sum() / tg) if tg else 0.0,
             "catch": (p["receptions"].sum() / tg) if tg else 0.0,
             "rec_td_rate": (p["rec_tds"].sum() / tg) if tg else 0.0,
             "ypc": (p["rush_yards"].sum() / ca) if ca else 0.0,
             "rush_td_rate": (p["rush_tds"].sum() / ca) if ca else 0.0,
+            # weighted by each player's own games_sample (his reliability),
+            # not a flat average — one small-sample flash shouldn't move the
+            # baseline the way it's currently allowed to move HIS OWN projection
+            "tgt_pg": ((p["targets"] * p["games_sample"]).sum() / gs) if gs else 0.0,
+            "car_pg": ((p["carries"] * p["games_sample"]).sum() / gs) if gs else 0.0,
+            "pass_yds_pg": ((p["pass_yards"] * p["games_sample"]).sum() / gs) if gs else 0.0,
+            "pass_tds_pg": ((p["pass_tds"] * p["games_sample"]).sum() / gs) if gs else 0.0,
+            "int_pg": ((p["ints"] * p["games_sample"]).sum() / gs) if gs else 0.0,
         }
 
     exp_td_rates = exp_td_rates or {}
@@ -359,9 +390,28 @@ def project(df, ros_now, ros_prev, scoring, exp_td_rates=None):
         else:
             age_mult = 1.0
 
-        # volume, age-adjusted
-        tgt = r["targets"] * age_mult
-        car = r["carries"] * age_mult
+        # volume, regressed on GAMES of evidence (not targets/carries — the
+        # question here is "how much do we trust his role at all," which a
+        # tiny games_sample answers badly regardless of how busy those few
+        # games were). Without this, a single unusually busy game (one
+        # trick-play pass, one four-carry gadget series) gets extrapolated
+        # across a full season at face value — that's exactly what was
+        # producing 99 projected passing yards for a wide receiver with one
+        # career completion, and 217 rushing yards for a gadget player with
+        # seven career carries.
+        gs = r["games_sample"]
+        tgt = shrink(r["targets"], m["tgt_pg"], gs, SHRINK["volume_games"]) * age_mult
+        car = shrink(r["carries"], m["car_pg"], gs, SHRINK["volume_games"]) * age_mult
+        # Applies to QB passing too now, not just non-QB trick plays — an
+        # established starter (30+ games) is barely moved by this (the same
+        # ~15% pull toward the mean already accepted for veteran RB volume
+        # above), but a QB with one relevant game gets pulled toward a normal
+        # starter's line instead of that one game's rate — including
+        # interceptions, which used to not be regressed at all and were
+        # projecting some 1-game passers for 30 INTs in a season.
+        pass_yds_pg = shrink(r["pass_yards"], m["pass_yds_pg"], gs, SHRINK["volume_games"])
+        pass_tds_pg = shrink(r["pass_tds"], m["pass_tds_pg"], gs, SHRINK["volume_games"])
+        int_pg = shrink(r["ints"], m["int_pg"], gs, SHRINK["volume_games"])
 
         # efficiency, regressed on the player's own sample size
         n_t = r["targets"] * max(r["games_sample"], 1)
@@ -379,7 +429,7 @@ def project(df, ros_now, ros_prev, scoring, exp_td_rates=None):
 
         ppg = (cr * tgt * sc["rec"] + ypt * tgt * sc["recYd"] + rtd * tgt * sc["recTD"]
                + ypc * car * sc["rushYd"] + gtd * car * sc["rushTD"]
-               + r["pass_yards"] * sc["passYd"] + r["pass_tds"] * sc["passTD"] + r["ints"] * sc["int"])
+               + pass_yds_pg * sc["passYd"] + pass_tds_pg * sc["passTD"] + int_pg * sc["int"])
 
         games = BASE_GAMES.get(pos, 15.0)
         if age >= 30:
@@ -410,9 +460,9 @@ def project(df, ros_now, ros_prev, scoring, exp_td_rates=None):
             "p_rec_tds": round(max(0.0, rtd * tgt * games), 1),
             "p_rush_yds": round(max(0.0, ypc * car * games), 1),
             "p_rush_tds": round(max(0.0, gtd * car * games), 1),
-            "p_pass_yds": round(max(0.0, r["pass_yards"] * games), 1),
-            "p_pass_tds": round(max(0.0, r["pass_tds"] * games), 1),
-            "p_ints": round(max(0.0, r["ints"] * games), 1),
+            "p_pass_yds": round(max(0.0, pass_yds_pg * games), 1),
+            "p_pass_tds": round(max(0.0, pass_tds_pg * games), 1),
+            "p_ints": round(max(0.0, int_pg * games), 1),
             "changed_team": bool(r["changed_team"]),
             "on_roster": bool(r["on_roster"]),
             "sample_games": int(r["games_sample"]),
