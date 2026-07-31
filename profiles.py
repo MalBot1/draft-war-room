@@ -499,6 +499,15 @@ def apply_context(res, team_profiles, ol_grades, rusher_shares, scoring):
 
     weapons = res[res["pos"].isin(["WR", "TE"])].groupby("team")["proj"].sum()
     weapons_pct = (weapons.rank(pct=True) * 100) if len(weapons) else pd.Series(dtype=float)
+    # a WR/TE's supply line is his QB, the same way a RB's is his line — best
+    # (not average) QB per team as a proxy for "the presumed starter," since
+    # July depth charts are too unreliable to trust for who's QB1. Both this
+    # and weapons_pct above are computed from the RAW, pre-context proj — QB
+    # context depends on raw WR/TE value and WR/TE context depends on raw QB
+    # value, so neither waits on the other's adjustment; there's no true
+    # circularity even though the two positions lean on each other.
+    qb_proj = res[res["pos"] == "QB"].groupby("team")["proj"].max()
+    qb_pct = (qb_proj.rank(pct=True) * 100) if len(qb_proj) else pd.Series(dtype=float)
 
     def clamp(x):
         return max(-1.0, min(1.0, x))
@@ -533,6 +542,11 @@ def apply_context(res, team_profiles, ol_grades, rusher_shares, scoring):
             block_pct = (tp.loc[team, "sack_rate_pct"] + tp.loc[team, "hit_rate_pct"]) / 2
             z = clamp(((w_pct - 50) * 0.65 + (block_pct - 50) * 0.35) / 50)
             note = "weapons %.0f pctl, pass protection %.0f pctl" % (w_pct, block_pct)
+        elif pos in ("WR", "TE") and team in tp.index:
+            q_pct = qb_pct.get(team, 50.0)
+            pass_pct = tp.loc[team, "pass_epa_pct"]
+            z = clamp(((q_pct - 50) * 0.65 + (pass_pct - 50) * 0.35) / 50)
+            note = "QB %.0f pctl, team pass game %.0f pctl" % (q_pct, pass_pct)
 
         m = round(1 + CONTEXT_CAP * z, 3)
         mults.append(m)

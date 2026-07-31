@@ -76,6 +76,11 @@ adjusts for that, capped at +/-15% so it nudges rather than dominates:
 - **QB** — graded against the strength of his own current WR/TE corps (their
   own opportunity-based projections, summed) and team-level pass protection
   (sack% and hit%, `team_profiles.csv`).
+- **WR/TE** — graded against their own team's QB (his own raw projection,
+  same idea as "his supply line" one position removed from a RB's line) and
+  team passing efficiency. Computed from the same pre-adjustment snapshot
+  QB's weapons score uses, so the two don't wait on each other despite
+  leaning on each other's numbers.
 
 Every adjustment is logged in `context_note` (in `profiles.csv`) so it can be
 audited, not just trusted — e.g. Jonathan Taylor's line reads `OL by his own
@@ -228,10 +233,11 @@ degrade gracefully if you spend your clock on data entry.
   people's drafts, not a model of your specific league mates — treat it as the
   room's default behavior, not a prophecy. Falls back to the old value-order
   assumption if `adp.py` hasn't been run.
-- **Context only reaches RB and QB.** WR/TE get no O-line or supporting-cast
-  adjustment yet — a receiver on a fast pass-heavy offense gets no credit for it
-  beyond his raw target count. RB and QB do get this now (`context_mult` /
-  `context_note` in `profiles.csv`).
+- **Context now reaches all four positions.** RB is graded against his own line
+  (direction-weighted), QB against his weapons and pass protection, and WR/TE
+  against their own team's QB quality plus team passing efficiency — his
+  "supply line," the same idea as a RB's line, just one position removed.
+  All bounded to +/-15% (`context_mult` / `context_note` in `profiles.csv`).
 - **Team changes are flagged, not modeled.** `changed_team` marks a player who
   signed elsewhere. His projection still runs off his old team's volume — there's
   no public standard formula for this reallocation (checked; the credible public
