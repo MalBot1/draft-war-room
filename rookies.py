@@ -327,6 +327,12 @@ def component_rows(sc=None):
             "p_pass_yds": r["p_pass_yds"], "p_pass_tds": r["p_pass_tds"], "p_ints": r["p_ints"],
             "changed_team": False, "on_roster": True, "sample_games": 0,
             "rookie": True, "pick": r["pick"], "tier": r["tier"],
+            # how often THIS comp profile actually panned out historically —
+            # carried through so the board can show it, not just the point
+            # estimate. A Round 3 WR's median outcome and a proven WR2's
+            # median outcome look identical as a single number; they are not
+            # equally trustworthy, and bust_rate is the honest difference.
+            "useful_rate": r["useful_rate"], "bust_rate": r["bust_rate"],
         })
     return pd.DataFrame(rows)
 

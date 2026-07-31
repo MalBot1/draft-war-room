@@ -608,11 +608,17 @@ def main():
     res.to_csv(a.out, index=False)
     log("Wrote %s (%d players)" % (a.out, len(res)))
 
-    # war-room import format: component stats, so each league rescores them itself
+    # war-room import format: component stats, so each league rescores them itself.
+    # Rookie / Bust% ride along too — a rookie's median-outcome projection and a
+    # proven veteran's look identical as a single point estimate, but they are
+    # not equally trustworthy, and the board should be able to say so.
     wr = res[["name", "pos", "team", "p_pass_yds", "p_pass_tds", "p_ints",
-              "p_rush_yds", "p_rush_tds", "p_rec", "p_rec_yds", "p_rec_tds"]].copy()
+              "p_rush_yds", "p_rush_tds", "p_rec", "p_rec_yds", "p_rec_tds",
+              "rookie", "bust_rate"]].copy()
     wr.columns = ["Player", "POS", "Team", "Pass Yds", "Pass TDs", "INT",
-                  "Rush Yds", "Rush TDs", "REC", "Rec Yds", "Rec TDs"]
+                  "Rush Yds", "Rush TDs", "REC", "Rec Yds", "Rec TDs",
+                  "Rookie", "Bust%"]
+    wr["Rookie"] = wr["Rookie"].fillna(False)
     wr["FL"] = 1.5
     wr.to_csv("war_room_import.csv", index=False)
     log("Wrote war_room_import.csv - paste or upload this into the Data tab")

@@ -94,6 +94,8 @@ input, select, textarea { font-family: inherit; }
 .pname-t { font-size: 14px; font-weight: 600; line-height: 1.25; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .pname-s { font-size: 10.5px; color: var(--dim); letter-spacing: .05em; margin-top: 1px; }
 .tag { color: var(--gold); font-size: 11px; margin-left: 6px; font-weight: 600; }
+.tag.rookie { color: var(--flx); }
+.pname-s .bust { color: var(--alert); }
 .pvor { text-align: right; flex: none; }
 .pvor-t { font-family: var(--mono); font-size: 15px; font-weight: 600; line-height: 1.1; }
 .pvor-t.neg { color: var(--dim); }
@@ -338,7 +340,8 @@ function ptsAt(arr, idx) {
 function buildValues(players, lg) {
   var scored = players.filter(function (p) { return VAL_POS.indexOf(p.pos) >= 0; })
     .map(function (p) {
-      var c = { id:p.id, name:p.name, team:p.team, pos:p.pos, stats:p.stats, pts:p.pts, adp:p.adp, stdev:p.stdev };
+      var c = { id:p.id, name:p.name, team:p.team, pos:p.pos, stats:p.stats, pts:p.pts, adp:p.adp, stdev:p.stdev,
+                rookie:p.rookie, bustPct:p.bustPct };
       c.pts = Math.round(scorePlayer(p, lg.scoring) * 10) / 10;
       return c;
     });
@@ -604,7 +607,8 @@ var HEADER_MAP = {
   // parseCSV below, so one player can carry ADP for every scoring format at
   // once and the board picks whichever matches the active league
   adp_standard:"adp:standard", adp_half:"adp:half", adp_ppr:"adp:ppr", adp_2qb:"adp:2qb",
-  stdev_standard:"stdev:standard", stdev_half:"stdev:half", stdev_ppr:"stdev:ppr", stdev_2qb:"stdev:2qb"
+  stdev_standard:"stdev:standard", stdev_half:"stdev:half", stdev_ppr:"stdev:ppr", stdev_2qb:"stdev:2qb",
+  rookie:"rookie", "bust%":"bustPct", bust_pct:"bustPct", bustpct:"bustPct"
 };
 function splitLine(line) {
   var out = [], cur = "", q = false, i, ch;
@@ -626,12 +630,14 @@ function parseCSV(text) {
   var rows = [];
   lines.slice(1).forEach(function (line, i) {
     var cells = splitLine(line);
-    var p = { id: "u" + i, name: "", team: "", pos: "", stats: {}, adp: {}, stdev: {} };
+    var p = { id: "u" + i, name: "", team: "", pos: "", stats: {}, adp: {}, stdev: {}, rookie: false, bustPct: null };
     heads.forEach(function (h, j) {
       if (!h) return;
       var raw = cells[j] || "";
       if (h === "name" || h === "team" || h === "pos") { p[h] = raw; return; }
+      if (h === "rookie") { p.rookie = /^(true|1|yes)$/i.test(raw.trim()); return; }
       var num = parseFloat(raw.replace(/,/g, ""));           // "1,200" -> 1200
+      if (h === "bustPct") { if (!isNaN(num)) p.bustPct = num; return; }
       if (h === "pts") { if (!isNaN(num)) p.pts = num; return; }
       if (h.indexOf("adp:") === 0) { if (!isNaN(num)) p.adp[h.slice(4)] = num; return; }
       if (h.indexOf("stdev:") === 0) { if (!isNaN(num)) p.stdev[h.slice(6)] = num; return; }
@@ -732,8 +738,10 @@ function playerRows(items, filter, tierField, withActs, need, scores) {
       '<div class="spark" style="background:var(' + (POSVAR[p.pos] || "--flx") + ');height:' + h + 'px"></div>' +
       '<div class="pos" data-p="' + p.pos + '">' + p.pos + "</div>" +
       '<div class="pname"><div class="pname-t">' + esc(p.name) +
-        (need && need[p.pos] ? '<span class="tag">need</span>' : "") + "</div>" +
-        '<div class="pname-s">' + (sc ? esc(reasonFor(sc)) : p.pos + p.posRank + " &middot; OVR " + p.ovr + (p.team ? " &middot; " + esc(p.team) : "")) + "</div></div>" +
+        (need && need[p.pos] ? '<span class="tag">need</span>' : "") +
+        (p.rookie ? '<span class="tag rookie" title="Comp-based projection from draft capital, not his own NFL history">ROOKIE</span>' : "") + "</div>" +
+        '<div class="pname-s">' + (sc ? esc(reasonFor(sc)) : p.pos + p.posRank + " &middot; OVR " + p.ovr + (p.team ? " &middot; " + esc(p.team) : "")) +
+        (p.rookie && p.bustPct != null ? ' &middot; <span class="' + (p.bustPct >= 40 ? "bust" : "") + '">' + p.bustPct + '% bust rate</span>' : "") + "</div></div>" +
       '<div class="pvor"><div class="pvor-t' + ((sc ? sc.now : p.vor) <= 0 ? " neg" : "") + '">' + sgn(sc ? sc.now : p.vor) + "</div>" +
         '<div class="pvor-s">' + (sc ? p.pos + p.posRank : p.pts) + "</div></div>" +
       (withActs ? '<div class="acts">' +
