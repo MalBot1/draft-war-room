@@ -251,9 +251,21 @@ function newLeague(name, preset, teams, slot) {
 }
 
 /* ---------- state ---------- */
+// Pre-seeded with your two real leagues (2026-07-31). Scoring format wasn't
+// confirmed for either — defaulted to half-PPR, the most common ESPN/Yahoo
+// setup. Draft slot defaulted to 1 since neither draft order is set yet.
+// Fix both in the League tab once you know them; everything else here came
+// from your league pages directly.
+var ESPN_LEAGUE = newLeague("ESPN League (Aug 29)", "half", 10, 1);
+var YAHOO_LEAGUE = newLeague("Yahoo League (Sept 6)", "half", 12, 1);
+// confirmed roster: QB1 RB2 WR2 TE1 FLEX(W-R-T)1 K1 DEF1 BN6 IR2 — this tool
+// has no separate IR concept, so the 2 IR spots are folded into bench (8)
+// to keep the total draft-round count accurate
+YAHOO_LEAGUE.roster.BENCH = 8;
+
 var S = {
   tab: "board", filter: "ALL", q: "", flash: "", sort: "value",
-  leagues: [newLeague("Main League", "half", 12, 6)],
+  leagues: [ESPN_LEAGUE, YAHOO_LEAGUE],
   activeId: null, players: demoPlayers(), usingDemo: true, drafts: {}
 };
 var KEY = "draftWarRoom.v1";
