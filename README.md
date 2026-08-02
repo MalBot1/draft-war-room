@@ -29,19 +29,21 @@ Everything below is about regenerating and improving that file.
 | `profiles.py` | Veteran + rookie projections, merged, context-adjusted. Writes `war_room_import.csv` |
 | `rookies.py` | Rookie projection engine (draft capital + vacated opportunity). `profiles.py` imports this directly |
 | `teams.py` | Team context, O-line grading, depth chart competition |
-| `adp.py` | Real average draft position + variance, from Fantasy Football Calculator. Appends onto `war_room_import.csv` after `profiles.py` runs |
+| `adp.py` | Real average draft position + variance + bye week, from Fantasy Football Calculator. Appends onto `war_room_import.csv` after `profiles.py` runs |
+| `playoff_sos.py` | How tough each team's fantasy-playoff-week schedule is, by position. Appends onto `war_room_import.csv` |
 | `validate.py` | Sanity-checks the generated files — run after every regeneration |
 | `espn_history.py` | Pulls your ESPN league to measure real replacement level |
 
 | Data file | Contents |
 |---|---|
-| `war_room_import.csv` | **The one you import.** ~630 players (veterans + rookies), component stats + ADP |
+| `war_room_import.csv` | **The one you import.** ~630 players (veterans + rookies), component stats + ADP + bye + playoff SOS |
 | `profiles.csv` | Full output with all inputs and context notes, for auditing |
 | `rookies.csv` | 2026 rookies, standalone comp-based report (same numbers, before merge) |
 | `team_profiles.csv` | 32 offenses: pace, EPA, pass tendency, line, volume pools |
 | `player_context.csv` | 913 players: depth rank and volume ahead of them |
-| `adp.csv` | ADP + standard deviation, per scoring format (standard/half/PPR/2QB) |
+| `adp.csv` | ADP + standard deviation + bye, per scoring format (standard/half/PPR/2QB) |
 | `ol_grades.csv` | Run blocking graded left / middle / right, separately per team |
+| `playoff_sos.csv` | Points allowed per game by position, and each team's playoff-week opponents + rating |
 
 ---
 
@@ -102,14 +104,16 @@ python profiles.py --scoring ppr    # if a league is full PPR
 python rookies.py                   # -> rookies.csv (standalone report only)
 python teams.py                     # -> team_profiles.csv, player_context.csv, ol_grades.csv
 python teams.py --team KC           # one team's depth chart
-python adp.py                       # -> adp.csv, appends adp_*/stdev_* onto war_room_import.csv
+python adp.py                       # -> adp.csv, appends adp_*/stdev_*/bye onto war_room_import.csv
 python adp.py --teams 10            # match your league size — who's rosterable shifts with it
+python playoff_sos.py               # -> playoff_sos.csv, appends playoff_sos_pctl/label onto war_room_import.csv
+python playoff_sos.py --weeks 15,16,17   # match your league's actual fantasy-playoff weeks
 python validate.py                  # sanity-check everything above
 ```
 
 Or `./run_all.sh` for all of it, validate.py included.
 
-`profiles.py` is the only script that writes `war_room_import.csv`. It imports `rookies.py` directly (as Python, not by reading `rookies.csv`) so the draft class gets merged in *before* the O-line/weapons context step — a rookie RB landing on a good line gets credit for it exactly like a veteran would.
+`profiles.py` is the only script that writes `war_room_import.csv`. It imports `rookies.py` directly (as Python, not by reading `rookies.csv`) so the draft class gets merged in *before* the O-line/weapons context step — a rookie RB landing on a good line gets credit for it exactly like a veteran would. `adp.py` and `playoff_sos.py` both append onto it afterward, so re-run them any time you re-run `profiles.py` or they'll be wiped along with everything else.
 
 First run downloads from nflverse. After that it reads the local cache. Delete
 `nflverse_cache/` to force a refresh.
@@ -248,7 +252,15 @@ degrade gracefully if you spend your clock on data entry.
 - **Point estimates only.** No ceiling, floor, or injury risk.
 - **One season of ESPN history.** Enough for replacement level. Not enough to
   model how your specific leaguemates draft.
-- **No bye weeks. No kickers or defenses** — they are noise, take them last.
+- **No kickers or defenses** — they are noise, take them last.
+- **Playoff schedule strength is a badge, not a ranking input.** `playoff_sos.py`
+  grades each team's fantasy-playoff-week opponents (weeks 15-17 by default —
+  pass `--weeks` to match your league) by how much they allowed to that
+  position last season, shown on the board as "Playoff Easy/Tough." Built from
+  one season of points-allowed data, same thin-evidence problem `profiles.py`
+  already treats carefully for players — so it's deliberately never folded
+  into VOR or the recommendation score. A defense that struggled against TEs
+  last year has no obligation to do it again.
 
 Rookies used to be a gap here — they're merged into `war_room_import.csv` now,
 through the same context step veterans get. `validate.py` catches the class of

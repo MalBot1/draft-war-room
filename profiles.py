@@ -439,6 +439,22 @@ def project(df, ros_now, ros_prev, scoring, exp_td_rates=None):
         if r["last_games"] <= 8:
             games -= 0.5
 
+        # QB specifically: a backup's role is binary — he either wins the
+        # starting job or plays almost nothing, unlike RB/WR/TE where a
+        # backup still sees some rotational snaps. The rate shrinkage above
+        # already discounts a thin-sample QB's per-game production toward
+        # the mean, but it was still multiplying that rate by a full
+        # starter's slate of games — so a QB with one relief appearance
+        # projected like a fringe starter (e.g. one spot start extrapolated
+        # to 2600 passing yards). Scale expected games down by the same
+        # trust curve as the rate shrink: how many games of his own
+        # involvement before we believe he actually starts. Established QBs
+        # (games_sample already well past SHRINK["volume_games"]) are
+        # untouched — trust caps at 1, so this only discounts the thin end.
+        if pos == "QB":
+            trust = min(1.0, gs / SHRINK["volume_games"])
+            games = 1.0 + (games - 1.0) * trust
+
         out.append({
             "player_id": r["player_id"],
             "name": r["name"], "pos": pos, "team": r.get("team_2026"),

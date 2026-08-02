@@ -95,7 +95,7 @@ def fetch(fmt, teams):
 def build(teams):
     import pandas as pd
 
-    by_norm = {}   # normalized name -> {display name, per-format adp/stdev}
+    by_norm = {}   # normalized name -> {display name, per-format adp/stdev, bye}
     for fmt, key in FORMATS.items():
         data = fetch(fmt, teams)
         for p in data.get("players", []):
@@ -105,6 +105,10 @@ def build(teams):
             row = by_norm.setdefault(nk, {"name": p["name"]})
             row["adp_" + key] = p["adp"]
             row["stdev_" + key] = p.get("stdev", 0.0)
+            # FFC returns bye week on every format response already — same
+            # field, no extra call needed. Just wasn't being kept until now.
+            if p.get("bye"):
+                row["bye"] = p["bye"]
 
     df = pd.DataFrame(list(by_norm.values()))
     df["norm"] = df["name"].apply(normalize)
@@ -126,8 +130,10 @@ def merge_into_war_room(adp_df, path="war_room_import.csv"):
     wr["norm"] = wr["Player"].apply(normalize)
 
     adp_cols = [c for c in adp_df.columns if c.startswith("adp_") or c.startswith("stdev_")]
-    wr = wr.drop(columns=[c for c in adp_cols if c in wr.columns], errors="ignore")
-    merged = wr.merge(adp_df[["norm"] + adp_cols], on="norm", how="left").drop(columns=["norm"])
+    extra_cols = [c for c in ["bye"] if c in adp_df.columns]
+    join_cols = adp_cols + extra_cols
+    wr = wr.drop(columns=[c for c in join_cols if c in wr.columns], errors="ignore")
+    merged = wr.merge(adp_df[["norm"] + join_cols], on="norm", how="left").drop(columns=["norm"])
 
     matched = merged[[c for c in adp_cols if c.startswith("adp_")]].notna().any(axis=1).sum()
     merged.to_csv(path, index=False)

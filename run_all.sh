@@ -23,9 +23,13 @@ echo "== veteran projections + rookie merge + context adjustment =="
 $PY profiles.py
 echo
 echo "== ADP =="
-# runs after profiles.py on purpose — it appends adp_*/stdev_* columns onto
+# runs after profiles.py on purpose — it appends adp_*/stdev_*/bye columns onto
 # the file profiles.py already wrote, rather than feeding into projections
 $PY adp.py
+echo
+echo "== playoff strength of schedule =="
+# also appends onto war_room_import.csv, same reason as adp.py above
+$PY playoff_sos.py
 echo
 echo "== sanity check =="
 $PY validate.py

@@ -96,6 +96,9 @@ input, select, textarea { font-family: inherit; }
 .tag { color: var(--gold); font-size: 11px; margin-left: 6px; font-weight: 600; }
 .tag.rookie { color: var(--flx); }
 .pname-s .bust { color: var(--alert); }
+.vdelta { font-weight: 700; }
+.vdelta.up { color: var(--gold); }
+.vdelta.down { color: var(--alert); }
 .pvor { text-align: right; flex: none; }
 .pvor-t { font-family: var(--mono); font-size: 15px; font-weight: 600; line-height: 1.1; }
 .pvor-t.neg { color: var(--dim); }
@@ -341,7 +344,7 @@ function buildValues(players, lg) {
   var scored = players.filter(function (p) { return VAL_POS.indexOf(p.pos) >= 0; })
     .map(function (p) {
       var c = { id:p.id, name:p.name, team:p.team, pos:p.pos, stats:p.stats, pts:p.pts, adp:p.adp, stdev:p.stdev,
-                rookie:p.rookie, bustPct:p.bustPct };
+                rookie:p.rookie, bustPct:p.bustPct, bye:p.bye, sosPctl:p.sosPctl, sosLabel:p.sosLabel };
       c.pts = Math.round(scorePlayer(p, lg.scoring) * 10) / 10;
       return c;
     });
@@ -393,6 +396,18 @@ function buildValues(players, lg) {
   all.forEach(function (p) { p.pts = p.vor; });
   assignTiers(all, "oTier");
   all.forEach(function (p, i) { p.pts = pts[i]; p.ovr = i + 1; });
+
+  // Value vs ADP: our overall rank against where the room actually drafts
+  // him, on the same 1..N scale so the gap is directly a pick count. Positive
+  // means the market is sleeping on him relative to our model (he should
+  // fall to you); negative means the room is paying up for him earlier than
+  // our model thinks he's worth. Null when he has no ADP at all — an honest
+  // unknown, not zero.
+  var adpFmt = adpFormatFor(lg);
+  all.forEach(function (p) {
+    var adpVal = (p.adp || {})[adpFmt];
+    p.vDelta = adpVal == null ? null : Math.round(adpVal - p.ovr);
+  });
 
   return { list: all, repl: repl, base: base, thin: thin };
 }
@@ -608,7 +623,9 @@ var HEADER_MAP = {
   // once and the board picks whichever matches the active league
   adp_standard:"adp:standard", adp_half:"adp:half", adp_ppr:"adp:ppr", adp_2qb:"adp:2qb",
   stdev_standard:"stdev:standard", stdev_half:"stdev:half", stdev_ppr:"stdev:ppr", stdev_2qb:"stdev:2qb",
-  rookie:"rookie", "bust%":"bustPct", bust_pct:"bustPct", bustpct:"bustPct"
+  rookie:"rookie", "bust%":"bustPct", bust_pct:"bustPct", bustpct:"bustPct",
+  bye:"bye", "bye week":"bye",
+  playoff_sos_pctl:"sosPctl", playoff_sos_label:"sosLabel"
 };
 function splitLine(line) {
   var out = [], cur = "", q = false, i, ch;
@@ -630,14 +647,17 @@ function parseCSV(text) {
   var rows = [];
   lines.slice(1).forEach(function (line, i) {
     var cells = splitLine(line);
-    var p = { id: "u" + i, name: "", team: "", pos: "", stats: {}, adp: {}, stdev: {}, rookie: false, bustPct: null };
+    var p = { id: "u" + i, name: "", team: "", pos: "", stats: {}, adp: {}, stdev: {}, rookie: false, bustPct: null, bye: null, sosPctl: null, sosLabel: null };
     heads.forEach(function (h, j) {
       if (!h) return;
       var raw = cells[j] || "";
       if (h === "name" || h === "team" || h === "pos") { p[h] = raw; return; }
       if (h === "rookie") { p.rookie = /^(true|1|yes)$/i.test(raw.trim()); return; }
+      if (h === "sosLabel") { p.sosLabel = raw.trim() || null; return; }
       var num = parseFloat(raw.replace(/,/g, ""));           // "1,200" -> 1200
       if (h === "bustPct") { if (!isNaN(num)) p.bustPct = num; return; }
+      if (h === "bye") { if (!isNaN(num)) p.bye = num; return; }
+      if (h === "sosPctl") { if (!isNaN(num)) p.sosPctl = num; return; }
       if (h === "pts") { if (!isNaN(num)) p.pts = num; return; }
       if (h.indexOf("adp:") === 0) { if (!isNaN(num)) p.adp[h.slice(4)] = num; return; }
       if (h.indexOf("stdev:") === 0) { if (!isNaN(num)) p.stdev[h.slice(6)] = num; return; }
@@ -734,14 +754,21 @@ function playerRows(items, filter, tierField, withActs, need, scores) {
     }
     var h = Math.max(14, Math.min(30, (p.vor / top) * 30));
     var sc = scores ? scores[p.id] : null;
+    var vBadge = (!sc && p.vDelta != null && Math.abs(p.vDelta) >= 8)
+      ? ' &middot; <span class="vdelta ' + (p.vDelta > 0 ? "up" : "down") + '" title="Model rank vs real ADP. Positive = the room drafts him later than our model would, i.e. a sleeper. Negative = the room reaches for him earlier than our model thinks he\'s worth.">' + sgn(p.vDelta) + " vADP</span>"
+      : "";
+    var sosBadge = (!sc && p.sosLabel && p.sosLabel !== "Neutral")
+      ? ' &middot; <span class="vdelta ' + (p.sosLabel === "Easy" ? "up" : "down") + '" title="His team\'s fantasy-playoff-week opponents (weeks configured in playoff_sos.py), by how much they allowed to his position last season. One season of data — a signal to weigh, not a guarantee.">Playoff ' + p.sosLabel + "</span>"
+      : "";
     out.push('<div class="prow' + (withActs && i === 0 ? " lead" : "") + '">' +
       '<div class="spark" style="background:var(' + (POSVAR[p.pos] || "--flx") + ');height:' + h + 'px"></div>' +
       '<div class="pos" data-p="' + p.pos + '">' + p.pos + "</div>" +
       '<div class="pname"><div class="pname-t">' + esc(p.name) +
         (need && need[p.pos] ? '<span class="tag">need</span>' : "") +
         (p.rookie ? '<span class="tag rookie" title="Comp-based projection from draft capital, not his own NFL history">ROOKIE</span>' : "") + "</div>" +
-        '<div class="pname-s">' + (sc ? esc(reasonFor(sc)) : p.pos + p.posRank + " &middot; OVR " + p.ovr + (p.team ? " &middot; " + esc(p.team) : "")) +
-        (p.rookie && p.bustPct != null ? ' &middot; <span class="' + (p.bustPct >= 40 ? "bust" : "") + '">' + p.bustPct + '% bust rate</span>' : "") + "</div></div>" +
+        '<div class="pname-s">' + (sc ? esc(reasonFor(sc)) : p.pos + p.posRank + " &middot; OVR " + p.ovr + (p.team ? " &middot; " + esc(p.team) : "") + (p.bye != null ? " (bye " + p.bye + ")" : "")) +
+        (p.rookie && p.bustPct != null ? ' &middot; <span class="' + (p.bustPct >= 40 ? "bust" : "") + '">' + p.bustPct + '% bust rate</span>' : "") +
+        vBadge + sosBadge + "</div></div>" +
       '<div class="pvor"><div class="pvor-t' + ((sc ? sc.now : p.vor) <= 0 ? " neg" : "") + '">' + sgn(sc ? sc.now : p.vor) + "</div>" +
         '<div class="pvor-s">' + (sc ? p.pos + p.posRank : p.pts) + "</div></div>" +
       (withActs ? '<div class="acts">' +
@@ -785,6 +812,11 @@ function boardList() {
       return (scores[b.id] ? scores[b.id].now : -9999) - (scores[a.id] ? scores[a.id].now : -9999);
     });
     return playerRows(items, S.filter, null, true, need, scores);
+  }
+  if (S.sort === "sleepers") {
+    var withAdp = filtered().filter(function (p) { return p.vDelta != null; })
+      .sort(function (a, b) { return b.vDelta - a.vDelta; });
+    return playerRows(withAdp, S.filter, null, true, need, {});
   }
   return playerRows(filtered(), S.filter, S.filter === "ALL" ? "oTier" : "tier", true, need);
 }
@@ -858,6 +890,17 @@ function viewBoard() {
 
   var banked = Math.round(MYTEAM.reduce(function (s, p) { return s + p.vor; }, 0) * 10) / 10;
 
+  // Bye-week stacking: fine on the bench, a real problem among the guys who
+  // actually start for you. 3+ starting-caliber players (VOR > 0, i.e. not
+  // deep bench) sharing a week means one week where your lineup is thin no
+  // matter what you do about it — worth knowing before it's too late to draft around.
+  var byeCounts = {};
+  MYTEAM.filter(function (p) { return p.vor > 0; }).forEach(function (p) {
+    if (p.bye != null) byeCounts[p.bye] = (byeCounts[p.bye] || 0) + 1;
+  });
+  var heavyByes = Object.keys(byeCounts).filter(function (w) { return byeCounts[w] >= 3; })
+    .sort(function (a, b) { return byeCounts[b] - byeCounts[a]; });
+
   return '<div class="pane">' +
     (S.usingDemo ? '<div class="banner"><span>&#9888;</span><div>Running on demo projections. The tiers are shaped right but the numbers are invented. <button class="btn sm" data-a="tab" data-v="data">Import real ones</button></div></div>' : "") +
     '<div class="two"><div>' +
@@ -880,7 +923,9 @@ function viewBoard() {
       '<div class="filters" style="margin-bottom:8px">' +
         '<button class="chip' + (S.sort === "value" ? " on" : "") + '" data-p="ALL" data-a="sort" data-v="value">Value board</button>' +
         '<button class="chip' + (S.sort === "fit" ? " on" : "") + '" data-p="ALL" data-a="sort" data-v="fit">Fit to my roster</button>' +
+        '<button class="chip' + (S.sort === "sleepers" ? " on" : "") + '" data-p="ALL" data-a="sort" data-v="sleepers">Sleepers</button>' +
       "</div>" +
+      (S.sort === "sleepers" ? '<div class="note" style="margin-bottom:8px">Sorted by model rank minus real ADP &mdash; biggest gap first. A player at +30 is someone the room is letting fall 30 picks past where our model has him. Requires ADP data (<code>adp.py</code>); players with no ADP match are left out of this view.</div>' : "") +
       chips(S.filter) +
       '<input class="in" id="q" placeholder="Search a player&hellip;  (Enter = taken by someone else, Shift+Enter = you)" value="' + esc(S.q) + '" data-i="q" autocomplete="off">' +
       '<div class="note" style="margin:6px 0 2px"><span class="kbd">/</span> jump to search &middot; <span class="kbd">Ctrl+Z</span> undo the last pick</div>' +
@@ -894,6 +939,9 @@ function viewBoard() {
           (s.p ? '<div class="num" style="font-size:11px;color:var(--dim)">' + sgn(s.p.vor) + "</div>" : "") + "</div>";
       }).join("") +
       (pool.length ? '<div class="note" style="margin-top:6px"><b>Bench:</b> ' + pool.map(function (p) { return esc(p.name); }).join(", ") + "</div>" : "") +
+      (heavyByes.length ? '<div class="note" style="margin-top:6px;color:var(--alert)">' + heavyByes.map(function (w) {
+        return byeCounts[w] + " starters on bye week " + w;
+      }).join(" &middot; ") + "</div>" : "") +
       '</div><div class="note" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--line-soft)">Total VOR banked: <b class="num" style="color:var(--gold)">' + banked + "</b></div></div>" +
       '<div class="row-btns"><button class="btn" data-a="undo" style="flex:1"' + (d.picks.length ? "" : " disabled") + ">Undo pick</button>" +
       '<button class="btn warn" data-a="reset">Clear draft</button></div>' +
