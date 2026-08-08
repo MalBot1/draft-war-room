@@ -54,6 +54,7 @@ input, select, textarea { font-family: inherit; }
 .h { font-family: var(--display); font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 0 0 9px; display: flex; align-items: center; gap: 8px; }
 .h::after { content: ''; flex: 1; height: 1px; background: var(--line-soft); }
 .card { background: var(--panel); border: 1px solid var(--line); border-radius: 9px; padding: 13px; margin-bottom: 13px; }
+.card.you { border-color: var(--gold); }
 .note { font-size: 12px; color: var(--muted); line-height: 1.55; }
 .note b { color: var(--text); font-weight: 600; }
 .btn { background: var(--panel-2); border: 1px solid var(--line); border-radius: 6px; padding: 8px 13px; font-size: 12.5px; font-weight: 600; color: var(--text); }
@@ -421,6 +422,14 @@ function myPickList(teams, slot, rounds) {
   for (var r = 1; r <= rounds; r++) a.push(pickNumber(r, slot, teams));
   return a;
 }
+// Inverse of pickNumber(): which slot is on the clock for a given overall
+// pick number. Exact snake draft is fully determined by team count alone —
+// no trades assumed. Used to auto-attribute opponent picks to a team without
+// asking who, every time, during a live draft.
+function teamOnClock(pickNum, teams) {
+  var round = Math.ceil(pickNum / teams);
+  return round % 2 === 1 ? pickNum - (round - 1) * teams : round * teams - pickNum + 1;
+}
 
 /* ============================================================
    ADAPTIVE LAYER
@@ -731,7 +740,7 @@ function renderChrome() {
     return '<option value="' + l.id + '"' + (l.id === league().id ? " selected" : "") + '>' + esc(l.name) + "</option>";
   }).join("");
   document.getElementById("tabs").innerHTML =
-    [["board","Board"],["values","Values"],["league","League"],["data","Data"]].map(function (t) {
+    [["board","Board"],["teams","Teams"],["values","Values"],["league","League"],["data","Data"]].map(function (t) {
       return '<button class="tab' + (S.tab === t[0] ? " on" : "") + '" data-a="tab" data-v="' + t[0] + '">' + t[1] + "</button>";
     }).join("");
 }
@@ -927,8 +936,8 @@ function viewBoard() {
       "</div>" +
       (S.sort === "sleepers" ? '<div class="note" style="margin-bottom:8px">Sorted by model rank minus real ADP &mdash; biggest gap first. A player at +30 is someone the room is letting fall 30 picks past where our model has him. Requires ADP data (<code>adp.py</code>); players with no ADP match are left out of this view.</div>' : "") +
       chips(S.filter) +
-      '<input class="in" id="q" placeholder="Search a player&hellip;  (Enter = taken by someone else, Shift+Enter = you)" value="' + esc(S.q) + '" data-i="q" autocomplete="off">' +
-      '<div class="note" style="margin:6px 0 2px"><span class="kbd">/</span> jump to search &middot; <span class="kbd">Ctrl+Z</span> undo the last pick</div>' +
+      '<input class="in" id="q" placeholder="Search a player&hellip;  (Enter = taken by someone else &mdash; click &#10003; on your own picks)" value="' + esc(S.q) + '" data-i="q" autocomplete="off">' +
+      '<div class="note" style="margin:6px 0 2px"><span class="kbd">/</span> jump to search &middot; <span class="kbd">Ctrl+Z</span> undo the last pick &middot; click <span class="kbd">&#10003;</span> for your own picks</div>' +
       '<div id="list">' + boardList() + "</div>" +
     "</div><aside>" +
       '<div class="card"><div class="h" style="margin:0 0 9px">Your roster</div><div class="slots">' +
@@ -946,6 +955,48 @@ function viewBoard() {
       '<div class="row-btns"><button class="btn" data-a="undo" style="flex:1"' + (d.picks.length ? "" : " disabled") + ">Undo pick</button>" +
       '<button class="btn warn" data-a="reset">Clear draft</button></div>' +
     "</aside></div></div>";
+}
+
+/* ---- teams ---- */
+// Every OTHER team's roster, built purely from pick attribution — see
+// teamOnClock() and commit(). Nobody has to say who took a player; exact
+// snake order already determines it. Only breaks if a trade happens
+// mid-draft, which this tool doesn't model (see README's known gaps).
+function teamName(lg, n) {
+  if (lg.teamNames && lg.teamNames[n]) return lg.teamNames[n];
+  return n === lg.slot ? "You" : "Team " + n;
+}
+function viewTeams() {
+  var lg = league(), d = draft();
+  var byId = {}; V.list.forEach(function (p) { byId[p.id] = p; });
+  var byTeam = {};
+  for (var n = 1; n <= lg.teams; n++) byTeam[n] = [];
+  d.picks.forEach(function (pk, i) {
+    var t = pk.team || (pk.mine ? lg.slot : null);
+    if (t == null || !byTeam[t]) return;
+    var p = byId[pk.id];
+    byTeam[t].push({ p: p, pickNo: i + 1 });
+  });
+  var cards = [];
+  for (var s = 1; s <= lg.teams; s++) {
+    var picks = byTeam[s];
+    var posCounts = {};
+    picks.forEach(function (x) { if (x.p) posCounts[x.p.pos] = (posCounts[x.p.pos] || 0) + 1; });
+    cards.push('<div class="card' + (s === lg.slot ? " you" : "") + '">' +
+      '<div class="h" style="margin:0 0 7px;display:flex;justify-content:space-between;align-items:center">' +
+      '<input class="in" id="teamname-' + s + '" style="width:auto;font:inherit;background:transparent;border:none;padding:0" ' +
+        'value="' + esc(teamName(lg, s)) + '" data-i="teamname:' + s + '"' + (s === lg.slot ? " disabled title=\"This is your slot \\u2014 renamed on the League tab\"" : "") + '>' +
+      '<span class="note" style="margin:0">' + picks.length + ' picks &middot; ' +
+        VAL_POS.map(function (pos) { return posCounts[pos] ? pos + " " + posCounts[pos] : null; }).filter(Boolean).join(" &middot; ") +
+      "</span></div>" +
+      (picks.length ? '<div class="note">' + picks.map(function (x) {
+        return "pk" + x.pickNo + " " + (x.p ? esc(x.p.pos) + " " + esc(x.p.name) : "(unknown player)");
+      }).join(" &middot; ") + "</div>" : '<div class="note" style="color:var(--dim)">No picks yet.</div>') +
+      "</div>");
+  }
+  return '<div class="pane">' +
+    '<div class="note" style="margin-bottom:10px">Built automatically from the picks you mark &mdash; whoever is mathematically on the clock gets credit for each "someone else" pick, no extra step needed. Assumes straight snake order; if either league allows in-draft trades, attribution will drift from that point on.</div>' +
+    cards.join("") + "</div>";
 }
 
 /* ---- values ---- */
@@ -1046,7 +1097,7 @@ function render() {
 
   renderChrome();
   renderClock();
-  var v = S.tab === "board" ? viewBoard() : S.tab === "values" ? viewValues() : S.tab === "league" ? viewLeague() : viewData();
+  var v = S.tab === "board" ? viewBoard() : S.tab === "teams" ? viewTeams() : S.tab === "values" ? viewValues() : S.tab === "league" ? viewLeague() : viewData();
   document.getElementById("main").innerHTML = v;
   wireFiles();
 
@@ -1063,7 +1114,14 @@ function render() {
 function commit(id, mine) {
   var lg = league(), cur = S.drafts[lg.id] || { picks: [] };
   if (cur.picks.some(function (p) { return p.id === id; })) return;
-  S.drafts[lg.id] = { picks: cur.picks.concat([{ id: id, mine: mine }]) };
+  // Team attribution is automatic, not asked for: exact snake order is fully
+  // determined by team count + your slot (no trades assumed), so whichever
+  // team is mathematically on the clock right now is who took this pick.
+  // onClock must be computed from cur.picks.length BEFORE the new pick is
+  // appended below, matching clockInfo()'s convention exactly.
+  var onClock = cur.picks.length + 1;
+  var team = mine ? lg.slot : teamOnClock(onClock, lg.teams);
+  S.drafts[lg.id] = { picks: cur.picks.concat([{ id: id, mine: mine, team: team }]) };
   S.q = "";
   save(); render();
 }
@@ -1148,6 +1206,11 @@ document.addEventListener("input", function (e) {
   }
   if (k === "paste") return;
   if (k === "name") { lg.name = val; save(); renderChrome(); return; }
+  if (k.indexOf("teamname:") === 0) {
+    lg.teamNames = lg.teamNames || {};
+    lg.teamNames[k.slice(9)] = val;
+    save(); render(); return;
+  }
   if (k === "teams") { lg.teams = Math.max(4, parseInt(val) || 12); }
   else if (k === "slot") { lg.slot = Math.min(lg.teams, Math.max(1, parseInt(val) || 1)); }
   else if (k.indexOf("roster:") === 0) { lg.roster[k.slice(7)] = Math.max(0, parseInt(val) || 0); }
@@ -1161,9 +1224,13 @@ document.addEventListener("keydown", function (e) {
   if (e.key === "/" && !inField) { e.preventDefault(); var q = document.getElementById("q"); if (q) q.focus(); return; }
   if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "z" && !inField) { e.preventDefault(); undo(); return; }
   if (e.key === "Enter" && e.target.id === "q") {
+    // Marking your OWN pick is deliberately click-only now (the checkmark
+    // button on every row) — Shift+Enter was too easy to fat-finger under
+    // draft-night pressure and silently misattribute a pick. Plain Enter
+    // still fast-paths the much more common case: someone else took him.
     e.preventDefault();
     var top = filtered()[0];
-    if (top) commit(top.id, e.shiftKey);
+    if (top) commit(top.id, false);
   }
   if (e.key === "Escape" && e.target.id === "q") { S.q = ""; render(); }
 });

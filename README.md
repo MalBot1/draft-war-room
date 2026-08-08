@@ -211,9 +211,16 @@ T-minus, so it works whether the draft is two weeks out or four.
 
 **Layout.** Two windows side by side, not tabs. ESPN's draft room is a CPU hog.
 
-**Marking picks.** `/` jumps to search, type three or four letters, `Enter` for
-someone else's pick, `Shift+Enter` for yours, `Ctrl+Z` undoes. Practice until it
-is automatic.
+**Marking picks.** `/` jumps to search, type three or four letters, `Enter` marks
+someone else's pick — that's the fast keyboard path for the common case. Your
+own picks are click-only (the &#10003; button on the row): deliberate on purpose,
+so a mistimed keypress under pressure can't misattribute your pick. `Ctrl+Z`
+undoes either kind. Practice until it is automatic.
+
+**Opponent rosters.** You never say who took a player — the Teams tab works it
+out automatically from straight snake order (team count + your slot), so
+`Enter` alone is enough. This breaks if either league allows in-draft trades;
+neither does as of this writing.
 
 **Reading the tool.** The *Take now* card is the recommendation. The number is
 what a player adds to your starting lineup minus what you would still get by
