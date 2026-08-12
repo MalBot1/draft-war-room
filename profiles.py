@@ -830,6 +830,81 @@ def apply_context(res, team_profiles, ol_grades, rusher_shares, scoring, contact
     return res.sort_values("proj", ascending=False).reset_index(drop=True)
 
 
+P_COLS = ["p_pass_yds", "p_pass_tds", "p_ints", "p_rush_yds", "p_rush_tds",
+          "p_rec", "p_rec_yds", "p_rec_tds"]
+
+
+def apply_manual_overrides(res, scoring, path="manual_overrides.csv"):
+    """Hand-entered corrections for facts the model can't see yet -- an
+    injury with no signal in load_rosters()'s status field or nflreadpy's
+    injury loader (not available pre-season; see the 2026-08-12 session),
+    a trade the roster feed hasn't caught up to, etc. Applied AFTER context
+    so it's the true final word, and re-applied on every regen since this
+    file survives a fresh nflverse pull -- the whole reason it exists.
+    Logged into a new override_note column, same audit-trail spirit as
+    context_note.
+    """
+    import os
+    import pandas as pd
+
+    res = res.copy()
+    res["override_note"] = None
+    if not os.path.exists(path):
+        return res
+
+    ov = pd.read_csv(path)
+    sc = SCORING[scoring]
+    for _, r in ov.iterrows():
+        mask = res["name"] == r["Player"]
+        if not mask.any():
+            log("  manual_overrides.csv: %r not found in the player pool, skipping" % r["Player"])
+            continue
+        mult = float(r["Multiplier"])
+        for c in P_COLS:
+            res.loc[mask, c] = (res.loc[mask, c] * mult).round(1)
+        res.loc[mask, "override_note"] = "%.2fx: %s" % (mult, r["Reason"])
+
+    res["proj"] = (res["p_rec"] * sc["rec"] + res["p_rec_yds"] * sc["recYd"]
+                   + res["p_rec_tds"] * sc["recTD"] + res["p_rush_yds"] * sc["rushYd"]
+                   + res["p_rush_tds"] * sc["rushTD"] + res["p_pass_yds"] * sc["passYd"]
+                   + res["p_pass_tds"] * sc["passTD"] + res["p_ints"] * sc["int"]).round(1)
+    res["ppg"] = (res["proj"] / res["games"]).round(2)
+    return res.sort_values("proj", ascending=False).reset_index(drop=True)
+
+
+def load_manual_additions(path="manual_additions.csv"):
+    """Real players missing from the model entirely -- not a projection bug,
+    a gap in nflverse's own roster feed (a same-day fresh pull still didn't
+    have Stefon Diggs on Washington's roster; see manual_overrides above for
+    the same class of upstream lag). These rows are estimates, not
+    model output -- flagged as such in Reason, carried through to the
+    console report and the board's scouting note rather than presented as
+    if they came out of the same pipeline as everyone else.
+    """
+    import os
+    import pandas as pd
+
+    if not os.path.exists(path):
+        return pd.DataFrame()
+    add = pd.read_csv(path)
+    add["Rookie"] = add["Rookie"].astype(bool)
+    return add
+
+
+def load_scouting_notes(path="scouting_notes.csv"):
+    """Hand-curated sleeper/fade/handcuff calls from cross-referencing the
+    board against live reporting and social sources (2026-08-12 session) --
+    judgment this pipeline can't derive from box scores, kept in its own
+    file so it survives every future regen without needing to be re-typed
+    into this script. tag in {high, mod, fade, hand}."""
+    import os
+    import pandas as pd
+
+    if not os.path.exists(path):
+        return pd.DataFrame(columns=["Player", "Tag", "Note"])
+    return pd.read_csv(path)
+
+
 # ---------------------------------------------------------------------------
 
 def main():
@@ -869,6 +944,14 @@ def main():
     log("Applying context adjustment (capped at +/-%.0f%%)..." % (100 * CONTEXT_CAP))
     res = apply_context(res, tp, ol, shares, a.scoring, contact=contact, pressure=pressure)
 
+    log("Applying manual overrides (facts the model can't see yet)...")
+    res = apply_manual_overrides(res, a.scoring)
+
+    log("Loading scouting notes (hand-curated sleeper/fade/handcuff calls)...")
+    notes = load_scouting_notes()
+    res = res.merge(notes.rename(columns={"Player": "name", "Tag": "scout_tag", "Note": "scout_note"}),
+                     on="name", how="left")
+
     res.to_csv(a.out, index=False)
     log("Wrote %s (%d players)" % (a.out, len(res)))
 
@@ -883,7 +966,18 @@ def main():
                   "Rush Yds", "Rush TDs", "REC", "Rec Yds", "Rec TDs",
                   "Rookie", "Bust%"]
     wr["Rookie"] = wr["Rookie"].fillna(False)
+
+    additions = load_manual_additions()
+    if len(additions):
+        log("  adding %d player(s) missing from the model entirely (see manual_additions.csv)"
+            % len(additions))
+        add_cols = ["Player", "POS", "Team", "Pass Yds", "Pass TDs", "INT",
+                    "Rush Yds", "Rush TDs", "REC", "Rec Yds", "Rec TDs", "Rookie"]
+        wr = pd.concat([wr, additions[add_cols]], ignore_index=True, sort=False)
+
     wr["FL"] = 1.5
+    wr = wr.merge(notes.rename(columns={"Player": "Player", "Tag": "Scout Tag", "Note": "Scout Note"}),
+                   on="Player", how="left")
     wr.to_csv("war_room_import.csv", index=False)
     log("Wrote war_room_import.csv - paste or upload this into the Data tab")
 

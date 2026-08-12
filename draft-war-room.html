@@ -96,6 +96,11 @@ input, select, textarea { font-family: inherit; }
 .pname-s { font-size: 10.5px; color: var(--dim); letter-spacing: .05em; margin-top: 1px; }
 .tag { color: var(--gold); font-size: 11px; margin-left: 6px; font-weight: 600; }
 .tag.rookie { color: var(--flx); }
+.tag.scout { border-radius: 4px; padding: 1px 5px; }
+.tag.scout-high { color: var(--rb); background: rgba(70,180,122,.14); }
+.tag.scout-mod { color: var(--gold); background: rgba(232,196,106,.14); }
+.tag.scout-fade { color: var(--alert); background: rgba(232,87,74,.14); }
+.tag.scout-hand { color: var(--wr); background: rgba(91,158,232,.14); }
 .pname-s .bust { color: var(--alert); }
 .vdelta { font-weight: 700; }
 .vdelta.up { color: var(--gold); }
@@ -374,7 +379,8 @@ function buildValues(players, lg) {
   var scored = players.filter(function (p) { return VAL_POS.indexOf(p.pos) >= 0; })
     .map(function (p) {
       var c = { id:p.id, name:p.name, team:p.team, pos:p.pos, stats:p.stats, pts:p.pts, adp:p.adp, stdev:p.stdev,
-                rookie:p.rookie, bustPct:p.bustPct, bye:p.bye, sosPctl:p.sosPctl, sosLabel:p.sosLabel };
+                rookie:p.rookie, bustPct:p.bustPct, bye:p.bye, sosPctl:p.sosPctl, sosLabel:p.sosLabel,
+                scoutTag:p.scoutTag, scoutNote:p.scoutNote };
       c.pts = Math.round(scorePlayer(p, lg.scoring) * 10) / 10;
       return c;
     });
@@ -663,7 +669,11 @@ var HEADER_MAP = {
   stdev_standard:"stdev:standard", stdev_half:"stdev:half", stdev_ppr:"stdev:ppr", stdev_2qb:"stdev:2qb",
   rookie:"rookie", "bust%":"bustPct", bust_pct:"bustPct", bustpct:"bustPct",
   bye:"bye", "bye week":"bye",
-  playoff_sos_pctl:"sosPctl", playoff_sos_label:"sosLabel"
+  playoff_sos_pctl:"sosPctl", playoff_sos_label:"sosLabel",
+  // hand-curated sleeper/fade/handcuff calls (scouting_notes.csv on the
+  // Python side) -- high/mod/fade/hand, plus the one-line reason
+  "scout tag":"scoutTag", scout_tag:"scoutTag",
+  "scout note":"scoutNote", scout_note:"scoutNote"
 };
 function splitLine(line) {
   var out = [], cur = "", q = false, i, ch;
@@ -685,13 +695,15 @@ function parseCSV(text) {
   var rows = [];
   lines.slice(1).forEach(function (line, i) {
     var cells = splitLine(line);
-    var p = { id: "u" + i, name: "", team: "", pos: "", stats: {}, adp: {}, stdev: {}, rookie: false, bustPct: null, bye: null, sosPctl: null, sosLabel: null };
+    var p = { id: "u" + i, name: "", team: "", pos: "", stats: {}, adp: {}, stdev: {}, rookie: false, bustPct: null, bye: null, sosPctl: null, sosLabel: null, scoutTag: null, scoutNote: null };
     heads.forEach(function (h, j) {
       if (!h) return;
       var raw = cells[j] || "";
       if (h === "name" || h === "team" || h === "pos") { p[h] = raw; return; }
       if (h === "rookie") { p.rookie = /^(true|1|yes)$/i.test(raw.trim()); return; }
       if (h === "sosLabel") { p.sosLabel = raw.trim() || null; return; }
+      if (h === "scoutTag") { p.scoutTag = raw.trim().toLowerCase() || null; return; }
+      if (h === "scoutNote") { p.scoutNote = raw.trim() || null; return; }
       var num = parseFloat(raw.replace(/,/g, ""));           // "1,200" -> 1200
       if (h === "bustPct") { if (!isNaN(num)) p.bustPct = num; return; }
       if (h === "bye") { if (!isNaN(num)) p.bye = num; return; }
@@ -798,12 +810,17 @@ function playerRows(items, filter, tierField, withActs, need, scores) {
     var sosBadge = (!sc && p.sosLabel && p.sosLabel !== "Neutral")
       ? ' &middot; <span class="vdelta ' + (p.sosLabel === "Easy" ? "up" : "down") + '" title="His team\'s fantasy-playoff-week opponents (weeks configured in playoff_sos.py), by how much they allowed to his position last season. One season of data — a signal to weigh, not a guarantee.">Playoff ' + p.sosLabel + "</span>"
       : "";
+    var SCOUT_LABEL = { high:"SLEEPER", mod:"WATCH", fade:"FADE", hand:"HANDCUFF" };
+    var scoutBadge = (p.scoutTag && SCOUT_LABEL[p.scoutTag])
+      ? '<span class="tag scout scout-' + p.scoutTag + '"' + (p.scoutNote ? ' title="' + esc(p.scoutNote) + '"' : "") + ">" + SCOUT_LABEL[p.scoutTag] + "</span>"
+      : "";
     out.push('<div class="prow' + (withActs && i === 0 ? " lead" : "") + '">' +
       '<div class="spark" style="background:var(' + (POSVAR[p.pos] || "--flx") + ');height:' + h + 'px"></div>' +
       '<div class="pos" data-p="' + p.pos + '">' + p.pos + "</div>" +
       '<div class="pname"><div class="pname-t">' + esc(p.name) +
         (need && need[p.pos] ? '<span class="tag">need</span>' : "") +
-        (p.rookie ? '<span class="tag rookie" title="Comp-based projection from draft capital, not his own NFL history">ROOKIE</span>' : "") + "</div>" +
+        (p.rookie ? '<span class="tag rookie" title="Comp-based projection from draft capital, not his own NFL history">ROOKIE</span>' : "") +
+        scoutBadge + "</div>" +
         '<div class="pname-s">' + (sc ? esc(reasonFor(sc)) : p.pos + p.posRank + " &middot; OVR " + p.ovr + (p.team ? " &middot; " + esc(p.team) : "") + (p.bye != null ? " (bye " + p.bye + ")" : "")) +
         (p.rookie && p.bustPct != null ? ' &middot; <span class="' + (p.bustPct >= 40 ? "bust" : "") + '">' + p.bustPct + '% bust rate</span>' : "") +
         vBadge + sosBadge + "</div></div>" +
@@ -885,6 +902,30 @@ function recCard() {
     '<div class="note" style="margin-top:9px">Score is what he adds to your <b>starting lineup</b>, minus what the best player at his position would still add if you waited a turn. Assumes the room drafts roughly by value &mdash; it sharpens once ADP goes in.</div></div>';
 }
 
+// Once the starter-relevant rounds are behind you, the board naturally fills
+// with names that look interchangeable by raw value — exactly where the
+// hand-curated sleeper/fade calls (scouting_notes.csv) matter most and are
+// easiest to forget mid-draft. Surfaced automatically from round 7 on,
+// rather than making you remember to go check a separate list.
+var SLEEPER_WATCH_ROUND = 7;
+function sleeperWatchCard(round) {
+  if (round < SLEEPER_WATCH_ROUND) return "";
+  var order = { high: 0, mod: 1 };
+  var picks = BOARD.filter(function (p) { return p.scoutTag === "high" || p.scoutTag === "mod"; })
+    .sort(function (a, b) { return order[a.scoutTag] - order[b.scoutTag] || b.vor - a.vor; })
+    .slice(0, 5);
+  if (!picks.length) return "";
+  return '<div class="card"><div class="h" style="margin:0 0 9px">Sleeper watch &middot; round ' + round + "+</div>" +
+    picks.map(function (p) {
+      return '<div class="rec">' +
+        '<div class="pos" data-p="' + p.pos + '">' + p.pos + "</div>" +
+        '<div class="rec-b"><div class="rec-t">' + esc(p.name) +
+          '<span class="tag scout scout-' + p.scoutTag + '">' + (p.scoutTag === "high" ? "SLEEPER" : "WATCH") + "</span></div>" +
+        '<div class="rec-r">' + esc(p.scoutNote || "") + "</div></div>" +
+        '<button class="act mine" title="I drafted him" data-a="pick" data-v="' + p.id + '" data-m="1">&#10003;</button></div>';
+    }).join("") + "</div>";
+}
+
 function viewBoard() {
   var lg = league(), c = clockInfo(), d = draft();
   var need = currentNeed();
@@ -943,6 +984,7 @@ function viewBoard() {
     (S.usingDemo ? '<div class="banner"><span>&#9888;</span><div>Running on demo projections. The tiers are shaped right but the numbers are invented. <button class="btn sm" data-a="tab" data-v="data">Import real ones</button></div></div>' : "") +
     '<div class="two"><div>' +
       recCard() +
+      sleeperWatchCard(c.round) +
       (c.until != null && c.until > 0 && atRisk.length ?
         '<div class="card"><div class="h" style="margin:0 0 7px">Gone before you pick again</div>' +
         (haveADP ?
