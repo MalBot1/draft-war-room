@@ -257,13 +257,20 @@ function newLeague(name, preset, teams, slot) {
 }
 
 /* ---------- state ---------- */
-// Pre-seeded with your two real leagues (2026-07-31). Scoring format wasn't
-// confirmed for either — defaulted to half-PPR, the most common ESPN/Yahoo
-// setup. Draft slot defaulted to 1 since neither draft order is set yet.
-// Fix both in the League tab once you know them; everything else here came
-// from your league pages directly.
-var ESPN_LEAGUE = newLeague("ESPN League (Aug 29)", "half", 10, 1);
-var YAHOO_LEAGUE = newLeague("Yahoo League (Sept 6)", "half", 12, 2);
+// Pre-seeded with your two real leagues. Draft slot for ESPN still defaulted
+// to 1 since that draft order isn't set yet — fix in the League tab once known.
+// Scoring confirmed 2026-08-12 from the Yahoo league's settings page and
+// applied to both leagues by request (one shared ruleset, ESPN's own
+// settings never separately verified): full PPR, non-default passing rates
+// too — 20 yd/pt (not 25) and 6-pt passing TDs (not 4). Both meaningfully
+// boost QB value beyond a plain "ppr" preset, especially high-volume/
+// rushing QBs.
+var ESPN_LEAGUE = newLeague("ESPN League (Aug 29)", "ppr", 10, 1);
+var YAHOO_LEAGUE = newLeague("Yahoo League (Sept 6)", "ppr", 12, 2);
+ESPN_LEAGUE.scoring.passYd = .05;
+ESPN_LEAGUE.scoring.passTD = 6;
+YAHOO_LEAGUE.scoring.passYd = .05;
+YAHOO_LEAGUE.scoring.passTD = 6;
 // confirmed roster: QB1 RB2 WR2 TE1 FLEX(W-R-T)1 K1 DEF1 BN6 IR2 — this tool
 // has no separate IR concept, so the 2 IR spots are folded into bench (8)
 // to keep the total draft-round count accurate
@@ -284,6 +291,24 @@ function save() {
     }));
   } catch (e) { /* private mode / quota — app still works this session */ }
 }
+// One-time correction for saves made before real scoring was confirmed
+// (2026-08-12): both real leagues were placeholder-scored (half-PPR,
+// 25 yd/pt passing, 4-pt passing TD). Runs once per browser, matched by
+// league name since ids are randomly generated per-browser and won't
+// line up with the seed constants above.
+var SCORING_FIX_KEY = "draftWarRoom.scoringFix.2026-08-12";
+function applyScoringFix(leagues) {
+  if (localStorage.getItem(SCORING_FIX_KEY)) return;
+  leagues.forEach(function (lg) {
+    if (lg.name === "ESPN League (Aug 29)" || lg.name === "Yahoo League (Sept 6)") {
+      lg.preset = "ppr";
+      lg.scoring.rec = 1;
+      lg.scoring.passYd = .05;
+      lg.scoring.passTD = 6;
+    }
+  });
+  localStorage.setItem(SCORING_FIX_KEY, "1");
+}
 function load() {
   try {
     var raw = localStorage.getItem(KEY);
@@ -294,6 +319,8 @@ function load() {
     if (d.players && d.players.length) S.players = d.players;
     if (typeof d.usingDemo === "boolean") S.usingDemo = d.usingDemo;
     if (d.drafts) S.drafts = d.drafts;
+    applyScoringFix(S.leagues);
+    save();
   } catch (e) { /* corrupt save — fall back to defaults */ }
 }
 function league() {
