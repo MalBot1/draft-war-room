@@ -245,15 +245,19 @@ degrade gracefully if you spend your clock on data entry.
   room's default behavior, not a prophecy. Falls back to the old value-order
   assumption if `adp.py` hasn't been run.
 - **Context now reaches all four positions.** RB is graded against his own line
-  (direction-weighted), QB against his weapons and pass protection, and WR/TE
+  (direction-weighted) plus his own PFR-measured contact talent (yards after
+  contact, broken tackles — portable, unlike blocking), QB against his weapons,
+  team pass protection, and his own PFR-measured pressure rate faced, and WR/TE
   against their own team's QB quality plus team passing efficiency — his
   "supply line," the same idea as a RB's line, just one position removed.
   All bounded to +/-15% (`context_mult` / `context_note` in `profiles.csv`).
-- **Team changes are flagged, not modeled.** `changed_team` marks a player who
-  signed elsewhere. His projection still runs off his old team's volume — there's
-  no public standard formula for this reallocation (checked; the credible public
-  sources describe it qualitatively, not mathematically), so it needs a
-  deliberate, documented judgment call, not a quick fix.
+- **Team changes are modeled, not just flagged.** `changed_team` marks a player
+  who signed elsewhere; his `tgt_pg`/`car_pg` are then nudged (+/-25%, capped)
+  by how much opportunity actually opened up at his new team — the same
+  vacated-opportunity signal rookies get (`rookies.vacated()`), reused rather
+  than a separate formula. See `team_change_car_mult` / `team_change_tgt_mult`
+  in `profiles.csv` for the audit trail. Still doesn't re-forecast his role
+  (see below) — this only corrects volume, not depth-chart judgment.
 - **No depth-chart re-forecast.** The model flags that a player's competition
   changed. It does not re-forecast his role. That judgment is yours.
 - **Point estimates only.** No ceiling, floor, or injury risk.
