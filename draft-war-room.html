@@ -257,8 +257,10 @@ function newLeague(name, preset, teams, slot) {
 }
 
 /* ---------- state ---------- */
-// Pre-seeded with your two real leagues. Draft slot for ESPN still defaulted
-// to 1 since that draft order isn't set yet — fix in the League tab once known.
+// Pre-seeded with your two real leagues. ESPN draft slot defaults to 1 —
+// not a placeholder to fix, this league draws slots live on draft day
+// (2026-08-29), so it's genuinely unknown until then. Set it in the League
+// tab right when the room draws slots, before the clock starts.
 // Scoring confirmed 2026-08-12 from the Yahoo league's settings page and
 // applied to both leagues by request (one shared ruleset, ESPN's own
 // settings never separately verified): full PPR, non-default passing rates
