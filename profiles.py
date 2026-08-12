@@ -556,6 +556,20 @@ def project(df, ros_now, ros_prev, scoring, exp_td_rates=None, vac=None):
         # touched: it isn't really "vacated" the way catches/carries are,
         # and the weapons/protection context step already reprices a QB for
         # his new team.
+        #
+        # An INCUMBENT (didn't change teams) can inherit vacated volume too —
+        # arguably the more classic "sleeper" shape (a teammate left, not
+        # him) — found by cross-checking this board against real reporting:
+        # Josh Downs got flagged externally specifically because Pittman left
+        # Indianapolis, and this model had nothing to say about it, since the
+        # reallocation only ever looked at players who themselves moved.
+        # Same signal, opposite direction, but NOT the same formula: an
+        # incoming player with 0% opening genuinely has no room (discount is
+        # correct), but an incumbent on a stable, low-turnover roster isn't
+        # being punished for that stability — his own shrink()'d volume above
+        # already IS his real role. So incumbents only ever get boosted by
+        # this, never discounted (max(1.0, ...)), and only for the
+        # catches/carries-are-vacated positions, same as team-changers.
         tc_car_mult, tc_tgt_mult = 1.0, 1.0
         if r["changed_team"]:
             dest = vac_by_team.get(r["team_2026"], {})
@@ -566,6 +580,16 @@ def project(df, ros_now, ros_prev, scoring, exp_td_rates=None, vac=None):
                 tgt *= tc_tgt_mult
             elif pos in ("WR", "TE"):
                 tc_tgt_mult = opening_mult(dest.get("pct_targets_open", 30.0))
+                tgt *= tc_tgt_mult
+        elif r["on_roster"]:
+            own = vac_by_team.get(r["team_2026"], {})
+            if pos == "RB":
+                tc_car_mult = max(1.0, opening_mult(own.get("pct_carries_open", 30.0)))
+                tc_tgt_mult = max(1.0, opening_mult(own.get("pct_targets_open", 30.0)))
+                car *= tc_car_mult
+                tgt *= tc_tgt_mult
+            elif pos in ("WR", "TE"):
+                tc_tgt_mult = max(1.0, opening_mult(own.get("pct_targets_open", 30.0)))
                 tgt *= tc_tgt_mult
 
         # Applies to QB passing too now, not just non-QB trick plays — an
@@ -874,6 +898,13 @@ def main():
             elif r["pos"] in ("WR", "TE") and abs(r["team_change_tgt_mult"] - 1) >= 0.01:
                 tc_bits.append("tgt %.2fx" % r["team_change_tgt_mult"])
             flags.append("NEW TEAM" + (" (%s)" % ", ".join(tc_bits) if tc_bits else ""))
+        elif r["team_change_car_mult"] > 1.01 or r["team_change_tgt_mult"] > 1.01:
+            inh_bits = []
+            if r["team_change_car_mult"] > 1.01:
+                inh_bits.append("car %.2fx" % r["team_change_car_mult"])
+            if r["team_change_tgt_mult"] > 1.01:
+                inh_bits.append("tgt %.2fx" % r["team_change_tgt_mult"])
+            flags.append("inherits vacated (%s)" % ", ".join(inh_bits))
         if r["age_mult"] < 0.90:
             flags.append("age %.0f%%" % (r["age_mult"] * 100))
         if r["sample_games"] < 12:
