@@ -144,6 +144,14 @@ def load_all():
     snaps = cached("snaps", lambda: nfl.load_snap_counts(PRIOR_SEASONS))
     ros_now = cached("roster_now", lambda: nfl.load_rosters([TARGET_SEASON]))
     ros_prev = cached("roster_prev", lambda: nfl.load_rosters([PRIOR_SEASONS[-1]]))
+    # load_rosters() started returning "AZ" for Arizona at some point (every
+    # other source in this pipeline -- play-by-play, PFR, validate.py's own
+    # team list -- still says "ARI"), which silently broke context adjustment
+    # for every Cardinal (team lookups against tp/ol_by_team just missed).
+    # Same failure class as the documented LA/LAR mismatch; normalize here,
+    # at the point the code enters the pipeline, same as that one.
+    ros_now["team"] = ros_now["team"].replace({"AZ": "ARI"})
+    ros_prev["team"] = ros_prev["team"].replace({"AZ": "ARI"})
     return stats, snaps, ros_now, ros_prev
 
 

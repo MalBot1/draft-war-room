@@ -92,6 +92,10 @@ def load():
     picks["team"] = picks["team"].replace(PFR_TO_NFLVERSE_TEAM)
     hist = cached("stats_hist", lambda: nfl.load_player_stats(list(range(HIST_START, LAST_SEASON + 1))))
     ros26 = cached("roster_now", lambda: nfl.load_rosters([DRAFT_YEAR]))
+    # load_rosters() returns "AZ" for Arizona; PFR/play-by-play/everything
+    # else here says "ARI". Same failure class as PFR_TO_NFLVERSE_TEAM above.
+    ros26 = ros26.copy()
+    ros26["team"] = ros26["team"].replace({"AZ": "ARI"})
     return picks, hist, ros26
 
 

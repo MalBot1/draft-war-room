@@ -78,6 +78,10 @@ def load():
     dc = cached("depth26", lambda: nfl.load_depth_charts([NOW]))
     stats = cached("stats", lambda: nfl.load_player_stats([LAST]))
     ros = cached("roster_now", lambda: nfl.load_rosters([NOW]))
+    # load_rosters() (unlike load_pbp/load_depth_charts) returns "AZ" for
+    # Arizona -- everything else here says "ARI". Same failure class as the
+    # documented LA/LAR mismatch; normalize at the point it enters the pipeline.
+    ros["team"] = ros["team"].replace({"AZ": "ARI"})
     return pbp, dc, stats, ros
 
 
