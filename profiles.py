@@ -237,6 +237,124 @@ def load_team_context():
     return tp, ol, shares
 
 
+def _norm_name(n):
+    """PFR strips apostrophes/periods/suffixes/diacritics from names that
+    nflverse keeps (DeVon Achane vs De'Von Achane, Audric Estime vs Estimé,
+    Chris Rodriguez vs Chris Rodriguez Jr.) — normalize both sides the same
+    way so the two sources join by name at all."""
+    import re
+    import unicodedata
+
+    if not isinstance(n, str):
+        return n
+    n = unicodedata.normalize("NFKD", n).encode("ascii", "ignore").decode("ascii")
+    n = n.replace("'", "").replace(".", "")
+    n = re.sub(r"\s+(Jr|Sr|II|III|IV|V)$", "", n, flags=re.I)
+    return re.sub(r"\s+", " ", n).strip().lower()
+
+
+def load_contact_stats():
+    """RB explosiveness independent of blocking — yards after contact per
+    attempt and broken-tackle rate, from PFR's advanced rushing stats. This
+    is a portable talent signal: unlike the OL-direction grade above (which
+    is entirely about the blocking, not the runner), it travels with the
+    player when he changes teams. Recency-weighted and shrunk toward the
+    positional mean the same way every other rate in this file is (see
+    PROJECT); a rookie or a bit-part rusher with no matching PFR record
+    simply gets no signal here and the context step falls back to neutral.
+    """
+    import pandas as pd
+    import nflreadpy as nfl
+
+    path = os.path.join(CACHE, "pfr_rush_adv.parquet")
+    if os.path.exists(path):
+        log("  cache hit: pfr_rush_adv")
+        d = pd.read_parquet(path)
+    else:
+        log("  downloading: pfr_rush_adv")
+        d = nfl.load_pfr_advstats(seasons=PRIOR_SEASONS, stat_type="rush", summary_level="season").to_pandas()
+        d.to_parquet(path)
+
+    d = d[d["pos"] == "RB"].copy()
+    for c in ("att", "yac", "brk_tkl"):
+        d[c] = pd.to_numeric(d[c], errors="coerce").fillna(0.0)
+    d = d[d["att"] > 0].copy()
+    d["yac_att"] = d["yac"] / d["att"]
+    d["brk_rate"] = d["brk_tkl"] / d["att"]
+    d["name_norm"] = d["player"].map(_norm_name)
+
+    recent, prior = PRIOR_SEASONS[-1], PRIOR_SEASONS[0]
+    season_w = {recent: 0.70, prior: 0.30}
+    d["w"] = d["season"].map(season_w).fillna(0.0) * d["att"]
+
+    rows = []
+    for name, g in d.groupby("name_norm"):
+        tw = g["w"].sum()
+        if tw <= 0:
+            continue
+        rows.append({"name_norm": name,
+                      "yac_att": (g["yac_att"] * g["w"]).sum() / tw,
+                      "brk_rate": (g["brk_rate"] * g["w"]).sum() / tw,
+                      "att_sample": g["att"].sum()})
+    out = pd.DataFrame(rows)
+    if not len(out):
+        return {}
+
+    mean_yac = (out["yac_att"] * out["att_sample"]).sum() / out["att_sample"].sum()
+    mean_brk = (out["brk_rate"] * out["att_sample"]).sum() / out["att_sample"].sum()
+    out["yac_att"] = out.apply(lambda r: shrink(r["yac_att"], mean_yac, r["att_sample"], SHRINK["ypc"]), axis=1)
+    out["brk_rate"] = out.apply(lambda r: shrink(r["brk_rate"], mean_brk, r["att_sample"], SHRINK["ypc"]), axis=1)
+    return out.set_index("name_norm")[["yac_att", "brk_rate"]].to_dict("index")
+
+
+def load_qb_pressure():
+    """QB's own pressure rate faced, from PFR's advanced passing stats —
+    times_pressured / dropbacks. Team-level sack%/hit% (used elsewhere in
+    apply_context) is forward-looking for the CURRENT roster's line but
+    blind to the individual QB; this adds his own personal number, shrunk
+    toward the positional mean by pass-attempt sample. Blended as a minority
+    weight alongside the team number (see apply_context) rather than
+    replacing it, since a QB who just changed teams carries his old team's
+    protection in this number, not his new one's.
+    """
+    import pandas as pd
+    import nflreadpy as nfl
+
+    path = os.path.join(CACHE, "pfr_pass_adv.parquet")
+    if os.path.exists(path):
+        log("  cache hit: pfr_pass_adv")
+        d = pd.read_parquet(path)
+    else:
+        log("  downloading: pfr_pass_adv")
+        d = nfl.load_pfr_advstats(seasons=PRIOR_SEASONS, stat_type="pass", summary_level="season").to_pandas()
+        d.to_parquet(path)
+
+    for c in ("pass_attempts", "pressure_pct"):
+        d[c] = pd.to_numeric(d[c], errors="coerce").fillna(0.0)
+    d = d[d["pass_attempts"] > 0].copy()
+    d["name_norm"] = d["player"].map(_norm_name)
+
+    recent, prior = PRIOR_SEASONS[-1], PRIOR_SEASONS[0]
+    season_w = {recent: 0.70, prior: 0.30}
+    d["w"] = d["season"].map(season_w).fillna(0.0) * d["pass_attempts"]
+
+    rows = []
+    for name, g in d.groupby("name_norm"):
+        tw = g["w"].sum()
+        if tw <= 0:
+            continue
+        rows.append({"name_norm": name,
+                      "pressure_pct": (g["pressure_pct"] * g["w"]).sum() / tw,
+                      "att_sample": g["pass_attempts"].sum()})
+    out = pd.DataFrame(rows)
+    if not len(out):
+        return {}
+
+    mean_p = (out["pressure_pct"] * out["att_sample"]).sum() / out["att_sample"].sum()
+    out["pressure_pct"] = out.apply(lambda r: shrink(r["pressure_pct"], mean_p, r["att_sample"], SHRINK["ypc"]), axis=1)
+    return out.set_index("name_norm")["pressure_pct"].to_dict()
+
+
 # ---------------------------------------------------------------------------
 # AGGREGATE
 # ---------------------------------------------------------------------------
@@ -333,7 +451,17 @@ def shrink(player_rate, pos_rate, n, k):
     return (n * player_rate + k * pos_rate) / (n + k)
 
 
-def project(df, ros_now, ros_prev, scoring, exp_td_rates=None):
+def opening_mult(opening_pct):
+    """Same bounded modifier rookies.py's project_rookies() applies for
+    landing-spot opportunity: +/-25%, centered on a 30%-open baseline
+    (roughly what turns over on an average roster in an average year), so a
+    wide-open depth chart lifts volume and a crowded one caps it without
+    letting "he changed teams" swing the projection more than the volume
+    model itself does."""
+    return 1.0 + max(-0.25, min(0.25, (opening_pct - 30.0) / 120.0))
+
+
+def project(df, ros_now, ros_prev, scoring, exp_td_rates=None, vac=None):
     import pandas as pd
     import numpy as np
 
@@ -351,6 +479,13 @@ def project(df, ros_now, ros_prev, scoring, exp_td_rates=None):
     df["changed_team"] = (df["team_2026"].notna() & df["team_2025"].notna()
                           & (df["team_2026"] != df["team_2025"]))
     df["on_roster"] = df["team_2026"].notna()
+
+    # opening_pct at the DESTINATION team, keyed the same way rookies.py's
+    # vacated() already keys it. Same table either way — a team-changing
+    # veteran and an incoming rookie are both walking into whatever volume
+    # actually opened up there, so this reuses that function rather than
+    # inventing a second "how much room is open" measure.
+    vac_by_team = vac.set_index("team").to_dict("index") if vac is not None and len(vac) else {}
 
     # ---- positional mean efficiency, weighted by volume ----
     means = {}
@@ -402,6 +537,29 @@ def project(df, ros_now, ros_prev, scoring, exp_td_rates=None):
         gs = r["games_sample"]
         tgt = shrink(r["targets"], m["tgt_pg"], gs, SHRINK["volume_games"]) * age_mult
         car = shrink(r["carries"], m["car_pg"], gs, SHRINK["volume_games"]) * age_mult
+
+        # Team-change volume reallocation: a player who switched teams was,
+        # until now, just flagged "NEW TEAM" while his volume kept riding
+        # his OLD team's per-game rate (shrunk toward the league mean, blind
+        # to what's actually available at the new team). Nudge tgt/car by
+        # how much room actually opened up at the destination — the same
+        # vacated-opportunity signal rookies already get, reused rather than
+        # duplicated (see rookies.vacated()). QB passing volume isn't
+        # touched: it isn't really "vacated" the way catches/carries are,
+        # and the weapons/protection context step already reprices a QB for
+        # his new team.
+        tc_car_mult, tc_tgt_mult = 1.0, 1.0
+        if r["changed_team"]:
+            dest = vac_by_team.get(r["team_2026"], {})
+            if pos == "RB":
+                tc_car_mult = opening_mult(dest.get("pct_carries_open", 30.0))
+                tc_tgt_mult = opening_mult(dest.get("pct_targets_open", 30.0))
+                car *= tc_car_mult
+                tgt *= tc_tgt_mult
+            elif pos in ("WR", "TE"):
+                tc_tgt_mult = opening_mult(dest.get("pct_targets_open", 30.0))
+                tgt *= tc_tgt_mult
+
         # Applies to QB passing too now, not just non-QB trick plays — an
         # established starter (30+ games) is barely moved by this (the same
         # ~15% pull toward the mean already accepted for veteran RB volume
@@ -480,6 +638,8 @@ def project(df, ros_now, ros_prev, scoring, exp_td_rates=None):
             "p_pass_tds": round(max(0.0, pass_tds_pg * games), 1),
             "p_ints": round(max(0.0, int_pg * games), 1),
             "changed_team": bool(r["changed_team"]),
+            "team_change_car_mult": round(tc_car_mult, 3),
+            "team_change_tgt_mult": round(tc_tgt_mult, 3),
             "on_roster": bool(r["on_roster"]),
             "sample_games": int(r["games_sample"]),
         })
@@ -489,10 +649,16 @@ def project(df, ros_now, ros_prev, scoring, exp_td_rates=None):
     return res.sort_values("proj", ascending=False).reset_index(drop=True)
 
 
-def apply_context(res, team_profiles, ol_grades, rusher_shares, scoring):
+def apply_context(res, team_profiles, ol_grades, rusher_shares, scoring, contact=None, pressure=None):
     """Second pass: adjust the base projection for who is blocking for him and
     who else is on the field. Bounded to +/-CONTEXT_CAP so it nudges rather
-    than overrides the opportunity model above. See the module docstring."""
+    than overrides the opportunity model above. See the module docstring.
+
+    contact/pressure: optional dicts from load_contact_stats() /
+    load_qb_pressure() (name_norm -> rate). Missing for a rookie or thin
+    sample by design — those players just don't get this particular nudge,
+    same fallback-to-neutral pattern as everything else in this function.
+    """
     import pandas as pd
     import numpy as np
 
@@ -512,6 +678,25 @@ def apply_context(res, team_profiles, ol_grades, rusher_shares, scoring):
     # the three directions can end up summing well past 1.0
     league_avg_shares = (rusher_shares.groupby("direction")["n"].sum()
                           / rusher_shares["n"].sum()).to_dict()
+
+    # RB talent, independent of blocking: percentile-rank yards-after-contact
+    # and broken-tackle rate separately (different units), then average the
+    # two ranks into one talent percentile per player.
+    contact = contact or {}
+    talent_pct = {}
+    if contact:
+        cdf = pd.DataFrame.from_dict(contact, orient="index")
+        cdf["yac_pctl"] = cdf["yac_att"].rank(pct=True) * 100
+        cdf["brk_pctl"] = cdf["brk_rate"].rank(pct=True) * 100
+        talent_pct = ((cdf["yac_pctl"] + cdf["brk_pctl"]) / 2).to_dict()
+
+    # QB's own pressure rate faced, inverted so high = good (less pressure),
+    # matching the convention every other percentile in this function uses.
+    pressure = pressure or {}
+    pressure_pct = {}
+    if pressure:
+        pser = pd.Series(pressure)
+        pressure_pct = (100 - pser.rank(pct=True) * 100).to_dict()
 
     weapons = res[res["pos"].isin(["WR", "TE"])].groupby("team")["proj"].sum()
     weapons_pct = (weapons.rank(pct=True) * 100) if len(weapons) else pd.Series(dtype=float)
@@ -545,19 +730,35 @@ def apply_context(res, team_profiles, ol_grades, rusher_shares, scoring):
                          if own else league_avg_shares)
             ol_score = sum(my_shares[d] * grades.get(d, 50.0) for d in ("left", "middle", "right"))
             pass_pct = tp.loc[team, "pass_epa_pct"] if team in tp.index else 50.0
-            z = clamp(((ol_score - 50) * 0.7 + (pass_pct - 50) * 0.3) / 50)
+            # talent_pct (yards after contact + broken tackles) is the
+            # runner's own portable explosiveness, not his blocking — folded
+            # in at a modest weight so it nudges the line/scheme read rather
+            # than fighting it. Missing for a player with no PFR match
+            # (rookie, thin sample) -> 50, i.e. no nudge either way.
+            t_pct = talent_pct.get(_norm_name(r["name"]), 50.0)
+            z = clamp(((ol_score - 50) * 0.55 + (pass_pct - 50) * 0.20 + (t_pct - 50) * 0.25) / 50)
             note = ("OL by his own gap mix: %.0f pctl (L%.0f/M%.0f/R%.0f split) "
-                    "+ team pass game %.0f pctl"
+                    "+ team pass game %.0f pctl + own contact talent %.0f pctl"
                     % (ol_score, 100 * my_shares.get("left", 0), 100 * my_shares.get("middle", 0),
-                       100 * my_shares.get("right", 0), pass_pct))
+                       100 * my_shares.get("right", 0), pass_pct, t_pct))
         elif pos == "QB" and team in tp.index:
             w_pct = weapons_pct.get(team, 50.0)
             # sack_rate_pct / hit_rate_pct are already oriented high = good
             # (team_profiles ranks them ascending=False, so a low sack rate
             # gets a high percentile) — no inversion needed here
-            block_pct = (tp.loc[team, "sack_rate_pct"] + tp.loc[team, "hit_rate_pct"]) / 2
+            team_block_pct = (tp.loc[team, "sack_rate_pct"] + tp.loc[team, "hit_rate_pct"]) / 2
+            # blended with the QB's OWN pressure rate faced (PFR), minority
+            # weight on purpose: it's noisier and, for a QB who just changed
+            # teams, still reflects his OLD team's protection, not his new
+            # one's — the team number stays primary since it's specific to
+            # the current roster. Falls back to the team number alone when
+            # there's no personal match (rookie QB, no PFR history).
+            p_pct = pressure_pct.get(_norm_name(r["name"]))
+            block_pct = team_block_pct if p_pct is None else (0.7 * team_block_pct + 0.3 * p_pct)
             z = clamp(((w_pct - 50) * 0.65 + (block_pct - 50) * 0.35) / 50)
-            note = "weapons %.0f pctl, pass protection %.0f pctl" % (w_pct, block_pct)
+            note = ("weapons %.0f pctl, pass protection %.0f pctl"
+                    % (w_pct, block_pct)
+                    + ("" if p_pct is None else " (incl. own pressure rate %.0f pctl)" % p_pct))
         elif pos in ("WR", "TE") and team in tp.index:
             q_pct = qb_pct.get(team, 50.0)
             pass_pct = tp.loc[team, "pass_epa_pct"]
@@ -599,6 +800,9 @@ def main():
 
     log("Loading nflverse data...")
     stats, snaps, rn, rp = load_all()
+    import rookies as rookies_mod
+    log("Computing vacated opportunity by team (for team-change reallocation)...")
+    vac = rookies_mod.vacated(stats, rn)
     log("Aggregating seasons %s..." % PRIOR_SEASONS)
     agg = season_aggregates(stats, snaps)
     log("Blending %d player-seasons..." % len(agg))
@@ -606,11 +810,10 @@ def main():
     log("Loading expected TD rates (red-zone/goal-line role, from ff_opportunity)...")
     exp_td_rates = load_expected_td_rates()
     log("Projecting %d players..." % len(blended))
-    res = project(blended, rn, rp, a.scoring, exp_td_rates)
+    res = project(blended, rn, rp, a.scoring, exp_td_rates, vac=vac)
 
     log("Loading 2026 rookies (draft capital + vacated opportunity)...")
     import pandas as pd
-    import rookies as rookies_mod
     rookie_rows = rookies_mod.component_rows(sc=SCORING[a.scoring])
     n_vets = len(res)
     res = pd.concat([res, rookie_rows], ignore_index=True, sort=False)
@@ -618,8 +821,11 @@ def main():
 
     log("Loading team context (O-line by direction, weapons, pass protection)...")
     tp, ol, shares = load_team_context()
+    log("Loading PFR advanced stats (contact-adjusted RB talent, QB pressure faced)...")
+    contact = load_contact_stats()
+    pressure = load_qb_pressure()
     log("Applying context adjustment (capped at +/-%.0f%%)..." % (100 * CONTEXT_CAP))
-    res = apply_context(res, tp, ol, shares, a.scoring)
+    res = apply_context(res, tp, ol, shares, a.scoring, contact=contact, pressure=pressure)
 
     res.to_csv(a.out, index=False)
     log("Wrote %s (%d players)" % (a.out, len(res)))
@@ -651,7 +857,15 @@ def main():
     for _, r in show.iterrows():
         flags = []
         if r["changed_team"]:
-            flags.append("NEW TEAM")
+            tc_bits = []
+            if r["pos"] == "RB":
+                if abs(r["team_change_car_mult"] - 1) >= 0.01:
+                    tc_bits.append("car %.2fx" % r["team_change_car_mult"])
+                if abs(r["team_change_tgt_mult"] - 1) >= 0.01:
+                    tc_bits.append("tgt %.2fx" % r["team_change_tgt_mult"])
+            elif r["pos"] in ("WR", "TE") and abs(r["team_change_tgt_mult"] - 1) >= 0.01:
+                tc_bits.append("tgt %.2fx" % r["team_change_tgt_mult"])
+            flags.append("NEW TEAM" + (" (%s)" % ", ".join(tc_bits) if tc_bits else ""))
         if r["age_mult"] < 0.90:
             flags.append("age %.0f%%" % (r["age_mult"] * 100))
         if r["sample_games"] < 12:

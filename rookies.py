@@ -325,7 +325,8 @@ def component_rows(sc=None):
             "p_rec": r["p_rec"], "p_rec_yds": r["p_rec_yds"], "p_rec_tds": r["p_rec_tds"],
             "p_rush_yds": r["p_rush_yds"], "p_rush_tds": r["p_rush_tds"],
             "p_pass_yds": r["p_pass_yds"], "p_pass_tds": r["p_pass_tds"], "p_ints": r["p_ints"],
-            "changed_team": False, "on_roster": True, "sample_games": 0,
+            "changed_team": False, "team_change_car_mult": 1.0, "team_change_tgt_mult": 1.0,
+            "on_roster": True, "sample_games": 0,
             "rookie": True, "pick": r["pick"], "tier": r["tier"],
             # how often THIS comp profile actually panned out historically —
             # carried through so the board can show it, not just the point
