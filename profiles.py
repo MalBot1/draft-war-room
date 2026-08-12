@@ -570,26 +570,36 @@ def project(df, ros_now, ros_prev, scoring, exp_td_rates=None, vac=None):
         # already IS his real role. So incumbents only ever get boosted by
         # this, never discounted (max(1.0, ...)), and only for the
         # catches/carries-are-vacated positions, same as team-changers.
+        #
+        # Position-specific target-opening (pct_wr_targets_open etc, not the
+        # pooled pct_targets_open) — pooling WR/TE/RB receiving into one
+        # team number diluted a real, single-position move often enough to
+        # matter in practice (confirmed against real news twice: Pittman
+        # leaving IND, Allen leaving LAC — see vacated()'s docstring in
+        # rookies.py for the detail). RB carries still use the plain
+        # pct_carries_open, already position-specific by construction.
+        tgt_open_key = {"RB": "pct_rb_targets_open", "WR": "pct_wr_targets_open",
+                        "TE": "pct_te_targets_open"}.get(pos, "pct_targets_open")
         tc_car_mult, tc_tgt_mult = 1.0, 1.0
         if r["changed_team"]:
             dest = vac_by_team.get(r["team_2026"], {})
             if pos == "RB":
                 tc_car_mult = opening_mult(dest.get("pct_carries_open", 30.0))
-                tc_tgt_mult = opening_mult(dest.get("pct_targets_open", 30.0))
+                tc_tgt_mult = opening_mult(dest.get(tgt_open_key, 30.0))
                 car *= tc_car_mult
                 tgt *= tc_tgt_mult
             elif pos in ("WR", "TE"):
-                tc_tgt_mult = opening_mult(dest.get("pct_targets_open", 30.0))
+                tc_tgt_mult = opening_mult(dest.get(tgt_open_key, 30.0))
                 tgt *= tc_tgt_mult
         elif r["on_roster"]:
             own = vac_by_team.get(r["team_2026"], {})
             if pos == "RB":
                 tc_car_mult = max(1.0, opening_mult(own.get("pct_carries_open", 30.0)))
-                tc_tgt_mult = max(1.0, opening_mult(own.get("pct_targets_open", 30.0)))
+                tc_tgt_mult = max(1.0, opening_mult(own.get(tgt_open_key, 30.0)))
                 car *= tc_car_mult
                 tgt *= tc_tgt_mult
             elif pos in ("WR", "TE"):
-                tc_tgt_mult = max(1.0, opening_mult(own.get("pct_targets_open", 30.0)))
+                tc_tgt_mult = max(1.0, opening_mult(own.get(tgt_open_key, 30.0)))
                 tgt *= tc_tgt_mult
 
         # Applies to QB passing too now, not just non-QB trick plays — an

@@ -193,14 +193,27 @@ def tier_table(hist_rookies):
 
 
 def vacated(hist, ros26):
-    """Targets and carries on each team that are not coming back in 2026."""
+    """Targets and carries on each team that are not coming back in 2026.
+
+    pct_targets_open pools WR/TE/RB receiving together into one team-wide
+    number, which dilutes a big move at a single position with an unrelated
+    stable position elsewhere on the same roster. Confirmed twice against
+    real 2026 news: Michael Pittman leaving Indianapolis didn't move Josh
+    Downs's signal, and Keenan Allen leaving the Chargers didn't move
+    Quentin Johnston's -- both times because other positions on those
+    rosters were stable enough to pull the pooled number back under the
+    neutral baseline. pct_wr_targets_open / pct_te_targets_open /
+    pct_rb_targets_open exist so a position-specific move actually shows up
+    for that position. Carries aren't split further -- overwhelmingly RB
+    volume already, no comparable dilution problem.
+    """
     import pandas as pd
 
     last = hist[(hist["season"] == LAST_SEASON) & (hist["season_type"] == "REG")].copy()
     for c in ("targets", "carries"):
         last[c] = pd.to_numeric(last[c], errors="coerce").fillna(0.0)
 
-    who = last.groupby(["player_display_name", "team"], as_index=False).agg(
+    who = last.groupby(["player_display_name", "team", "position"], as_index=False).agg(
         targets=("targets", "sum"), carries=("carries", "sum"))
 
     r = ros26[["full_name", "team"]].drop_duplicates("full_name")
@@ -215,6 +228,15 @@ def vacated(hist, ros26):
         tot_targets=("targets", "sum"), tot_carries=("carries", "sum"))
     v = vac.merge(tot, on="team", how="right").fillna(0.0)
     v["pct_targets_open"] = (100 * v["vac_targets"] / v["tot_targets"].replace(0, 1)).round(1)
+
+    for pos, col in (("WR", "pct_wr_targets_open"), ("TE", "pct_te_targets_open"), ("RB", "pct_rb_targets_open")):
+        p = who[who["position"] == pos]
+        pvac = p[p["gone"]].groupby("team", as_index=False).agg(vt=("targets", "sum"))
+        ptot = p.groupby("team", as_index=False).agg(tt=("targets", "sum"))
+        pv = pvac.merge(ptot, on="team", how="right").fillna(0.0)
+        pv[col] = (100 * pv["vt"] / pv["tt"].replace(0, 1)).round(1)
+        v = v.merge(pv[["team", col]], on="team", how="left")
+        v[col] = v[col].fillna(30.0)  # no on-record volume at all for this position/team -> neutral baseline
     v["pct_carries_open"] = (100 * v["vac_carries"] / v["tot_carries"].replace(0, 1)).round(1)
     return v
 
@@ -241,7 +263,18 @@ def project_rookies(picks, table, vac):
             continue
         team = p["team"]
         v = vmap.get(team, {})
-        opening = v.get("pct_carries_open", 0) if p["position"] == "RB" else v.get("pct_targets_open", 0)
+        # RB opening is carries-driven (unchanged); WR/TE use their own
+        # position-specific target-opening rather than the pooled team
+        # number, for the same reason profiles.py's veteran reallocation
+        # does now -- see vacated()'s docstring. QB has no position-specific
+        # column (this was already a loose proxy for QB rookies before);
+        # falls back to the pooled number, unchanged.
+        if p["position"] == "RB":
+            opening = v.get("pct_carries_open", 0)
+        elif p["position"] in ("WR", "TE"):
+            opening = v.get("pct_%s_targets_open" % p["position"].lower(), v.get("pct_targets_open", 0))
+        else:
+            opening = v.get("pct_targets_open", 0)
 
         # Opening is a modifier, not the driver. A wide-open depth chart lifts a
         # rookie's floor; a crowded one caps it. Range held to +/-25% so landing
