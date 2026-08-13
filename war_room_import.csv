@@ -150,7 +150,7 @@ Jauan Jennings,WR,MIN,0.1,0.0,0.0,2.1,0.0,50.6,612.2,6.2,False,,1.5,,,145.9,16.2
 Troy Franklin,WR,DEN,0.1,0.0,0.0,19.2,0.1,54.9,604.8,5.2,False,,1.5,,,,,,,,,,,,43.8,Neutral
 Tyrone Tracy Jr.,RB,NYG,0.1,0.0,0.0,683.0,2.6,32.5,249.3,1.3,False,,1.5,,,152.8,15.7,158.3,17.7,155.3,15.3,159.8,21.8,8.0,55.2,Neutral
 Tank Dell,WR,HOU,0.2,0.0,0.0,37.7,0.2,51.8,663.9,4.2,False,,1.5,,,142.2,15.5,145.5,13.4,146.6,14.2,159.6,12.7,8.0,41.7,Neutral
-Chris Rodriguez Jr.,RB,JAX,0.1,0.0,0.0,700.6,9.4,11.0,83.6,0.4,False,,1.5,mod,Genuine unresolved committee with Tuten -- moderate confidence only,139.4,20.4,158.2,20.0,163.6,18.2,153.6,14.4,7.0,65.6,Easy
+Chris Rodriguez Jr.,RB,JAX,0.1,0.0,0.0,700.6,9.4,11.0,83.6,0.4,False,,1.5,hand,"Correction: real ADP has Tuten going 110 picks earlier (53 vs 164) -- this isn't the even committee earlier reporting suggested, Tuten's the clear lead. Rodriguez is a real handcuff/change-of-pace, not an active sleeper target",139.4,20.4,158.2,20.0,163.6,18.2,153.6,14.4,7.0,65.6,Easy
 Luther Burden III,WR,CHI,0.2,0.0,0.0,27.5,0.1,56.3,747.9,2.2,False,,1.5,,,56.2,6.9,55.6,6.7,54.5,7.3,75.7,7.6,10.0,58.3,Neutral
 Kyle Pitts,TE,ATL,0.1,0.0,0.0,0.5,0.0,60.8,651.9,3.5,False,,1.5,,,102.0,17.6,82.4,7.7,77.7,8.5,111.0,12.7,11.0,71.9,Easy
 Tyler Warren,TE,IND,0.1,0.0,0.0,11.0,0.2,58.2,605.9,4.3,False,,1.5,,,81.2,8.3,71.4,12.0,65.1,10.1,89.7,8.8,13.0,66.7,Easy
@@ -194,7 +194,7 @@ Cade Otton,TE,TB,0.1,0.0,0.0,1.3,0.0,58.9,575.8,2.3,False,,1.5,,,,,,,153.3,35.3,
 Hunter Henry,TE,NE,0.1,0.0,0.0,0.5,0.0,48.3,554.3,4.4,False,,1.5,,,151.9,27.5,156.8,28.8,157.9,21.2,146.2,16.2,11.0,53.1,Neutral
 Chris Oladokun,QB,KC,1373.0,8.4,3.6,113.4,1.1,0.1,0.3,0.0,False,,1.5,,,,,,,,,,,,33.3,Tough
 Colby Parkinson,TE,LA,0.1,0.0,0.0,0.6,0.0,45.6,436.8,6.7,False,,1.5,,,,,,,,,,,,61.5,Neutral
-Bhayshul Tuten,RB,JAX,0.1,0.0,0.0,490.8,6.7,19.2,142.2,1.0,False,,1.5,,,50.8,5.5,52.0,5.3,53.0,5.6,68.3,8.2,7.0,65.6,Easy
+Bhayshul Tuten,RB,JAX,0.1,0.0,0.0,490.8,6.7,19.2,142.2,1.0,False,,1.5,mod,"Real lead back in JAX per market ADP (53, well ahead of Rodriguez at 164) -- recent ADP dip (-7) worth watching but still the clear #1 in this backfield",50.8,5.5,52.0,5.3,53.0,5.6,68.3,8.2,7.0,65.6,Easy
 Tre Tucker,WR,LV,0.1,0.0,0.0,38.1,0.2,46.8,564.0,3.4,False,,1.5,,,125.6,10.9,135.5,7.1,133.6,10.5,139.4,9.3,13.0,52.1,Neutral
 Tony Pollard,RB,TEN,0.1,0.0,0.0,695.6,3.1,23.6,152.8,0.2,False,,1.5,,,65.6,6.0,66.8,6.1,66.3,7.7,83.5,6.6,9.0,41.7,Neutral
 Travis Etienne,RB,NO,0.1,0.0,0.0,600.6,3.7,20.7,155.5,1.6,False,,1.5,,,40.8,4.3,41.2,5.3,39.3,4.8,59.9,5.8,8.0,66.7,Easy
