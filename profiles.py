@@ -100,6 +100,14 @@ SCORING = {
     "ppr":      dict(rec=1.0, recYd=0.1, recTD=6, rushYd=0.1, rushTD=6, passYd=0.04, passTD=4, int=-2, fl=-2),
     "half":     dict(rec=0.5, recYd=0.1, recTD=6, rushYd=0.1, rushTD=6, passYd=0.04, passTD=4, int=-2, fl=-2),
     "standard": dict(rec=0.0, recYd=0.1, recTD=6, rushYd=0.1, rushTD=6, passYd=0.04, passTD=4, int=-2, fl=-2),
+    # Eric's two real leagues, confirmed from their settings pages
+    # (2026-08-12): full PPR, but non-default passing rates too — 20 yd/pt
+    # (not 25) and 6-pt passing TDs (not 4). context_mult's weapons_pct/
+    # qb_pct team rankings are computed under whichever --scoring preset
+    # runs, so this is what should actually drive them — the generic ppr
+    # preset's 4-pt passing TDs understate every good QB's team-strength
+    # ranking relative to how these leagues actually score him.
+    "real":     dict(rec=1.0, recYd=0.1, recTD=6, rushYd=0.1, rushTD=6, passYd=0.05, passTD=6, int=-2, fl=-2),
 }
 
 POS = ["QB", "RB", "WR", "TE"]
@@ -909,7 +917,7 @@ def load_scouting_notes(path="scouting_notes.csv"):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--scoring", default="half", choices=list(SCORING))
+    ap.add_argument("--scoring", default="real", choices=list(SCORING))
     ap.add_argument("--pos", default=None)
     ap.add_argument("--top", type=int, default=25)
     ap.add_argument("--out", default="profiles.csv")
