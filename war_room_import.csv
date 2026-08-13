@@ -128,7 +128,7 @@ Saquon Barkley,RB,PHI,0.1,0.0,0.0,858.1,5.5,23.3,176.5,1.2,False,,1.5,,,14.6,2.7
 J.K. Dobbins,RB,DEN,0.1,0.0,0.0,931.4,6.2,22.1,125.9,0.2,False,,1.5,,,77.1,9.2,86.4,8.5,92.9,10.9,95.2,8.9,10.0,52.1,Neutral
 RJ Harvey,RB,DEN,0.1,0.0,0.0,517.2,5.5,37.7,280.8,2.6,False,,1.5,fade,Real competition returning for 2026 -- Dobbins healthy again and Coleman drafted,95.9,13.4,88.4,10.6,82.9,8.8,116.7,16.6,10.0,52.1,Neutral
 Quinn Ewers,QB,MIA,1839.1,10.8,6.7,119.7,1.2,0.9,3.6,0.2,False,,1.5,,,,,,,,,,,,19.8,Tough
-Mike Evans,WR,SF,0.1,0.0,0.0,2.0,0.0,54.2,693.3,6.8,False,,1.5,,,57.0,7.5,56.8,6.4,58.3,7.1,78.4,8.5,8.0,25.5,Tough
+Mike Evans,WR,SF,0.1,0.0,0.0,2.0,0.0,54.2,693.3,6.8,False,,1.5,fade,"Real decline signal beyond what a generic age curve catches: games played collapsed 17-to-14-to-8 last 3 years, and posted CAREER-LOW efficiency across the board last season (yards/catch, yards/target, yards/route, zero broken tackles for first time since 2018). Analyst consensus: don't draft before round 5",57.0,7.5,56.8,6.4,58.3,7.1,78.4,8.5,8.0,25.5,Tough
 Brock Bowers,TE,LV,0.1,0.0,0.0,6.4,0.1,64.6,676.6,5.0,False,,1.5,,,53.8,12.8,44.8,11.0,40.7,8.0,62.9,15.3,13.0,70.8,Easy
 Marvin Harrison Jr.,WR,ARI,0.1,0.0,0.0,2.4,0.0,52.1,734.5,6.0,False,,1.5,,,62.8,6.7,62.3,7.1,63.8,7.0,85.4,6.4,14.0,53.1,Neutral
 Tetairoa McMillan,WR,CAR,0.1,0.0,0.0,3.4,0.0,54.9,761.7,5.0,False,,1.5,,,37.0,4.0,36.2,3.5,34.1,3.9,53.6,6.1,5.0,33.3,Tough
@@ -170,7 +170,7 @@ Jake Tonges,TE,SF,0.2,0.0,0.0,1.6,0.0,56.4,513.2,5.2,False,,1.5,,,,,,,,,,,,14.6,
 Christian Kirk,WR,SF,0.1,0.0,0.0,3.4,0.0,56.6,617.0,3.4,False,,1.5,,,,,,,182.6,16.9,,,8.0,25.5,Tough
 Jordan Watkins,WR,SF,0.4,0.0,0.0,11.4,0.1,50.8,628.0,3.9,False,,1.5,,,,,,,,,,,,25.5,Tough
 De'Zhaun Stribling,WR,SF,0.0,0.0,0.0,0.0,0.0,48.6,662.1,4.0,True,15.0,1.5,,,154.8,15.5,148.0,15.1,155.8,15.5,148.3,13.3,8.0,25.5,Tough
-Jaylen Waddle,WR,DEN,5.1,0.0,0.0,14.8,0.1,49.0,664.6,3.5,False,,1.5,,,53.4,6.5,51.0,7.0,48.1,5.9,73.2,7.3,10.0,43.8,Neutral
+Jaylen Waddle,WR,DEN,5.1,0.0,0.0,14.8,0.1,49.0,664.6,3.5,False,,1.5,mod,"Real reporting has him winning the target battle over Sutton (118 vs 108 projected), 115+ targets, viable WR1 -- his own muted Miami volume from before the trade may be underselling how big a role this actually is",53.4,6.5,51.0,7.0,48.1,5.9,73.2,7.3,10.0,43.8,Neutral
 Tyquan Thornton,WR,KC,0.2,0.0,0.0,4.4,0.0,37.0,625.8,6.4,False,,1.5,,,,,,,,,,,,43.8,Neutral
 Tyson Bagent,QB,CHI,1450.0,8.8,4.4,134.9,1.3,0.1,0.4,0.0,False,,1.5,,,,,,,,,,,,40.6,Neutral
 David Montgomery,RB,HOU,2.3,0.8,0.0,521.3,6.7,21.8,176.5,0.2,False,,1.5,,,60.0,7.0,62.9,7.7,65.8,8.7,75.2,7.7,8.0,41.7,Neutral
