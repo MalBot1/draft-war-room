@@ -101,6 +101,8 @@ input, select, textarea { font-family: inherit; }
 .tag.scout-mod { color: var(--gold); background: rgba(232,196,106,.14); }
 .tag.scout-fade { color: var(--alert); background: rgba(232,87,74,.14); }
 .tag.scout-hand { color: var(--wr); background: rgba(91,158,232,.14); }
+.tag.scout-round { color: var(--dim); font-weight: 600; border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+.tag.scout-round.est { font-style: italic; }
 .pname-s .bust { color: var(--alert); }
 .vdelta { font-weight: 700; }
 .vdelta.up { color: var(--gold); }
@@ -443,6 +445,16 @@ function buildValues(players, lg) {
   all.forEach(function (p) {
     var adpVal = (p.adp || {})[adpFmt];
     p.vDelta = adpVal == null ? null : Math.round(adpVal - p.ovr);
+    // Raw ADP round, not ADP minus a safety margin — real market data over a
+    // judgment call layered on top of it. null (not a guess) when there's no
+    // ADP at all, e.g. a manually-added player nobody's mock-drafting yet.
+    p.adpRound = adpVal == null ? null : Math.ceil(adpVal / lg.teams);
+    // Fallback for a player with no ADP at all (manually added, nobody's
+    // mock-drafting him) — model rank in place of market data. Always
+    // computed, only shown for scouted players missing real ADP; kept
+    // clearly separate from adpRound rather than silently filling it in,
+    // since one is real and the other is a stand-in.
+    p.ovrRoundEst = Math.ceil(p.ovr / lg.teams);
   });
 
   return { list: all, repl: repl, base: base, thin: thin };
@@ -814,13 +826,22 @@ function playerRows(items, filter, tierField, withActs, need, scores) {
     var scoutBadge = (p.scoutTag && SCOUT_LABEL[p.scoutTag])
       ? '<span class="tag scout scout-' + p.scoutTag + '"' + (p.scoutNote ? ' title="' + esc(p.scoutNote) + '"' : "") + ">" + SCOUT_LABEL[p.scoutTag] + "</span>"
       : "";
+    // Only for high/mod — a fade or handcuff isn't a "when do I need to grab
+    // him before he's gone" question the way a sleeper is. Real ADP round
+    // when it exists; model-rank estimate, clearly marked, when it doesn't
+    // (e.g. a manually-added player nobody's mock-drafting yet).
+    var roundBadge = (p.scoutTag === "high" || p.scoutTag === "mod")
+      ? (p.adpRound != null
+          ? ' <span class="tag scout-round" title="Real ADP (' + Math.round((p.adp || {})[adpFormatFor(league())] || 0) + ') / your league\'s team count, rounded up">Rd ' + p.adpRound + "</span>"
+          : ' <span class="tag scout-round est" title="No real ADP for him yet — estimated from his model rank instead of market data">~Rd ' + p.ovrRoundEst + "</span>")
+      : "";
     out.push('<div class="prow' + (withActs && i === 0 ? " lead" : "") + '">' +
       '<div class="spark" style="background:var(' + (POSVAR[p.pos] || "--flx") + ');height:' + h + 'px"></div>' +
       '<div class="pos" data-p="' + p.pos + '">' + p.pos + "</div>" +
       '<div class="pname"><div class="pname-t">' + esc(p.name) +
         (need && need[p.pos] ? '<span class="tag">need</span>' : "") +
         (p.rookie ? '<span class="tag rookie" title="Comp-based projection from draft capital, not his own NFL history">ROOKIE</span>' : "") +
-        scoutBadge + "</div>" +
+        scoutBadge + roundBadge + "</div>" +
         '<div class="pname-s">' + (sc ? esc(reasonFor(sc)) : p.pos + p.posRank + " &middot; OVR " + p.ovr + (p.team ? " &middot; " + esc(p.team) : "") + (p.bye != null ? " (bye " + p.bye + ")" : "")) +
         (p.rookie && p.bustPct != null ? ' &middot; <span class="' + (p.bustPct >= 40 ? "bust" : "") + '">' + p.bustPct + '% bust rate</span>' : "") +
         vBadge + sosBadge + "</div></div>" +
@@ -920,7 +941,10 @@ function sleeperWatchCard(round) {
       return '<div class="rec">' +
         '<div class="pos" data-p="' + p.pos + '">' + p.pos + "</div>" +
         '<div class="rec-b"><div class="rec-t">' + esc(p.name) +
-          '<span class="tag scout scout-' + p.scoutTag + '">' + (p.scoutTag === "high" ? "SLEEPER" : "WATCH") + "</span></div>" +
+          '<span class="tag scout scout-' + p.scoutTag + '">' + (p.scoutTag === "high" ? "SLEEPER" : "WATCH") + "</span>" +
+          (p.adpRound != null
+            ? ' <span class="tag scout-round">Rd ' + p.adpRound + "</span>"
+            : ' <span class="tag scout-round est">~Rd ' + p.ovrRoundEst + "</span>") + "</div>" +
         '<div class="rec-r">' + esc(p.scoutNote || "") + "</div></div>" +
         '<button class="act mine" title="I drafted him" data-a="pick" data-v="' + p.id + '" data-m="1">&#10003;</button></div>';
     }).join("") + "</div>";
