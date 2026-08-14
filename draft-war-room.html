@@ -945,6 +945,11 @@ function recCard() {
     recs = all.slice(0, 4);
   }
   if (!recs.length) return "";
+  // The 1/2/3/4 on the left already IS the ranking — dropped the raw fit-
+  // score number that used to sit on the right, same reasoning as the main
+  // board's rank-over-number change. reasonFor() already says the same
+  // thing in plain English ("fills your open RB — waiting costs 307 pts"),
+  // so nothing about WHY he's ranked there was lost, just the redundant digit.
   return '<div class="card"><div class="h" style="margin:0 0 9px">Take now &middot; fitted to your roster</div>' +
     recs.map(function (r, i) {
       return '<div class="rec">' +
@@ -952,10 +957,9 @@ function recCard() {
         '<div class="pos" data-p="' + r.p.pos + '">' + r.p.pos + "</div>" +
         '<div class="rec-b"><div class="rec-t">' + esc(r.p.name) + "</div>" +
         '<div class="rec-r">' + esc(reasonFor(r)) + "</div></div>" +
-        '<div class="rec-v num">' + sgn(r.now) + "</div>" +
         '<button class="act mine" title="I drafted him" data-a="pick" data-v="' + r.p.id + '" data-m="1">&#10003;</button></div>';
     }).join("") +
-    '<div class="note" style="margin-top:9px">Score is what he adds to your <b>starting lineup</b>, minus what the best player at his position would still add if you waited a turn. Assumes the room drafts roughly by value &mdash; it sharpens once ADP goes in.</div></div>';
+    '<div class="note" style="margin-top:9px">Ranked by what he\'d add to your <b>starting lineup</b> right now, weighed against what you could still get if you waited a turn.</div></div>';
 }
 
 // Once the starter-relevant rounds are behind you, the board naturally fills
