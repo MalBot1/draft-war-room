@@ -659,16 +659,20 @@ function recommend(limit) {
 
 function reasonFor(r) {
   var p = r.p, edge = Math.round((r.fit - r.wait) * 10) / 10;
+  // Rank instead of a raw point cost \u2014 "WR2, #15 overall" says the same
+  // "how good is he" job a number did, without needing anyone to know what
+  // the number means.
+  var rank = p.pos + p.posRank + ", #" + p.ovr + " overall";
   if (r.open) {
     if (r.forced) return "running out of picks to fill " + p.pos;
     if (r.fit <= 0) return "best " + p.pos + " left, but he grades below replacement";
-    return "fills your open " + p.pos + (edge >= 10 ? " \u2014 waiting costs " + edge + " pts" : "");
+    return "fills your open " + p.pos + " \u2014 " + rank;
   }
   if (r.fit <= 0.05) return "bench depth only \u2014 nothing for your lineup";
-  if (r.wait <= 0.05) return "no comparable " + p.pos + " gets back to you";
-  if (edge >= 12) return "waiting on " + p.pos + " costs you " + edge + " pts";
-  if (edge <= 2) return p.pos + " is deep \u2014 a similar one should return";
-  return "+" + r.fit + " to your lineup, " + edge + " better than waiting";
+  if (r.wait <= 0.05) return rank + " \u2014 no comparable " + p.pos + " gets back to you";
+  if (edge >= 12) return rank + " \u2014 a real step up from waiting";
+  if (edge <= 2) return p.pos + " is deep \u2014 a similar one should return (" + rank + ")";
+  return rank + " \u2014 a solid upgrade over waiting";
 }
 
 var HEADER_MAP = {
