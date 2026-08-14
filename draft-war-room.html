@@ -107,10 +107,16 @@ input, select, textarea { font-family: inherit; }
 .vdelta { font-weight: 700; }
 .vdelta.up { color: var(--gold); }
 .vdelta.down { color: var(--alert); }
-.pvor { text-align: right; flex: none; }
-.pvor-t { font-family: var(--mono); font-size: 15px; font-weight: 600; line-height: 1.1; }
-.pvor-t.neg { color: var(--dim); }
-.pvor-s { font-family: var(--mono); font-size: 10px; color: var(--dim); margin-top: 1px; }
+.prank { text-align: right; flex: none; min-width: 40px; }
+.prank-ovr { font-family: var(--mono); font-size: 15px; font-weight: 600; line-height: 1.1; }
+.prank-pos { font-size: 10.5px; color: var(--dim); font-weight: 600; margin-top: 1px; }
+.why-btn { flex: none; display: flex; align-items: center; gap: 3px; padding: 6px 9px; border-radius: 6px; border: 1px solid var(--line); color: var(--muted); font-size: 11px; font-weight: 600; background: var(--panel-2); }
+.why-btn .chev { font-size: 8px; transition: transform .15s; }
+.why-btn.open { color: var(--gold); border-color: var(--gold); }
+.why-btn.open .chev { transform: rotate(180deg); }
+.why { background: var(--ink); border-bottom: 1px solid var(--line-soft); padding: 9px 13px 10px 46px; font-size: 12px; color: var(--muted); line-height: 1.6; }
+.why-t { color: var(--text); margin-bottom: 4px; }
+.why-s { color: var(--dim); font-size: 11px; }
 .acts { display: flex; gap: 5px; flex: none; }
 .act { width: 34px; height: 34px; border-radius: 6px; border: 1px solid var(--line); font-size: 15px; font-weight: 700; background: var(--panel-2); }
 .act.mine { color: var(--gold); } .act.mine:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
@@ -155,11 +161,11 @@ input, select, textarea { font-family: inherit; }
 /* printed cheat sheet */
 @media print {
   body { background: #fff; color: #000; }
-  .top, .tabs, .acts, .card, .filters, .banner, .no-print { display: none !important; }
+  .top, .tabs, .acts, .card, .filters, .banner, .no-print, .why-btn, .why { display: none !important; }
   .pane { padding: 0; }
   .prow { border-bottom: 1px solid #ddd; padding: 3px 0; page-break-inside: avoid; }
   .pname-t { font-size: 11px; } .pname-s { color: #777; }
-  .pvor-t { font-size: 11px; } .spark { display: none; }
+  .prank-ovr { font-size: 11px; } .spark { display: none; }
   .pos { color: #000 !important; background: none !important; border: 1px solid #999; font-size: 10px; }
   .tierbar { padding: 7px 0 2px; } .tierbar-l, .tierbar-drop, .tierbar-left { color: #000; }
   .tierbar-rule { background: #000; }
@@ -291,6 +297,10 @@ var S = {
   activeId: null, players: demoPlayers(), usingDemo: true, drafts: {}
 };
 var KEY = "draftWarRoom.v1";
+// Which players have their "Why" panel expanded. Deliberately not part of S
+// / not saved — this is transient scan-the-board state, not something that
+// should survive a reload the way picks and league settings do.
+var WHY_OPEN = {};
 
 function save() {
   try {
@@ -816,12 +826,22 @@ function playerRows(items, filter, tierField, withActs, need, scores) {
     }
     var h = Math.max(14, Math.min(30, (p.vor / top) * 30));
     var sc = scores ? scores[p.id] : null;
-    var vBadge = (!sc && p.vDelta != null && Math.abs(p.vDelta) >= 8)
-      ? ' &middot; <span class="vdelta ' + (p.vDelta > 0 ? "up" : "down") + '" title="Model rank vs real ADP. Positive = the room drafts him later than our model would, i.e. a sleeper. Negative = the room reaches for him earlier than our model thinks he\'s worth.">' + sgn(p.vDelta) + " vADP</span>"
-      : "";
-    var sosBadge = (!sc && p.sosLabel && p.sosLabel !== "Neutral")
-      ? ' &middot; <span class="vdelta ' + (p.sosLabel === "Easy" ? "up" : "down") + '" title="His team\'s fantasy-playoff-week opponents (weeks configured in playoff_sos.py), by how much they allowed to his position last season. One season of data — a signal to weigh, not a guarantee.">Playoff ' + p.sosLabel + "</span>"
-      : "";
+    // vADP / playoff SOS used to sit inline in the subtitle on every row —
+    // moved into the Why panel below with everything else that's real
+    // signal but not every-row-every-time signal.
+    // For a "fade," a big positive gap doesn't mean "buy the sleeper" the way
+    // it does everywhere else — it usually means the market hasn't caught up
+    // to whatever real news is behind the fade yet (an injury override is
+    // the clearest case: his rank craters but his ADP hasn't moved yet).
+    // Same number, opposite read, so don't spin it either direction for fades.
+    var vDeltaNote = (p.vDelta != null && Math.abs(p.vDelta) >= 8)
+      ? (p.scoutTag === "fade"
+          ? (sgn(p.vDelta) + " vs ADP (market hasn't caught up yet)")
+          : (sgn(p.vDelta) + " vs ADP (" + (p.vDelta > 0 ? "the room's sleeping on him" : "the room's paying up early") + ")"))
+      : null;
+    var sosNote = (p.sosLabel && p.sosLabel !== "Neutral")
+      ? ("Playoff schedule: " + p.sosLabel)
+      : null;
     var SCOUT_LABEL = { high:"SLEEPER", mod:"WATCH", fade:"FADE", hand:"HANDCUFF" };
     var scoutBadge = (p.scoutTag && SCOUT_LABEL[p.scoutTag])
       ? '<span class="tag scout scout-' + p.scoutTag + '"' + (p.scoutNote ? ' title="' + esc(p.scoutNote) + '"' : "") + ">" + SCOUT_LABEL[p.scoutTag] + "</span>"
@@ -835,6 +855,18 @@ function playerRows(items, filter, tierField, withActs, need, scores) {
           ? ' <span class="tag scout-round" title="Real ADP (' + Math.round((p.adp || {})[adpFormatFor(league())] || 0) + ') / your league\'s team count, rounded up">Rd ' + p.adpRound + "</span>"
           : ' <span class="tag scout-round est" title="No real ADP for him yet — estimated from his model rank instead of market data">~Rd ' + p.ovrRoundEst + "</span>")
       : "";
+    var whyOpen = !!WHY_OPEN[p.id];
+    // Rank replaces the raw value number on the row itself — "#4 overall,
+    // RB2" needs no explanation the way a bare "+142" does. The underlying
+    // VOR still drives the sort and every tier break above; it just moved
+    // into the Why panel as supporting detail instead of the headline.
+    var whyText = sc ? reasonFor(sc) : p.scoutNote;
+    var whyStats = [];
+    if (p.team) whyStats.push(esc(p.team) + (p.bye != null ? " (bye " + p.bye + ")" : ""));
+    if (p.rookie && p.bustPct != null) whyStats.push(p.bustPct + "% bust rate");
+    if (vDeltaNote) whyStats.push(vDeltaNote);
+    if (sosNote) whyStats.push(sosNote);
+    whyStats.push("Model value: " + sgn(sc ? sc.now : p.vor) + " pts over replacement");
     out.push('<div class="prow' + (withActs && i === 0 ? " lead" : "") + '">' +
       '<div class="spark" style="background:var(' + (POSVAR[p.pos] || "--flx") + ');height:' + h + 'px"></div>' +
       '<div class="pos" data-p="' + p.pos + '">' + p.pos + "</div>" +
@@ -842,15 +874,18 @@ function playerRows(items, filter, tierField, withActs, need, scores) {
         (need && need[p.pos] ? '<span class="tag">need</span>' : "") +
         (p.rookie ? '<span class="tag rookie" title="Comp-based projection from draft capital, not his own NFL history">ROOKIE</span>' : "") +
         scoutBadge + roundBadge + "</div>" +
-        '<div class="pname-s">' + (sc ? esc(reasonFor(sc)) : p.pos + p.posRank + " &middot; OVR " + p.ovr + (p.team ? " &middot; " + esc(p.team) : "") + (p.bye != null ? " (bye " + p.bye + ")" : "")) +
-        (p.rookie && p.bustPct != null ? ' &middot; <span class="' + (p.bustPct >= 40 ? "bust" : "") + '">' + p.bustPct + '% bust rate</span>' : "") +
-        vBadge + sosBadge + "</div></div>" +
-      '<div class="pvor"><div class="pvor-t' + ((sc ? sc.now : p.vor) <= 0 ? " neg" : "") + '">' + sgn(sc ? sc.now : p.vor) + "</div>" +
-        '<div class="pvor-s">' + (sc ? p.pos + p.posRank : p.pts) + "</div></div>" +
+        '<div class="pname-s">' + esc(p.team || "") + (p.bye != null ? " (bye " + p.bye + ")" : "") + "</div></div>" +
+      '<div class="prank"><div class="prank-ovr">#' + p.ovr + '</div><div class="prank-pos">' + p.pos + p.posRank + "</div></div>" +
+      '<button class="why-btn' + (whyOpen ? " open" : "") + '" data-a="why" data-v="' + p.id + '">Why<span class="chev">&#9662;</span></button>' +
       (withActs ? '<div class="acts">' +
         '<button class="act mine" title="I drafted him" data-a="pick" data-v="' + p.id + '" data-m="1">&#10003;</button>' +
         '<button class="act gone" title="Someone else took him" data-a="pick" data-v="' + p.id + '" data-m="0">&times;</button></div>' : "") +
       "</div>");
+    if (whyOpen) {
+      out.push('<div class="why">' +
+        (whyText ? '<div class="why-t">' + esc(whyText) + "</div>" : "") +
+        '<div class="why-s">' + whyStats.join(" &middot; ") + "</div></div>");
+    }
   });
   return out.join("");
 }
@@ -1248,6 +1283,7 @@ document.addEventListener("click", function (e) {
   else if (a === "filter") { S.filter = v; render(); }
   else if (a === "sort") { S.sort = v; render(); }
   else if (a === "pick") { commit(v, t.getAttribute("data-m") === "1"); }
+  else if (a === "why") { WHY_OPEN[v] = !WHY_OPEN[v]; render(); }
   else if (a === "undo") { undo(); }
   else if (a === "reset") {
     if (confirm("Clear every pick in " + league().name + "?")) { S.drafts[league().id] = { picks: [] }; save(); render(); }
