@@ -150,7 +150,7 @@ input, select, textarea { font-family: inherit; }
 .kbd { font-family: var(--mono); font-size: 10.5px; background: var(--panel-2); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; color: var(--text); }
 
 @media (min-width: 860px) {
-  .two { display: grid; grid-template-columns: 1fr 320px; gap: 18px; align-items: start; }
+  .two { display: grid; grid-template-columns: 1fr 380px; gap: 18px; align-items: start; }
   .tabs { position: sticky; top: 0; bottom: auto; border-top: none; border-bottom: 1px solid var(--line); }
   .tab { padding: 12px 4px; border-top: none; border-bottom: 2px solid transparent; }
   .tab.on { border-bottom-color: var(--gold); border-top-color: transparent; }
@@ -993,6 +993,44 @@ function sleeperWatchCard(round) {
     }).join("") + "</div>";
 }
 
+// Shared between the Board sidebar and the Teams tab's own-team card, so
+// "what does my team actually look like" is computed once and looks the
+// same everywhere it's shown, not two slightly-different implementations.
+function myLineup(lg) {
+  var pool = MYTEAM.slice(), starters = [], i, idx;
+  ["QB","RB","RB","WR","WR","TE"].forEach(function (slot) {
+    idx = -1;
+    for (i = 0; i < pool.length; i++) if (pool[i].pos === slot) { idx = i; break; }
+    starters.push({ slot: slot, p: idx >= 0 ? pool.splice(idx, 1)[0] : null });
+  });
+  for (var f = 0; f < (lg.roster.FLEX || 0); f++) {
+    idx = -1;
+    for (i = 0; i < pool.length; i++) if (["RB","WR","TE"].indexOf(pool[i].pos) >= 0) { idx = i; break; }
+    starters.push({ slot: "FLEX", p: idx >= 0 ? pool.splice(idx, 1)[0] : null });
+  }
+  return { starters: starters, bench: pool };
+}
+// Starters + bench, rendered as the same .slot list style everywhere it's
+// used. Bench players show their real position as the slot label (there's
+// no "bench slot" the way there's a "QB slot" — the position is the only
+// label that means anything for a player not currently starting).
+function lineupHTML(lineup) {
+  return '<div class="slots">' +
+    lineup.starters.map(function (s) {
+      return '<div class="slot" data-p="' + (s.p ? s.p.pos : "") + '">' +
+        '<div class="slot-k">' + s.slot + "</div>" +
+        '<div class="slot-v' + (s.p ? "" : " empty") + '">' + (s.p ? esc(s.p.name) : "open") + "</div>" +
+        (s.p ? '<div class="num" style="font-size:11px;color:var(--dim)">' + sgn(s.p.vor) + "</div>" : "") + "</div>";
+    }).join("") + "</div>" +
+    (lineup.bench.length ? '<div class="h" style="margin:14px 0 6px;font-size:11px">Bench &middot; ' + lineup.bench.length + "</div>" +
+      '<div class="slots">' + lineup.bench.map(function (p) {
+        return '<div class="slot" data-p="' + p.pos + '"><div class="slot-k">' + p.pos + "</div>" +
+          '<div class="slot-v">' + esc(p.name) + "</div>" +
+          '<div class="num" style="font-size:11px;color:var(--dim)">' + sgn(p.vor) + "</div></div>";
+      }).join("") + "</div>"
+      : '<div class="note" style="margin-top:10px;color:var(--dim)">Bench empty so far.</div>');
+}
+
 function viewBoard() {
   var lg = league(), c = clockInfo(), d = draft();
   var need = currentNeed();
@@ -1021,18 +1059,7 @@ function viewBoard() {
   var atRiskProb = {};
   withProb.forEach(function (x) { atRiskProb[x.p.id] = x.prob; });
 
-  // fill the starting lineup
-  var pool = MYTEAM.slice(), starters = [], i, idx;
-  ["QB","RB","RB","WR","WR","TE"].forEach(function (slot) {
-    idx = -1;
-    for (i = 0; i < pool.length; i++) if (pool[i].pos === slot) { idx = i; break; }
-    starters.push({ slot: slot, p: idx >= 0 ? pool.splice(idx, 1)[0] : null });
-  });
-  for (var f = 0; f < (lg.roster.FLEX || 0); f++) {
-    idx = -1;
-    for (i = 0; i < pool.length; i++) if (["RB","WR","TE"].indexOf(pool[i].pos) >= 0) { idx = i; break; }
-    starters.push({ slot: "FLEX", p: idx >= 0 ? pool.splice(idx, 1)[0] : null });
-  }
+  var lineup = myLineup(lg);
 
   var banked = Math.round(MYTEAM.reduce(function (s, p) { return s + p.vor; }, 0) * 10) / 10;
 
@@ -1078,18 +1105,12 @@ function viewBoard() {
       '<div class="note" style="margin:6px 0 2px"><span class="kbd">/</span> jump to search &middot; <span class="kbd">Ctrl+Z</span> undo the last pick &middot; click <span class="kbd">&#10003;</span> for your own picks</div>' +
       '<div id="list">' + boardList() + "</div>" +
     "</div><aside>" +
-      '<div class="card"><div class="h" style="margin:0 0 9px">Your roster</div><div class="slots">' +
-      starters.map(function (s) {
-        return '<div class="slot" data-p="' + (s.p ? s.p.pos : "") + '">' +
-          '<div class="slot-k">' + s.slot + "</div>" +
-          '<div class="slot-v' + (s.p ? "" : " empty") + '">' + (s.p ? esc(s.p.name) : "open") + "</div>" +
-          (s.p ? '<div class="num" style="font-size:11px;color:var(--dim)">' + sgn(s.p.vor) + "</div>" : "") + "</div>";
-      }).join("") +
-      (pool.length ? '<div class="note" style="margin-top:6px"><b>Bench:</b> ' + pool.map(function (p) { return esc(p.name); }).join(", ") + "</div>" : "") +
-      (heavyByes.length ? '<div class="note" style="margin-top:6px;color:var(--alert)">' + heavyByes.map(function (w) {
+      '<div class="card"><div class="h" style="margin:0 0 9px">Your roster</div>' +
+      lineupHTML(lineup) +
+      (heavyByes.length ? '<div class="note" style="margin-top:10px;color:var(--alert)">' + heavyByes.map(function (w) {
         return byeCounts[w] + " starters on bye week " + w;
       }).join(" &middot; ") + "</div>" : "") +
-      '</div><div class="note" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--line-soft)">Total VOR banked: <b class="num" style="color:var(--gold)">' + banked + "</b></div></div>" +
+      '<div class="note" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--line-soft)">Total VOR banked: <b class="num" style="color:var(--gold)">' + banked + "</b></div></div>" +
       '<div class="row-btns"><button class="btn" data-a="undo" style="flex:1"' + (d.picks.length ? "" : " disabled") + ">Undo pick</button>" +
       '<button class="btn warn" data-a="reset">Clear draft</button></div>' +
     "</aside></div></div>";
@@ -1115,15 +1136,27 @@ function viewTeams() {
     var p = byId[pk.id];
     byTeam[t].push({ p: p, pickNo: i + 1 });
   });
+  // Your own team gets the real starters/bench breakdown (same one the
+  // Board sidebar shows) instead of the flat pick list every other team
+  // gets — pinned first so there's one obvious place to go see your full
+  // roster, bench included, rather than hunting for your card among
+  // everyone else's by slot number.
+  var yourCard = '<div class="card you"><div class="h" style="margin:0 0 9px;display:flex;justify-content:space-between;align-items:center">' +
+    '<input class="in" id="teamname-' + lg.slot + '" style="width:auto;font:inherit;background:transparent;border:none;padding:0" ' +
+      'value="' + esc(teamName(lg, lg.slot)) + '" data-i="teamname:' + lg.slot + '" disabled title="Renamed on the League tab">' +
+    '<span class="note" style="margin:0">Your team</span></div>' +
+    lineupHTML(myLineup(lg)) + "</div>";
+
   var cards = [];
   for (var s = 1; s <= lg.teams; s++) {
+    if (s === lg.slot) continue;
     var picks = byTeam[s];
     var posCounts = {};
     picks.forEach(function (x) { if (x.p) posCounts[x.p.pos] = (posCounts[x.p.pos] || 0) + 1; });
-    cards.push('<div class="card' + (s === lg.slot ? " you" : "") + '">' +
+    cards.push('<div class="card">' +
       '<div class="h" style="margin:0 0 7px;display:flex;justify-content:space-between;align-items:center">' +
       '<input class="in" id="teamname-' + s + '" style="width:auto;font:inherit;background:transparent;border:none;padding:0" ' +
-        'value="' + esc(teamName(lg, s)) + '" data-i="teamname:' + s + '"' + (s === lg.slot ? " disabled title=\"This is your slot \\u2014 renamed on the League tab\"" : "") + '>' +
+        'value="' + esc(teamName(lg, s)) + '" data-i="teamname:' + s + '">' +
       '<span class="note" style="margin:0">' + picks.length + ' picks &middot; ' +
         VAL_POS.map(function (pos) { return posCounts[pos] ? pos + " " + posCounts[pos] : null; }).filter(Boolean).join(" &middot; ") +
       "</span></div>" +
@@ -1134,7 +1167,7 @@ function viewTeams() {
   }
   return '<div class="pane">' +
     '<div class="note" style="margin-bottom:10px">Built automatically from the picks you mark &mdash; whoever is mathematically on the clock gets credit for each "someone else" pick, no extra step needed. Assumes straight snake order; if either league allows in-draft trades, attribution will drift from that point on.</div>' +
-    cards.join("") + "</div>";
+    yourCard + cards.join("") + "</div>";
 }
 
 /* ---- values ---- */
