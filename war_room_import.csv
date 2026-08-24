@@ -1,586 +1,587 @@
 Player,POS,Team,Pass Yds,Pass TDs,INT,Rush Yds,Rush TDs,REC,Rec Yds,Rec TDs,Rookie,Bust%,FL,Scout Tag,Scout Note,adp_standard,stdev_standard,adp_half,stdev_half,adp_ppr,stdev_ppr,adp_2qb,stdev_2qb,bye,playoff_sos_pctl,playoff_sos_label
-Jalen Hurts,QB,PHI,3433.2,24.7,6.2,513.6,10.5,0.0,0.1,0.0,False,,1.5,,,69.4,10.9,74.9,9.4,74.9,9.1,15.7,3.4,10.0,29.2,Tough
-Brock Purdy,QB,SF,4050.4,29.7,14.0,306.2,4.4,0.0,0.2,0.0,False,,1.5,,,76.2,12.8,75.5,13.2,77.9,12.3,16.8,4.1,8.0,26.0,Tough
-Josh Allen,QB,BUF,3379.8,23.5,8.0,480.1,11.1,0.0,0.1,0.0,False,,1.5,,,17.9,9.7,24.8,7.4,27.4,6.9,1.4,0.7,7.0,61.5,Neutral
-Joe Burrow,QB,CIN,3904.1,33.8,8.7,159.9,1.5,0.0,0.2,0.0,False,,1.5,,,54.0,10.2,57.6,7.2,56.9,8.0,7.3,2.5,6.0,46.9,Neutral
-Bo Nix,QB,DEN,3608.7,24.3,10.1,349.1,3.9,0.7,2.8,0.2,False,,1.5,high,Model's biggest QB value gap + 3 independent real sources agree (Waddle trade),120.0,17.6,118.6,14.3,121.0,11.9,31.0,6.8,10.0,35.4,Neutral
-Drake Maye,QB,NE,3483.1,24.1,8.7,371.5,3.2,0.5,2.0,0.1,False,,1.5,,,45.6,10.3,46.2,7.7,50.0,6.8,5.8,2.1,11.0,53.1,Neutral
-Jayden Daniels,QB,WAS,3112.9,20.7,7.5,628.4,5.2,0.0,0.2,0.0,False,,1.5,,,68.5,8.6,71.7,10.1,68.0,10.5,12.4,2.8,7.0,33.3,Tough
-Jared Goff,QB,DET,3741.9,28.1,7.9,85.1,0.5,0.2,0.9,0.1,False,,1.5,,,108.1,15.2,108.8,12.0,108.1,12.6,23.5,5.0,6.0,51.0,Neutral
-Matthew Stafford,QB,LA,3558.8,29.9,6.7,50.1,0.4,0.0,0.1,0.0,False,,1.5,fade,"6 of 7 ESPN panelists flagged him as a bust -- age 38, his 46 passing TDs last year were a career high and viewed as unsustainable, ADP has already inflated from QB20 to QB9 range chasing last year's number. Model still grades him as a top-tier QB; the age curve (0.74x at 38) may not be enough to catch how anomalous that TD rate really was",76.8,12.0,77.2,9.8,83.7,11.4,17.7,3.4,11.0,71.9,Easy
-Sam Darnold,QB,SEA,3873.0,26.2,11.7,167.4,0.6,0.0,0.1,0.0,False,,1.5,mod,Strong model weapons grade; no specific real-world confirmation yet,155.7,15.3,145.4,8.5,142.2,12.0,51.9,9.6,11.0,32.3,Tough
-Tyler Shough,QB,NO,3746.4,18.6,9.2,302.9,5.5,0.1,0.3,0.0,False,,1.5,high,Model + expert roundup + dedicated QB thread all landed here independently; Saints committed to him as QB1,144.3,11.1,137.3,11.6,137.6,10.3,48.6,9.7,8.0,69.8,Easy
-Trevor Lawrence,QB,JAX,3256.7,22.3,10.6,277.1,6.7,0.0,0.2,0.0,False,,1.5,,,88.8,14.5,88.7,11.3,89.7,12.4,16.6,4.8,7.0,66.7,Easy
-Lamar Jackson,QB,BAL,2876.4,24.5,7.1,435.9,2.6,0.0,0.1,0.0,False,,1.5,,,49.3,9.6,50.9,9.6,53.2,7.5,6.2,2.2,13.0,57.3,Neutral
-Puka Nacua,WR,LA,0.1,0.0,0.0,59.9,0.3,121.0,1578.3,8.1,False,,1.5,,,2.7,0.8,2.8,0.6,3.0,0.7,5.6,2.3,11.0,56.2,Neutral
-Ja'Marr Chase,WR,CIN,0.1,0.0,0.0,16.1,0.1,121.4,1455.3,9.9,False,,1.5,,,5.0,1.5,4.1,1.0,3.9,1.0,9.3,4.3,6.0,70.3,Easy
-Jaxson Dart,QB,NYG,2830.5,18.7,6.6,414.6,7.3,0.1,0.2,0.0,False,,1.5,high,"Confirmed unchallenged starter; real rushing floor (~90 car, 6 rush TD)",101.6,18.9,98.6,16.7,101.4,13.3,25.2,5.1,8.0,60.4,Neutral
-Patrick Mahomes,QB,KC,3303.4,20.9,10.5,310.6,3.2,0.7,2.4,0.2,False,,1.5,,,96.1,14.1,99.2,11.7,98.2,12.7,19.3,5.3,5.0,33.3,Tough
-Dak Prescott,QB,DAL,3500.0,22.5,8.7,157.4,2.1,0.0,0.1,0.0,False,,1.5,,,62.2,6.5,67.3,6.6,65.5,8.8,11.2,3.1,14.0,54.2,Neutral
-Baker Mayfield,QB,TB,3208.9,24.4,10.3,273.7,1.2,0.0,0.1,0.0,False,,1.5,,,135.9,10.4,133.2,10.6,128.4,10.1,37.3,7.5,10.0,40.6,Neutral
-C.J. Stroud,QB,HOU,3546.6,21.4,9.5,240.6,1.3,0.2,1.1,0.1,False,,1.5,,,165.2,15.3,169.6,11.7,161.6,12.0,66.3,10.9,8.0,38.5,Neutral
-Caleb Williams,QB,CHI,3177.1,20.7,6.5,318.4,2.0,0.8,4.1,0.2,False,,1.5,,,104.2,16.8,103.9,17.4,105.5,15.3,23.1,5.8,10.0,40.6,Neutral
-Daniel Jones,QB,IND,3267.2,18.9,9.7,248.7,5.6,0.0,0.2,0.0,False,,1.5,,,145.5,22.8,156.9,17.6,146.7,15.6,68.6,12.9,13.0,58.3,Neutral
-Jahmyr Gibbs,RB,DET,0.1,0.0,0.0,1161.3,12.1,58.6,480.9,3.4,False,,1.5,,,1.6,0.8,1.5,0.7,1.8,0.8,2.1,0.8,6.0,58.3,Neutral
-Jordan Love,QB,GB,3337.5,23.1,8.0,184.1,1.0,0.0,0.1,0.0,False,,1.5,,,155.7,14.0,148.6,16.6,148.0,14.8,52.9,11.5,11.0,56.2,Neutral
-Jeremiyah Love,RB,ARI,0.0,0.0,0.0,1235.4,11.9,57.2,419.4,2.7,True,0.0,1.5,mod,"Balanced view: real committee noise (Allgeier/Conner) tempers the ceiling, but a real ESPN-panel stat cuts the other way -- each of the last 9 RBs drafted top-12 overall finished top-12 in fantasy as a rookie. Matches our own model's comp table (100% useful-rate for his tier). Good at ADP, not a slam-dunk reach, not a pure fade either",31.1,5.0,29.3,4.2,26.9,3.8,47.8,5.7,14.0,68.8,Easy
-Amon-Ra St. Brown,WR,DET,1.9,0.2,0.0,13.9,0.1,110.9,1303.1,10.8,False,,1.5,,,8.6,1.6,7.6,1.7,6.9,1.4,17.9,4.7,6.0,53.1,Neutral
-Justin Herbert,QB,LAC,3083.7,20.4,9.4,336.7,2.3,0.0,0.1,0.0,False,,1.5,,,101.2,16.5,103.9,13.6,103.8,13.5,23.4,6.0,7.0,60.4,Neutral
-Bijan Robinson,RB,ATL,0.1,0.0,0.0,1263.5,7.9,61.4,559.8,2.3,False,,1.5,,,2.3,0.7,2.1,0.7,1.7,0.8,2.6,0.7,11.0,62.5,Neutral
-Bryce Young,QB,CAR,2944.1,21.1,10.2,231.8,3.0,0.0,0.1,0.0,False,,1.5,,,,,,,171.2,15.0,88.4,7.5,5.0,59.4,Neutral
-Jaxon Smith-Njigba,WR,SEA,8.4,0.0,0.0,28.5,0.1,100.3,1392.0,7.7,False,,1.5,,,5.7,1.2,5.3,1.3,5.6,1.2,12.8,5.0,11.0,38.0,Neutral
-Tua Tagovailoa,QB,ATL,3244.0,23.1,13.8,110.9,0.2,0.0,0.2,0.0,False,,1.5,,,,,,,,,135.5,20.6,11.0,71.9,Easy
-Mac Jones,QB,SF,3239.4,19.1,9.4,188.7,1.2,0.0,0.2,0.0,False,,1.5,,,,,,,,,,,,26.0,Tough
-De'Von Achane,RB,MIA,0.1,0.0,0.0,1099.3,6.5,62.6,461.5,3.5,False,,1.5,,,12.7,2.4,11.1,1.9,10.2,1.8,24.2,4.2,6.0,45.8,Neutral
-Michael Penix Jr.,QB,ATL,3223.8,16.3,6.9,163.1,2.6,0.1,0.3,0.0,False,,1.5,,,,,,,,,142.5,16.6,11.0,71.9,Easy
-Kyler Murray,QB,MIN,2808.9,16.6,9.3,372.9,2.9,0.0,0.2,0.0,False,,1.5,mod,"Same Minnesota stale-team-context issue as Jefferson -- his weapons grade (9th pctl) is really Jefferson's own McCarthy-suppressed 2025 season, not a fair read of what he's actually throwing to",153.8,13.1,146.9,17.5,145.7,15.3,56.1,11.1,6.0,84.4,Easy
+Jalen Hurts,QB,PHI,3433.2,24.7,6.2,513.8,10.5,0.0,0.1,0.0,False,,1.5,,,79.8,12.6,78.8,10.4,79.0,11.6,16.7,3.3,10.0,29.2,Tough
+Brock Purdy,QB,SF,4050.4,29.7,14.0,306.2,4.4,0.0,0.2,0.0,False,,1.5,,,90.3,12.8,88.4,11.7,87.8,12.4,18.7,4.0,8.0,26.0,Tough
+Josh Allen,QB,BUF,3379.8,23.5,8.0,480.1,11.1,0.0,0.1,0.0,False,,1.5,,,27.4,10.0,32.8,7.2,33.8,8.5,1.7,0.9,7.0,61.5,Neutral
+Joe Burrow,QB,CIN,3904.1,33.8,8.7,159.9,1.5,0.0,0.2,0.0,False,,1.5,,,56.2,8.4,56.8,9.3,57.6,7.6,8.9,3.0,6.0,46.9,Neutral
+Drake Maye,QB,NE,3573.5,24.7,8.7,381.3,3.3,0.5,2.1,0.1,False,,1.5,,,48.7,5.8,50.9,8.5,51.6,7.8,6.7,2.7,11.0,53.1,Neutral
+Bo Nix,QB,DEN,3567.3,24.0,10.1,345.0,3.8,0.7,2.8,0.2,False,,1.5,high,Model's biggest QB value gap + 3 independent real sources agree (Waddle trade),116.1,16.9,114.2,14.1,112.4,13.7,30.8,6.4,10.0,35.4,Neutral
+Jayden Daniels,QB,WAS,3112.9,20.7,7.5,628.4,5.2,0.0,0.2,0.0,False,,1.5,,,71.5,8.0,70.2,8.6,72.2,11.6,13.5,3.1,7.0,33.3,Tough
+Jared Goff,QB,DET,3741.9,28.1,7.9,85.1,0.5,0.2,0.9,0.1,False,,1.5,,,104.1,12.2,100.6,13.0,99.8,13.6,24.9,4.9,6.0,51.0,Neutral
+Matthew Stafford,QB,LA,3558.8,29.9,6.7,50.1,0.4,0.0,0.1,0.0,False,,1.5,fade,"6 of 7 ESPN panelists flagged him as a bust -- age 38, his 46 passing TDs last year were a career high and viewed as unsustainable, ADP has already inflated from QB20 to QB9 range chasing last year's number. Model still grades him as a top-tier QB; the age curve (0.74x at 38) may not be enough to catch how anomalous that TD rate really was",75.2,9.8,76.0,11.6,77.3,11.3,17.1,2.7,11.0,71.9,Easy
+Sam Darnold,QB,SEA,3873.0,26.2,11.7,167.4,0.6,0.0,0.1,0.0,False,,1.5,mod,Strong model weapons grade; no specific real-world confirmation yet,151.4,17.4,149.0,11.3,142.0,14.2,57.1,10.5,11.0,32.3,Tough
+Tyler Shough,QB,NO,3746.4,18.6,9.2,302.9,5.5,0.1,0.3,0.0,False,,1.5,high,Model + expert roundup + dedicated QB thread all landed here independently; Saints committed to him as QB1,137.6,17.1,138.7,10.7,134.2,13.0,47.9,8.8,8.0,69.8,Easy
+Trevor Lawrence,QB,JAX,3256.7,22.3,10.6,277.2,6.7,0.0,0.2,0.0,False,,1.5,,,91.3,14.0,93.7,12.1,91.9,12.5,19.0,5.2,7.0,66.7,Easy
+Lamar Jackson,QB,BAL,2876.4,24.5,7.1,435.9,2.6,0.0,0.1,0.0,False,,1.5,,,54.2,10.1,55.5,9.8,57.0,7.0,8.0,2.9,13.0,57.3,Neutral
+Puka Nacua,WR,LA,0.1,0.0,0.0,60.2,0.3,121.0,1577.9,8.1,False,,1.5,,,4.0,1.1,3.0,0.4,3.1,0.9,4.9,1.5,11.0,56.2,Neutral
+Ja'Marr Chase,WR,CIN,0.1,0.0,0.0,16.2,0.1,121.4,1455.0,9.9,False,,1.5,,,4.5,1.3,3.9,1.0,3.8,1.0,7.7,4.0,6.0,69.3,Easy
+Jaxson Dart,QB,NYG,2830.5,18.7,6.6,414.8,7.3,0.1,0.2,0.0,False,,1.5,high,"Confirmed unchallenged starter; real rushing floor (~90 car, 6 rush TD)",117.8,16.6,120.7,12.0,117.3,12.2,30.0,7.5,8.0,60.4,Neutral
+Patrick Mahomes,QB,KC,3303.4,20.9,10.5,310.6,3.2,0.7,2.4,0.2,False,,1.5,,,106.6,14.4,101.9,12.8,102.5,12.4,23.0,5.1,5.0,33.3,Tough
+Dak Prescott,QB,DAL,3500.0,22.5,8.7,157.4,2.1,0.0,0.1,0.0,False,,1.5,,,67.2,5.4,66.1,7.4,65.3,8.0,13.2,3.0,14.0,54.2,Neutral
+Baker Mayfield,QB,TB,3208.9,24.4,10.3,273.8,1.2,0.0,0.1,0.0,False,,1.5,,,134.6,14.0,135.4,8.7,128.7,11.2,41.5,8.3,10.0,40.6,Neutral
+C.J. Stroud,QB,HOU,3546.6,21.4,9.5,240.6,1.3,0.2,1.1,0.1,False,,1.5,,,167.8,5.1,163.4,11.0,157.6,15.3,71.7,10.0,8.0,38.5,Neutral
+Jordan Love,QB,GB,3378.3,23.3,8.0,186.5,1.0,0.0,0.1,0.0,False,,1.5,,,152.2,16.1,150.5,14.8,146.2,13.7,58.3,11.4,11.0,56.2,Neutral
+Caleb Williams,QB,CHI,3177.1,20.7,6.5,320.3,2.0,0.8,4.1,0.2,False,,1.5,,,90.3,12.6,91.5,12.2,89.8,12.0,21.8,5.3,10.0,40.6,Neutral
+Daniel Jones,QB,IND,3267.2,18.9,9.7,248.8,5.6,0.0,0.2,0.0,False,,1.5,,,,,166.9,12.0,160.5,13.0,72.8,12.3,13.0,58.3,Neutral
+Jahmyr Gibbs,RB,DET,0.1,0.0,0.0,1161.3,12.1,58.6,480.9,3.4,False,,1.5,,,1.3,0.6,1.5,0.7,1.5,0.7,1.8,0.8,6.0,58.3,Neutral
+Amon-Ra St. Brown,WR,DET,1.9,0.2,0.0,14.1,0.1,110.9,1302.8,10.8,False,,1.5,,,8.4,2.1,7.9,1.4,6.3,1.3,14.3,4.1,6.0,56.2,Neutral
+Justin Herbert,QB,LAC,3083.7,20.4,9.4,336.7,2.3,0.0,0.1,0.0,False,,1.5,,,109.9,15.5,109.9,12.0,105.8,14.4,25.6,4.8,7.0,60.4,Neutral
+Bijan Robinson,RB,ATL,0.1,0.0,0.0,1263.5,7.9,61.4,559.8,2.3,False,,1.5,,,2.3,0.7,2.3,0.6,2.0,0.7,2.6,0.7,11.0,62.5,Neutral
+Bryce Young,QB,CAR,2944.1,21.1,10.2,231.8,3.0,0.0,0.1,0.0,False,,1.5,,,,,,,163.8,20.2,89.4,7.4,5.0,59.4,Neutral
+Jaxon Smith-Njigba,WR,SEA,8.4,0.0,0.0,28.6,0.1,100.3,1391.7,7.6,False,,1.5,,,6.3,1.3,5.2,1.5,5.4,1.1,9.5,4.0,11.0,38.0,Neutral
+Mac Jones,QB,SF,3239.4,19.1,9.4,188.8,1.2,0.0,0.2,0.0,False,,1.5,,,,,,,,,,,,26.0,Tough
+Tua Tagovailoa,QB,ATL,3206.0,22.8,13.8,109.6,0.2,0.0,0.2,0.0,False,,1.5,,,,,,,,,135.5,20.5,11.0,71.9,Easy
+Jeremiyah Love,RB,ARI,0.0,0.0,0.0,1111.9,10.7,51.5,377.5,2.4,True,0.0,1.5,mod,"Balanced view: real committee noise (Allgeier/Conner) tempers the ceiling, but a real ESPN-panel stat cuts the other way -- each of the last 9 RBs drafted top-12 overall finished top-12 in fantasy as a rookie. Matches our own model's comp table (100% useful-rate for his tier). Good at ADP, not a slam-dunk reach, not a pure fade either",31.4,4.2,29.3,3.8,27.9,3.5,48.8,5.9,14.0,68.8,Easy
+De'Von Achane,RB,MIA,0.1,0.0,0.0,1099.3,6.5,62.6,461.5,3.5,False,,1.5,,,11.5,1.9,11.8,1.7,10.4,1.9,21.6,5.0,6.0,45.8,Neutral
+Kyler Murray,QB,MIN,2808.9,16.6,9.3,373.0,2.9,0.0,0.2,0.0,False,,1.5,mod,"Same Minnesota stale-team-context issue as Jefferson -- his weapons grade (9th pctl) is really Jefferson's own McCarthy-suppressed 2025 season, not a fair read of what he's actually throwing to",145.8,13.4,136.5,10.6,133.2,13.1,53.0,10.4,6.0,84.4,Easy
 Spencer Rattler,QB,NO,3195.7,16.2,9.5,287.7,0.6,1.9,7.4,0.4,False,,1.5,,,,,,,,,,,,69.8,Easy
-Drake London,WR,ATL,0.1,0.0,0.0,3.7,0.0,94.2,1231.7,9.0,False,,1.5,,,11.2,2.6,9.6,1.7,10.1,1.6,24.8,4.5,11.0,59.4,Neutral
-Jonathan Taylor,RB,IND,0.1,0.0,0.0,1263.4,12.9,32.7,256.7,1.0,False,,1.5,,,4.2,0.8,5.8,1.3,7.4,1.7,6.5,1.6,13.0,68.8,Easy
-Jacoby Brissett,QB,ARI,2868.5,18.4,7.3,153.1,1.5,0.0,0.2,0.0,False,,1.5,,,,,,,165.8,17.2,106.5,14.5,14.0,59.4,Neutral
-Rashee Rice,WR,KC,0.2,0.0,0.0,35.6,0.2,95.0,1076.5,8.9,False,,1.5,,,14.9,3.5,12.8,1.8,12.4,2.4,37.8,12.9,5.0,43.8,Neutral
-Cam Ward,QB,TEN,3016.5,15.7,7.1,171.8,1.9,0.1,0.2,0.0,False,,1.5,,,,,184.9,21.9,174.2,17.9,94.2,11.4,9.0,64.6,Neutral
-Aaron Rodgers,QB,PIT,2821.9,20.1,7.0,49.9,0.7,0.2,0.9,0.1,False,,1.5,,,,,,,173.9,22.4,112.6,16.1,9.0,58.3,Neutral
-James Cook,RB,BUF,0.1,0.0,0.0,1241.1,11.1,29.9,244.0,1.3,False,,1.5,,,9.5,2.2,11.7,2.9,14.5,3.2,18.8,4.4,7.0,44.8,Neutral
-A.J. Brown,WR,NE,0.1,0.0,0.0,2.7,0.0,87.2,1176.8,7.7,False,,1.5,,,19.1,2.8,19.0,2.7,17.7,2.7,34.3,4.9,11.0,33.9,Tough
+Michael Penix Jr.,QB,ATL,3183.0,16.1,6.9,161.0,2.5,0.1,0.3,0.0,False,,1.5,,,,,,,,,143.8,18.7,11.0,71.9,Easy
+Drake London,WR,ATL,0.1,0.0,0.0,3.8,0.0,94.2,1231.4,9.0,False,,1.5,,,12.8,1.9,12.3,1.3,9.9,1.6,24.7,4.8,11.0,59.4,Neutral
+Jonathan Taylor,RB,IND,0.1,0.0,0.0,1263.4,12.9,32.7,256.7,1.0,False,,1.5,,,4.1,0.9,6.1,1.6,7.4,1.7,5.6,1.4,13.0,68.8,Easy
+Rashee Rice,WR,KC,0.2,0.0,0.0,35.8,0.2,95.0,1075.9,8.9,False,,1.5,,,19.7,3.5,15.2,1.8,14.6,2.2,32.1,9.3,5.0,43.8,Neutral
+Jacoby Brissett,QB,ARI,2832.5,18.2,7.3,151.2,1.5,0.0,0.2,0.0,False,,1.5,,,,,,,169.3,20.9,109.3,15.4,14.0,59.4,Neutral
+Cam Ward,QB,TEN,3016.5,15.7,7.1,171.8,1.9,0.1,0.2,0.0,False,,1.5,,,,,165.2,10.5,170.2,12.9,98.8,11.7,9.0,64.6,Neutral
+Aaron Rodgers,QB,PIT,2821.9,20.1,7.0,49.9,0.7,0.2,0.9,0.1,False,,1.5,,,,,,,168.3,32.3,113.0,15.3,9.0,58.3,Neutral
+James Cook,RB,BUF,0.1,0.0,0.0,1241.1,11.1,29.9,244.0,1.3,False,,1.5,,,8.5,2.5,9.3,1.7,12.7,2.9,16.3,4.7,7.0,44.8,Neutral
+A.J. Brown,WR,NE,0.1,0.0,0.0,2.8,0.0,87.2,1176.4,7.7,False,,1.5,,,21.7,3.2,19.6,3.1,18.1,3.3,34.9,5.1,11.0,33.9,Tough
 Justin Fields,QB,KC,2101.3,11.9,3.4,466.9,5.4,0.8,3.0,0.2,False,,1.5,,,,,,,,,,,,33.3,Tough
 Marcus Mariota,QB,WAS,2476.8,15.8,8.2,317.1,2.8,0.1,0.2,0.0,False,,1.5,,,,,,,,,,,,33.3,Tough
 Joe Flacco,QB,CIN,2911.2,18.3,10.3,59.8,1.4,0.0,0.1,0.0,False,,1.5,,,,,,,,,,,,46.9,Neutral
+CeeDee Lamb,WR,DAL,0.1,0.0,0.0,26.9,0.1,91.5,1213.9,5.5,False,,1.5,,,13.4,2.9,12.5,2.3,10.7,2.0,25.6,5.5,14.0,61.5,Neutral
 Jameis Winston,QB,NYG,2917.6,16.1,11.9,155.0,1.9,1.2,6.7,0.3,False,,1.5,,,,,,,,,,,,60.4,Neutral
-CeeDee Lamb,WR,DAL,0.1,0.0,0.0,26.7,0.1,91.5,1214.2,5.5,False,,1.5,,,14.2,2.7,12.6,2.4,11.2,2.1,27.5,5.4,14.0,61.5,Neutral
-Will Levis,QB,TEN,2803.9,17.7,12.9,245.9,0.6,0.1,0.3,0.0,False,,1.5,,,,,,,,,,,,64.6,Neutral
-Malik Nabers,WR,NYG,0.1,0.0,0.0,13.7,0.1,91.3,1113.1,7.3,False,,1.5,fade,"REAL INJURY RISK: still recovering from Oct 2025 torn ACL/meniscus + a spring cleanup procedure. Zero full camp practices as of Aug 13. Week 1 vs DAL is only a real possibility, not confirmed. Model projects a clean 15-game season (proj 248, ADP ~31/rd3) with no injury discount -- know this before you spend an early pick",31.5,5.2,30.3,4.3,31.1,4.2,56.6,12.2,8.0,75.0,Easy
-DeVonta Smith,WR,PHI,0.1,0.0,0.0,3.9,0.0,92.4,1180.2,6.2,False,,1.5,,,38.8,4.2,31.3,3.5,29.2,3.5,56.2,5.8,10.0,27.1,Tough
-George Pickens,WR,DAL,0.1,0.0,0.0,4.9,0.0,79.8,1188.8,7.7,False,,1.5,,,17.1,4.1,19.5,2.4,20.8,2.6,33.3,5.7,14.0,61.5,Neutral
-Malik Willis,QB,MIA,2161.5,14.1,3.5,335.2,4.0,0.1,0.3,0.0,False,,1.5,,,159.2,19.0,160.7,14.4,160.6,14.2,75.4,8.7,6.0,19.8,Tough
+Will Levis,QB,TEN,2803.9,17.7,12.9,245.9,0.6,0.1,0.3,0.0,False,,1.5,,,,,,,149.6,12.5,,,9.0,64.6,Neutral
+Malik Nabers,WR,NYG,0.1,0.0,0.0,13.8,0.1,91.3,1112.7,7.3,False,,1.5,fade,"REAL INJURY RISK: still recovering from Oct 2025 torn ACL/meniscus + a spring cleanup procedure. Zero full camp practices as of Aug 13. Week 1 vs DAL is only a real possibility, not confirmed. Model projects a clean 15-game season (proj 248, ADP ~31/rd3) with no injury discount -- know this before you spend an early pick",29.2,3.7,27.2,3.5,27.3,3.5,49.8,10.1,8.0,75.0,Easy
+DeVonta Smith,WR,PHI,0.1,0.0,0.0,3.9,0.0,92.4,1179.8,6.2,False,,1.5,,,37.5,4.5,31.8,3.2,29.6,3.7,55.8,5.5,10.0,27.1,Tough
+George Pickens,WR,DAL,0.1,0.0,0.0,4.9,0.0,79.8,1188.5,7.7,False,,1.5,,,19.8,2.2,19.9,2.6,20.3,3.0,33.2,5.0,14.0,61.5,Neutral
+Malik Willis,QB,MIA,2161.5,14.1,3.5,335.2,4.0,0.1,0.3,0.0,False,,1.5,,,160.7,19.9,159.9,18.7,162.6,12.9,81.2,10.7,6.0,19.8,Tough
 Davis Mills,QB,HOU,2605.6,14.9,4.7,185.0,2.0,0.1,0.3,0.0,False,,1.5,,,,,,,,,,,,38.5,Neutral
-Kyren Williams,RB,LA,0.1,0.0,0.0,1119.5,9.9,33.1,237.0,2.1,False,,1.5,,,25.4,4.3,31.1,4.4,33.1,3.9,43.4,4.3,11.0,50.0,Neutral
-Trey McBride,TE,ARI,0.1,0.0,0.0,1.1,0.0,97.9,971.4,7.2,False,,1.5,,,56.1,14.0,44.0,8.9,34.6,6.5,67.1,13.4,14.0,43.8,Neutral
-Chase Brown,RB,CIN,0.1,0.0,0.0,884.6,5.7,54.7,361.2,3.4,False,,1.5,,,18.9,3.7,16.0,2.6,12.5,2.6,36.2,6.5,6.0,58.3,Neutral
-Tee Higgins,WR,CIN,0.1,0.0,0.0,2.8,0.0,71.2,956.6,10.5,False,,1.5,,,33.9,4.2,38.0,4.2,38.1,4.5,50.2,6.1,6.0,70.3,Easy
-Kenneth Walker III,RB,KC,0.1,0.0,0.0,1063.0,7.1,42.0,328.4,0.8,False,,1.5,,,28.1,5.3,26.4,4.1,25.9,3.8,43.6,6.7,5.0,32.3,Tough
+Kyren Williams,RB,LA,0.1,0.0,0.0,1119.5,9.9,33.1,237.0,2.1,False,,1.5,,,22.0,3.5,27.2,3.3,31.6,4.3,41.1,5.5,11.0,50.0,Neutral
+Trey McBride,TE,ARI,0.1,0.0,0.0,1.1,0.0,97.9,971.0,7.2,False,,1.5,,,48.6,10.1,37.7,6.8,28.9,4.7,65.1,12.4,14.0,43.8,Neutral
+Chase Brown,RB,CIN,0.1,0.0,0.0,884.6,5.7,54.7,361.2,3.4,False,,1.5,,,16.7,2.8,15.3,2.9,13.4,2.6,31.4,6.5,6.0,58.3,Neutral
+Tee Higgins,WR,CIN,0.1,0.0,0.0,2.8,0.0,71.2,956.2,10.5,False,,1.5,,,34.3,5.6,36.2,4.1,36.3,4.9,51.7,5.0,6.0,69.3,Easy
+Kenneth Walker III,RB,KC,0.1,0.0,0.0,1063.0,7.1,42.0,328.4,0.8,False,,1.5,,,21.5,3.4,21.2,3.7,22.1,4.1,39.5,8.1,5.0,32.3,Tough
 Aidan O'Connell,QB,LV,2638.4,13.8,6.6,154.0,1.7,0.1,0.3,0.0,False,,1.5,,,,,,,,,,,,58.3,Neutral
-Fernando Mendoza,QB,LV,2693.9,12.9,10.0,201.8,2.2,0.0,0.0,0.0,True,6.0,1.5,,,,,,,165.0,20.5,129.6,18.6,13.0,58.3,Neutral
-Tanner McKee,QB,PHI,2300.1,15.0,5.9,179.4,1.8,0.1,0.4,0.0,False,,1.5,,,,,,,,,,,,29.2,Tough
-Zay Flowers,WR,BAL,0.1,0.0,0.0,46.2,0.3,79.2,1099.3,4.4,False,,1.5,,,24.5,3.2,25.2,2.6,26.1,3.1,42.4,4.0,13.0,39.6,Neutral
-Geno Smith,QB,NYJ,2705.8,15.8,13.2,124.1,0.8,0.0,0.1,0.0,False,,1.5,,,,,,,,,108.5,10.5,13.0,33.3,Tough
-J.J. McCarthy,QB,MIN,2342.7,15.6,15.0,212.3,3.1,0.1,0.3,0.0,False,,1.5,,,,,,,,,,,,84.4,Easy
-Kirk Cousins,QB,LV,2724.8,15.5,9.6,57.8,0.6,0.0,0.1,0.0,False,,1.5,,,,,,,,,137.5,19.8,13.0,58.3,Neutral
-Chris Olave,WR,NO,0.1,0.0,0.6,7.2,0.0,82.4,975.3,6.5,False,,1.5,,,26.3,2.7,23.3,2.4,20.7,2.6,42.1,6.6,8.0,60.4,Neutral
+Fernando Mendoza,QB,LV,2693.9,12.9,10.0,201.8,2.2,0.0,0.0,0.0,True,6.0,1.5,,,167.8,3.5,,,162.0,26.1,130.0,22.1,13.0,58.3,Neutral
+Tanner McKee,QB,PHI,2300.1,15.0,5.9,179.5,1.8,0.1,0.4,0.0,False,,1.5,,,,,,,,,,,,29.2,Tough
+Zay Flowers,WR,BAL,0.1,0.0,0.0,46.5,0.3,79.1,1099.0,4.4,False,,1.5,,,26.0,2.6,26.0,2.6,25.6,3.0,42.2,3.9,13.0,39.6,Neutral
+Geno Smith,QB,NYJ,2705.8,15.8,13.2,124.1,0.8,0.0,0.1,0.0,False,,1.5,,,,,,,,,118.6,18.1,13.0,33.3,Tough
+J.J. McCarthy,QB,MIN,2342.7,15.6,15.0,212.3,3.1,0.1,0.3,0.0,False,,1.5,,,,,,,,,146.2,16.3,6.0,84.4,Easy
+Kirk Cousins,QB,LV,2724.8,15.5,9.6,57.8,0.6,0.0,0.1,0.0,False,,1.5,,,,,,,,,144.2,21.7,13.0,58.3,Neutral
+Chris Olave,WR,NO,0.1,0.0,0.6,7.3,0.0,82.4,975.1,6.5,False,,1.5,,,27.3,2.9,23.7,2.8,20.1,3.6,42.0,6.2,8.0,60.4,Neutral
 Dillon Gabriel,QB,CLE,2232.9,15.5,6.3,171.1,1.5,0.1,0.4,0.0,False,,1.5,,,,,,,,,,,,63.5,Neutral
-Nico Collins,WR,HOU,0.1,0.0,0.0,8.8,0.1,71.0,1058.9,6.6,False,,1.5,,,22.3,2.4,23.3,2.9,23.6,2.7,38.5,4.0,8.0,41.7,Neutral
-Jameson Williams,WR,DET,0.1,0.0,0.0,35.2,0.2,66.2,1079.2,6.4,False,,1.5,,,39.6,4.1,41.3,3.6,45.4,4.3,57.7,6.0,6.0,53.1,Neutral
-Javonte Williams,RB,DAL,0.1,0.0,0.0,929.2,8.5,38.7,219.0,1.9,False,,1.5,,,30.5,3.4,36.0,4.1,36.2,4.6,49.0,4.5,14.0,43.8,Neutral
-Bucky Irving,RB,TB,0.1,0.0,0.0,901.3,4.0,47.5,398.5,2.2,False,,1.5,,,45.9,5.5,45.7,5.3,43.6,4.9,65.1,6.8,10.0,39.6,Neutral
-Rome Odunze,WR,CHI,0.1,0.0,0.0,7.2,0.0,67.4,946.1,7.8,False,,1.5,,,40.2,4.2,44.8,3.9,49.3,5.7,61.4,6.3,10.0,58.3,Neutral
-Ricky Pearsall,WR,SF,0.1,0.0,0.0,20.6,0.1,78.4,1070.7,3.5,False,,1.5,high,Top model value-gap at WR in both leagues,102.9,5.5,111.5,4.4,112.6,6.6,118.0,12.5,8.0,25.5,Tough
-Deshaun Watson,QB,CLE,2234.8,12.2,7.0,223.6,2.4,0.1,0.4,0.0,False,,1.5,,,,,,,,,130.8,22.8,11.0,63.5,Neutral
+Nico Collins,WR,HOU,0.1,0.0,0.0,8.9,0.1,70.9,1058.6,6.6,False,,1.5,,,20.4,2.9,20.1,2.7,21.0,2.9,36.7,4.4,8.0,41.7,Neutral
+Jameson Williams,WR,DET,0.1,0.0,0.0,35.5,0.2,66.2,1078.9,6.4,False,,1.5,,,32.2,3.4,40.1,3.7,44.2,4.2,53.0,5.8,6.0,56.2,Neutral
+Javonte Williams,RB,DAL,0.1,0.0,0.0,929.2,8.5,38.7,219.0,1.9,False,,1.5,,,27.6,2.9,33.2,4.0,36.8,4.7,47.1,5.2,14.0,43.8,Neutral
+Bucky Irving,RB,TB,0.1,0.0,0.0,901.3,4.0,47.5,398.5,2.2,False,,1.5,,,46.3,4.6,46.5,6.0,45.2,4.6,64.4,6.2,10.0,39.6,Neutral
+Rome Odunze,WR,CHI,0.1,0.0,0.0,7.3,0.0,67.4,945.8,7.8,False,,1.5,,,44.4,4.7,48.2,6.1,51.9,6.3,61.2,6.3,10.0,58.3,Neutral
+Deshaun Watson,QB,CLE,2234.8,12.2,7.0,223.6,2.4,0.1,0.4,0.0,False,,1.5,,,,,,,,,136.1,27.2,11.0,63.5,Neutral
 Anthony Richardson,QB,IND,1968.0,10.4,10.6,342.1,4.8,1.8,7.4,0.4,False,,1.5,,,,,,,,,,,,58.3,Neutral
-Christian Watson,WR,GB,0.1,0.0,0.0,14.3,0.1,58.6,982.0,7.9,False,,1.5,,,58.1,7.8,62.9,6.8,69.9,9.1,79.3,7.2,11.0,44.8,Neutral
-Shedeur Sanders,QB,CLE,2468.8,14.0,14.5,201.7,1.1,0.1,0.3,0.0,False,,1.5,,,,,,,,,139.9,17.4,11.0,63.5,Neutral
-Justin Jefferson,WR,MIN,4.9,0.0,0.0,8.3,0.0,74.5,981.9,4.9,False,,1.5,mod,"Kyler Murray confirmed the real Vikings starting QB (won the job over McCarthy) -- real analysts expect a bounce-back after a McCarthy-led WR20 2025. Model's context grade for him is dragged down by team_profiles.csv, which is single-season (2025) and entirely predates the QB change (MIN pass_epa_pct 9th pctl, all under McCarthy) -- context math structurally can't see this yet, real signal says buy the bounce-back more than the raw number implies",18.8,3.3,15.2,2.6,14.4,3.1,31.3,6.4,6.0,77.1,Easy
-Christian McCaffrey,RB,SF,0.1,0.0,0.0,615.6,5.2,48.2,419.0,3.1,False,,1.5,,,6.6,2.0,6.7,1.6,6.0,1.5,11.8,3.1,8.0,35.4,Neutral
-Josh Jacobs,RB,GB,0.1,0.0,0.0,818.2,10.3,28.1,225.4,0.8,False,,1.5,,,16.3,4.9,23.0,3.2,25.6,4.0,32.0,4.8,11.0,52.1,Neutral
-Alec Pierce,WR,IND,0.1,0.0,0.0,2.5,0.0,53.3,1032.0,6.9,False,,1.5,,,44.8,4.8,50.3,5.8,56.2,6.7,70.4,8.0,13.0,44.8,Neutral
-Quentin Johnston,WR,LAC,0.1,0.0,0.0,13.7,0.1,62.5,850.8,8.1,False,,1.5,high,Allen's departed 122 targets confirmed real -- locked-in WR2 with WR1 upside,73.1,6.5,81.6,7.3,95.0,8.7,96.8,10.0,7.0,47.4,Neutral
-Brian Thomas Jr.,WR,JAX,0.1,0.0,0.0,22.2,0.1,66.8,954.3,5.5,False,,1.5,mod,Strong team-passing-game context; no specific news dug up yet,67.5,6.7,69.5,7.1,79.1,8.8,90.0,6.3,7.0,62.5,Neutral
-Ladd McConkey,WR,LAC,0.1,0.0,0.0,2.3,0.0,70.9,894.6,6.2,False,,1.5,,,47.7,6.7,44.9,5.2,43.7,5.2,68.1,7.3,7.0,47.4,Neutral
-Omarion Hampton,RB,LAC,0.2,0.0,0.0,807.7,6.5,42.3,282.1,1.1,False,,1.5,,,21.8,4.4,21.9,4.0,19.7,3.6,37.2,6.4,7.0,56.2,Neutral
-Cam Skattebo,RB,NYG,0.2,0.0,0.0,704.8,8.0,38.0,298.2,1.4,False,,1.5,,,34.8,4.0,34.3,4.1,31.5,4.0,52.8,5.5,8.0,55.2,Neutral
-Garrett Wilson,WR,NYJ,0.1,0.0,0.0,5.8,0.0,75.1,839.9,5.7,False,,1.5,,,41.3,4.2,30.9,3.4,28.7,3.2,59.2,5.4,13.0,30.2,Tough
+Shedeur Sanders,QB,CLE,2468.8,14.0,14.5,201.7,1.1,0.1,0.3,0.0,False,,1.5,,,,,,,,,139.9,28.9,11.0,63.5,Neutral
+Justin Jefferson,WR,MIN,4.9,0.0,0.0,8.3,0.0,74.5,981.6,4.9,False,,1.5,mod,"Kyler Murray confirmed the real Vikings starting QB (won the job over McCarthy) -- real analysts expect a bounce-back after a McCarthy-led WR20 2025. Model's context grade for him is dragged down by team_profiles.csv, which is single-season (2025) and entirely predates the QB change (MIN pass_epa_pct 9th pctl, all under McCarthy) -- context math structurally can't see this yet, real signal says buy the bounce-back more than the raw number implies",15.8,2.8,14.5,2.6,11.6,2.3,28.9,6.7,6.0,77.1,Easy
+Christian Watson,WR,GB,0.1,0.0,0.0,14.4,0.1,57.6,965.4,7.7,False,,1.5,,,50.7,5.2,56.2,5.5,58.8,6.4,75.6,8.1,11.0,47.9,Neutral
+Christian McCaffrey,RB,SF,0.1,0.0,0.0,615.6,5.2,48.2,419.0,3.1,False,,1.5,,,6.8,2.0,6.6,1.4,6.6,1.6,10.4,2.8,8.0,35.4,Neutral
+Josh Jacobs,RB,GB,0.1,0.0,0.0,818.2,10.3,28.1,225.4,0.8,False,,1.5,,,21.6,3.2,24.9,3.4,30.8,3.9,34.5,6.1,11.0,52.1,Neutral
+Quentin Johnston,WR,LAC,0.1,0.0,0.0,13.8,0.1,62.5,850.5,8.1,False,,1.5,high,Allen's departed 122 targets confirmed real -- locked-in WR2 with WR1 upside,76.5,6.8,87.0,8.0,95.4,9.2,95.7,8.4,7.0,47.4,Neutral
+Alec Pierce,WR,IND,0.1,0.0,0.0,2.5,0.0,53.2,1031.6,6.9,False,,1.5,,,53.0,5.8,59.0,7.2,64.5,8.3,69.3,6.5,13.0,42.7,Neutral
+Brian Thomas Jr.,WR,JAX,0.1,0.0,0.0,22.4,0.1,66.8,954.0,5.5,False,,1.5,mod,Strong team-passing-game context; no specific news dug up yet,69.0,7.0,70.0,7.4,72.2,7.6,89.2,6.5,7.0,62.5,Neutral
+Ladd McConkey,WR,LAC,0.1,0.0,0.0,2.4,0.0,70.9,894.4,6.2,False,,1.5,,,44.1,4.3,40.9,3.9,37.7,4.3,66.6,7.1,7.0,47.4,Neutral
+Omarion Hampton,RB,LAC,0.2,0.0,0.0,807.7,6.5,42.3,282.1,1.1,False,,1.5,,,23.7,4.1,24.2,3.7,23.3,4.3,38.7,6.4,7.0,56.2,Neutral
+Cam Skattebo,RB,NYG,0.2,0.0,0.0,704.8,8.0,38.0,298.2,1.4,False,,1.5,,,35.6,4.9,36.3,4.9,36.6,4.9,52.4,5.4,8.0,55.2,Neutral
+Garrett Wilson,WR,NYJ,0.1,0.0,0.0,5.9,0.0,75.1,839.9,5.7,False,,1.5,,,40.5,3.8,31.5,3.0,25.8,3.0,59.3,5.4,13.0,30.2,Tough
 Carson Wentz,QB,MIN,2320.2,12.8,9.5,124.9,1.1,0.1,0.3,0.0,False,,1.5,,,,,,,,,,,,84.4,Easy
-Romeo Doubs,WR,NE,0.1,0.0,0.0,2.8,0.0,65.0,841.9,7.2,False,,1.5,,,102.8,6.9,109.2,9.0,115.5,10.4,122.4,11.4,11.0,33.9,Tough
-DK Metcalf,WR,PIT,0.1,0.0,0.0,7.8,0.1,64.1,908.4,5.9,False,,1.5,,,62.4,7.4,62.3,7.5,65.5,7.2,81.8,7.8,9.0,72.4,Easy
+Romeo Doubs,WR,NE,0.1,0.0,0.0,2.9,0.0,65.0,841.6,7.2,False,,1.5,,,101.1,7.3,108.1,7.8,114.0,9.1,124.3,10.6,11.0,33.9,Tough
+DK Metcalf,WR,PIT,0.1,0.0,0.0,7.9,0.1,64.1,908.0,5.9,False,,1.5,,,63.3,7.1,63.9,6.8,64.8,7.2,81.9,7.2,9.0,70.3,Easy
 Jake Browning,QB,TB,2117.1,15.0,14.1,142.5,1.6,0.1,0.4,0.0,False,,1.5,,,,,,,,,,,,40.6,Neutral
-Khalil Shakir,WR,BUF,0.1,0.0,0.0,8.8,0.0,79.5,840.7,3.9,False,,1.5,mod,Strong team-passing-game context; no specific news dug up yet,114.2,7.5,103.2,8.9,101.4,8.6,135.1,9.4,7.0,47.9,Neutral
-Terry McLaurin,WR,WAS,0.1,0.0,0.0,4.6,0.0,61.1,854.5,6.8,False,,1.5,,,44.4,3.5,42.9,3.9,43.6,4.5,63.2,6.3,7.0,42.7,Neutral
-Breece Hall,RB,NYJ,2.1,0.6,0.0,855.1,3.5,36.3,314.7,1.4,False,,1.5,,,26.8,4.1,27.2,3.4,27.3,3.4,46.4,4.3,13.0,46.9,Neutral
+Terry McLaurin,WR,WAS,0.1,0.0,0.0,4.7,0.0,61.1,854.2,6.8,False,,1.5,,,43.4,3.8,44.7,4.9,46.8,4.6,63.8,6.1,7.0,42.7,Neutral
+Khalil Shakir,WR,BUF,0.1,0.0,0.0,9.0,0.0,79.5,840.3,3.9,False,,1.5,mod,Strong team-passing-game context; no specific news dug up yet,112.3,8.1,107.3,6.9,100.9,8.7,135.4,9.4,7.0,51.0,Neutral
+Breece Hall,RB,NYJ,2.1,0.6,0.0,855.1,3.5,36.3,314.7,1.4,False,,1.5,,,34.0,5.7,36.2,4.1,35.0,5.0,48.4,5.5,13.0,46.9,Neutral
 Mason Rudolph,QB,PIT,2079.2,13.0,10.1,150.0,1.5,0.1,0.3,0.0,False,,1.5,,,,,,,,,,,,58.3,Neutral
-Jadarian Price,RB,SEA,0.0,0.0,0.0,894.4,6.0,34.2,198.6,0.9,True,9.0,1.5,high,"Charbonnet tore ACL in Jan -- Price is the real Week 1 starter now, not a committee",59.7,12.5,66.7,13.3,68.2,13.1,76.7,10.5,11.0,59.4,Neutral
+Jadarian Price,RB,SEA,0.0,0.0,0.0,894.4,6.0,34.2,198.6,0.9,True,9.0,1.5,high,"Charbonnet tore ACL in Jan -- Price is the real Week 1 starter now, not a committee",70.2,8.8,74.1,9.5,78.0,10.9,86.1,11.8,11.0,59.4,Neutral
 Tyler Huntley,QB,BAL,1838.7,9.9,5.0,288.6,2.3,0.1,0.3,0.0,False,,1.5,,,,,,,,,,,,57.3,Neutral
-Jakobi Meyers,WR,JAX,0.1,0.0,0.0,19.0,0.1,73.7,847.5,3.8,False,,1.5,,,81.8,7.2,79.2,7.1,77.2,9.2,101.6,11.9,7.0,62.5,Neutral
-TreVeyon Henderson,RB,NE,0.1,0.0,0.0,801.1,7.1,31.7,215.3,1.3,False,,1.5,,,55.5,7.5,57.3,6.1,56.3,6.1,74.3,6.9,11.0,40.6,Neutral
-Jayden Reed,WR,GB,0.1,0.0,0.0,72.0,0.3,63.4,835.9,4.6,False,,1.5,,,87.2,6.3,90.5,8.8,96.8,9.3,103.1,7.8,11.0,44.8,Neutral
-D'Andre Swift,RB,CHI,0.1,0.0,0.0,848.6,6.6,30.6,257.4,0.4,False,,1.5,,,42.6,4.2,42.9,5.4,44.5,4.5,61.2,6.0,10.0,50.0,Neutral
-Drew Lock,QB,SEA,1905.7,11.6,6.6,181.8,2.0,0.1,0.3,0.0,False,,1.5,,,,,,,,,,,,32.3,Tough
+Tyrod Taylor,QB,GB,1923.7,13.5,8.7,176.1,1.1,0.1,0.2,0.0,False,,1.5,,,,,,,,,,,,56.2,Neutral
+TreVeyon Henderson,RB,NE,0.1,0.0,0.0,801.1,7.1,31.7,215.3,1.3,False,,1.5,,,57.9,6.2,61.6,6.2,61.5,6.4,74.8,7.1,11.0,40.6,Neutral
+Jakobi Meyers,WR,JAX,0.1,0.0,0.0,19.2,0.1,73.6,847.2,3.8,False,,1.5,,,84.7,9.1,85.1,7.9,88.2,7.2,102.2,9.6,7.0,62.5,Neutral
+D'Andre Swift,RB,CHI,0.1,0.0,0.0,849.4,6.6,30.7,257.6,0.4,False,,1.5,,,41.6,4.5,43.3,4.3,45.8,4.3,59.2,7.0,10.0,50.0,Neutral
+Drew Lock,QB,SEA,1905.7,11.6,6.6,181.9,2.0,0.1,0.3,0.0,False,,1.5,,,,,,,,,,,,32.3,Tough
+Rico Dowdle,RB,PIT,0.1,0.0,0.0,847.6,3.8,38.0,275.9,1.4,False,,1.5,fade,"Real reporting: Warren handles the receiving work, Dowdle is rush/goal-line only",73.4,7.1,75.5,7.3,74.6,7.4,91.2,8.9,9.0,64.6,Neutral
 Andy Dalton,QB,PHI,2124.8,12.9,7.6,83.8,0.8,0.0,0.2,0.0,False,,1.5,,,,,,,,,,,,29.2,Tough
-Rico Dowdle,RB,PIT,0.1,0.0,0.0,847.6,3.8,38.0,275.9,1.4,False,,1.5,fade,"Real reporting: Warren handles the receiving work, Dowdle is rush/goal-line only",68.0,5.2,67.2,7.3,66.7,9.5,90.4,10.1,9.0,64.6,Neutral
-Tyrod Taylor,QB,GB,1900.3,13.3,8.7,173.9,1.1,0.1,0.2,0.0,False,,1.5,,,,,,,,,,,,56.2,Neutral
-Jaylen Warren,RB,PIT,0.1,0.0,0.0,726.0,4.5,41.0,326.4,1.3,False,,1.5,,,76.2,10.1,76.7,7.4,68.5,7.2,98.9,9.4,9.0,64.6,Neutral
+Jaylen Warren,RB,PIT,0.1,0.0,0.0,726.0,4.5,41.0,326.4,1.3,False,,1.5,,,64.3,5.6,62.5,4.6,58.4,6.2,94.8,12.0,9.0,64.6,Neutral
+Jayden Reed,WR,GB,0.1,0.0,0.0,72.4,0.3,62.4,821.7,4.5,False,,1.5,,,87.2,6.9,89.3,9.6,94.3,8.8,104.5,8.0,11.0,47.9,Neutral
 Bam Knight,RB,ARI,0.2,0.0,0.0,549.7,8.2,36.9,268.6,1.9,False,,1.5,,,,,,,,,,,,68.8,Easy
-Ashton Jeanty,RB,LV,0.1,0.0,0.0,750.2,3.9,40.4,269.7,2.0,False,,1.5,,,16.3,3.4,14.8,3.0,14.1,3.1,29.6,5.8,13.0,51.0,Neutral
-Michael Pittman,WR,PIT,0.1,0.0,0.0,2.0,0.0,71.0,754.4,5.2,False,,1.5,high,Real trade confirmed (Colts to Steelers); target-hog volume role,94.5,7.8,80.5,7.2,72.6,7.1,109.8,9.7,9.0,72.4,Easy
-Courtland Sutton,WR,DEN,7.2,0.2,0.0,1.9,0.0,59.7,799.9,5.8,False,,1.5,,,51.8,6.1,55.7,7.8,59.9,6.0,81.3,9.8,10.0,43.8,Neutral
-Parker Washington,WR,JAX,0.1,0.0,0.0,24.6,0.1,59.8,820.6,5.2,False,,1.5,,,65.7,6.7,68.0,6.3,71.0,8.2,89.8,7.4,7.0,62.5,Neutral
-Chuba Hubbard,RB,CAR,0.1,0.0,0.0,763.4,4.3,36.2,236.1,2.1,False,,1.5,,,81.1,7.5,76.8,7.4,75.8,7.3,97.8,9.1,5.0,41.7,Neutral
-Emeka Egbuka,WR,TB,0.1,0.0,0.0,10.5,0.1,57.8,814.8,5.5,False,,1.5,mod,"Real breakout case: 4 games of 20+ fantasy points as a rookie, 68 rec/6 TD, now Tampa's clear top target with Evans gone. Baker Mayfield's aggressive style suits him",30.7,3.6,32.5,3.6,34.8,4.2,51.0,7.3,10.0,58.3,Neutral
-DJ Moore,WR,BUF,1.4,0.6,0.0,67.0,0.3,58.8,704.5,5.4,False,,1.5,,,49.0,7.0,48.7,5.5,52.7,6.2,74.7,12.1,7.0,47.9,Neutral
-Wan'Dale Robinson,WR,TEN,0.1,0.0,0.0,12.8,0.1,75.1,771.1,3.1,False,,1.5,mod,"Confirmed floor role -- high-usage slot security blanket, WR3 range",101.6,8.5,80.9,8.4,73.4,8.8,122.8,12.5,9.0,78.1,Easy
-Jordyn Tyson,WR,NO,0.0,0.0,0.0,0.0,0.0,61.4,826.7,4.7,True,16.0,1.5,mod,"Real WR2 role in an ascending Shough-led passing game -- but real injury history, know the risk",83.9,7.8,85.3,10.0,89.0,8.2,99.6,8.0,8.0,60.4,Neutral
-Josh Downs,WR,IND,0.1,0.0,0.0,9.9,0.0,70.4,747.5,4.3,False,,1.5,mod,Pittman's exit opens real room -- model corrected to reflect this,107.5,12.7,97.3,9.6,90.1,9.0,130.5,12.8,13.0,44.8,Neutral
-Sam LaPorta,TE,DET,0.1,0.0,0.0,0.8,0.0,64.8,748.8,5.3,False,,1.5,,,105.6,18.2,92.6,9.9,88.4,12.5,109.1,15.2,6.0,32.3,Tough
-Marquise Brown,WR,PHI,0.1,0.0,0.0,3.8,0.0,62.7,751.3,5.5,False,,1.5,,,,,,,,,,,,27.1,Tough
-Michael Wilson,WR,ARI,0.1,0.0,0.0,3.3,0.0,60.8,764.7,5.2,False,,1.5,,,84.3,8.8,84.9,10.0,86.9,9.4,106.5,9.9,14.0,53.1,Neutral
-Rhamondre Stevenson,RB,NE,0.1,0.0,0.0,646.1,6.4,30.6,257.8,1.5,False,,1.5,,,69.1,10.6,72.0,6.0,71.9,7.2,93.3,8.5,11.0,40.6,Neutral
-Makai Lemon,WR,PHI,0.0,0.0,0.0,11.1,0.0,60.9,776.1,4.8,True,12.0,1.5,,,93.1,9.8,102.0,9.0,108.9,9.3,112.9,10.5,10.0,27.1,Tough
+Ashton Jeanty,RB,LV,0.1,0.0,0.0,750.2,3.9,40.4,269.7,2.0,False,,1.5,,,15.1,3.3,14.8,3.4,15.0,3.1,28.5,6.4,13.0,51.0,Neutral
+Michael Pittman,WR,PIT,0.1,0.0,0.0,2.1,0.0,71.0,754.2,5.2,False,,1.5,high,Real trade confirmed (Colts to Steelers); target-hog volume role,89.2,10.5,80.5,7.8,74.8,7.8,108.8,8.9,9.0,70.3,Easy
+Courtland Sutton,WR,DEN,7.2,0.2,0.0,1.9,0.0,59.7,799.7,5.8,False,,1.5,,,60.7,6.8,59.3,5.8,60.2,6.7,79.4,8.1,10.0,43.8,Neutral
+Parker Washington,WR,JAX,0.1,0.0,0.0,24.8,0.1,59.8,820.3,5.2,False,,1.5,,,63.8,6.7,65.1,6.8,64.6,7.5,86.5,6.9,7.0,62.5,Neutral
+Emeka Egbuka,WR,TB,0.1,0.0,0.0,10.6,0.1,57.8,814.4,5.5,False,,1.5,mod,"Real breakout case: 4 games of 20+ fantasy points as a rookie, 68 rec/6 TD, now Tampa's clear top target with Evans gone. Baker Mayfield's aggressive style suits him",33.8,4.5,33.7,3.6,35.0,4.1,50.6,6.2,10.0,58.3,Neutral
+DJ Moore,WR,BUF,1.4,0.6,0.0,67.3,0.3,58.8,704.3,5.4,False,,1.5,,,50.1,6.7,47.5,6.3,48.9,6.3,70.6,9.2,7.0,51.0,Neutral
+Wan'Dale Robinson,WR,TEN,0.1,0.0,0.0,13.0,0.1,75.1,770.9,3.1,False,,1.5,mod,"Confirmed floor role -- high-usage slot security blanket, WR3 range",102.2,9.7,93.9,7.8,85.9,8.3,124.1,12.0,9.0,77.1,Easy
+Jordyn Tyson,WR,NO,0.0,0.0,0.0,0.0,0.0,61.4,826.7,4.7,True,16.0,1.5,mod,"Real WR2 role in an ascending Shough-led passing game -- but real injury history, know the risk",135.7,26.5,147.4,18.4,126.9,26.5,112.0,20.8,8.0,60.4,Neutral
+Josh Downs,WR,IND,0.1,0.0,0.0,10.0,0.0,70.3,747.3,4.3,False,,1.5,mod,Pittman's exit opens real room -- model corrected to reflect this,94.4,8.8,88.5,8.0,84.8,8.5,121.6,14.7,13.0,42.7,Neutral
+Sam LaPorta,TE,DET,0.1,0.0,0.0,0.8,0.0,64.7,748.4,5.3,False,,1.5,,,113.6,22.6,110.1,25.0,99.8,23.1,113.0,16.3,6.0,32.3,Tough
+Marquise Brown,WR,PHI,0.1,0.0,0.0,3.8,0.0,62.6,750.8,5.5,False,,1.5,,,,,,,,,,,,27.1,Tough
+Michael Wilson,WR,ARI,0.1,0.0,0.0,3.3,0.0,60.8,764.4,5.2,False,,1.5,,,76.2,7.4,75.1,7.6,76.0,8.0,100.3,10.0,14.0,53.1,Neutral
+Rhamondre Stevenson,RB,NE,0.1,0.0,0.0,646.1,6.4,30.6,257.8,1.5,False,,1.5,,,65.4,6.9,65.5,6.6,67.8,7.1,89.5,8.8,11.0,40.6,Neutral
+Makai Lemon,WR,PHI,0.0,0.0,0.0,11.1,0.0,60.9,776.1,4.8,True,12.0,1.5,,,104.5,9.9,111.2,9.3,115.9,10.6,118.3,14.3,10.0,27.1,Tough
 Joe Milton III,QB,DAL,1764.7,10.9,6.6,170.3,1.7,0.1,0.4,0.0,False,,1.5,,,,,,,,,,,,54.2,Neutral
-Saquon Barkley,RB,PHI,0.1,0.0,0.0,858.1,5.5,23.3,176.5,1.2,False,,1.5,,,14.6,2.7,18.2,3.3,19.4,3.4,26.8,4.6,10.0,33.3,Tough
-J.K. Dobbins,RB,DEN,0.1,0.0,0.0,931.4,6.2,22.1,125.9,0.2,False,,1.5,,,77.1,9.2,86.4,8.5,92.9,10.9,95.2,8.9,10.0,52.1,Neutral
-RJ Harvey,RB,DEN,0.1,0.0,0.0,517.2,5.5,37.7,280.8,2.6,False,,1.5,fade,Real competition returning for 2026 -- Dobbins healthy again and Coleman drafted,95.9,13.4,88.4,10.6,82.9,8.8,116.7,16.6,10.0,52.1,Neutral
+Saquon Barkley,RB,PHI,0.1,0.0,0.0,858.1,5.5,23.3,176.5,1.2,False,,1.5,,,12.9,2.7,17.5,3.1,19.7,3.3,25.3,5.3,10.0,33.3,Tough
+J.K. Dobbins,RB,DEN,0.1,0.0,0.0,931.4,6.2,22.1,125.9,0.2,False,,1.5,,,72.1,8.5,78.3,9.6,90.7,11.5,95.7,9.9,10.0,52.1,Neutral
+RJ Harvey,RB,DEN,0.1,0.0,0.0,517.2,5.5,37.7,280.8,2.6,False,,1.5,fade,Real competition returning for 2026 -- Dobbins healthy again and Coleman drafted,104.5,19.0,99.0,14.0,87.2,12.2,116.3,17.2,10.0,52.1,Neutral
 Quinn Ewers,QB,MIA,1839.1,10.8,6.7,119.7,1.2,0.9,3.6,0.2,False,,1.5,,,,,,,,,,,,19.8,Tough
-Mike Evans,WR,SF,0.1,0.0,0.0,2.0,0.0,54.2,693.3,6.8,False,,1.5,fade,"Real decline signal beyond what a generic age curve catches: games played collapsed 17-to-14-to-8 last 3 years, and posted CAREER-LOW efficiency across the board last season (yards/catch, yards/target, yards/route, zero broken tackles for first time since 2018). Analyst consensus: don't draft before round 5. Historical base rate is brutal too -- only Larry Fitzgerald and Julian Edelman have posted a top-25 fantasy season as a 33+ WR in the last decade",57.0,7.5,56.8,6.4,58.3,7.1,78.4,8.5,8.0,25.5,Tough
-Brock Bowers,TE,LV,0.1,0.0,0.0,6.4,0.1,64.6,676.6,5.0,False,,1.5,,,53.8,12.8,44.8,11.0,40.7,8.0,62.9,15.3,13.0,70.8,Easy
-Marvin Harrison Jr.,WR,ARI,0.1,0.0,0.0,2.4,0.0,52.1,734.5,6.0,False,,1.5,,,62.8,6.7,62.3,7.1,63.8,7.0,85.4,6.4,14.0,53.1,Neutral
-Tetairoa McMillan,WR,CAR,0.1,0.0,0.0,3.4,0.0,54.9,761.7,5.0,False,,1.5,,,37.0,4.0,36.2,3.5,34.1,3.9,53.6,6.1,5.0,33.3,Tough
+Mike Evans,WR,SF,0.1,0.0,0.0,2.1,0.0,54.1,693.0,6.8,False,,1.5,fade,"Real decline signal beyond what a generic age curve catches: games played collapsed 17-to-14-to-8 last 3 years, and posted CAREER-LOW efficiency across the board last season (yards/catch, yards/target, yards/route, zero broken tackles for first time since 2018). Analyst consensus: don't draft before round 5. Historical base rate is brutal too -- only Larry Fitzgerald and Julian Edelman have posted a top-25 fantasy season as a 33+ WR in the last decade",52.6,7.0,54.4,6.7,53.7,6.2,75.8,8.6,8.0,25.5,Tough
+Brock Bowers,TE,LV,0.1,0.0,0.0,6.4,0.1,64.6,676.3,5.0,False,,1.5,,,48.6,10.8,43.1,8.9,35.3,7.3,61.1,15.1,13.0,70.8,Easy
+Chuba Hubbard,RB,CAR,0.1,0.0,0.0,710.0,4.0,33.7,219.6,2.0,False,,1.5,,,81.4,7.9,82.3,11.2,78.8,9.7,96.9,9.7,5.0,41.7,Neutral
+Marvin Harrison Jr.,WR,ARI,0.1,0.0,0.0,2.4,0.0,52.0,734.2,6.0,False,,1.5,,,64.1,7.4,65.2,7.0,65.9,7.7,84.7,7.3,14.0,53.1,Neutral
+Tetairoa McMillan,WR,CAR,0.1,0.0,0.0,3.4,0.0,54.9,761.4,5.0,False,,1.5,,,32.5,3.6,31.1,2.8,32.6,3.6,53.0,5.5,5.0,33.3,Tough
 Brady Cook,QB,NYJ,2024.0,10.1,12.1,151.6,1.4,0.1,0.4,0.0,False,,1.5,,,,,,,,,,,,33.3,Tough
-Quinshon Judkins,RB,CLE,0.1,0.0,0.0,778.2,6.0,27.5,191.5,0.1,False,,1.5,,,47.9,6.4,49.0,6.3,50.2,5.3,64.7,6.5,11.0,63.5,Neutral
-Jake Ferguson,TE,DAL,0.1,0.0,0.0,2.2,0.0,69.5,551.0,5.7,False,,1.5,,,159.6,19.2,146.6,19.1,139.2,21.4,150.1,21.2,14.0,50.0,Neutral
-Carnell Tate,WR,TEN,0.0,0.0,0.0,0.0,0.0,56.1,756.4,4.3,True,16.0,1.5,mod,Real: clear path to Titans' No.1 WR; competing early with Robinson but higher ceiling,72.6,7.7,75.1,6.9,76.8,8.1,91.3,7.9,9.0,78.1,Easy
-Tucker Kraft,TE,GB,0.1,0.0,0.0,5.8,0.1,51.7,694.3,5.8,False,,1.5,high,"Model's #2 TE value gap AND the actual #2 TE in FPTS/route leaguewide in 2025 -- one dissenting real take (ESPN's Clay) calls him unproven for his draft cost, worth knowing but outweighed by the efficiency data plus the model's own independent value-gap signal",89.0,9.8,102.1,17.8,106.7,21.1,102.6,13.2,11.0,59.4,Neutral
-Jordan Addison,WR,MIN,0.1,0.0,0.0,15.1,0.1,50.7,701.0,5.5,False,,1.5,,,80.5,5.8,91.2,9.6,102.9,8.9,99.1,8.3,6.0,77.1,Easy
-Dalton Kincaid,TE,BUF,0.1,0.0,0.0,0.8,0.0,56.4,687.1,4.9,False,,1.5,high,Model's #1 TE value gap AND the actual #1 TE in FPTS/route leaguewide in 2025,144.9,16.2,144.5,19.3,151.8,18.5,144.6,20.0,7.0,62.5,Neutral
+Quinshon Judkins,RB,CLE,0.1,0.0,0.0,778.2,6.0,27.5,191.5,0.1,False,,1.5,,,49.1,5.7,51.4,6.2,50.9,5.3,66.4,6.8,11.0,63.5,Neutral
+Jake Ferguson,TE,DAL,0.1,0.0,0.0,2.2,0.0,69.5,550.7,5.7,False,,1.5,,,146.0,24.1,144.4,18.5,133.0,17.1,139.7,22.9,14.0,50.0,Neutral
+Carnell Tate,WR,TEN,0.0,0.0,0.0,0.0,0.0,56.1,756.4,4.3,True,16.0,1.5,mod,Real: clear path to Titans' No.1 WR; competing early with Robinson but higher ceiling,71.3,5.9,74.8,7.8,76.1,9.7,91.9,7.1,9.0,77.1,Easy
+Tucker Kraft,TE,GB,0.1,0.0,0.0,5.8,0.1,51.7,693.9,5.8,False,,1.5,high,"Model's #2 TE value gap AND the actual #2 TE in FPTS/route leaguewide in 2025 -- one dissenting real take (ESPN's Clay) calls him unproven for his draft cost, worth knowing but outweighed by the efficiency data plus the model's own independent value-gap signal",85.8,13.6,98.5,16.7,100.5,20.0,101.3,12.6,11.0,59.4,Neutral
+Jordan Addison,WR,MIN,0.1,0.0,0.0,15.2,0.1,50.7,700.7,5.5,False,,1.5,,,81.8,8.1,87.3,9.0,97.5,8.5,100.7,7.4,6.0,77.1,Easy
+Dalton Kincaid,TE,BUF,0.1,0.0,0.0,0.8,0.0,56.4,686.6,4.9,False,,1.5,high,Model's #1 TE value gap AND the actual #1 TE in FPTS/route leaguewide in 2025,146.8,15.3,152.5,17.8,148.6,21.1,142.5,18.2,7.0,62.5,Neutral
 Josh Johnson,QB,CIN,1833.9,9.6,6.5,105.7,1.2,0.0,0.2,0.0,False,,1.5,,,,,,,,,,,,46.9,Neutral
-Mitchell Trubisky,QB,TEN,1363.5,11.8,2.5,120.2,1.3,0.1,0.2,0.0,False,,1.5,,,,,,,,,,,,64.6,Neutral
+Mitchell Trubisky,QB,TEN,1363.5,11.8,2.5,120.3,1.3,0.1,0.2,0.0,False,,1.5,,,,,,,,,,,,64.6,Neutral
 Ty Simpson,QB,LA,1758.5,8.6,7.1,172.1,1.9,0.0,0.0,0.0,True,21.0,1.5,,,,,,,,,,,,71.9,Easy
-Xavier Worthy,WR,KC,0.1,0.0,0.0,70.4,0.4,54.9,661.4,3.7,False,,1.5,,,87.2,6.6,101.1,9.3,106.5,8.8,106.3,6.9,5.0,43.8,Neutral
-Kayshon Boutte,WR,NE,0.1,0.0,0.0,2.8,0.0,48.5,714.3,5.3,False,,1.5,,,153.3,14.9,168.9,23.5,172.2,15.4,,,11.0,33.9,Tough
-Keon Coleman,WR,BUF,0.1,0.0,0.0,4.8,0.0,50.4,635.5,6.1,False,,1.5,,,,,,,,,,,,47.9,Neutral
+Xavier Worthy,WR,KC,0.1,0.0,0.0,70.7,0.4,54.9,661.2,3.7,False,,1.5,,,89.0,7.5,99.4,8.9,106.3,8.2,107.3,7.1,5.0,43.8,Neutral
+Kayshon Boutte,WR,NE,0.1,0.0,0.0,2.8,0.0,48.5,714.0,5.3,False,,1.5,,,153.5,15.4,162.5,13.7,168.3,17.0,170.1,14.1,11.0,33.9,Tough
+Keon Coleman,WR,BUF,0.1,0.0,0.0,4.8,0.0,50.3,635.2,6.1,False,,1.5,,,,,,,96.2,47.7,,,7.0,51.0,Neutral
 Kenny Pickett,QB,CAR,1605.4,10.2,6.7,142.0,1.4,0.1,0.3,0.0,False,,1.5,,,,,,,,,,,,59.4,Neutral
-Jauan Jennings,WR,MIN,0.1,0.0,0.0,2.1,0.0,50.6,612.2,6.2,False,,1.5,,,145.9,16.2,146.5,12.3,146.3,14.9,157.7,12.9,6.0,77.1,Easy
-Troy Franklin,WR,DEN,0.1,0.0,0.0,19.2,0.1,54.9,604.8,5.2,False,,1.5,,,,,,,,,,,,43.8,Neutral
-Tyrone Tracy Jr.,RB,NYG,0.1,0.0,0.0,683.0,2.6,32.5,249.3,1.3,False,,1.5,,,152.8,15.7,158.3,17.7,155.3,15.3,159.8,21.8,8.0,55.2,Neutral
-Tank Dell,WR,HOU,0.2,0.0,0.0,37.7,0.2,51.8,663.9,4.2,False,,1.5,,,142.2,15.5,145.5,13.4,146.6,14.2,159.6,12.7,8.0,41.7,Neutral
-Chris Rodriguez Jr.,RB,JAX,0.1,0.0,0.0,700.6,9.4,11.0,83.6,0.4,False,,1.5,hand,"Correction: real ADP has Tuten going 110 picks earlier (53 vs 164) -- this isn't the even committee earlier reporting suggested, Tuten's the clear lead. Rodriguez is a real handcuff/change-of-pace, not an active sleeper target",139.4,20.4,158.2,20.0,163.6,18.2,153.6,14.4,7.0,65.6,Easy
-Luther Burden III,WR,CHI,0.2,0.0,0.0,27.5,0.1,56.3,747.9,2.2,False,,1.5,mod,"Real, large vacated-target signal (150 targets walked out the door in Chicago with DJ Moore + Zaccheaus gone) -- and the model's own incumbent-reallocation math already independently picked this up (+16% target boost) before this article confirmed it externally. Real 3rd-in-YPRR rookie efficiency backs it up too",56.2,6.9,55.6,6.7,54.5,7.3,75.7,7.6,10.0,58.3,Neutral
-Kyle Pitts,TE,ATL,0.1,0.0,0.0,0.5,0.0,60.8,651.9,3.5,False,,1.5,,,102.0,17.6,82.4,7.7,77.7,8.5,111.0,12.7,11.0,71.9,Easy
-Tyler Warren,TE,IND,0.1,0.0,0.0,11.0,0.2,58.2,605.9,4.3,False,,1.5,,,81.2,8.3,71.4,12.0,65.1,10.1,89.7,8.8,13.0,66.7,Easy
-Gardner Minshew,QB,ARI,1793.5,9.4,8.7,114.4,1.1,0.1,0.2,0.0,False,,1.5,,,,,,,,,,,,59.4,Neutral
-George Kittle,TE,SF,0.1,0.0,0.0,1.9,0.0,52.0,608.5,5.4,False,,1.5,,,122.0,14.9,116.0,17.1,114.2,18.9,125.1,18.2,8.0,14.6,Tough
-Chris Godwin Jr.,WR,TB,0.1,0.0,0.0,5.0,0.0,56.0,643.0,4.1,False,,1.5,,,87.0,9.9,90.1,12.3,91.1,9.6,107.3,9.0,10.0,58.3,Neutral
-Kyle Monangai,RB,CHI,0.1,0.0,0.0,714.4,5.2,21.6,170.9,0.6,False,,1.5,,,96.3,16.1,102.6,13.9,102.8,12.9,110.9,11.6,10.0,50.0,Neutral
-Davante Adams,WR,LA,0.1,0.0,0.0,1.5,0.0,42.9,549.6,7.8,False,,1.5,,,34.7,4.4,39.3,3.8,41.2,4.1,53.2,6.0,11.0,56.2,Neutral
-Samori Toure,WR,PHI,0.5,0.0,0.0,12.9,0.1,53.7,643.8,4.1,False,,1.5,,,,,,,,,,,,27.1,Tough
-Jacob Cowing,WR,SF,0.4,0.0,0.0,20.0,0.1,50.8,674.4,3.7,False,,1.5,,,,,,,,,,,,25.5,Tough
-Rashid Shaheed,WR,SEA,0.1,0.0,0.0,41.7,0.2,52.5,650.3,3.1,False,,1.5,,,98.2,8.8,117.0,9.7,123.4,10.5,123.6,14.7,11.0,38.0,Neutral
-Dontayvion Wicks,WR,PHI,0.1,0.0,0.0,6.3,0.0,52.4,592.5,4.8,False,,1.5,,,,,,,177.3,18.1,,,10.0,27.1,Tough
-Jacory Croskey-Merritt,RB,WAS,0.1,0.0,0.0,726.5,6.9,13.6,99.8,0.4,False,,1.5,,,94.3,12.3,109.5,14.1,111.5,15.5,112.5,13.2,7.0,30.2,Tough
-Jakobie Keeney-James,WR,GB,0.5,0.0,0.0,12.6,0.1,52.2,624.4,3.9,False,,1.5,,,,,,,,,,,,44.8,Neutral
-Jahdae Walker,WR,CHI,0.4,0.0,0.0,9.8,0.0,48.9,620.7,4.6,False,,1.5,,,,,,,,,,,,58.3,Neutral
-Jake Tonges,TE,SF,0.2,0.0,0.0,1.6,0.0,56.4,513.2,5.2,False,,1.5,,,,,,,,,,,,14.6,Tough
-Christian Kirk,WR,SF,0.1,0.0,0.0,3.4,0.0,56.6,617.0,3.4,False,,1.5,,,,,,,182.6,16.9,,,8.0,25.5,Tough
-Jordan Watkins,WR,SF,0.4,0.0,0.0,11.4,0.1,50.8,628.0,3.9,False,,1.5,,,,,,,,,,,,25.5,Tough
-De'Zhaun Stribling,WR,SF,0.0,0.0,0.0,0.0,0.0,48.6,662.1,4.0,True,15.0,1.5,,,154.8,15.5,148.0,15.1,155.8,15.5,148.3,13.3,8.0,25.5,Tough
-Jaylen Waddle,WR,DEN,5.1,0.0,0.0,14.8,0.1,49.0,664.6,3.5,False,,1.5,mod,"Genuine real disagreement: one source has him winning the target battle over Sutton (118 vs 108 projected), 115+ targets, viable WR1; another (ESPN's Moody) flags durability and role questions as a bust risk. His own muted pre-trade Miami volume may be underselling the real role either way -- moderate confidence, not a clean buy",53.4,6.5,51.0,7.0,48.1,5.9,73.2,7.3,10.0,43.8,Neutral
-Tyquan Thornton,WR,KC,0.2,0.0,0.0,4.4,0.0,37.0,625.8,6.4,False,,1.5,,,,,,,,,,,,43.8,Neutral
+Jauan Jennings,WR,MIN,0.1,0.0,0.0,2.1,0.0,50.6,612.0,6.2,False,,1.5,,,138.8,6.3,140.1,10.5,148.9,7.8,156.4,12.2,6.0,77.1,Easy
+Tyrone Tracy Jr.,RB,NYG,0.1,0.0,0.0,683.0,2.6,32.5,249.3,1.3,False,,1.5,,,152.1,18.7,160.8,16.0,153.8,17.9,158.8,20.2,8.0,55.2,Neutral
+Troy Franklin,WR,DEN,0.1,0.0,0.0,19.5,0.1,54.9,604.6,5.2,False,,1.5,,,,,190.4,20.0,175.0,19.3,,,10.0,43.8,Neutral
+Tank Dell,WR,HOU,0.2,0.0,0.0,38.0,0.2,51.8,663.4,4.2,False,,1.5,,,151.0,15.0,152.7,15.4,157.3,15.8,161.4,12.8,8.0,41.7,Neutral
+Chris Rodriguez Jr.,RB,JAX,0.1,0.0,0.0,700.6,9.4,11.0,83.6,0.4,False,,1.5,hand,"Correction: real ADP has Tuten going 110 picks earlier (53 vs 164) -- this isn't the even committee earlier reporting suggested, Tuten's the clear lead. Rodriguez is a real handcuff/change-of-pace, not an active sleeper target",145.4,16.0,159.2,19.7,156.0,21.3,154.9,15.7,7.0,65.6,Easy
+Luther Burden III,WR,CHI,0.2,0.0,0.0,27.7,0.1,56.2,747.2,2.2,False,,1.5,mod,"Real, large vacated-target signal (150 targets walked out the door in Chicago with DJ Moore + Zaccheaus gone) -- and the model's own incumbent-reallocation math already independently picked this up (+16% target boost) before this article confirmed it externally. Real 3rd-in-YPRR rookie efficiency backs it up too",62.9,7.5,60.2,7.2,58.5,7.7,79.3,8.4,10.0,58.3,Neutral
+Kyle Pitts,TE,ATL,0.1,0.0,0.0,0.5,0.0,60.8,651.6,3.5,False,,1.5,,,106.2,11.8,84.3,8.3,75.9,9.2,110.7,13.7,11.0,71.9,Easy
+Tyler Warren,TE,IND,0.1,0.0,0.0,11.0,0.2,58.2,605.5,4.3,False,,1.5,,,78.7,9.8,72.4,8.9,65.1,9.3,89.7,9.0,13.0,66.7,Easy
+George Kittle,TE,SF,0.1,0.0,0.0,1.9,0.0,52.0,608.2,5.4,False,,1.5,,,121.5,18.7,119.5,20.9,117.5,19.4,130.1,17.0,8.0,14.6,Tough
+Chris Godwin Jr.,WR,TB,0.1,0.0,0.0,5.1,0.0,56.0,642.6,4.1,False,,1.5,,,78.5,7.9,76.4,8.4,80.2,8.4,102.3,10.0,10.0,58.3,Neutral
+Kyle Monangai,RB,CHI,0.1,0.0,0.0,715.7,5.2,21.7,171.2,0.6,False,,1.5,,,94.1,12.1,95.5,10.9,110.2,13.7,112.8,13.3,10.0,50.0,Neutral
+Davante Adams,WR,LA,0.1,0.0,0.0,1.5,0.0,42.9,549.5,7.8,False,,1.5,,,34.9,3.1,37.8,4.5,41.9,4.3,52.1,5.8,11.0,56.2,Neutral
+Samori Toure,WR,PHI,0.5,0.0,0.0,13.1,0.1,53.6,642.1,4.1,False,,1.5,,,,,,,,,,,,27.1,Tough
+Gardner Minshew,QB,ARI,1771.2,9.2,8.7,113.1,1.0,0.1,0.2,0.0,False,,1.5,,,,,,,,,,,,59.4,Neutral
+Jacob Cowing,WR,SF,0.4,0.0,0.0,20.2,0.1,50.7,672.9,3.7,False,,1.5,,,,,,,,,,,,25.5,Tough
+Rashid Shaheed,WR,SEA,0.1,0.0,0.0,41.9,0.2,52.5,650.0,3.1,False,,1.5,,,108.3,8.5,119.2,9.7,128.9,11.2,130.2,14.9,11.0,38.0,Neutral
+Dontayvion Wicks,WR,PHI,0.1,0.0,0.0,6.3,0.0,52.3,592.2,4.8,False,,1.5,,,156.1,21.1,175.4,21.1,167.3,18.1,154.1,22.7,10.0,27.1,Tough
+Jacory Croskey-Merritt,RB,WAS,0.1,0.0,0.0,725.8,6.9,13.6,99.7,0.4,False,,1.5,,,88.6,11.1,104.1,14.6,116.6,15.0,108.7,12.2,7.0,30.2,Tough
+Jahdae Walker,WR,CHI,0.4,0.0,0.0,9.9,0.0,48.8,619.3,4.6,False,,1.5,,,,,,,,,,,,58.3,Neutral
+Jake Tonges,TE,SF,0.2,0.0,0.0,1.6,0.0,56.4,512.4,5.2,False,,1.5,,,,,,,,,,,,14.6,Tough
+Christian Kirk,WR,SF,0.1,0.0,0.0,3.5,0.0,56.5,616.6,3.4,False,,1.5,,,,,,,,,,,,25.5,Tough
+Jaylen Waddle,WR,DEN,5.1,0.0,0.0,14.9,0.1,49.0,664.2,3.5,False,,1.5,mod,"Genuine real disagreement: one source has him winning the target battle over Sutton (118 vs 108 projected), 115+ targets, viable WR1; another (ESPN's Moody) flags durability and role questions as a bust risk. His own muted pre-trade Miami volume may be underselling the real role either way -- moderate confidence, not a clean buy",54.0,6.7,48.1,6.6,45.9,5.4,73.3,7.2,10.0,43.8,Neutral
+De'Zhaun Stribling,WR,SF,0.0,0.0,0.0,0.0,0.0,48.6,662.1,4.0,True,15.0,1.5,,,129.6,14.2,131.8,15.4,137.4,17.7,136.6,18.3,8.0,25.5,Tough
+Jordan Watkins,WR,SF,0.4,0.0,0.0,11.7,0.1,50.7,626.3,3.9,False,,1.5,,,,,,,,,,,,25.5,Tough
+Tyquan Thornton,WR,KC,0.2,0.0,0.0,4.5,0.0,37.0,625.2,6.4,False,,1.5,,,,,,,,,,,,43.8,Neutral
+David Montgomery,RB,HOU,2.3,0.8,0.0,521.3,6.7,21.8,176.5,0.2,False,,1.5,,,51.6,7.4,55.1,5.6,58.2,6.4,73.0,7.5,8.0,41.7,Neutral
 Tyson Bagent,QB,CHI,1450.0,8.8,4.4,134.9,1.3,0.1,0.4,0.0,False,,1.5,,,,,,,,,,,,40.6,Neutral
-David Montgomery,RB,HOU,2.3,0.8,0.0,521.3,6.7,21.8,176.5,0.2,False,,1.5,,,60.0,7.0,62.9,7.7,65.8,8.7,75.2,7.7,8.0,41.7,Neutral
-Theo Wease Jr.,WR,MIA,0.4,0.0,0.0,8.6,0.0,46.7,664.4,3.9,False,,1.5,,,127.6,15.2,131.2,13.8,138.5,5.9,142.6,9.0,6.0,34.4,Tough
-Brenton Strange,TE,JAX,0.1,0.0,0.0,0.8,0.0,55.3,602.8,3.5,False,,1.5,,,165.8,8.6,157.5,22.4,165.1,17.8,142.0,14.5,7.0,56.2,Neutral
-Jalen McMillan,WR,TB,0.1,0.0,0.0,20.3,0.1,45.8,598.9,4.7,False,,1.5,,,140.1,10.8,139.4,13.2,152.0,14.3,151.7,14.0,10.0,58.3,Neutral
-Chig Okonkwo,TE,WAS,0.1,0.0,0.0,1.3,0.0,63.2,615.2,1.9,False,,1.5,mod,+19% target reallocation from real roster turnover on Washington,,,176.3,14.9,162.3,19.3,145.9,24.7,7.0,35.4,Neutral
+Jakobie Keeney-James,WR,GB,0.5,0.0,0.0,12.9,0.1,51.1,612.6,3.8,False,,1.5,,,,,,,,,,,,47.9,Neutral
+Brenton Strange,TE,JAX,0.1,0.0,0.0,0.8,0.0,55.3,602.3,3.5,False,,1.5,,,157.6,15.9,170.3,22.3,164.6,19.8,138.1,16.6,7.0,56.2,Neutral
+Theo Wease Jr.,WR,MIA,0.4,0.0,0.0,8.8,0.0,46.5,663.0,3.8,False,,1.5,,,,,,,,,143.7,11.2,6.0,34.4,Tough
+Jalen McMillan,WR,TB,0.1,0.0,0.0,20.5,0.1,45.8,598.4,4.7,False,,1.5,,,129.2,14.1,135.1,10.2,136.1,10.8,147.4,13.4,10.0,58.3,Neutral
+Chig Okonkwo,TE,WAS,0.1,0.0,0.0,1.3,0.0,63.2,614.8,1.9,False,,1.5,mod,+19% target reallocation from real roster turnover on Washington,,,,,154.4,17.2,148.2,25.3,7.0,35.4,Neutral
 Raheim Sanders,RB,CLE,0.2,0.0,0.0,453.2,9.0,18.9,137.1,0.7,False,,1.5,,,,,,,,,,,,63.5,Neutral
-Tory Horton,WR,SEA,0.2,0.0,0.0,6.6,0.0,37.2,459.2,8.7,False,,1.5,,,,,,,,,,,,38.0,Neutral
-DeMario Douglas,WR,NE,0.1,0.0,0.0,29.3,0.1,50.6,611.1,3.4,False,,1.5,,,,,,,,,,,,33.9,Tough
-Dallas Goedert,TE,PHI,0.1,0.0,0.0,0.5,0.0,49.5,500.8,6.0,False,,1.5,,,108.7,17.0,107.4,17.4,108.0,19.2,118.9,17.9,10.0,62.5,Neutral
+Tory Horton,WR,SEA,0.2,0.0,0.0,6.7,0.0,37.1,458.5,8.7,False,,1.5,,,,,,,,,,,,38.0,Neutral
 Trey Lance,QB,LAC,1567.2,7.2,5.9,221.0,0.6,0.1,0.4,0.0,False,,1.5,,,,,,,,,,,,60.4,Neutral
-Woody Marks,RB,HOU,0.1,0.0,0.0,605.7,2.9,25.4,199.9,2.0,False,,1.5,high,Mixon released; real reporting has him as the Texans RB1 favorite,144.3,21.6,145.3,17.0,149.4,16.2,152.8,17.9,8.0,41.7,Neutral
-Kimani Vidal,RB,LAC,0.1,0.0,0.0,676.3,3.8,20.2,161.4,1.4,False,,1.5,,,,,150.2,37.9,165.2,13.7,,,7.0,56.2,Neutral
-Darnell Mooney,WR,NYG,0.1,0.0,0.0,2.1,0.0,48.5,681.0,2.9,False,,1.5,,,164.2,10.2,,,184.5,14.5,,,8.0,75.0,Easy
-Jacoby Jones,WR,WAS,0.5,0.0,0.0,12.2,0.1,48.6,619.6,3.6,False,,1.5,,,,,,,,,,,,42.7,Neutral
-Efton Chism III,WR,NE,0.5,0.0,0.0,11.9,0.1,46.1,623.8,3.8,False,,1.5,,,,,,,,,,,,33.9,Tough
-James Conner,RB,ARI,0.1,0.0,0.0,515.6,4.5,25.6,191.8,1.3,False,,1.5,,,,,147.6,11.3,184.8,17.3,,,14.0,68.8,Easy
+Dallas Goedert,TE,PHI,0.1,0.0,0.0,0.5,0.0,49.5,500.5,6.0,False,,1.5,,,94.7,20.1,101.7,22.4,105.0,21.7,115.0,18.3,10.0,62.5,Neutral
+DeMario Douglas,WR,NE,0.1,0.0,0.0,29.4,0.1,50.4,610.7,3.4,False,,1.5,,,,,,,,,,,,33.9,Tough
+Woody Marks,RB,HOU,0.1,0.0,0.0,605.7,2.9,25.4,199.9,2.0,False,,1.5,high,Mixon released; real reporting has him as the Texans RB1 favorite,136.9,15.2,139.9,16.2,142.7,15.3,153.4,17.9,8.0,41.7,Neutral
+Kimani Vidal,RB,LAC,0.1,0.0,0.0,676.3,3.8,20.2,161.4,1.4,False,,1.5,,,159.1,14.2,,,,,,,7.0,56.2,Neutral
+Darnell Mooney,WR,NYG,0.1,0.0,0.0,2.2,0.0,48.5,680.7,2.9,False,,1.5,,,,,,,,,,,,75.0,Easy
+Jacoby Jones,WR,WAS,0.5,0.0,0.0,12.5,0.1,48.4,617.9,3.6,False,,1.5,,,,,,,,,,,,42.7,Neutral
+Efton Chism III,WR,NE,0.5,0.0,0.0,12.2,0.1,45.9,622.2,3.8,False,,1.5,,,,,,,,,,,,33.9,Tough
+James Conner,RB,ARI,0.1,0.0,0.0,515.6,4.5,25.6,191.8,1.3,False,,1.5,,,,,,,161.1,22.1,,,14.0,68.8,Easy
 Phil Mafah,RB,DAL,0.3,0.0,0.0,534.8,4.5,25.9,186.4,0.9,False,,1.5,,,,,,,,,,,,43.8,Neutral
-Cade Otton,TE,TB,0.1,0.0,0.0,1.3,0.0,58.9,575.8,2.3,False,,1.5,,,,,,,153.3,35.3,,,10.0,34.4,Tough
-Hunter Henry,TE,NE,0.1,0.0,0.0,0.5,0.0,48.3,554.3,4.4,False,,1.5,,,151.9,27.5,156.8,28.8,157.9,21.2,146.2,16.2,11.0,53.1,Neutral
-Chris Oladokun,QB,KC,1373.0,8.4,3.6,113.4,1.1,0.1,0.3,0.0,False,,1.5,,,,,,,,,,,,33.3,Tough
-Colby Parkinson,TE,LA,0.1,0.0,0.0,0.6,0.0,45.6,436.8,6.7,False,,1.5,,,,,,,,,,,,61.5,Neutral
-Bhayshul Tuten,RB,JAX,0.1,0.0,0.0,490.8,6.7,19.2,142.2,1.0,False,,1.5,mod,"Real lead back in JAX per market ADP (53, well ahead of Rodriguez at 164) -- recent ADP dip (-7) worth watching but still the clear #1 in this backfield",50.8,5.5,52.0,5.3,53.0,5.6,68.3,8.2,7.0,65.6,Easy
-Tre Tucker,WR,LV,0.1,0.0,0.0,38.1,0.2,46.8,564.0,3.4,False,,1.5,,,125.6,10.9,135.5,7.1,133.6,10.5,139.4,9.3,13.0,52.1,Neutral
-Tony Pollard,RB,TEN,0.1,0.0,0.0,695.6,3.1,23.6,152.8,0.2,False,,1.5,,,65.6,6.0,66.8,6.1,66.3,7.7,83.5,6.6,9.0,41.7,Neutral
-Travis Etienne,RB,NO,0.1,0.0,0.0,600.6,3.7,20.7,155.5,1.6,False,,1.5,,,40.8,4.3,41.2,5.3,39.3,4.8,59.9,5.8,8.0,66.7,Easy
-Jerry Jeudy,WR,CLE,0.1,0.0,0.0,4.3,0.0,50.1,634.3,2.2,False,,1.5,,,131.1,10.6,135.9,6.6,135.1,9.9,151.0,14.5,11.0,83.3,Easy
-Tyjae Spears,RB,TEN,0.1,0.0,0.0,379.1,2.8,41.2,269.7,0.7,False,,1.5,,,158.6,18.7,147.7,15.3,129.3,11.0,143.5,19.6,9.0,41.7,Neutral
+Cade Otton,TE,TB,0.1,0.0,0.0,1.3,0.0,58.9,575.5,2.3,False,,1.5,,,,,,,,,,,,34.4,Tough
+Hunter Henry,TE,NE,0.1,0.0,0.0,0.5,0.0,48.3,554.1,4.4,False,,1.5,,,145.6,23.7,159.5,16.4,155.6,23.9,147.3,16.8,11.0,53.1,Neutral
+Chris Oladokun,QB,KC,1373.0,8.4,3.6,113.5,1.1,0.1,0.3,0.0,False,,1.5,,,,,,,,,,,,33.3,Tough
+Colby Parkinson,TE,LA,0.1,0.0,0.0,0.6,0.0,45.6,436.3,6.7,False,,1.5,,,,,,,,,,,,61.5,Neutral
+Bhayshul Tuten,RB,JAX,0.1,0.0,0.0,490.8,6.7,19.2,142.2,1.0,False,,1.5,mod,"Real lead back in JAX per market ADP (53, well ahead of Rodriguez at 164) -- recent ADP dip (-7) worth watching but still the clear #1 in this backfield",47.5,5.9,53.2,5.1,52.7,5.6,66.8,7.7,7.0,65.6,Easy
+Tre Tucker,WR,LV,0.1,0.0,0.0,38.2,0.2,46.7,563.8,3.4,False,,1.5,,,126.7,11.0,131.2,10.2,132.3,8.9,138.3,11.7,13.0,50.0,Neutral
+Tony Pollard,RB,TEN,0.1,0.0,0.0,695.6,3.1,23.6,152.8,0.2,False,,1.5,,,62.3,9.5,67.7,5.8,68.9,6.8,82.8,6.7,9.0,41.7,Neutral
+Travis Etienne,RB,NO,0.1,0.0,0.0,600.6,3.7,20.7,155.5,1.6,False,,1.5,,,39.1,5.5,38.9,4.2,40.1,4.9,58.5,7.0,8.0,66.7,Easy
+Tyjae Spears,RB,TEN,0.1,0.0,0.0,379.1,2.8,41.2,269.7,0.7,False,,1.5,,,150.8,21.2,140.5,14.2,131.0,13.8,145.2,25.2,9.0,41.7,Neutral
+Jerry Jeudy,WR,CLE,0.1,0.0,0.0,4.3,0.0,50.1,634.1,2.2,False,,1.5,,,126.4,18.7,125.9,9.7,125.6,13.5,142.8,14.1,11.0,82.3,Easy
 Jacardia Wright,RB,SEA,0.3,0.0,0.0,557.2,3.7,25.1,183.1,0.9,False,,1.5,,,,,,,,,,,,59.4,Neutral
-Darius Cooper,WR,PHI,0.3,0.0,0.0,8.4,0.0,48.7,573.7,3.3,False,,1.5,,,,,,,,,,,,27.1,Tough
-Ryan Flournoy,WR,DAL,0.1,0.0,0.0,19.4,0.1,45.6,543.2,4.0,False,,1.5,,,,,164.2,13.2,176.4,14.1,153.4,11.1,14.0,61.5,Neutral
-Mark Andrews,TE,BAL,0.1,0.0,0.0,17.7,0.3,44.7,440.6,5.7,False,,1.5,,,128.8,17.2,137.5,20.2,144.6,19.2,126.6,14.3,13.0,77.1,Easy
-Rachaad White,RB,WAS,0.1,0.0,0.0,485.4,3.4,29.6,193.5,1.3,False,,1.5,mod,Real 3-way committee (Croskey-Merritt a legit camp standout) -- don't bank on a clean role,114.5,15.0,107.0,13.1,100.9,11.0,127.1,16.0,7.0,30.2,Tough
-Jalen Royals,WR,KC,0.5,0.0,0.0,12.4,0.1,47.2,547.9,3.6,False,,1.5,,,,,,,,,,,,43.8,Neutral
-Jordan Mason,RB,MIN,0.1,0.0,0.0,709.8,4.9,14.4,90.0,0.2,False,,1.5,,,112.7,17.3,117.4,16.1,122.9,15.1,124.3,16.5,6.0,71.9,Easy
-Tahj Washington,WR,MIA,0.4,0.0,0.0,9.7,0.1,45.6,561.4,3.4,False,,1.5,,,,,,,,,,,,34.4,Tough
-Britain Covey,WR,PHI,0.3,0.0,0.0,8.3,0.0,48.4,532.6,3.3,False,,1.5,,,,,,,,,,,,27.1,Tough
-Tyler Allgeier,RB,ARI,0.1,0.0,0.0,561.6,6.4,15.4,109.5,0.2,False,,1.5,,,146.5,21.6,150.5,28.6,165.5,22.8,148.9,25.0,14.0,68.8,Easy
-Juwan Johnson,TE,NO,0.1,0.0,0.0,0.5,0.0,52.2,577.6,2.0,False,,1.5,,,155.0,21.9,157.1,25.9,159.9,21.4,,,8.0,64.6,Neutral
-David Njoku,TE,LAC,0.1,0.0,0.0,0.7,0.0,50.8,444.2,4.4,False,,1.5,,,,,,,,,,,,63.5,Neutral
-Dalton Schultz,TE,HOU,0.1,0.0,0.0,0.5,0.0,54.6,524.2,2.3,False,,1.5,,,,,,,160.3,25.3,166.2,8.9,8.0,35.4,Neutral
-Isaac TeSlaa,WR,DET,0.2,0.0,0.0,4.7,0.0,29.3,389.5,8.7,False,,1.5,,,,,,,177.4,20.0,158.4,15.6,6.0,53.1,Neutral
+Mark Andrews,TE,BAL,0.1,0.0,0.0,17.7,0.3,44.7,440.2,5.7,False,,1.5,,,130.5,25.0,125.0,17.2,127.4,18.4,125.0,15.6,13.0,77.1,Easy
+Ryan Flournoy,WR,DAL,0.1,0.0,0.0,19.5,0.1,45.6,542.8,4.0,False,,1.5,,,162.1,12.4,163.9,12.3,159.0,26.9,154.8,10.5,14.0,61.5,Neutral
+Darius Cooper,WR,PHI,0.3,0.0,0.0,8.6,0.0,48.5,572.5,3.3,False,,1.5,,,,,,,,,,,,27.1,Tough
+Rachaad White,RB,WAS,0.1,0.0,0.0,484.9,3.4,29.5,193.3,1.3,False,,1.5,mod,Real 3-way committee (Croskey-Merritt a legit camp standout) -- don't bank on a clean role,126.1,13.6,121.5,12.5,110.3,13.3,128.1,16.9,7.0,30.2,Tough
+Jalen Royals,WR,KC,0.5,0.0,0.0,12.7,0.1,47.1,546.5,3.6,False,,1.5,,,,,,,,,,,,43.8,Neutral
+Jordan Mason,RB,MIN,0.1,0.0,0.0,708.4,4.9,14.4,89.8,0.2,False,,1.5,,,103.5,15.4,115.3,16.3,118.2,16.2,122.4,16.3,6.0,71.9,Easy
+Tahj Washington,WR,MIA,0.4,0.0,0.0,9.9,0.1,45.5,560.0,3.4,False,,1.5,,,,,,,,,,,,34.4,Tough
+Tyler Allgeier,RB,ARI,0.1,0.0,0.0,561.6,6.4,15.4,109.5,0.2,False,,1.5,,,153.5,22.1,154.4,24.8,154.4,22.6,152.1,19.7,14.0,68.8,Easy
+Britain Covey,WR,PHI,0.3,0.0,0.0,8.5,0.0,48.3,531.5,3.3,False,,1.5,,,,,,,,,,,,27.1,Tough
+Juwan Johnson,TE,NO,0.1,0.0,0.0,0.5,0.0,52.1,577.3,2.0,False,,1.5,,,,,160.1,17.5,142.3,22.4,147.5,22.3,8.0,64.6,Neutral
+David Njoku,TE,LAC,0.1,0.0,0.0,0.7,0.0,50.8,443.9,4.4,False,,1.5,,,,,,,136.0,28.9,,,7.0,63.5,Neutral
+Isaac TeSlaa,WR,DET,0.2,0.0,0.0,4.8,0.0,29.3,388.9,8.7,False,,1.5,,,153.0,25.3,173.7,20.9,167.7,40.2,159.8,16.4,6.0,56.2,Neutral
+Dalton Schultz,TE,HOU,0.1,0.0,0.0,0.5,0.0,54.6,523.9,2.3,False,,1.5,,,,,175.4,13.2,161.9,19.9,,,8.0,35.4,Neutral
 Riley Leonard,QB,IND,1328.1,8.1,5.8,95.1,1.3,0.1,0.3,0.0,False,,1.5,,,,,,,,,,,,58.3,Neutral
-Coleman Owen,WR,IND,0.5,0.0,0.0,12.5,0.1,43.9,540.4,3.4,False,,1.5,,,,,,,,,,,,44.8,Neutral
-Jalen Coker,WR,CAR,6.0,0.0,0.0,2.9,0.0,44.2,560.1,3.2,False,,1.5,,,121.6,13.1,124.6,11.4,126.1,10.1,137.3,10.6,5.0,33.3,Tough
-Omar Cooper Jr.,WR,NYJ,0.0,0.0,0.0,7.9,0.0,43.4,552.2,3.4,True,12.0,1.5,,,169.2,8.9,163.2,11.6,164.9,15.9,153.0,16.8,13.0,30.2,Tough
-Darius Slayton,WR,NYG,0.1,0.0,0.0,4.5,0.0,43.7,610.9,2.4,False,,1.5,,,,,,,180.0,24.6,,,8.0,75.0,Easy
+Jalen Coker,WR,CAR,6.0,0.0,0.0,3.0,0.0,44.2,559.7,3.2,False,,1.5,,,117.0,8.8,117.0,9.1,121.3,10.0,137.7,10.5,5.0,33.3,Tough
+Coleman Owen,WR,IND,0.5,0.0,0.0,12.8,0.1,43.7,538.9,3.4,False,,1.5,,,,,,,,,,,,42.7,Neutral
+Omar Cooper Jr.,WR,NYJ,0.0,0.0,0.0,7.9,0.0,43.4,552.2,3.4,True,12.0,1.5,,,174.5,4.0,,,166.3,33.1,161.6,14.9,13.0,30.2,Tough
+Darius Slayton,WR,NYG,0.1,0.0,0.0,4.6,0.0,43.7,610.5,2.4,False,,1.5,,,,,166.3,12.4,183.2,9.7,,,8.0,75.0,Easy
 Max Brosmer,QB,MIN,1477.0,7.4,8.6,112.5,1.1,0.1,0.4,0.0,False,,1.5,,,,,,,,,,,,84.4,Easy
 Trey Benson,RB,ARI,0.1,0.0,0.0,543.1,1.9,29.2,192.2,0.8,False,,1.5,,,,,,,,,,,,68.8,Easy
-Jalen Tolbert,WR,MIA,0.1,0.0,0.0,2.3,0.0,41.5,499.8,4.5,False,,1.5,,,,,,,,,,,,34.4,Tough
-Pat Freiermuth,TE,PIT,0.1,0.0,0.0,0.6,0.0,46.3,498.6,3.7,False,,1.5,,,,,,,,,,,,46.9,Neutral
-Tyler Scott,WR,LA,0.5,0.0,0.0,13.0,0.1,43.5,523.9,3.3,False,,1.5,,,,,,,,,,,,56.2,Neutral
-Pat Bryant,WR,DEN,0.2,0.0,0.0,5.2,0.0,46.1,564.4,2.4,False,,1.5,,,,,,,,,,,,43.8,Neutral
+Jalen Tolbert,WR,MIA,0.1,0.0,0.0,2.4,0.0,41.5,499.4,4.5,False,,1.5,,,,,,,,,,,,34.4,Tough
+Pat Freiermuth,TE,PIT,0.1,0.0,0.0,0.6,0.0,46.3,498.3,3.7,False,,1.5,,,,,,,183.0,27.2,,,9.0,46.9,Neutral
+Tyler Scott,WR,LA,0.5,0.0,0.0,13.3,0.1,43.4,522.4,3.3,False,,1.5,,,,,,,,,,,,56.2,Neutral
 Jacob Saylors,RB,DET,0.3,0.0,0.0,538.2,3.6,21.8,158.5,0.7,False,,1.5,,,,,,,,,,,,58.3,Neutral
-Gunner Olszewski,WR,NYG,43.7,1.3,0.0,6.7,0.0,38.6,496.7,3.0,False,,1.5,,,,,,,,,,,,75.0,Easy
-Calvin Austin III,WR,NYG,0.1,0.0,0.0,2.3,0.0,42.1,541.5,3.4,False,,1.5,,,,,,,,,,,,75.0,Easy
-Jason Brownlee,WR,KC,0.5,0.0,0.0,12.3,0.1,42.6,523.1,3.3,False,,1.5,,,,,,,,,,,,43.8,Neutral
-MarShawn Lloyd,RB,GB,0.3,0.0,0.0,514.0,3.5,22.9,164.0,0.8,False,,1.5,,,,,,,142.4,21.2,,,11.0,52.1,Neutral
-Dylan Drummond,WR,ATL,0.4,0.0,0.0,8.8,0.0,45.8,505.2,3.2,False,,1.5,,,,,,,,,,,,59.4,Neutral
-Malik Washington,WR,MIA,0.1,0.0,0.0,58.6,0.4,48.7,419.0,2.9,False,,1.5,,,149.9,25.4,153.5,21.2,156.9,17.2,172.4,4.0,6.0,34.4,Tough
-Theo Johnson,TE,NYG,0.1,0.0,0.0,0.7,0.0,44.1,486.2,3.9,False,,1.5,,,,,,,,,,,,42.7,Neutral
+Pat Bryant,WR,DEN,0.2,0.0,0.0,5.3,0.0,46.0,563.7,2.4,False,,1.5,,,,,176.2,20.9,151.1,22.4,,,10.0,43.8,Neutral
+Calvin Austin III,WR,NYG,0.1,0.0,0.0,2.3,0.0,42.1,541.2,3.4,False,,1.5,,,,,,,,,,,,75.0,Easy
+Gunner Olszewski,WR,NYG,43.7,1.3,0.0,6.7,0.0,38.5,495.8,3.0,False,,1.5,,,,,,,,,,,,75.0,Easy
+MarShawn Lloyd,RB,GB,0.3,0.0,0.0,514.0,3.5,22.9,164.0,0.8,False,,1.5,,,147.7,19.0,162.1,17.4,156.2,22.6,169.6,14.5,11.0,52.1,Neutral
+Malik Washington,WR,MIA,0.1,0.0,0.0,59.0,0.4,48.7,418.8,2.9,False,,1.5,,,153.2,13.1,147.5,13.8,148.5,14.3,166.2,13.2,6.0,34.4,Tough
+Jason Brownlee,WR,KC,0.5,0.0,0.0,12.6,0.1,42.4,521.6,3.3,False,,1.5,,,,,,,,,,,,43.8,Neutral
+Theo Johnson,TE,NYG,0.1,0.0,0.0,0.7,0.0,44.1,485.9,3.9,False,,1.5,,,,,,,,,,,,42.7,Neutral
+Dylan Drummond,WR,ATL,0.4,0.0,0.0,8.9,0.0,45.6,504.1,3.2,False,,1.5,,,,,,,,,,,,59.4,Neutral
+Andrei Iosivas,WR,CIN,0.1,0.0,0.0,12.2,0.1,39.8,515.4,3.8,False,,1.5,,,,,,,,,,,,69.3,Easy
 Jawhar Jordan,RB,HOU,0.2,0.0,0.0,562.6,2.3,24.4,167.6,0.8,False,,1.5,,,,,,,,,,,,41.7,Neutral
-Olamide Zaccheaus,WR,ATL,0.1,0.0,0.0,15.4,0.1,48.2,476.7,3.0,False,,1.5,,,,,,,,,,,,59.4,Neutral
-Andrei Iosivas,WR,CIN,0.1,0.0,0.0,12.1,0.1,39.8,515.7,3.8,False,,1.5,,,,,,,,,,,,70.3,Easy
-Jonathon Brooks,RB,CAR,0.3,0.0,0.0,487.0,3.2,24.8,181.1,0.8,False,,1.5,,,119.3,18.2,112.1,17.5,109.1,16.0,136.3,18.7,5.0,41.7,Neutral
-Rashod Bateman,WR,BAL,0.1,0.0,0.0,2.7,0.0,36.6,499.2,4.8,False,,1.5,,,126.5,9.1,136.0,15.1,154.5,12.6,152.2,19.8,13.0,39.6,Neutral
-Elijah Moore,WR,PHI,0.1,0.0,0.0,30.6,0.2,50.2,531.6,1.3,False,,1.5,,,,,,,,,,,,27.1,Tough
-Malik Turner,WR,SF,0.4,0.0,0.0,10.5,0.0,42.2,519.5,3.3,False,,1.5,,,,,,,,,,,,25.5,Tough
-Tank Bigsby,RB,PHI,0.1,0.0,0.0,627.8,5.4,10.1,77.5,0.3,False,,1.5,hand,Handcuff to Barkley in PHI (not a JAX committee piece); efficient handcuff without the premium price,149.5,16.9,161.5,33.9,156.7,19.0,170.4,11.6,10.0,33.3,Tough
-Jayden Higgins,WR,HOU,0.1,0.0,0.0,3.6,0.0,39.6,498.3,4.1,False,,1.5,mod,"Real opportunity most of the market hasn't priced in yet (ADP 135, round 11+) -- 6 TD on 68 targets as a rookie, stepped up when Collins was hurt, and Kirk's departure plus Dell's rehab open real room in 2026",126.7,10.7,130.6,11.7,135.2,12.3,136.5,11.7,8.0,41.7,Neutral
-Malik Cunningham,WR,DET,0.5,0.0,0.0,24.6,0.1,41.3,507.5,3.2,False,,1.5,,,,,,,,,,,,53.1,Neutral
-Greg Dulcich,TE,MIA,0.2,0.0,0.0,3.5,0.1,46.9,515.1,2.4,False,,1.5,,,,,,,167.9,26.3,,,6.0,17.7,Tough
-Devaughn Vele,WR,NO,0.1,0.0,0.0,2.9,0.0,42.8,506.9,3.3,False,,1.5,,,,,,,,,,,,60.4,Neutral
-Marvin Mims Jr.,WR,DEN,0.1,0.0,0.0,61.3,0.3,43.0,456.6,2.6,False,,1.5,,,,,,,,,,,,43.8,Neutral
+Olamide Zaccheaus,WR,ATL,0.1,0.0,0.0,15.5,0.1,48.2,476.5,3.0,False,,1.5,,,,,,,,,,,,59.4,Neutral
+Jonathon Brooks,RB,CAR,0.3,0.0,0.0,487.0,3.2,24.8,181.1,0.8,False,,1.5,,,96.6,15.4,94.2,13.6,99.8,14.6,122.1,19.6,5.0,41.7,Neutral
+Rashod Bateman,WR,BAL,0.1,0.0,0.0,2.7,0.0,36.5,498.9,4.8,False,,1.5,,,131.6,10.7,128.9,22.3,150.8,14.6,145.3,13.3,13.0,39.6,Neutral
+Elijah Moore,WR,PHI,0.1,0.0,0.0,30.7,0.2,50.1,531.3,1.3,False,,1.5,,,,,,,,,,,,27.1,Tough
+Tank Bigsby,RB,PHI,0.1,0.0,0.0,627.8,5.4,10.1,77.5,0.3,False,,1.5,hand,Handcuff to Barkley in PHI (not a JAX committee piece); efficient handcuff without the premium price,152.1,17.6,154.6,18.7,157.9,21.3,166.8,14.8,10.0,33.3,Tough
+Malik Turner,WR,SF,0.4,0.0,0.0,10.7,0.0,42.1,518.1,3.3,False,,1.5,,,,,,,,,,,,25.5,Tough
+Jayden Higgins,WR,HOU,0.1,0.0,0.0,3.7,0.0,39.5,497.9,4.1,False,,1.5,mod,"Real opportunity most of the market hasn't priced in yet (ADP 135, round 11+) -- 6 TD on 68 targets as a rookie, stepped up when Collins was hurt, and Kirk's departure plus Dell's rehab open real room in 2026",114.6,8.5,128.9,9.1,129.4,10.2,135.4,12.1,8.0,41.7,Neutral
+Malik Cunningham,WR,DET,0.5,0.0,0.0,24.9,0.1,41.1,506.0,3.2,False,,1.5,,,,,,,,,,,,56.2,Neutral
+Greg Dulcich,TE,MIA,0.2,0.0,0.0,3.5,0.1,46.9,514.4,2.4,False,,1.5,,,,,,,182.9,22.7,,,6.0,17.7,Tough
+Devaughn Vele,WR,NO,0.1,0.0,0.0,2.9,0.0,42.7,506.6,3.3,False,,1.5,,,167.2,10.7,174.0,7.3,163.8,21.4,,,8.0,60.4,Neutral
+Marvin Mims Jr.,WR,DEN,0.1,0.0,0.0,61.6,0.3,43.0,456.2,2.6,False,,1.5,,,,,,,,,,,,43.8,Neutral
 Josh Williams,RB,TB,0.3,0.0,0.0,470.7,3.2,23.2,169.0,0.9,False,,1.5,,,,,,,,,,,,39.6,Neutral
-Dyami Brown,WR,WAS,0.1,0.0,0.0,30.7,0.1,40.3,460.1,3.6,False,,1.5,,,,,,,,,,,,42.7,Neutral
-Matthew Golden,WR,GB,0.2,0.0,0.0,44.0,0.2,43.3,536.3,1.5,False,,1.5,,,106.6,9.0,115.9,10.0,121.7,10.8,128.5,12.7,11.0,44.8,Neutral
-Josh Palmer,WR,BUF,0.1,0.0,0.0,2.9,0.0,41.4,563.7,2.2,False,,1.5,,,,,,,,,,,,47.9,Neutral
-Kendric Pryor,WR,CIN,0.5,0.0,0.0,12.3,0.1,40.9,498.2,3.1,False,,1.5,,,,,,,,,,,,70.3,Easy
-Jared Wayne,WR,HOU,0.5,0.0,0.0,11.7,0.1,41.3,501.5,3.0,False,,1.5,,,,,,,,,,,,41.7,Neutral
+Dyami Brown,WR,WAS,0.1,0.0,0.0,30.8,0.1,40.3,459.8,3.6,False,,1.5,,,,,,,,,,,,42.7,Neutral
 Sean Tucker,RB,TB,0.1,0.0,0.0,409.5,6.7,15.0,107.2,0.7,False,,1.5,,,,,,,,,,,,39.6,Neutral
-Colston Loveland,TE,CHI,0.2,0.0,0.0,2.3,0.0,41.8,474.5,3.6,False,,1.5,mod,"Real breakout profile (82 tgt, 8.03 Y/T) -- model conservative on one-season sample, real upside and risk",73.2,8.7,66.1,8.5,60.0,9.6,82.1,11.1,10.0,31.2,Tough
+Josh Palmer,WR,BUF,0.1,0.0,0.0,3.1,0.0,41.2,563.3,2.2,False,,1.5,,,,,,,,,,,,51.0,Neutral
+Colston Loveland,TE,CHI,0.2,0.0,0.0,2.3,0.0,41.8,474.1,3.6,False,,1.5,mod,"Real breakout profile (82 tgt, 8.03 Y/T) -- model conservative on one-season sample, real upside and risk",68.3,8.5,61.7,8.4,56.8,9.0,82.4,10.6,10.0,31.2,Tough
 Ulysses Bentley IV,RB,IND,0.3,0.0,0.0,487.6,3.4,21.8,158.6,0.7,False,,1.5,,,,,,,,,,,,68.8,Easy
+Kendric Pryor,WR,CIN,0.5,0.0,0.0,12.5,0.1,40.8,496.8,3.1,False,,1.5,,,,,,,,,,,,69.3,Easy
+Jared Wayne,WR,HOU,0.5,0.0,0.0,12.0,0.1,41.1,500.1,3.0,False,,1.5,,,,,,,,,,,,41.7,Neutral
 Brashard Smith,RB,KC,0.1,0.0,0.0,340.8,1.7,32.1,228.3,1.9,False,,1.5,,,,,,,,,,,,32.3,Tough
 Nick Mullens,QB,JAX,1102.6,6.9,3.5,124.4,1.4,0.1,0.3,0.0,False,,1.5,,,,,,,,,,,,66.7,Easy
 Isaac Guerendo,RB,SF,0.1,0.0,0.0,492.1,4.2,18.4,150.4,0.3,False,,1.5,,,,,,,,,,,,35.4,Neutral
 Amar Johnson,RB,LAC,0.3,0.0,0.0,477.7,3.2,21.8,159.4,0.8,False,,1.5,,,,,,,,,,,,56.2,Neutral
-Xavier Legette,WR,CAR,0.1,0.0,0.0,12.5,0.1,40.9,441.8,3.7,False,,1.5,,,,,,,,,,,,33.3,Tough
-T.J. Hockenson,TE,MIN,0.1,0.0,0.0,2.2,0.0,48.4,451.6,2.5,False,,1.5,,,,,159.7,19.1,155.6,29.4,,,6.0,76.0,Easy
+Matthew Golden,WR,GB,0.2,0.0,0.0,44.3,0.2,42.6,526.9,1.4,False,,1.5,,,92.8,9.0,102.1,7.7,106.0,8.7,123.6,14.0,11.0,47.9,Neutral
+Xavier Legette,WR,CAR,0.1,0.0,0.0,12.6,0.1,40.9,441.6,3.7,False,,1.5,,,,,,,177.4,24.3,,,5.0,33.3,Tough
 Brady Russell,RB,SEA,0.3,0.0,0.0,448.9,3.1,23.4,170.3,0.8,False,,1.5,,,,,,,,,,,,59.4,Neutral
+T.J. Hockenson,TE,MIN,0.1,0.0,0.0,2.2,0.0,48.4,451.2,2.5,False,,1.5,,,,,180.3,15.3,165.2,21.1,,,6.0,76.0,Easy
 Kendall Milton,RB,CIN,0.3,0.0,0.0,475.5,3.3,21.0,152.7,0.8,False,,1.5,,,,,,,,,,,,58.3,Neutral
-Germie Bernard,WR,PIT,0.0,0.0,0.0,0.0,0.0,37.8,513.7,3.1,True,15.0,1.5,,,158.6,21.4,,,170.0,11.7,167.2,10.1,9.0,72.4,Easy
+Germie Bernard,WR,PIT,0.0,0.0,0.0,0.0,0.0,37.8,513.7,3.1,True,15.0,1.5,,,,,192.4,4.5,167.2,10.6,165.7,12.0,9.0,70.3,Easy
 Patrick Taylor,RB,SF,0.2,0.0,0.0,470.7,3.9,19.0,139.9,0.7,False,,1.5,,,,,,,,,,,,35.4,Neutral
-Oronde Gadsden II,TE,LAC,0.2,0.0,0.0,0.9,0.0,40.7,488.1,3.0,False,,1.5,fade,Crowded TE room now (Kolar + Njoku added),,,,,165.7,37.4,,,7.0,63.5,Neutral
-Nikko Remigio,WR,KC,0.4,0.0,0.0,21.2,0.1,38.1,497.3,2.8,False,,1.5,,,,,,,,,,,,43.8,Neutral
+Oronde Gadsden II,TE,LAC,0.2,0.0,0.0,0.9,0.0,40.7,487.6,3.0,False,,1.5,fade,Crowded TE room now (Kolar + Njoku added),,,,,146.7,26.5,134.8,12.8,7.0,63.5,Neutral
+Nikko Remigio,WR,KC,0.4,0.0,0.0,21.4,0.1,38.0,496.0,2.8,False,,1.5,,,,,,,,,,,,43.8,Neutral
 Hendon Hooker,QB,TEN,1117.1,6.9,3.1,99.1,1.0,0.1,0.3,0.0,False,,1.5,,,,,,,,,,,,64.6,Neutral
 Cody Schrader,RB,DEN,0.3,0.0,0.0,457.6,3.1,22.0,159.7,0.7,False,,1.5,,,,,,,,,,,,52.1,Neutral
-AJ Barner,TE,SEA,0.1,0.0,0.0,14.2,0.3,40.1,385.4,4.1,False,,1.5,,,,,,,168.0,11.3,,,11.0,37.5,Neutral
-Mitchell Tinsley,WR,CIN,0.2,0.0,0.0,6.4,0.0,32.1,410.6,5.4,False,,1.5,,,,,,,,,,,,70.3,Easy
+AJ Barner,TE,SEA,0.1,0.0,0.0,14.2,0.3,40.1,385.2,4.1,False,,1.5,,,,,,,156.8,25.3,136.2,16.1,11.0,37.5,Neutral
+Mitchell Tinsley,WR,CIN,0.2,0.0,0.0,6.5,0.0,32.0,409.9,5.4,False,,1.5,,,,,,,,,,,,69.3,Easy
 Jalen Milroe,QB,SEA,1086.5,7.1,3.1,91.8,1.0,0.1,0.3,0.0,False,,1.5,,,,,,,,,,,,32.3,Tough
-Chimere Dike,WR,TEN,0.1,0.0,0.0,34.9,0.2,41.0,413.5,3.1,False,,1.5,,,,,,,,,120.2,25.1,9.0,78.1,Easy
+Chimere Dike,WR,TEN,0.1,0.0,0.0,35.1,0.2,41.0,413.2,3.1,False,,1.5,,,,,,,,,126.2,34.2,9.0,77.1,Easy
 Emanuel Wilson,RB,SEA,0.1,0.0,0.0,518.6,3.6,17.0,114.1,0.6,False,,1.5,,,,,,,,,,,,59.4,Neutral
 Corey Kiner,RB,ARI,0.2,0.0,0.0,464.9,2.9,21.3,154.8,0.8,False,,1.5,,,,,,,,,,,,68.8,Easy
-Brittain Brown,RB,CHI,0.3,0.0,0.0,458.0,3.7,19.0,138.9,0.7,False,,1.5,,,,,,,,,,,,50.0,Neutral
-Bub Means,WR,NO,0.3,0.0,0.0,8.1,0.0,39.8,497.4,2.4,False,,1.5,,,,,,,,,,,,60.4,Neutral
+Brittain Brown,RB,CHI,0.3,0.0,0.0,459.6,3.7,19.1,139.4,0.7,False,,1.5,,,,,,,,,,,,50.0,Neutral
 Sincere McCormick,RB,SF,0.2,0.0,0.0,551.4,2.2,19.3,133.9,0.6,False,,1.5,,,,,,,,,,,,35.4,Neutral
-Tom Kennedy,WR,DET,0.4,0.0,0.0,9.8,0.0,40.2,472.1,2.7,False,,1.5,,,,,,,,,,,,53.1,Neutral
-Quentin Skinner,WR,NYJ,0.4,0.0,0.0,10.8,0.1,38.4,469.1,2.9,False,,1.5,,,,,,,,,,,,30.2,Tough
-Luke McCaffrey,WR,WAS,0.1,0.0,0.0,3.4,0.0,34.5,466.8,3.8,False,,1.5,,,,,,,,,,,,42.7,Neutral
-Beaux Collins,WR,NYG,0.4,0.0,0.0,9.0,0.0,38.3,471.2,3.0,False,,1.5,,,,,,,,,,,,75.0,Easy
-Johnny Wilson,WR,PHI,0.2,0.0,0.0,6.2,0.0,32.8,379.4,5.4,False,,1.5,,,,,,,,,,,,27.1,Tough
+Bub Means,WR,NO,0.3,0.0,0.0,8.2,0.0,39.7,496.4,2.4,False,,1.5,,,,,,,,,,,,60.4,Neutral
+Tom Kennedy,WR,DET,0.4,0.0,0.0,9.9,0.0,40.1,471.0,2.7,False,,1.5,,,,,,,,,,,,56.2,Neutral
+Luke McCaffrey,WR,WAS,0.1,0.0,0.0,3.5,0.0,34.4,466.2,3.8,False,,1.5,,,,,,,,,,,,42.7,Neutral
+Quentin Skinner,WR,NYJ,0.4,0.0,0.0,11.0,0.1,38.2,467.8,2.9,False,,1.5,,,,,,,,,,,,30.2,Tough
+Beaux Collins,WR,NYG,0.4,0.0,0.0,9.1,0.0,38.2,470.1,3.0,False,,1.5,,,,,,,,,,,,75.0,Easy
+Johnny Wilson,WR,PHI,0.2,0.0,0.0,6.3,0.0,32.7,378.6,5.4,False,,1.5,,,,,,,,,,,,27.1,Tough
 Nate Carter,RB,ATL,0.3,0.0,0.0,501.4,3.1,17.7,129.2,0.7,False,,1.5,,,,,,,,,,,,62.5,Neutral
-Ainias Smith,WR,CAR,0.4,0.0,0.0,24.8,0.1,38.7,426.3,3.1,False,,1.5,,,,,,,,,,,,33.3,Tough
-Blake Corum,RB,LA,0.1,0.0,0.0,565.4,4.5,11.2,75.3,0.1,False,,1.5,,,109.0,14.5,119.8,15.7,122.3,15.8,123.5,14.2,11.0,50.0,Neutral
-Derrick Henry,RB,BAL,0.1,0.0,0.0,566.9,5.4,6.7,57.9,0.2,False,,1.5,fade,RB age-cliff (age_mult ~0.46) while still drafted like his old self,6.7,2.6,10.0,1.8,15.9,2.9,12.8,3.4,13.0,57.3,Neutral
-Tez Johnson,WR,TB,0.2,0.0,0.0,29.3,0.1,34.8,414.2,3.8,False,,1.5,fade,"Real reporting: fighting for the WR4/5 spot in a deep, crowded room",,,,,,,,,,58.3,Neutral
-Roschon Johnson,RB,CHI,0.1,0.0,0.0,301.3,6.5,17.7,125.1,0.5,False,,1.5,,,,,,,,,,,,50.0,Neutral
-Treylon Burks,WR,WAS,0.2,0.0,0.0,9.0,0.0,33.2,409.4,4.5,False,,1.5,,,,,,,,,,,,42.7,Neutral
-Anthony Gould,WR,IND,0.4,0.0,0.0,9.7,0.0,38.8,455.6,2.8,False,,1.5,,,,,,,,,,,,44.8,Neutral
-Chris Blair,WR,ATL,0.4,0.0,0.0,9.4,0.1,37.1,462.4,2.8,False,,1.5,,,,,,,,,,,,59.4,Neutral
+Blake Corum,RB,LA,0.1,0.0,0.0,565.4,4.5,11.2,75.3,0.1,False,,1.5,,,107.3,15.4,121.6,14.5,120.9,18.0,122.5,14.6,11.0,50.0,Neutral
+Ainias Smith,WR,CAR,0.4,0.0,0.0,25.0,0.1,38.6,425.4,3.1,False,,1.5,,,,,,,,,,,,33.3,Tough
+Derrick Henry,RB,BAL,0.1,0.0,0.0,566.9,5.4,6.7,57.9,0.2,False,,1.5,fade,RB age-cliff (age_mult ~0.46) while still drafted like his old self,7.4,1.7,9.7,1.7,17.7,2.6,10.9,2.7,13.0,57.3,Neutral
+Roschon Johnson,RB,CHI,0.1,0.0,0.0,302.8,6.5,17.8,125.7,0.5,False,,1.5,,,,,,,,,,,,50.0,Neutral
+Tez Johnson,WR,TB,0.2,0.0,0.0,29.5,0.1,34.8,413.7,3.8,False,,1.5,fade,"Real reporting: fighting for the WR4/5 spot in a deep, crowded room",,,,,,,,,,58.3,Neutral
+Treylon Burks,WR,WAS,0.2,0.0,0.0,9.1,0.0,33.2,408.8,4.5,False,,1.5,,,,,,,,,,,,42.7,Neutral
+Anthony Gould,WR,IND,0.4,0.0,0.0,9.9,0.0,38.7,454.5,2.8,False,,1.5,,,,,,,,,,,,42.7,Neutral
 Audric Estimé,RB,NO,0.1,0.0,0.0,469.2,3.0,19.2,146.2,0.5,False,,1.5,,,,,,,,,,,,66.7,Easy
-Elic Ayomanor,WR,TEN,0.1,0.0,0.0,3.4,0.0,37.3,465.7,2.9,False,,1.5,,,,,,,,,,,,78.1,Easy
-Cody White,WR,SEA,0.3,0.0,0.0,8.5,0.0,33.9,491.5,2.9,False,,1.5,,,,,,,,,,,,38.0,Neutral
-Mike Gesicki,TE,CIN,0.1,0.0,0.0,0.5,0.0,40.9,421.9,3.0,False,,1.5,,,,,,,,,,,,51.0,Neutral
-Michael Bandy,WR,DEN,0.4,0.0,0.0,9.6,0.0,36.7,452.3,3.0,False,,1.5,,,,,,,,,,,,43.8,Neutral
-Devontez Walker,WR,BAL,0.2,0.0,0.0,6.9,0.0,31.9,463.8,3.6,False,,1.5,,,,,,,,,,,,39.6,Neutral
-Isaiah Hodgins,WR,NYG,0.2,0.0,0.0,5.7,0.0,37.4,445.8,3.0,False,,1.5,,,,,,,,,,,,75.0,Easy
-Charlie Jones,WR,CIN,0.4,0.0,0.0,11.0,0.1,36.8,447.0,2.9,False,,1.5,,,,,,,,,,,,70.3,Easy
+Elic Ayomanor,WR,TEN,0.1,0.0,0.0,3.4,0.0,37.3,465.3,2.9,False,,1.5,,,,,,,,,,,,77.1,Easy
+Chris Blair,WR,ATL,0.4,0.0,0.0,9.6,0.1,37.0,461.0,2.8,False,,1.5,,,,,,,,,,,,59.4,Neutral
+Cody White,WR,SEA,0.3,0.0,0.0,8.6,0.0,33.8,490.3,2.9,False,,1.5,,,,,,,,,,,,38.0,Neutral
+Mike Gesicki,TE,CIN,0.1,0.0,0.0,0.5,0.0,40.9,421.6,3.0,False,,1.5,,,,,,,,,,,,51.0,Neutral
+Michael Bandy,WR,DEN,0.4,0.0,0.0,9.8,0.0,36.6,451.1,3.0,False,,1.5,,,,,,,,,,,,43.8,Neutral
+Devontez Walker,WR,BAL,0.2,0.0,0.0,7.2,0.0,31.8,462.9,3.6,False,,1.5,,,,,,,,,,,,39.6,Neutral
+Charlie Jones,WR,CIN,0.4,0.0,0.0,11.2,0.1,36.7,445.8,2.9,False,,1.5,,,,,,,,,,,,69.3,Easy
+Isaiah Hodgins,WR,NYG,0.2,0.0,0.0,5.8,0.0,37.3,445.0,3.0,False,,1.5,,,,,,,,,,,,75.0,Easy
 Brandon Allen,QB,NYG,1155.9,6.7,5.0,74.0,0.7,0.1,0.2,0.0,False,,1.5,,,,,,,,,,,,60.4,Neutral
-Harold Fannin Jr.,TE,CLE,0.2,0.0,0.0,9.5,0.2,41.7,416.4,2.3,False,,1.5,,,106.5,16.6,84.6,8.9,81.7,10.7,108.1,12.8,11.0,40.6,Neutral
-Isiah Pacheco,RB,DET,0.1,0.0,0.0,519.1,1.8,19.2,125.0,0.8,False,,1.5,hand,Handcuff to Gibbs -- model correctly projects him low; real insurance value if you own Gibbs,150.0,17.1,143.7,21.8,149.0,18.7,146.0,19.1,6.0,58.3,Neutral
-Dawson Knox,TE,BUF,0.1,0.0,0.0,0.7,0.0,36.1,406.9,3.7,False,,1.5,,,,,,,,,,,,62.5,Neutral
-Lil'Jordan Humphrey,WR,DEN,0.1,0.0,0.0,3.3,0.0,36.8,416.7,3.2,False,,1.5,,,,,,,,,,,,43.8,Neutral
-Emari Demercado,RB,KC,0.1,0.0,0.0,439.1,1.0,23.3,170.0,1.3,False,,1.5,,,,,,,168.0,19.4,140.0,8.4,5.0,32.3,Tough
-Tyrell Shavers,WR,BUF,0.2,0.0,0.0,5.8,0.0,35.8,513.6,1.7,False,,1.5,,,,,,,,,,,,47.9,Neutral
-Tutu Atwell,WR,MIA,0.1,0.0,0.0,6.0,0.0,34.6,541.1,1.4,False,,1.5,,,,,,,,,,,,34.4,Tough
-Alvin Kamara,RB,NO,0.1,0.0,0.0,399.7,1.7,26.4,181.7,0.5,False,,1.5,fade,RB age-cliff (age_mult ~0.5) while still drafted like his old self,148.4,19.6,144.9,19.8,136.2,18.6,151.7,20.4,8.0,66.7,Easy
-Nick Westbrook-Ikhine,WR,IND,0.1,0.0,0.0,3.1,0.0,34.2,419.2,3.5,False,,1.5,,,,,,,,,,,,44.8,Neutral
-Brandon Johnson,WR,LV,0.4,0.0,0.0,10.3,0.1,35.9,437.0,2.7,False,,1.5,,,,,,,,,,,,52.1,Neutral
-Jarrett Stidham,QB,DEN,991.2,6.5,2.9,90.2,0.9,0.1,0.3,0.0,False,,1.5,,,,,,,,,,,,35.4,Neutral
-Xavier Restrepo,WR,TEN,0.4,0.0,0.0,9.2,0.1,35.4,440.1,2.7,False,,1.5,,,,,,,,,,,,78.1,Easy
-Scott Miller,WR,CHI,0.2,0.0,0.0,5.6,0.0,39.0,424.2,2.5,False,,1.5,,,,,,,,,,,,58.3,Neutral
-Ronnie Bell,WR,NO,0.3,0.0,0.0,8.0,0.0,34.2,416.1,3.3,False,,1.5,,,,,,,,,,,,60.4,Neutral
+Harold Fannin Jr.,TE,CLE,0.2,0.0,0.0,9.5,0.2,41.7,416.1,2.3,False,,1.5,,,95.8,6.0,83.2,6.0,78.5,7.4,106.8,11.9,11.0,40.6,Neutral
+Isiah Pacheco,RB,DET,0.1,0.0,0.0,519.1,1.8,19.2,125.0,0.8,False,,1.5,hand,Handcuff to Gibbs -- model correctly projects him low; real insurance value if you own Gibbs,153.8,18.2,153.4,18.0,154.8,19.3,147.4,19.2,6.0,58.3,Neutral
+Dawson Knox,TE,BUF,0.1,0.0,0.0,0.7,0.0,36.1,406.5,3.7,False,,1.5,,,,,,,,,,,,62.5,Neutral
+Emari Demercado,RB,KC,0.1,0.0,0.0,439.1,1.0,23.3,170.0,1.3,False,,1.5,,,,,,,144.4,11.9,,,5.0,32.3,Tough
+Tyrell Shavers,WR,BUF,0.2,0.0,0.0,5.9,0.0,35.8,512.8,1.7,False,,1.5,,,,,,,,,,,,51.0,Neutral
+Lil'Jordan Humphrey,WR,DEN,0.1,0.0,0.0,3.3,0.0,36.7,416.2,3.2,False,,1.5,,,,,,,,,,,,43.8,Neutral
+Tutu Atwell,WR,MIA,0.1,0.0,0.0,6.0,0.0,34.6,540.6,1.4,False,,1.5,,,,,,,,,,,,34.4,Tough
+Alvin Kamara,RB,NO,0.1,0.0,0.0,399.7,1.7,26.4,181.7,0.5,False,,1.5,fade,RB age-cliff (age_mult ~0.5) while still drafted like his old self,148.9,18.8,148.6,23.2,144.3,23.0,150.5,18.4,8.0,66.7,Easy
+Nick Westbrook-Ikhine,WR,IND,0.1,0.0,0.0,3.1,0.0,34.2,418.8,3.5,False,,1.5,,,,,,,,,,,,42.7,Neutral
+Brandon Johnson,WR,LV,0.4,0.0,0.0,10.4,0.1,35.7,435.8,2.7,False,,1.5,,,,,,,,,,,,50.0,Neutral
+Xavier Restrepo,WR,TEN,0.4,0.0,0.0,9.4,0.1,35.3,439.1,2.7,False,,1.5,,,,,,,,,,,,77.1,Easy
+Scott Miller,WR,CHI,0.2,0.0,0.0,5.7,0.0,38.9,423.5,2.5,False,,1.5,,,,,,,,,,,,58.3,Neutral
+Ronnie Bell,WR,NO,0.3,0.0,0.0,8.2,0.0,34.2,415.2,3.3,False,,1.5,,,,,,,,,,,,60.4,Neutral
 Devin Neal,RB,NO,0.2,0.0,0.0,408.5,2.2,24.2,166.9,0.2,False,,1.5,,,,,,,,,,,,66.7,Easy
 Kyle Allen,QB,BUF,987.5,6.4,2.9,86.0,0.9,0.1,0.3,0.0,False,,1.5,,,,,,,,,,,,61.5,Neutral
-Justice Hill,RB,BAL,0.1,0.0,0.0,218.8,1.9,30.5,246.7,1.2,False,,1.5,,,,,,,166.4,10.5,,,13.0,57.3,Neutral
-Brian Robinson,RB,ATL,0.1,0.0,0.0,499.8,4.0,11.2,74.3,0.5,False,,1.5,hand,Buried behind Croskey-Merritt/White right now -- late-round dart only if you own the guy ahead,156.1,17.3,,,165.1,20.2,143.0,18.4,11.0,62.5,Neutral
-Jalen Nailor,WR,LV,0.1,0.0,0.0,9.8,0.1,28.1,398.7,4.3,False,,1.5,,,144.8,17.1,143.7,12.5,158.7,12.2,153.2,16.6,13.0,52.1,Neutral
-Jaydon Blue,RB,DAL,0.2,0.0,0.0,491.9,3.0,14.6,106.0,0.5,False,,1.5,,,,,,,152.0,47.4,,,14.0,43.8,Neutral
-Cole Kmet,TE,CHI,0.1,0.0,0.0,0.6,0.0,38.8,408.4,2.6,False,,1.5,,,,,,,,,,,,31.2,Tough
-Isaiah Likely,TE,NYG,0.1,0.0,0.0,0.7,0.0,36.8,397.6,3.1,False,,1.5,mod,3 of 7 ESPN panelists called him an overlooked sleeper. Real ADP (133) is deep enough that the downside is minimal,135.2,16.7,136.0,20.2,132.7,19.0,143.3,14.8,8.0,42.7,Neutral
+Jarrett Stidham,QB,DEN,979.8,6.4,2.9,89.2,0.9,0.1,0.3,0.0,False,,1.5,,,,,,,,,,,,35.4,Neutral
+Justice Hill,RB,BAL,0.1,0.0,0.0,218.8,1.9,30.5,246.7,1.2,False,,1.5,,,,,174.2,14.8,170.1,12.2,,,13.0,57.3,Neutral
+Brian Robinson,RB,ATL,0.1,0.0,0.0,499.8,4.0,11.2,74.3,0.5,False,,1.5,hand,Buried behind Croskey-Merritt/White right now -- late-round dart only if you own the guy ahead,165.8,10.9,160.9,25.7,163.5,26.1,153.8,18.4,11.0,62.5,Neutral
+Jaydon Blue,RB,DAL,0.2,0.0,0.0,491.9,3.0,14.6,106.0,0.5,False,,1.5,,,,,,,168.9,12.9,,,14.0,43.8,Neutral
+Cole Kmet,TE,CHI,0.1,0.0,0.0,0.6,0.0,38.8,408.1,2.6,False,,1.5,,,,,,,,,,,,31.2,Tough
+Jalen Nailor,WR,LV,0.1,0.0,0.0,9.9,0.1,28.1,398.4,4.3,False,,1.5,,,134.8,11.6,144.7,13.2,155.1,14.8,153.9,14.8,13.0,50.0,Neutral
+Isaiah Likely,TE,NYG,0.1,0.0,0.0,0.7,0.0,36.8,397.3,3.1,False,,1.5,mod,3 of 7 ESPN panelists called him an overlooked sleeper. Real ADP (133) is deep enough that the downside is minimal,138.7,17.5,135.2,18.8,136.7,18.2,140.6,16.1,8.0,42.7,Neutral
 Jaret Patterson,RB,LAC,0.2,0.0,0.0,447.6,3.6,15.1,104.3,0.5,False,,1.5,,,,,,,,,,,,56.2,Neutral
 DJ Giddens,RB,IND,0.2,0.0,0.0,455.7,3.2,15.5,113.2,0.5,False,,1.5,,,,,,,,,,,,68.8,Easy
-Tim Jones,WR,JAX,0.3,0.0,0.0,9.0,0.0,34.8,436.2,2.5,False,,1.5,,,,,,,,,,,,62.5,Neutral
-Casey Washington,WR,ATL,0.2,0.0,0.0,6.1,0.0,34.2,445.0,2.5,False,,1.5,,,,,,,,,,,,59.4,Neutral
-Konata Mumpfield,WR,LA,0.2,0.0,0.0,6.1,0.0,32.3,371.1,4.0,False,,1.5,,,,,,,,,,,,56.2,Neutral
-Demarcus Robinson,WR,SF,0.1,0.0,0.0,4.4,0.0,30.5,407.9,3.7,False,,1.5,,,,,,,,,,,,25.5,Tough
+Casey Washington,WR,ATL,0.2,0.0,0.0,6.3,0.0,34.2,444.2,2.5,False,,1.5,,,,,,,,,,,,59.4,Neutral
+Tim Jones,WR,JAX,0.3,0.0,0.0,9.1,0.0,34.7,435.1,2.5,False,,1.5,,,,,,,,,,,,62.5,Neutral
+Konata Mumpfield,WR,LA,0.2,0.0,0.0,6.2,0.0,32.2,370.6,4.0,False,,1.5,,,,,,,,,,,,56.2,Neutral
+Demarcus Robinson,WR,SF,0.1,0.0,0.0,4.5,0.0,30.5,407.6,3.7,False,,1.5,,,,,,,,,,,,25.5,Tough
 George Holani,RB,SEA,0.2,0.0,0.0,422.4,2.9,17.7,127.5,0.6,False,,1.5,,,,,,,,,,,,59.4,Neutral
-Roman Wilson,WR,PIT,0.2,0.0,0.0,5.6,0.0,34.2,436.6,2.5,False,,1.5,,,,,,,,,,,,72.4,Easy
-Ke'Shawn Williams,WR,CIN,0.4,0.0,0.0,28.6,0.1,33.7,406.0,2.6,False,,1.5,,,,,,,,,,,,70.3,Easy
-Shedrick Jackson,WR,LV,0.3,0.0,0.0,15.6,0.1,32.9,412.1,2.8,False,,1.5,,,,,,,,,,,,52.1,Neutral
-Simi Fehoko,WR,ARI,0.3,0.0,0.0,6.9,0.0,31.1,412.0,3.3,False,,1.5,,,,,,,,,,,,53.1,Neutral
-Velus Jones Jr.,WR,SEA,0.4,0.0,0.0,84.0,0.4,30.3,368.5,2.3,False,,1.5,,,,,,,,,,,,38.0,Neutral
-Jaylin Lane,WR,WAS,0.2,0.0,0.0,8.8,0.0,34.4,445.4,2.0,False,,1.5,,,,,,,,,,,,42.7,Neutral
-Jalen Reagor,WR,MIA,0.2,0.0,0.0,21.0,0.1,32.9,417.3,2.4,False,,1.5,,,,,,,,,,,,34.4,Tough
-Terrace Marshall Jr.,WR,MIA,0.3,0.0,0.0,7.1,0.0,33.5,417.0,2.6,False,,1.5,,,,,,,,,,,,34.4,Tough
-Parris Campbell,WR,DAL,0.3,0.0,0.0,8.2,0.0,34.7,382.4,2.9,False,,1.5,,,,,,,,,,,,61.5,Neutral
-Noah Fant,TE,NO,0.1,0.0,0.0,0.7,0.0,39.7,369.9,2.4,False,,1.5,,,,,,,,,,,,64.6,Neutral
-Calvin Ridley,WR,TEN,0.1,0.0,0.0,11.7,0.1,31.6,488.5,1.4,False,,1.5,,,112.4,10.4,129.4,11.8,133.2,10.2,137.1,14.1,9.0,78.1,Easy
-Cooper Kupp,WR,SEA,0.1,0.0,0.5,3.3,0.0,35.2,421.1,2.3,False,,1.5,,,156.5,15.3,155.5,20.4,160.5,17.3,159.5,14.5,11.0,38.0,Neutral
-Cedric Tillman,WR,CLE,0.1,0.0,0.0,4.2,0.0,32.6,403.5,2.8,False,,1.5,,,,,,,,,,,,83.3,Easy
-Xavier Smith,WR,LA,0.2,0.0,0.0,13.4,0.1,33.0,462.7,1.5,False,,1.5,,,,,,,,,,,,56.2,Neutral
-Isaiah Williams,WR,NYJ,0.2,0.0,0.0,20.0,0.1,43.4,423.0,0.3,False,,1.5,,,,,,,,,,,,30.2,Tough
-Mack Hollins,WR,NE,0.1,0.0,0.0,3.8,0.0,33.2,402.0,2.7,False,,1.5,,,,,,,,,,,,33.9,Tough
+Roman Wilson,WR,PIT,0.2,0.0,0.0,5.7,0.0,34.1,435.9,2.5,False,,1.5,,,,,,,,,,,,70.3,Easy
+Ke'Shawn Williams,WR,CIN,0.4,0.0,0.0,28.9,0.1,33.6,404.8,2.6,False,,1.5,,,,,,,,,,,,69.3,Easy
+Shedrick Jackson,WR,LV,0.3,0.0,0.0,15.7,0.1,32.8,411.1,2.8,False,,1.5,,,,,,,,,,,,50.0,Neutral
+Simi Fehoko,WR,ARI,0.3,0.0,0.0,7.0,0.0,31.0,411.3,3.3,False,,1.5,,,,,,,,,,,,53.1,Neutral
+Jaylin Lane,WR,WAS,0.2,0.0,0.0,8.9,0.0,34.3,444.8,2.0,False,,1.5,,,,,,,,,,,,42.7,Neutral
+Jalen Reagor,WR,MIA,0.2,0.0,0.0,21.2,0.1,32.8,416.4,2.4,False,,1.5,,,,,,,,,,,,34.4,Tough
+Velus Jones Jr.,WR,SEA,0.4,0.0,0.0,84.6,0.4,30.1,367.4,2.3,False,,1.5,,,,,,,,,,,,38.0,Neutral
+Terrace Marshall Jr.,WR,MIA,0.3,0.0,0.0,7.2,0.0,33.4,416.0,2.6,False,,1.5,,,,,,,,,,,,34.4,Tough
+Noah Fant,TE,NO,0.1,0.0,0.0,0.6,0.0,39.7,369.5,2.4,False,,1.5,,,,,,,,,,,,64.6,Neutral
+Parris Campbell,WR,DAL,0.3,0.0,0.0,8.4,0.0,34.6,381.5,2.9,False,,1.5,,,,,,,,,,,,61.5,Neutral
+Calvin Ridley,WR,TEN,0.1,0.0,0.0,11.8,0.1,31.6,488.2,1.4,False,,1.5,,,132.8,8.8,136.5,12.9,143.7,12.6,139.2,12.8,9.0,77.1,Easy
+Cooper Kupp,WR,SEA,0.1,0.0,0.5,3.3,0.0,35.2,420.9,2.3,False,,1.5,,,150.6,17.8,156.1,9.1,150.5,20.0,163.5,12.9,11.0,38.0,Neutral
+Xavier Smith,WR,LA,0.2,0.0,0.0,13.5,0.1,33.0,462.0,1.5,False,,1.5,,,,,,,,,,,,56.2,Neutral
+Cedric Tillman,WR,CLE,0.1,0.0,0.0,4.3,0.0,32.6,403.3,2.8,False,,1.5,,,,,,,,,,,,82.3,Easy
+Mack Hollins,WR,NE,0.1,0.0,0.0,3.9,0.0,33.2,401.8,2.7,False,,1.5,,,,,,,,,,,,33.9,Tough
+Isaiah Williams,WR,NYJ,0.2,0.0,0.0,20.2,0.1,43.3,422.5,0.3,False,,1.5,,,,,,,,,,,,30.2,Tough
 Kenny McIntosh,RB,SEA,0.2,0.0,0.0,487.3,1.0,18.2,132.8,0.6,False,,1.5,,,,,,,,,,,,59.4,Neutral
 Chris Collier,RB,LV,0.3,0.0,0.0,387.3,2.6,18.5,129.3,0.6,False,,1.5,,,,,,,,,,,,51.0,Neutral
 Ben VanSumeren,RB,BUF,0.3,0.0,0.0,382.3,2.6,18.6,131.2,0.6,False,,1.5,,,,,,,,,,,,44.8,Neutral
-Gunnar Helm,TE,TEN,0.2,0.0,0.0,0.8,0.0,40.4,352.6,2.2,False,,1.5,,,,,,,,,,,,59.4,Neutral
-Kevin Austin Jr.,WR,NO,0.2,0.0,0.0,6.9,0.0,36.1,430.7,1.5,False,,1.5,,,,,,,,,,,,60.4,Neutral
-Ray Davis,RB,BUF,0.1,0.0,0.0,401.8,1.7,15.5,128.4,1.7,False,,1.5,,,,,,,160.8,27.0,,,7.0,44.8,Neutral
-Mecole Hardman,WR,BUF,0.2,0.0,0.0,35.2,0.2,33.5,369.0,2.3,False,,1.5,,,,,,,,,,,,47.9,Neutral
-Dylan Sampson,RB,CLE,0.1,0.0,0.0,278.4,0.5,28.8,223.1,1.1,False,,1.5,,,,,164.6,28.0,160.0,14.5,,,11.0,63.5,Neutral
+Gunnar Helm,TE,TEN,0.2,0.0,0.0,0.8,0.0,40.4,352.1,2.2,False,,1.5,,,,,,,,,,,,59.4,Neutral
+Ray Davis,RB,BUF,0.1,0.0,0.0,401.8,1.7,15.5,128.4,1.7,False,,1.5,,,158.2,17.0,,,158.3,21.5,,,7.0,44.8,Neutral
+Mecole Hardman,WR,BUF,0.2,0.0,0.0,35.6,0.2,33.4,368.2,2.3,False,,1.5,,,,,,,,,,,,51.0,Neutral
+Kevin Austin Jr.,WR,NO,0.2,0.0,0.0,7.0,0.0,36.1,430.3,1.5,False,,1.5,,,,,,,,,,,,60.4,Neutral
+Dylan Sampson,RB,CLE,0.1,0.0,0.0,278.4,0.5,28.8,223.1,1.1,False,,1.5,,,,,174.5,22.6,156.9,16.0,,,11.0,63.5,Neutral
 Trevor Etienne,RB,CAR,0.2,0.0,0.0,381.1,3.5,15.5,108.8,0.5,False,,1.5,,,,,,,,,,,,41.7,Neutral
-Terrance Ferguson,TE,LA,0.2,0.0,0.0,3.6,0.1,25.3,315.8,5.1,False,,1.5,,,,,,,,,,,,61.5,Neutral
-Kenyon Sadiq,TE,NYJ,0.0,0.0,0.0,0.0,0.0,30.4,411.0,2.8,True,11.0,1.5,,,159.4,18.4,163.2,18.6,160.6,18.4,130.4,32.0,13.0,62.5,Neutral
-Jaylin Noel,WR,HOU,0.2,0.0,0.0,26.2,0.1,32.9,387.5,2.2,False,,1.5,,,,,,,,,,,,41.7,Neutral
-Van Jefferson,WR,WAS,0.1,0.0,0.0,2.1,0.0,34.6,416.5,1.9,False,,1.5,,,,,,,,,,,,42.7,Neutral
-Teddy Bridgewater,QB,DET,938.3,5.8,2.7,72.1,0.7,0.1,0.2,0.0,False,,1.5,,,,,,,,,,,,51.0,Neutral
-JuJu Smith-Schuster,WR,NYG,0.1,0.0,0.0,2.3,0.0,34.6,394.3,2.2,False,,1.5,,,,,,,,,,,,75.0,Easy
-Albert Okwuegbunam,TE,LV,0.4,0.0,0.0,2.6,0.1,37.1,343.6,2.5,False,,1.5,,,,,,,,,,,,70.8,Easy
-Jerome Ford,RB,WAS,0.1,0.0,0.0,303.2,1.8,28.3,160.9,0.3,False,,1.5,,,,,,,,,,,,30.2,Tough
+Terrance Ferguson,TE,LA,0.2,0.0,0.0,3.6,0.1,25.2,315.3,5.1,False,,1.5,,,,,,,163.1,11.9,,,11.0,61.5,Neutral
+Kenyon Sadiq,TE,NYJ,0.0,0.0,0.0,0.0,0.0,30.4,411.0,2.8,True,11.0,1.5,,,,,170.8,8.4,159.6,17.2,131.0,30.3,13.0,62.5,Neutral
+Jaylin Noel,WR,HOU,0.2,0.0,0.0,26.4,0.1,32.8,387.0,2.2,False,,1.5,,,,,,,163.3,14.8,,,8.0,41.7,Neutral
+Teddy Bridgewater,QB,DET,938.3,5.8,2.7,72.2,0.7,0.1,0.2,0.0,False,,1.5,,,,,,,,,,,,51.0,Neutral
+Tommy DeVito,QB,NE,973.1,5.1,2.5,86.8,0.8,0.1,0.2,0.0,False,,1.5,,,,,,,,,,,,53.1,Neutral
+Van Jefferson,WR,WAS,0.1,0.0,0.0,2.1,0.0,34.5,416.2,1.9,False,,1.5,,,,,,,,,,,,42.7,Neutral
+JuJu Smith-Schuster,WR,NYG,0.1,0.0,0.0,2.3,0.0,34.6,394.0,2.2,False,,1.5,,,,,,,,,,,,75.0,Easy
+Malik Davis,RB,DAL,0.2,0.0,0.0,420.2,3.7,11.8,86.9,0.4,False,,1.5,,,,,,,152.1,34.9,,,14.0,43.8,Neutral
+Albert Okwuegbunam,TE,LV,0.4,0.0,0.0,2.6,0.1,37.0,342.6,2.5,False,,1.5,,,,,,,,,,,,70.8,Easy
 Zach Wilson,QB,NO,905.1,5.7,2.5,77.4,0.8,0.1,0.2,0.0,False,,1.5,,,,,,,,,,,,69.8,Easy
-Adonai Mitchell,WR,NYJ,5.3,0.0,0.0,8.6,0.1,31.3,414.7,2.1,False,,1.5,,,158.1,12.9,158.6,13.7,162.2,13.0,167.0,8.6,13.0,30.2,Tough
-Malik Davis,RB,DAL,0.2,0.0,0.0,420.2,3.7,11.8,86.9,0.4,False,,1.5,,,,,,,,,,,,43.8,Neutral
 British Brooks,RB,HOU,0.2,0.0,0.0,427.4,2.5,15.2,110.7,0.5,False,,1.5,,,,,,,,,,,,41.7,Neutral
-Jha'Quan Jackson,WR,HOU,0.4,0.0,0.0,19.3,0.1,31.6,384.0,2.4,False,,1.5,,,,,,,,,,,,41.7,Neutral
-Tre Harris,WR,LAC,0.1,0.0,0.0,11.2,0.1,35.3,406.1,1.5,False,,1.5,,,168.0,12.9,,,169.3,16.5,,,7.0,47.4,Neutral
-KaVontae Turpin,WR,DAL,0.1,0.0,0.0,68.0,0.1,28.0,388.5,2.0,False,,1.5,,,,,,,,,,,,61.5,Neutral
-Austin Trammell,WR,JAX,0.3,0.0,0.0,7.5,0.0,31.0,399.0,2.4,False,,1.5,,,,,,,,,,,,62.5,Neutral
-Savion Williams,WR,GB,0.2,0.0,0.0,57.8,0.3,30.6,339.4,2.3,False,,1.5,,,,,,,,,,,,44.8,Neutral
-Tommy DeVito,QB,NE,948.4,5.0,2.5,84.6,0.8,0.1,0.2,0.0,False,,1.5,,,,,,,,,,,,53.1,Neutral
-Kyle Williams,WR,NE,0.2,0.0,0.0,14.3,0.1,27.9,406.6,2.5,False,,1.5,,,,,,,,,,,,33.9,Tough
+Jha'Quan Jackson,WR,HOU,0.4,0.0,0.0,19.6,0.1,31.5,383.0,2.4,False,,1.5,,,,,,,,,,,,41.7,Neutral
+Jerome Ford,RB,WAS,0.1,0.0,0.0,302.6,1.7,28.3,160.6,0.3,False,,1.5,,,,,,,,,,,,30.2,Tough
+Tre Harris,WR,LAC,0.1,0.0,0.0,11.3,0.1,35.2,405.6,1.5,False,,1.5,,,,,174.8,16.8,171.9,22.2,165.0,7.7,7.0,47.4,Neutral
+Adonai Mitchell,WR,NYJ,5.3,0.0,0.0,8.6,0.0,31.3,414.5,2.1,False,,1.5,,,163.8,10.7,158.6,14.4,162.4,13.8,168.8,8.7,13.0,30.2,Tough
+KaVontae Turpin,WR,DAL,0.1,0.0,0.0,68.3,0.1,28.0,388.3,2.0,False,,1.5,,,,,,,,,,,,61.5,Neutral
+Austin Trammell,WR,JAX,0.3,0.0,0.0,7.6,0.0,31.0,398.2,2.4,False,,1.5,,,,,,,,,,,,62.5,Neutral
+Kyle Williams,WR,NE,0.2,0.0,0.0,14.4,0.1,27.8,405.9,2.5,False,,1.5,,,,,,,,,,,,33.9,Tough
 Sione Vaki,RB,DET,0.2,0.0,0.0,368.0,2.5,17.0,129.4,0.6,False,,1.5,,,,,,,,,,,,58.3,Neutral
-Xavier Hutchinson,WR,HOU,0.1,0.0,0.0,11.5,0.1,31.9,384.3,2.2,False,,1.5,,,,,,,,,,,,41.7,Neutral
-Colson Yankoff,TE,WAS,0.4,0.0,0.0,2.3,0.0,35.6,340.2,2.5,False,,1.5,,,,,,,,,,,,35.4,Neutral
+Xavier Hutchinson,WR,HOU,0.1,0.0,0.0,11.6,0.1,31.9,384.0,2.2,False,,1.5,,,,,,,167.8,23.4,,,8.0,41.7,Neutral
+Colson Yankoff,TE,WAS,0.4,0.0,0.0,2.3,0.0,35.5,339.2,2.5,False,,1.5,,,,,,,,,,,,35.4,Neutral
 Jaleel McLaughlin,RB,DEN,0.1,0.0,0.0,431.7,1.9,16.4,98.8,0.6,False,,1.5,,,,,,,,,,,,52.1,Neutral
 Jaylen Wright,RB,MIA,0.1,0.0,0.0,457.5,2.6,11.9,87.3,0.4,False,,1.5,,,,,,,,,,,,45.8,Neutral
-Tai Felton,WR,MIN,0.4,0.0,0.0,8.7,0.0,31.7,377.8,2.3,False,,1.5,,,,,,,,,,,,77.1,Easy
-Evan Engram,TE,DEN,0.1,0.0,0.0,1.9,0.0,40.6,366.4,1.1,False,,1.5,,,,,,,,,,,,28.1,Tough
-Keleki Latu,TE,BUF,0.5,0.0,0.0,2.7,0.0,35.6,337.4,2.4,False,,1.5,,,,,,,,,,,,62.5,Neutral
+Evan Engram,TE,DEN,0.1,0.0,0.0,1.9,0.0,40.6,366.0,1.1,False,,1.5,,,,,,,,,,,,28.1,Tough
+Savion Williams,WR,GB,0.2,0.0,0.0,58.2,0.3,29.9,333.1,2.2,False,,1.5,,,,,,,,,,,,47.9,Neutral
+Tai Felton,WR,MIN,0.4,0.0,0.0,8.8,0.0,31.6,376.7,2.3,False,,1.5,,,,,,,,,,,,77.1,Easy
+Keleki Latu,TE,BUF,0.5,0.0,0.0,2.7,0.0,35.5,336.4,2.4,False,,1.5,,,,,,,,,,,,62.5,Neutral
 Devin Singletary,RB,NYG,0.1,0.0,0.0,353.5,3.6,14.4,106.9,0.3,False,,1.5,,,,,,,,,,,,55.2,Neutral
-Braxton Berrios,WR,NYG,0.3,0.0,0.0,5.9,0.0,33.4,359.7,2.3,False,,1.5,,,,,,,,,,,,75.0,Easy
+Braxton Berrios,WR,NYG,0.3,0.0,0.0,6.0,0.0,33.3,359.0,2.3,False,,1.5,,,,,,,,,,,,75.0,Easy
+Greg Dortch,WR,DET,0.1,0.0,0.0,34.9,0.2,33.9,310.5,2.3,False,,1.5,,,,,,,,,,,,56.2,Neutral
 Terrell Jennings,RB,NE,0.2,0.0,0.0,377.2,3.6,12.5,91.8,0.4,False,,1.5,,,,,,,,,,,,40.6,Neutral
-Greg Dortch,WR,DET,0.1,0.0,0.0,34.7,0.2,33.9,310.7,2.3,False,,1.5,,,,,,,,,,,,53.1,Neutral
-Aaron Jones,RB,MIN,0.1,0.0,0.0,371.5,1.6,17.9,133.1,0.9,False,,1.5,fade,RB age-cliff (age_mult ~0.55) plus weak team context,99.7,12.4,96.5,12.5,92.5,11.9,117.6,13.5,6.0,71.9,Easy
-Devin Culp,TE,TB,0.4,0.0,0.0,2.3,0.0,32.7,333.2,2.8,False,,1.5,,,,,,,,,,,,34.4,Tough
-AJ Dillon,RB,CAR,0.2,0.0,0.0,369.1,2.3,16.8,122.1,0.5,False,,1.5,,,,,,,164.1,18.0,,,5.0,41.7,Neutral
-Daniel Bellinger,TE,TEN,0.1,0.0,0.0,0.8,0.0,31.0,359.4,2.6,False,,1.5,,,,,,,,,,,,59.4,Neutral
-E.J. Jenkins,TE,PHI,0.4,0.0,0.0,2.8,0.1,33.5,319.3,2.7,False,,1.5,,,,,,,,,,,,62.5,Neutral
+Aaron Jones,RB,MIN,0.1,0.0,0.0,370.7,1.6,17.9,132.8,0.9,False,,1.5,fade,RB age-cliff (age_mult ~0.55) plus weak team context,108.4,15.1,106.6,13.4,102.1,12.6,122.8,14.4,6.0,71.9,Easy
+AJ Dillon,RB,CAR,0.2,0.0,0.0,369.1,2.3,16.8,122.1,0.5,False,,1.5,,,,,,,,,,,,41.7,Neutral
+Daniel Bellinger,TE,TEN,0.1,0.0,0.0,0.8,0.0,31.0,358.9,2.6,False,,1.5,,,,,,,,,,,,59.4,Neutral
+Jack Westover,TE,NE,0.5,0.0,0.0,2.9,0.1,34.6,320.8,2.5,False,,1.5,,,,,,,,,,,,53.1,Neutral
+Devin Culp,TE,TB,0.4,0.0,0.0,2.3,0.0,32.7,332.4,2.7,False,,1.5,,,,,,,,,,,,34.4,Tough
+E.J. Jenkins,TE,PHI,0.4,0.0,0.0,2.8,0.1,33.5,318.3,2.7,False,,1.5,,,,,,,,,,,,62.5,Neutral
 Michael Carter,RB,TEN,0.1,0.0,0.0,298.3,1.4,23.4,176.3,0.5,False,,1.5,,,,,,,,,,,,41.7,Neutral
 Kalel Mullings,RB,TEN,0.3,0.0,0.0,363.9,2.5,15.7,114.5,0.6,False,,1.5,,,,,,,,,,,,41.7,Neutral
-KC Concepcion,WR,CLE,0.0,0.0,0.0,5.4,0.0,29.8,379.0,2.3,True,12.0,1.5,fade,"Real disagreement: draft capital/buzz say buy, but CLE graded worst pass-offense in the league",126.0,8.9,127.4,10.9,130.4,9.8,134.1,13.1,11.0,83.3,Easy
-Ryan Miller,WR,NYG,0.2,0.0,0.0,4.5,0.0,28.6,353.9,2.9,False,,1.5,,,,,,,,,,,,75.0,Easy
-Brock Wright,TE,DET,0.1,0.0,0.0,1.0,0.0,32.7,284.5,3.4,False,,1.5,,,,,,,,,,,,32.3,Tough
-Zavier Scott,RB,MIN,0.2,0.0,0.0,318.8,1.1,21.6,155.7,1.0,False,,1.5,,,,,,,,,,,,71.9,Easy
-Ty Johnson,RB,BUF,0.1,0.0,0.0,202.6,2.8,17.9,179.1,1.4,False,,1.5,,,,,,,163.4,44.8,,,7.0,44.8,Neutral
-Jordan Whittington,WR,LA,0.1,0.0,0.0,19.9,0.1,34.8,399.5,0.6,False,,1.5,,,,,,,,,,,,56.2,Neutral
+KC Concepcion,WR,CLE,0.0,0.0,0.0,5.4,0.0,29.8,379.0,2.3,True,12.0,1.5,fade,"Real disagreement: draft capital/buzz say buy, but CLE graded worst pass-offense in the league",114.2,12.6,116.8,12.1,121.0,10.8,135.4,12.4,11.0,82.3,Easy
+Ryan Miller,WR,NYG,0.2,0.0,0.0,4.6,0.0,28.6,353.3,2.9,False,,1.5,,,,,,,,,,,,75.0,Easy
+Zavier Scott,RB,MIN,0.2,0.0,0.0,318.5,1.1,21.6,155.6,1.0,False,,1.5,,,,,,,,,,,,71.9,Easy
+Brock Wright,TE,DET,0.1,0.0,0.0,1.0,0.0,32.7,284.1,3.4,False,,1.5,,,,,,,,,,,,32.3,Tough
+Ty Johnson,RB,BUF,0.1,0.0,0.0,202.6,2.8,17.9,179.1,1.4,False,,1.5,,,,,,,181.9,23.0,,,7.0,44.8,Neutral
 Kendre Miller,RB,NO,0.1,0.0,0.0,438.8,1.5,14.6,103.0,0.5,False,,1.5,,,,,,,,,,,,66.7,Easy
-Mason Kinsey,WR,TEN,0.3,0.0,0.0,7.4,0.0,28.9,381.1,2.1,False,,1.5,,,,,,,,,,,,78.1,Easy
-Brayden Willis,TE,SF,0.4,0.0,0.0,2.9,0.1,33.2,318.6,2.4,False,,1.5,,,,,,,,,,,,14.6,Tough
-Irvin Charles,WR,SEA,0.5,0.0,0.0,11.8,0.1,28.8,354.9,2.3,False,,1.5,,,,,,,,,,,,38.0,Neutral
-John Metchie III,WR,CAR,0.1,0.0,0.0,13.0,0.1,33.7,335.6,1.7,False,,1.5,,,132.9,6.6,121.6,6.2,121.3,7.9,144.7,5.2,5.0,33.3,Tough
+Jordan Whittington,WR,LA,0.1,0.0,0.0,20.1,0.1,34.7,398.9,0.6,False,,1.5,,,,,,,,,,,,56.2,Neutral
+Brayden Willis,TE,SF,0.4,0.0,0.0,2.9,0.1,33.2,317.6,2.4,False,,1.5,,,,,,,,,,,,14.6,Tough
+Mason Kinsey,WR,TEN,0.3,0.0,0.0,7.5,0.0,28.8,380.3,2.1,False,,1.5,,,,,,,,,,,,77.1,Easy
+Irvin Charles,WR,SEA,0.5,0.0,0.0,12.0,0.1,28.7,354.0,2.3,False,,1.5,,,,,,,,,,,,38.0,Neutral
+John Metchie III,WR,CAR,0.1,0.0,0.0,13.1,0.1,33.7,335.4,1.7,False,,1.5,,,,,,,,,144.7,5.2,5.0,33.3,Tough
 Kene Nwangwu,RB,NYJ,0.3,0.0,0.0,372.0,2.3,14.3,104.2,0.6,False,,1.5,,,,,,,,,,,,46.9,Neutral
-Brycen Tremayne,WR,CAR,0.2,0.0,0.0,5.2,0.0,30.8,365.4,1.9,False,,1.5,,,,,,,,,,,,33.3,Tough
-KeAndre Lambert-Smith,WR,LAC,0.2,0.0,0.0,6.6,0.0,28.9,346.1,2.5,False,,1.5,,,,,,,,,,,,47.4,Neutral
-Drake Dabney,TE,GB,0.5,0.0,0.0,2.8,0.1,32.9,308.3,2.4,False,,1.5,,,,,,,,,,,,59.4,Neutral
-Darnell Washington,TE,PIT,0.1,0.0,0.0,0.6,0.0,32.1,346.1,2.0,False,,1.5,,,,,,,,,,,,46.9,Neutral
-Jackson Hawes,TE,BUF,0.2,0.0,0.0,1.2,0.0,27.8,285.6,3.7,False,,1.5,,,,,,,,,,,,62.5,Neutral
-Jahan Dotson,WR,ATL,0.1,0.0,0.0,3.8,0.0,28.8,375.4,2.0,False,,1.5,,,,,,,,,,,,59.4,Neutral
-Nick Kallerup,TE,SEA,0.5,0.0,0.0,3.0,0.1,32.3,309.8,2.4,False,,1.5,,,,,,,,,,,,37.5,Neutral
-Dan Chisena,WR,CAR,0.4,0.0,0.0,7.9,0.0,29.2,359.7,2.1,False,,1.5,,,,,,,,,,,,33.3,Tough
-Noah Gray,TE,KC,0.1,0.0,0.0,1.5,0.0,33.9,324.7,1.9,False,,1.5,,,,,,,,,,,,54.2,Neutral
-Dareke Young,WR,LV,0.3,0.0,0.0,7.3,0.0,27.8,366.9,2.1,False,,1.5,,,,,,,,,,,,52.1,Neutral
-Jared Wiley,TE,KC,0.4,0.0,0.0,2.7,0.1,32.5,302.7,2.3,False,,1.5,,,,,,,,,,,,54.2,Neutral
+Brycen Tremayne,WR,CAR,0.2,0.0,0.0,5.3,0.0,30.8,364.8,1.9,False,,1.5,,,,,,,,,,,,33.3,Tough
+KeAndre Lambert-Smith,WR,LAC,0.2,0.0,0.0,6.8,0.0,28.9,345.4,2.5,False,,1.5,,,,,,,,,,,,47.4,Neutral
+Jahan Dotson,WR,ATL,0.1,0.0,0.0,3.8,0.0,28.8,375.1,2.0,False,,1.5,,,,,,,,,,,,59.4,Neutral
+Jackson Hawes,TE,BUF,0.2,0.0,0.0,1.2,0.0,27.8,285.1,3.7,False,,1.5,,,,,,,,,,,,62.5,Neutral
+Darnell Washington,TE,PIT,0.1,0.0,0.0,0.6,0.0,32.0,345.8,2.0,False,,1.5,,,,,,,,,,,,46.9,Neutral
+Bo Melton,WR,GB,0.1,0.0,0.0,46.6,0.2,22.6,326.1,2.9,False,,1.5,,,,,,,,,,,,47.9,Neutral
+Nick Kallerup,TE,SEA,0.5,0.0,0.0,2.9,0.1,32.3,308.8,2.4,False,,1.5,,,,,,,,,,,,37.5,Neutral
+Dan Chisena,WR,CAR,0.4,0.0,0.0,8.0,0.0,29.1,358.8,2.1,False,,1.5,,,,,,,,,,,,33.3,Tough
+Drake Dabney,TE,GB,0.5,0.0,0.0,2.8,0.1,32.8,307.4,2.3,False,,1.5,,,,,,,,,,,,59.4,Neutral
+Noah Gray,TE,KC,0.1,0.0,0.0,1.5,0.0,33.9,324.4,1.9,False,,1.5,,,,,,,,,,,,54.2,Neutral
+Dareke Young,WR,LV,0.3,0.0,0.0,7.5,0.0,27.7,365.9,2.1,False,,1.5,,,,,,,,,,,,50.0,Neutral
+Jared Wiley,TE,KC,0.4,0.0,0.0,2.7,0.1,32.4,301.8,2.3,False,,1.5,,,,,,,,,,,,54.2,Neutral
 Isaiah Davis,RB,NYJ,0.1,0.0,0.0,296.8,1.2,20.9,168.0,0.4,False,,1.5,,,,,,,,,,,,46.9,Neutral
-Skyy Moore,WR,GB,0.2,0.0,0.0,16.5,0.1,26.8,352.5,2.0,False,,1.5,,,,,,,,,,,,44.8,Neutral
-Trey Palmer,WR,NO,0.2,0.0,0.0,5.1,0.0,28.1,362.2,1.9,False,,1.5,,,,,,,,,,,,60.4,Neutral
+Trey Palmer,WR,NO,0.2,0.0,0.0,5.2,0.0,28.0,361.6,1.9,False,,1.5,,,,,,,,,,,,60.4,Neutral
 Ronnie Rivers,RB,LA,0.2,0.0,0.0,374.6,2.0,13.7,99.3,0.5,False,,1.5,,,,,,,,,,,,50.0,Neutral
-Ollie Gordon II,RB,MIA,0.1,0.0,0.0,298.7,4.0,11.4,77.7,0.5,False,,1.5,,,,,,,,,,,,45.8,Neutral
-Xavier Gipson,WR,NYG,0.2,0.0,0.0,9.4,0.0,29.7,315.3,2.3,False,,1.5,,,,,,,,,,,,75.0,Easy
-Hunter Long,TE,JAX,0.2,0.0,0.0,1.2,0.0,29.6,258.4,3.4,False,,1.5,,,,,,,,,,,,56.2,Neutral
-Braelon Allen,RB,NYJ,0.1,0.0,0.0,328.7,2.1,15.3,115.2,0.6,False,,1.5,,,,,,,153.6,49.2,,,13.0,46.9,Neutral
-Davis Allen,TE,LA,0.1,0.0,0.0,0.9,0.0,28.9,261.3,3.4,False,,1.5,,,,,,,,,,,,61.5,Neutral
-Travis Kelce,TE,KC,0.1,0.0,0.0,1.3,0.0,32.1,325.8,1.7,False,,1.5,,,134.4,15.8,128.1,15.1,108.3,19.9,136.5,17.9,5.0,54.2,Neutral
-Bryce Oliver,WR,TEN,0.3,0.0,0.0,6.3,0.0,27.6,346.9,2.0,False,,1.5,,,,,,,,,,,,78.1,Easy
-Erick All,TE,CIN,0.2,0.0,0.0,1.6,0.0,38.7,346.2,0.2,False,,1.5,,,,,,,,,,,,51.0,Neutral
-Kameron Johnson,WR,TB,0.2,0.0,0.0,25.8,0.1,25.2,324.2,2.3,False,,1.5,,,,,,,,,,,,58.3,Neutral
-Keaton Mitchell,RB,LAC,0.1,0.0,0.0,383.9,1.6,13.6,101.9,0.4,False,,1.5,,,155.9,19.9,148.1,29.7,159.7,25.6,153.2,21.5,7.0,56.2,Neutral
-James Mitchell,TE,CAR,0.4,0.0,0.0,2.4,0.1,31.0,296.8,2.1,False,,1.5,,,,,,,,,,,,86.5,Easy
-Moliki Matavao,TE,NO,0.5,0.0,0.0,2.6,0.1,30.9,288.7,2.2,False,,1.5,,,,,,,,,,,,64.6,Neutral
-Jalen Brooks,WR,ARI,0.2,0.0,0.0,4.0,0.0,25.9,349.2,2.1,False,,1.5,,,,,,,,,,,,53.1,Neutral
-Stone Smartt,TE,PHI,0.2,0.0,0.0,1.4,0.0,31.9,313.7,1.7,False,,1.5,,,,,,,,,,,,62.5,Neutral
-Shane Zylstra,TE,BUF,0.5,0.0,0.0,2.8,0.1,30.6,289.3,2.2,False,,1.5,,,,,,,,,,,,62.5,Neutral
+Ollie Gordon II,RB,MIA,0.1,0.0,0.0,298.7,4.0,11.4,77.7,0.5,False,,1.5,,,,,52.0,0.0,,,,,6.0,45.8,Neutral
+Braelon Allen,RB,NYJ,0.1,0.0,0.0,328.7,2.1,15.3,115.2,0.6,False,,1.5,,,135.1,32.3,168.5,26.3,156.9,20.2,142.8,14.1,13.0,46.9,Neutral
+Hunter Long,TE,JAX,0.2,0.0,0.0,1.2,0.0,29.6,257.9,3.4,False,,1.5,,,,,,,,,,,,56.2,Neutral
+Xavier Gipson,WR,NYG,0.2,0.0,0.0,9.4,0.0,29.6,314.6,2.3,False,,1.5,,,,,,,,,,,,75.0,Easy
+Davis Allen,TE,LA,0.1,0.0,0.0,0.9,0.0,28.9,260.9,3.4,False,,1.5,,,,,,,,,,,,61.5,Neutral
+Travis Kelce,TE,KC,0.1,0.0,0.0,1.3,0.0,32.1,325.6,1.7,False,,1.5,,,136.5,17.8,119.0,17.9,107.0,21.0,138.1,17.0,5.0,54.2,Neutral
+Bryce Oliver,WR,TEN,0.3,0.0,0.0,6.4,0.0,27.5,346.1,2.0,False,,1.5,,,,,,,,,,,,77.1,Easy
+Erick All,TE,CIN,0.2,0.0,0.0,1.6,0.0,38.7,345.6,0.2,False,,1.5,,,,,,,,,,,,51.0,Neutral
+Skyy Moore,WR,GB,0.2,0.0,0.0,16.7,0.1,26.3,346.1,1.9,False,,1.5,,,,,,,,,,,,47.9,Neutral
+Kameron Johnson,WR,TB,0.2,0.0,0.0,26.0,0.1,25.1,323.5,2.3,False,,1.5,,,,,,,,,,,,58.3,Neutral
+Keaton Mitchell,RB,LAC,0.1,0.0,0.0,383.9,1.6,13.6,101.9,0.4,False,,1.5,,,152.1,16.8,147.5,20.8,159.6,21.8,141.9,32.6,7.0,56.2,Neutral
+James Mitchell,TE,CAR,0.4,0.0,0.0,2.4,0.1,31.0,296.0,2.1,False,,1.5,,,,,,,,,,,,86.5,Easy
+Jalen Brooks,WR,ARI,0.2,0.0,0.0,4.1,0.0,25.8,348.7,2.1,False,,1.5,,,,,,,,,,,,53.1,Neutral
+Shane Zylstra,TE,BUF,0.5,0.0,0.0,2.8,0.1,30.6,288.5,2.2,False,,1.5,,,,,,,,,,,,62.5,Neutral
+Stone Smartt,TE,PHI,0.2,0.0,0.0,1.4,0.0,31.9,313.2,1.7,False,,1.5,,,,,,,,,,,,62.5,Neutral
 Travis Homer,RB,PIT,0.2,0.0,0.0,285.9,2.0,17.2,121.4,0.6,False,,1.5,,,,,,,,,,,,64.6,Neutral
+Moliki Matavao,TE,NO,0.5,0.0,0.0,2.6,0.1,30.9,287.8,2.1,False,,1.5,,,,,,,,,,,,64.6,Neutral
 Skylar Thompson,QB,BAL,819.4,4.6,2.5,58.4,0.6,0.1,0.2,0.0,False,,1.5,,,,,,,,,,,,57.3,Neutral
 Elijah Mitchell,RB,PHI,0.3,0.0,0.0,312.5,2.1,15.1,110.3,0.5,False,,1.5,,,,,,,,,,,,33.3,Tough
-K.J. Osborn,WR,TEN,0.3,0.0,0.0,5.9,0.0,27.6,316.2,2.2,False,,1.5,,,,,,,,,,,,78.1,Easy
-Brevin Jordan,TE,HOU,0.4,0.0,0.0,2.5,0.1,30.8,284.4,2.1,False,,1.5,,,,,,,,,,,,35.4,Neutral
-Kendrick Bourne,WR,ARI,0.1,0.0,0.0,3.1,0.0,29.0,389.8,0.7,False,,1.5,,,,,,,,,,,,53.1,Neutral
-Xavier Weaver,WR,ARI,0.2,0.0,0.0,5.8,0.0,27.6,322.2,2.0,False,,1.5,,,,,,,,,,,,53.1,Neutral
-Tyler Conklin,TE,DET,0.1,0.0,0.0,4.0,0.1,30.1,298.7,1.9,False,,1.5,,,,,,,,,,,,32.3,Tough
-Mike Woods,WR,DEN,0.3,0.0,0.0,8.3,0.0,29.5,344.9,1.2,False,,1.5,,,,,,,,,,,,43.8,Neutral
+K.J. Osborn,WR,TEN,0.3,0.0,0.0,6.0,0.0,27.5,315.7,2.2,False,,1.5,,,,,,,,,,,,77.1,Easy
+Brevin Jordan,TE,HOU,0.4,0.0,0.0,2.5,0.1,30.7,283.5,2.1,False,,1.5,,,,,,,,,,,,35.4,Neutral
+Kendrick Bourne,WR,ARI,0.1,0.0,0.0,3.2,0.0,29.0,389.5,0.7,False,,1.5,,,,,,,,,,,,53.1,Neutral
+Xavier Weaver,WR,ARI,0.2,0.0,0.0,5.9,0.0,27.5,321.6,2.0,False,,1.5,,,,,,,,,,,,53.1,Neutral
+Tyler Conklin,TE,DET,0.1,0.0,0.0,4.0,0.1,30.0,298.3,1.9,False,,1.5,,,,,,,,,,,,32.3,Tough
+Mike Woods,WR,DEN,0.3,0.0,0.0,8.5,0.0,29.5,344.2,1.2,False,,1.5,,,,,,,,,,,,43.8,Neutral
 DeeJay Dallas,RB,JAX,0.2,0.0,0.0,317.9,1.9,14.6,103.2,0.6,False,,1.5,,,,,,,,,,,,65.6,Easy
-Michael Mayer,TE,LV,0.1,0.0,0.0,0.6,0.0,34.0,312.3,1.0,False,,1.5,,,,,,,,,,,,70.8,Easy
-Ben Sims,TE,MIA,0.3,0.0,0.0,1.5,0.0,29.9,289.2,2.0,False,,1.5,,,,,,,,,,,,17.7,Tough
-David Sills,WR,TB,0.2,0.0,0.0,3.8,0.0,26.1,303.0,2.3,False,,1.5,,,,,,,,,,,,58.3,Neutral
-Tyler Johnson,WR,DAL,0.1,0.0,0.0,3.4,0.0,26.1,343.6,1.6,False,,1.5,,,,,,,,,,,,61.5,Neutral
-Kalif Raymond,WR,CHI,0.1,0.0,0.0,10.2,0.0,27.8,340.7,1.2,False,,1.5,,,,,,,,,,,,58.3,Neutral
-Lucas Krull,TE,DEN,0.2,0.0,0.0,1.3,0.0,31.2,279.0,1.8,False,,1.5,,,,,,,,,,,,28.1,Tough
-Ben Skowronek,WR,PIT,0.2,0.0,0.0,4.7,0.0,24.5,322.3,2.1,False,,1.5,,,,,,,,,,,,72.4,Easy
-John Bates,TE,WAS,0.1,0.0,0.0,0.9,0.0,28.2,270.8,2.4,False,,1.5,,,,,,,,,,,,35.4,Neutral
-Tyler Higbee,TE,LA,0.2,0.0,0.0,0.7,0.0,26.1,267.3,2.8,False,,1.5,,,,,,,,,,,,61.5,Neutral
-Mason Taylor,TE,NYJ,0.2,0.0,0.0,0.8,0.0,33.3,296.5,1.1,False,,1.5,fade,"Crowded TE room -- Sadiq drafted round 1, Garrett Wilson healthy again",,,,,,,,,,62.5,Neutral
+Michael Mayer,TE,LV,0.1,0.0,0.0,0.6,0.0,34.0,312.0,1.0,False,,1.5,,,,,,,,,,,,70.8,Easy
+Ben Sims,TE,MIA,0.3,0.0,0.0,1.5,0.0,29.8,288.4,2.0,False,,1.5,,,,,,,,,,,,17.7,Tough
+David Sills,WR,TB,0.2,0.0,0.0,3.9,0.0,26.0,302.6,2.3,False,,1.5,,,,,,,,,,,,58.3,Neutral
+Tyler Johnson,WR,DAL,0.1,0.0,0.0,3.4,0.0,26.1,343.2,1.6,False,,1.5,,,,,,,,,,,,61.5,Neutral
+Kalif Raymond,WR,CHI,0.1,0.0,0.0,10.3,0.0,27.8,340.2,1.2,False,,1.5,,,,,,,,,,,,58.3,Neutral
+Lucas Krull,TE,DEN,0.2,0.0,0.0,1.3,0.0,31.2,278.4,1.8,False,,1.5,,,,,,,,,,,,28.1,Tough
+John Bates,TE,WAS,0.1,0.0,0.0,0.9,0.0,28.2,270.3,2.4,False,,1.5,,,,,,,,,,,,35.4,Neutral
+Mason Taylor,TE,NYJ,0.2,0.0,0.0,0.8,0.0,33.3,296.2,1.1,False,,1.5,fade,"Crowded TE room -- Sadiq drafted round 1, Garrett Wilson healthy again",,,,,,,,,,62.5,Neutral
+Tyler Higbee,TE,LA,0.2,0.0,0.0,0.7,0.0,26.0,267.0,2.8,False,,1.5,,,,,,,,,,,,61.5,Neutral
 LeQuint Allen Jr.,RB,JAX,0.1,0.0,0.0,285.9,1.2,17.8,122.6,0.6,False,,1.5,,,,,,,,,,,,65.6,Easy
-Mason Tipton,WR,NO,0.2,0.0,0.0,25.3,0.1,31.2,303.7,0.8,False,,1.5,,,,,,,,,,,,60.4,Neutral
-Ben Sinnott,TE,WAS,0.2,0.0,0.0,1.1,0.0,28.9,276.7,2.1,False,,1.5,,,,,,,,,,,,35.4,Neutral
-Anthony Firkser,TE,WAS,0.3,0.0,0.0,1.5,0.0,30.2,271.2,1.9,False,,1.5,,,,,,,,,,,,35.4,Neutral
-David Martin-Robinson,TE,TEN,0.3,0.0,0.0,1.6,0.0,28.4,263.2,2.3,False,,1.5,,,,,,,,,,,,59.4,Neutral
-Jack Bech,WR,LV,0.2,0.0,0.0,4.2,0.0,29.7,351.9,0.5,False,,1.5,,,,,,,,,,,,52.1,Neutral
-Ja'Lynn Polk,WR,NO,0.2,0.0,0.0,7.9,0.0,24.4,262.0,2.8,False,,1.5,,,,,,,,,,,,60.4,Neutral
-Gage Larvadain,WR,CLE,0.2,0.0,0.0,10.6,0.1,25.4,301.8,1.8,False,,1.5,,,,,,,,,,,,83.3,Easy
-Carter Runyon,TE,LV,0.4,0.0,0.0,2.5,0.1,28.2,264.2,2.0,False,,1.5,,,,,,,,,,,,70.8,Easy
-Isaiah Bond,WR,CLE,0.2,0.0,0.0,18.1,0.1,22.1,328.0,1.7,False,,1.5,,,,,,,,,,,,83.3,Easy
+Mason Tipton,WR,NO,0.2,0.0,0.0,25.5,0.1,31.1,303.3,0.8,False,,1.5,,,,,,,,,,,,60.4,Neutral
+Ben Sinnott,TE,WAS,0.2,0.0,0.0,1.1,0.0,28.9,276.2,2.1,False,,1.5,,,,,,,,,,,,35.4,Neutral
+Ben Skowronek,WR,PIT,0.2,0.0,0.0,4.8,0.0,24.5,321.6,2.0,False,,1.5,,,,,,,,,,,,70.3,Easy
+Anthony Firkser,TE,WAS,0.3,0.0,0.0,1.5,0.0,30.1,270.5,1.9,False,,1.5,,,,,,,,,,,,35.4,Neutral
+David Martin-Robinson,TE,TEN,0.3,0.0,0.0,1.6,0.0,28.4,262.5,2.3,False,,1.5,,,,,,,,,,,,59.4,Neutral
+Jack Bech,WR,LV,0.2,0.0,0.0,4.3,0.0,29.6,351.4,0.5,False,,1.5,,,,,,,,,,,,50.0,Neutral
+Ja'Lynn Polk,WR,NO,0.2,0.0,0.0,8.0,0.0,24.3,261.7,2.8,False,,1.5,,,,,,,,,,,,60.4,Neutral
+Gage Larvadain,WR,CLE,0.2,0.0,0.0,10.7,0.1,25.3,301.2,1.8,False,,1.5,,,,,,,,,,,,82.3,Easy
+Isaiah Bond,WR,CLE,0.2,0.0,0.0,18.3,0.1,22.1,327.7,1.7,False,,1.5,,,,,,,,,,,,82.3,Easy
 Dylan Laube,RB,LV,0.2,0.0,0.0,271.0,1.9,15.1,108.4,0.5,False,,1.5,,,,,,,,,,,,51.0,Neutral
-Tommy Tremble,TE,CAR,0.1,0.0,0.0,0.7,0.0,29.2,278.0,1.7,False,,1.5,,,,,,,,,,,,86.5,Easy
-Quintin Morris,TE,JAX,0.2,0.0,0.0,1.4,0.0,27.6,257.6,2.3,False,,1.5,,,,,,,,,,,,56.2,Neutral
-Jelani Woods,TE,NYJ,0.4,0.0,0.0,2.3,0.1,28.0,263.7,2.0,False,,1.5,,,,,,,,,,,,62.5,Neutral
-Grant Calcaterra,TE,PHI,0.1,0.0,0.0,0.9,0.0,27.5,276.5,1.9,False,,1.5,,,,,,,,,,,,62.5,Neutral
-Josh Oliver,TE,MIN,0.1,0.0,0.0,0.7,0.0,23.8,246.7,3.0,False,,1.5,,,,,,,,,,,,76.0,Easy
-Tanner Hudson,TE,CIN,0.1,0.0,0.0,1.6,0.0,26.9,243.4,2.5,False,,1.5,,,,,,,,,,,,51.0,Neutral
-Jalin Hyatt,WR,NYG,0.2,0.0,0.0,3.9,0.0,27.7,294.9,1.4,False,,1.5,,,,,,,,,,,,75.0,Easy
-Jake Bobo,WR,SEA,0.2,0.0,0.0,4.4,0.0,25.7,283.9,1.9,False,,1.5,,,,,,,,,,,,38.0,Neutral
+Quintin Morris,TE,JAX,0.2,0.0,0.0,1.4,0.0,27.6,257.1,2.3,False,,1.5,,,,,,,,,,,,56.2,Neutral
+Carter Runyon,TE,LV,0.4,0.0,0.0,2.4,0.1,28.1,263.4,2.0,False,,1.5,,,,,,,,,,,,70.8,Easy
+Jelani Woods,TE,NYJ,0.4,0.0,0.0,2.3,0.1,28.0,262.8,2.0,False,,1.5,,,,,,,,,,,,62.5,Neutral
+Tommy Tremble,TE,CAR,0.1,0.0,0.0,0.7,0.0,29.1,277.7,1.7,False,,1.5,,,,,,,,,,,,86.5,Easy
+Grant Calcaterra,TE,PHI,0.1,0.0,0.0,0.9,0.0,27.5,276.1,1.9,False,,1.5,,,,,,,,,,,,62.5,Neutral
+Josh Oliver,TE,MIN,0.1,0.0,0.0,0.7,0.0,23.8,246.3,3.0,False,,1.5,,,,,,,,,,,,76.0,Easy
+Tanner Hudson,TE,CIN,0.1,0.0,0.0,1.5,0.0,26.8,243.1,2.5,False,,1.5,,,,,,,,,,,,51.0,Neutral
+Jalin Hyatt,WR,NYG,0.2,0.0,0.0,4.0,0.0,27.7,294.5,1.4,False,,1.5,,,,,,,,,,,,75.0,Easy
+Jake Bobo,WR,SEA,0.2,0.0,0.0,4.5,0.0,25.6,283.5,1.9,False,,1.5,,,,,,,,,,,,38.0,Neutral
 Jordan Mims,RB,SF,0.2,0.0,0.0,284.3,0.3,19.9,138.0,0.3,False,,1.5,,,,,,,,,,,,35.4,Neutral
 Rasheen Ali,RB,BAL,0.1,0.0,0.0,224.5,1.4,17.6,129.3,0.7,False,,1.5,,,,,,,,,,,,57.3,Neutral
-Denzel Boston,WR,CLE,0.0,0.0,0.0,0.0,0.0,22.9,312.4,1.9,True,15.0,1.5,,,149.7,19.8,150.0,15.6,153.1,17.9,159.4,17.5,11.0,83.3,Easy
+Denzel Boston,WR,CLE,0.0,0.0,0.0,0.0,0.0,22.9,312.4,1.9,True,15.0,1.5,,,139.0,10.6,140.3,8.9,139.5,14.7,157.9,14.4,11.0,82.3,Easy
 Hunter Luepke,RB,DAL,0.1,0.0,0.0,182.4,1.0,18.7,146.9,1.3,False,,1.5,,,,,,,,,,,,43.8,Neutral
-Dont'e Thornton Jr.,WR,LV,0.2,0.0,0.0,4.4,0.0,24.9,315.3,1.4,False,,1.5,,,,,,,,,,,,52.1,Neutral
-Zaire Mitchell-Paden,TE,NO,0.4,0.0,0.0,2.2,0.0,27.5,261.8,1.9,False,,1.5,,,,,,,,,,,,64.6,Neutral
-Jimmy Horn Jr.,WR,CAR,0.2,0.0,0.0,44.4,0.2,25.8,299.3,0.5,False,,1.5,,,,,,,,,,,,33.3,Tough
-Cam Grandy,TE,CIN,0.3,0.0,0.0,1.9,0.0,28.5,248.8,1.8,False,,1.5,,,,,,,,,,,,51.0,Neutral
-Adam Trautman,TE,DEN,0.1,0.0,0.0,0.8,0.0,27.3,279.5,1.5,False,,1.5,,,,,,,,,,,,28.1,Tough
-Ja'Tavion Sanders,TE,CAR,0.1,0.0,0.0,0.6,0.0,29.7,249.6,1.6,False,,1.5,,,,,,,,,,,,86.5,Easy
-Ben Yurosek,TE,MIN,0.4,0.0,0.0,2.2,0.0,27.1,255.5,1.9,False,,1.5,,,,,,,,,,,,76.0,Easy
-Jaheim Bell,TE,PIT,0.4,0.0,0.0,2.1,0.0,26.8,257.7,1.9,False,,1.5,,,,,,,,,,,,46.9,Neutral
-Ashton Dulin,WR,IND,0.1,0.0,0.0,33.3,0.1,20.4,301.8,1.6,False,,1.5,,,,,,,,,,,,44.8,Neutral
+Dont'e Thornton Jr.,WR,LV,0.2,0.0,0.0,4.5,0.0,24.9,314.8,1.4,False,,1.5,,,,,,,,,,,,50.0,Neutral
+Zaire Mitchell-Paden,TE,NO,0.4,0.0,0.0,2.2,0.0,27.4,261.0,1.9,False,,1.5,,,,,,,,,,,,64.6,Neutral
+Jimmy Horn Jr.,WR,CAR,0.2,0.0,0.0,44.8,0.2,25.8,298.7,0.5,False,,1.5,,,,,,,,,,,,33.3,Tough
+Adam Trautman,TE,DEN,0.1,0.0,0.0,0.8,0.0,27.3,279.2,1.5,False,,1.5,,,,,,,,,,,,28.1,Tough
+Cam Grandy,TE,CIN,0.3,0.0,0.0,1.9,0.0,28.5,248.2,1.8,False,,1.5,,,,,,,,,,,,51.0,Neutral
+Ja'Tavion Sanders,TE,CAR,0.1,0.0,0.0,0.6,0.0,29.7,249.3,1.6,False,,1.5,,,,,,,,,,,,86.5,Easy
+Ben Yurosek,TE,MIN,0.4,0.0,0.0,2.2,0.0,27.1,254.7,1.9,False,,1.5,,,,,,,,,,,,76.0,Easy
+Jaheim Bell,TE,PIT,0.4,0.0,0.0,2.1,0.0,26.8,257.0,1.9,False,,1.5,,,,,,,,,,,,46.9,Neutral
 Eric Gray,RB,NYG,0.2,0.0,0.0,228.5,1.5,16.7,125.2,0.5,False,,1.5,,,,,,,,,,,,55.2,Neutral
+Ashton Dulin,WR,IND,0.1,0.0,0.0,33.5,0.1,20.3,301.3,1.6,False,,1.5,,,,,,,,,,,,42.7,Neutral
 Nate Boerkircher,TE,JAX,0.0,0.0,0.0,0.0,0.0,26.3,265.8,1.8,True,28.0,1.5,,,,,,,,,,,,56.2,Neutral
-Tanner Conner,TE,NYG,0.2,0.0,0.0,1.3,0.0,26.9,257.6,1.7,False,,1.5,,,,,,,,,,,,42.7,Neutral
+Tanner Conner,TE,NYG,0.2,0.0,0.0,1.3,0.0,26.9,257.0,1.7,False,,1.5,,,,,,,,,,,,42.7,Neutral
+David Moore,WR,CAR,0.1,0.0,0.0,9.7,0.1,22.7,259.1,2.1,False,,1.5,,,,,,,,,,,,33.3,Tough
 Evan Hull,RB,HOU,0.2,0.0,0.0,319.5,0.7,13.7,99.4,0.5,False,,1.5,,,,,,,,,,,,41.7,Neutral
-David Moore,WR,CAR,0.1,0.0,0.0,9.6,0.1,22.7,259.3,2.1,False,,1.5,,,,,,,,,,,,33.3,Tough
 Zavion Thomas,WR,CHI,0.0,0.0,0.0,3.7,0.0,23.0,309.7,1.4,True,35.0,1.5,,,,,,,,,,,,58.3,Neutral
 Tahj Brooks,RB,CIN,0.2,0.0,0.0,337.0,0.3,13.9,102.0,0.5,False,,1.5,,,,,,,,,,,,58.3,Neutral
-Luke Musgrave,TE,GB,0.1,0.0,0.0,0.8,0.0,29.9,294.3,0.5,False,,1.5,,,,,,,,,,,,59.4,Neutral
-Justin Watson,WR,HOU,0.1,0.0,0.0,3.0,0.0,23.3,286.7,1.6,False,,1.5,,,,,,,,,,,,41.7,Neutral
+Luke Musgrave,TE,GB,0.1,0.0,0.0,0.8,0.0,29.9,293.9,0.5,False,,1.5,,,,,,,,,,,,59.4,Neutral
+Justin Watson,WR,HOU,0.1,0.0,0.0,3.0,0.0,23.2,286.4,1.6,False,,1.5,,,,,,,,,,,,41.7,Neutral
 Tyler Badie,RB,DEN,0.1,0.0,0.0,169.1,1.0,20.7,147.7,0.5,False,,1.5,,,,,,,,,,,,52.1,Neutral
-Elijah Higgins,TE,ARI,0.1,0.0,0.0,0.6,0.0,28.1,270.9,1.0,False,,1.5,,,,,,,,,,,,43.8,Neutral
-Josh Whyle,TE,GB,0.1,0.0,0.0,0.8,0.0,26.2,235.6,1.9,False,,1.5,,,,,,,,,,,,59.4,Neutral
 Kaleb Johnson,RB,PIT,0.2,0.0,0.0,300.8,0.8,13.4,98.6,0.5,False,,1.5,,,,,,,,,,,,64.6,Neutral
-Derius Davis,WR,LAC,0.1,0.0,0.0,44.2,0.2,21.7,235.7,1.7,False,,1.5,,,,,,,,,,,,47.4,Neutral
+Elijah Higgins,TE,ARI,0.1,0.0,0.0,0.6,0.0,28.0,270.6,1.0,False,,1.5,,,,,,,,,,,,43.8,Neutral
+Josh Whyle,TE,GB,0.1,0.0,0.0,0.8,0.0,26.1,235.2,1.9,False,,1.5,,,,,,,,,,,,59.4,Neutral
+Derius Davis,WR,LAC,0.1,0.0,0.0,44.5,0.2,21.7,235.3,1.7,False,,1.5,,,,,,,,,,,,47.4,Neutral
 Pierre Strong,RB,GB,0.1,0.0,0.0,254.1,0.1,19.5,142.8,0.2,False,,1.5,,,,,,,,,,,,52.1,Neutral
-Antonio Williams,WR,WAS,0.0,0.0,0.0,3.6,0.0,22.4,303.3,1.3,True,35.0,1.5,,,150.2,14.4,158.5,15.5,160.7,12.8,156.4,20.2,7.0,42.7,Neutral
-Luke Farrell,TE,SF,0.1,0.0,0.0,1.0,0.0,25.6,218.8,2.0,False,,1.5,,,,,,,,,,,,14.6,Tough
+Antonio Williams,WR,WAS,0.0,0.0,0.0,3.6,0.0,22.4,303.3,1.3,True,35.0,1.5,,,166.4,8.5,,,161.0,13.2,161.2,18.6,7.0,42.7,Neutral
+Luke Farrell,TE,SF,0.1,0.0,0.0,1.0,0.0,25.6,218.4,2.0,False,,1.5,,,,,,,,,,,,14.6,Tough
 Will Shipley,RB,PHI,0.1,0.0,0.0,231.0,1.0,15.9,112.9,0.5,False,,1.5,,,,,,,,,,,,33.3,Tough
-Kylen Granson,TE,TEN,0.1,0.0,0.0,0.8,0.0,27.5,257.4,0.9,False,,1.5,,,,,,,,,,,,59.4,Neutral
-Payne Durham,TE,TB,0.2,0.0,0.0,1.4,0.0,23.8,233.2,1.9,False,,1.5,,,,,,,,,,,,34.4,Tough
-Caleb Douglas,WR,MIA,0.0,0.0,0.0,3.5,0.0,21.4,290.0,1.3,True,35.0,1.5,,,,,,,,,,,,34.4,Tough
 Chris Bell,WR,MIA,0.0,0.0,0.0,3.5,0.0,21.4,290.0,1.3,True,35.0,1.5,,,,,,,,,,,,34.4,Tough
-Kaelon Black,RB,SF,0.0,0.0,0.0,321.0,1.5,10.6,69.1,0.0,True,23.0,1.5,,,,,165.2,9.4,156.5,24.7,,,8.0,35.4,Neutral
-Charlie Kolar,TE,LAC,0.1,0.0,0.0,1.9,0.0,22.0,247.8,1.9,False,,1.5,,,,,,,,,,,,63.5,Neutral
-Nate Adkins,TE,DEN,0.1,0.0,0.0,1.0,0.0,23.6,213.6,2.2,False,,1.5,,,,,,,,,,,,28.1,Tough
+Caleb Douglas,WR,MIA,0.0,0.0,0.0,3.5,0.0,21.4,290.0,1.3,True,35.0,1.5,,,,,184.8,22.3,176.8,20.4,,,6.0,34.4,Tough
+Kylen Granson,TE,TEN,0.1,0.0,0.0,0.8,0.0,27.4,257.0,0.9,False,,1.5,,,,,,,,,,,,59.4,Neutral
+Kaelon Black,RB,SF,0.0,0.0,0.0,321.0,1.5,10.6,69.1,0.0,True,23.0,1.5,,,143.0,29.7,149.9,29.2,160.4,25.5,,,8.0,35.4,Neutral
+Payne Durham,TE,TB,0.2,0.0,0.0,1.4,0.0,23.8,232.6,1.9,False,,1.5,,,,,,,,,,,,34.4,Tough
+Charlie Kolar,TE,LAC,0.1,0.0,0.0,1.9,0.0,22.0,247.4,1.9,False,,1.5,,,,,,,,,,,,63.5,Neutral
+Elijah Arroyo,TE,SEA,0.2,0.0,0.0,1.0,0.0,22.1,228.4,2.2,False,,1.5,fade,"Buried behind Barner; real consensus TE40, no meaningful 2026 redraft value",,,,,,,,,,37.5,Neutral
 Eli Stowers,TE,PHI,0.0,0.0,0.0,0.0,0.0,24.2,245.2,1.6,True,28.0,1.5,,,,,,,,,,,,62.5,Neutral
-Elijah Arroyo,TE,SEA,0.2,0.0,0.0,1.0,0.0,22.1,228.8,2.2,False,,1.5,fade,"Buried behind Barner; real consensus TE40, no meaningful 2026 redraft value",,,,,,,,,,37.5,Neutral
 Chris Brooks,RB,GB,0.1,0.0,0.0,229.4,0.8,16.4,116.1,0.4,False,,1.5,,,,,,,,,,,,52.1,Neutral
-Malachi Fields,WR,NYG,0.0,0.0,0.0,3.4,0.0,21.1,285.3,1.3,True,35.0,1.5,,,,,,,,,,,,75.0,Easy
-Julian Hill,TE,NE,0.1,0.0,0.0,0.9,0.0,26.6,248.8,1.0,False,,1.5,,,,,,,,,,,,53.1,Neutral
+Nate Adkins,TE,DEN,0.1,0.0,0.0,1.0,0.0,23.6,213.3,2.2,False,,1.5,,,,,,,,,,,,28.1,Tough
+Malachi Fields,WR,NYG,0.0,0.0,0.0,3.4,0.0,21.1,285.3,1.3,True,35.0,1.5,,,,,,,156.0,30.3,163.4,7.8,8.0,75.0,Easy
+Julian Hill,TE,NE,0.1,0.0,0.0,0.9,0.0,26.5,247.6,1.0,False,,1.5,,,,,,,,,,,,53.1,Neutral
 Carson Steele,RB,PHI,0.1,0.0,0.0,266.0,1.5,11.6,77.1,0.4,False,,1.5,,,,,,,,,,,,33.3,Tough
 Adrian Martinez,QB,SF,597.1,3.9,1.7,49.0,0.4,0.0,0.2,0.0,False,,1.5,,,,,,,,,,,,26.0,Tough
-Robert Tonyan,TE,PIT,0.4,0.0,0.0,2.0,0.0,24.0,223.7,1.7,False,,1.5,,,,,,,,,,,,46.9,Neutral
-Cade Stover,TE,HOU,0.1,0.0,0.0,10.8,0.2,26.3,221.5,1.0,False,,1.5,,,,,,,,,,,,35.4,Neutral
-Mitchell Evans,TE,CAR,0.2,0.0,0.0,2.6,0.1,21.6,202.1,2.3,False,,1.5,,,,,,,,,,,,86.5,Easy
+Robert Tonyan,TE,PIT,0.4,0.0,0.0,2.0,0.0,23.9,223.1,1.7,False,,1.5,,,,,,,,,,,,46.9,Neutral
+Cade Stover,TE,HOU,0.1,0.0,0.0,10.8,0.2,26.2,221.1,1.0,False,,1.5,,,,,,,,,,,,35.4,Neutral
 Reggie Gilliam,RB,NE,0.2,0.0,0.0,234.3,1.7,11.6,88.4,0.4,False,,1.5,,,,,,,,,,,,40.6,Neutral
-Brenden Bates,TE,CLE,0.3,0.0,0.0,1.6,0.0,23.5,232.4,1.6,False,,1.5,,,,,,,,,,,,40.6,Neutral
-Luke Schoonmaker,TE,DAL,0.1,0.0,0.0,0.7,0.0,26.5,248.8,0.8,False,,1.5,,,,,,,,,,,,50.0,Neutral
-Jamari Thrash,WR,CLE,0.2,0.0,0.0,3.6,0.0,22.0,254.7,1.4,False,,1.5,,,,,,,,,,,,83.3,Easy
-Brevyn Spann-Ford,TE,DAL,0.2,0.0,0.0,1.0,0.0,23.2,225.4,1.7,False,,1.5,,,,,,,,,,,,50.0,Neutral
-Zachariah Branch,WR,ATL,0.0,0.0,0.0,3.3,0.0,20.5,276.7,1.2,True,35.0,1.5,,,,,,,173.7,7.1,,,11.0,59.4,Neutral
-Will Mallory,TE,IND,0.2,0.0,0.0,1.5,0.0,23.3,226.2,1.6,False,,1.5,,,,,,,,,,,,66.7,Easy
+Brenden Bates,TE,CLE,0.3,0.0,0.0,1.6,0.0,23.4,231.8,1.6,False,,1.5,,,,,,,,,,,,40.6,Neutral
+Mitchell Evans,TE,CAR,0.2,0.0,0.0,2.6,0.1,21.6,201.7,2.3,False,,1.5,,,,,,,,,,,,86.5,Easy
+Luke Schoonmaker,TE,DAL,0.1,0.0,0.0,0.7,0.0,26.5,248.4,0.8,False,,1.5,,,,,,,,,,,,50.0,Neutral
+Jamari Thrash,WR,CLE,0.2,0.0,0.0,3.7,0.0,21.9,254.2,1.4,False,,1.5,,,,,,,,,,,,82.3,Easy
+Brevyn Spann-Ford,TE,DAL,0.2,0.0,0.0,1.0,0.0,23.2,224.8,1.7,False,,1.5,,,,,,,,,,,,50.0,Neutral
+Zachariah Branch,WR,ATL,0.0,0.0,0.0,3.3,0.0,20.5,276.7,1.2,True,35.0,1.5,,,,,,,,,,,,59.4,Neutral
+Will Mallory,TE,IND,0.2,0.0,0.0,1.5,0.0,23.3,225.6,1.5,False,,1.5,,,,,,,,,,,,66.7,Easy
 Shane Buechele,QB,BUF,591.6,3.6,1.7,45.6,0.4,0.0,0.2,0.0,False,,1.5,,,,,,,,,,,,61.5,Neutral
-Bailey Zappe,QB,NYJ,592.8,3.8,2.6,44.0,0.5,0.0,0.2,0.0,False,,1.5,,,,,,,,,,,,33.3,Tough
-Marquez Valdes-Scantling,WR,DAL,0.1,0.0,0.0,3.7,0.0,18.6,239.9,1.9,False,,1.5,,,,,,,,,,,,61.5,Neutral
-Trent Sherfield,WR,BUF,0.2,0.0,0.0,4.4,0.0,20.7,235.6,1.6,False,,1.5,,,,,,,,,,,,47.9,Neutral
-Arian Smith,WR,NYJ,0.2,0.0,0.0,20.0,0.1,21.4,242.5,1.0,False,,1.5,,,,,,,,,,,,30.2,Tough
-Foster Moreau,TE,HOU,0.1,0.0,0.0,0.7,0.0,20.3,213.6,2.1,False,,1.5,,,,,,,,,,,,35.4,Neutral
-Malachi Corley,WR,CLE,0.1,0.0,0.0,61.3,0.3,18.9,197.3,1.2,False,,1.5,,,,,,,,,,,,83.3,Easy
-Andrew Ogletree,TE,IND,0.2,0.0,0.0,1.0,0.0,21.6,206.1,1.9,False,,1.5,,,,,,,,,,,,66.7,Easy
+Bailey Zappe,QB,NYJ,592.8,3.8,2.6,44.1,0.5,0.0,0.2,0.0,False,,1.5,,,,,,,,,,,,33.3,Tough
+Marquez Valdes-Scantling,WR,DAL,0.1,0.0,0.0,3.8,0.0,18.6,239.8,1.9,False,,1.5,,,,,,,,,,,,61.5,Neutral
+Trent Sherfield,WR,BUF,0.2,0.0,0.0,4.5,0.0,20.7,235.1,1.6,False,,1.5,,,,,,,,,,,,51.0,Neutral
+Arian Smith,WR,NYJ,0.2,0.0,0.0,20.2,0.1,21.4,242.1,1.0,False,,1.5,,,,,,,,,,,,30.2,Tough
+Malachi Corley,WR,CLE,0.1,0.0,0.0,61.7,0.3,18.9,197.0,1.2,False,,1.5,,,,,,,,,,,,82.3,Easy
+Foster Moreau,TE,HOU,0.1,0.0,0.0,0.7,0.0,20.3,213.3,2.0,False,,1.5,,,,,,,,,,,,35.4,Neutral
+Andrew Ogletree,TE,IND,0.2,0.0,0.0,1.0,0.0,21.6,205.7,1.9,False,,1.5,,,,,,,,,,,,66.7,Easy
 Dameon Pierce,RB,PHI,0.1,0.0,0.0,319.1,0.9,8.4,59.5,0.3,False,,1.5,,,,,,,,,,,,33.3,Tough
-Samaje Perine,RB,CIN,0.1,0.0,0.0,200.7,1.6,12.5,94.5,0.3,False,,1.5,,,,,,,168.7,26.8,,,6.0,58.3,Neutral
-Devin Duvernay,WR,ARI,0.2,0.0,0.0,14.7,0.1,20.1,227.3,1.4,False,,1.5,,,,,,,,,,,,53.1,Neutral
-Emmett Johnson,RB,KC,0.0,0.0,0.0,237.0,1.2,12.3,98.6,0.0,True,44.0,1.5,,,,,,,,,,,,32.3,Tough
-Jonathan Mingo,WR,DAL,0.1,0.0,0.0,8.2,0.0,21.8,262.4,0.7,False,,1.5,,,,,,,,,,,,61.5,Neutral
-Drew Sample,TE,CIN,0.1,0.0,0.0,3.6,0.1,25.3,202.6,1.1,False,,1.5,,,,,,,,,,,,51.0,Neutral
+Samaje Perine,RB,CIN,0.1,0.0,0.0,200.7,1.6,12.5,94.5,0.3,False,,1.5,,,,,,,,,,,,58.3,Neutral
+Drew Sample,TE,CIN,0.1,0.0,0.0,3.6,0.1,25.3,202.3,1.1,False,,1.5,,,,,,,,,,,,51.0,Neutral
+Emmett Johnson,RB,KC,0.0,0.0,0.0,237.0,1.2,12.3,98.6,0.0,True,44.0,1.5,,,,,,,162.8,9.3,,,5.0,32.3,Tough
+Jonathan Mingo,WR,DAL,0.1,0.0,0.0,8.2,0.0,21.7,262.1,0.7,False,,1.5,,,,,,,,,,,,61.5,Neutral
 Sam Howell,QB,DAL,569.6,3.6,2.1,45.6,0.4,0.0,0.2,0.0,False,,1.5,,,,,,,,,,,,54.2,Neutral
-Max Klare,TE,LA,0.0,0.0,0.0,0.0,0.0,21.7,219.3,1.5,True,28.0,1.5,,,,,,,,,,,,61.5,Neutral
-Tip Reiman,TE,ARI,0.2,0.0,0.0,1.3,0.0,23.1,203.6,1.5,False,,1.5,,,,,,,,,,,,43.8,Neutral
+Devin Duvernay,WR,ARI,0.2,0.0,0.0,14.9,0.1,20.1,226.9,1.3,False,,1.5,,,,,,,,,,,,53.1,Neutral
 Brenen Thompson,WR,LAC,0.0,0.0,0.0,3.1,0.0,19.4,263.0,1.1,True,35.0,1.5,,,,,,,,,,,,47.4,Neutral
-Cedrick Wilson Jr.,WR,DET,9.9,0.4,0.0,3.3,0.0,19.4,218.6,1.3,False,,1.5,,,,,,,,,,,,53.1,Neutral
-Tim Patrick,WR,NYJ,0.1,0.0,0.0,1.4,0.0,16.6,202.5,2.5,False,,1.5,,,,,,,,,,,,30.2,Tough
+Max Klare,TE,LA,0.0,0.0,0.0,0.0,0.0,21.7,219.3,1.5,True,28.0,1.5,,,,,,,,,,,,61.5,Neutral
+Tip Reiman,TE,ARI,0.2,0.0,0.0,1.3,0.0,23.0,203.0,1.5,False,,1.5,,,,,,,,,,,,43.8,Neutral
+Cedrick Wilson Jr.,WR,DET,9.9,0.4,0.0,3.4,0.0,19.3,218.3,1.3,False,,1.5,,,,,,,,,,,,56.2,Neutral
 Ty Chandler,RB,NO,0.1,0.0,0.0,273.1,1.1,9.7,66.1,0.3,False,,1.5,,,,,,,,,,,,66.7,Easy
+Tim Patrick,WR,NYJ,0.1,0.0,0.0,1.4,0.0,16.5,202.3,2.5,False,,1.5,,,,,,,,,,,,30.2,Tough
 Ted Hurst,WR,TB,0.0,0.0,0.0,3.1,0.0,19.0,256.1,1.1,True,35.0,1.5,,,,,,,,,,,,58.3,Neutral
-Odell Beckham Jr.,WR,NYG,0.2,0.0,0.0,3.2,0.0,18.5,199.2,2.1,False,,1.5,,,,,,,,,,,,75.0,Easy
 Marlin Klein,TE,HOU,0.0,0.0,0.0,0.0,0.0,21.0,212.3,1.5,True,28.0,1.5,,,,,,,,,,,,35.4,Neutral
-Jeremy Ruckert,TE,NYJ,0.1,0.0,0.0,0.6,0.0,24.9,205.7,0.9,False,,1.5,,,,,,,,,,,,62.5,Neutral
-Ja'Kobi Lane,WR,BAL,0.0,0.0,0.0,3.0,0.0,18.7,253.2,1.1,True,35.0,1.5,,,159.9,13.3,160.6,20.3,160.8,20.3,,,13.0,39.6,Neutral
-Ian Thomas,TE,LV,0.2,0.0,0.0,1.0,0.0,22.4,203.8,1.3,False,,1.5,,,,,,,,,,,,70.8,Easy
-Kedon Slovis,QB,ARI,527.1,3.4,1.7,40.6,0.4,0.0,0.2,0.0,False,,1.5,,,,,,,,,,,,59.4,Neutral
+Odell Beckham Jr.,WR,NYG,0.2,0.0,0.0,3.2,0.0,18.3,197.6,2.1,False,,1.5,,,,,,,,,,,,75.0,Easy
+Jeremy Ruckert,TE,NYJ,0.1,0.0,0.0,0.6,0.0,24.9,205.4,0.9,False,,1.5,,,,,,,,,,,,62.5,Neutral
+Ja'Kobi Lane,WR,BAL,0.0,0.0,0.0,3.0,0.0,18.7,253.2,1.1,True,35.0,1.5,,,150.1,17.2,166.9,17.8,157.9,19.5,150.1,12.9,13.0,39.6,Neutral
+Ian Thomas,TE,LV,0.2,0.0,0.0,1.0,0.0,22.4,203.3,1.3,False,,1.5,,,,,,,,,,,,70.8,Easy
+Kedon Slovis,QB,ARI,520.6,3.4,1.7,40.1,0.4,0.0,0.2,0.0,False,,1.5,,,,,,,,,,,,59.4,Neutral
 Tyler Goodson,RB,ATL,0.1,0.0,0.0,228.3,0.8,10.9,74.2,0.4,False,,1.5,,,,,,,,,,,,62.5,Neutral
-Charlie Woerner,TE,ATL,0.2,0.0,0.0,0.9,0.0,21.7,182.5,1.3,False,,1.5,,,,,,,,,,,,71.9,Easy
+Charlie Woerner,TE,ATL,0.2,0.0,0.0,0.9,0.0,21.6,182.2,1.3,False,,1.5,,,,,,,,,,,,71.9,Easy
 Julius Chestnut,RB,TEN,0.1,0.0,0.0,229.1,1.3,8.5,61.6,0.3,False,,1.5,,,,,,,,,,,,41.7,Neutral
-Jack Stoll,TE,CLE,0.2,0.0,0.0,1.1,0.0,19.3,176.5,1.6,False,,1.5,,,,,,,,,,,,40.6,Neutral
-Jeremy McNichols,RB,WAS,0.1,0.0,0.0,171.4,1.2,12.5,90.1,0.1,False,,1.5,,,,,,,,,,,,30.2,Tough
-Harrison Bryant,TE,SEA,0.2,0.0,0.0,1.4,0.0,19.4,177.5,1.3,False,,1.5,,,,,,,,,,,,37.5,Neutral
-Austin Hooper,TE,ATL,0.1,0.0,0.0,0.5,0.0,17.5,190.1,1.4,False,,1.5,,,,,,,,,,,,71.9,Easy
+Jack Stoll,TE,CLE,0.2,0.0,0.0,1.1,0.0,19.3,176.0,1.6,False,,1.5,,,,,,,,,,,,40.6,Neutral
+Jeremy McNichols,RB,WAS,0.1,0.0,0.0,171.0,1.2,12.5,89.9,0.1,False,,1.5,,,,,,,,,,,,30.2,Tough
+Harrison Bryant,TE,SEA,0.2,0.0,0.0,1.4,0.0,19.3,177.1,1.3,False,,1.5,,,,,,,,,,,,37.5,Neutral
+Austin Hooper,TE,ATL,0.1,0.0,0.0,0.5,0.0,17.5,189.9,1.4,False,,1.5,,,,,,,,,,,,71.9,Easy
+Durham Smythe,TE,BAL,0.1,0.0,0.0,0.9,0.0,19.4,165.1,1.3,False,,1.5,,,,,,,,,,,,77.1,Easy
 Ameer Abdullah,RB,JAX,0.1,0.0,0.0,115.9,1.2,13.5,91.0,0.4,False,,1.5,,,,,,,,,,,,65.6,Easy
-Durham Smythe,TE,BAL,0.1,0.0,0.0,0.9,0.0,19.4,165.5,1.3,False,,1.5,,,,,,,,,,,,77.1,Easy
-Tylan Wallace,WR,CLE,0.2,0.0,0.0,3.6,0.0,15.2,198.2,1.3,False,,1.5,,,,,,,,,,,,83.3,Easy
-Eric Saubert,TE,SEA,0.2,0.0,0.0,0.8,0.0,18.1,166.9,1.2,False,,1.5,,,,,,,,,,,,37.5,Neutral
-Mo Alie-Cox,TE,IND,0.1,0.0,0.0,0.5,0.0,15.2,148.1,1.6,False,,1.5,,,,,,,,,,,,66.7,Easy
-Feleipe Franks,TE,CAR,0.3,0.0,0.0,12.3,0.3,15.2,145.9,1.1,False,,1.5,,,,,,,,,,,,86.5,Easy
+Tylan Wallace,WR,CLE,0.2,0.0,0.0,3.7,0.0,15.1,197.8,1.3,False,,1.5,,,,,,,,,,,,82.3,Easy
+Eric Saubert,TE,SEA,0.2,0.0,0.0,0.8,0.0,18.1,166.5,1.2,False,,1.5,,,,,,,,,,,,37.5,Neutral
+Mo Alie-Cox,TE,IND,0.1,0.0,0.0,0.5,0.0,15.2,147.9,1.6,False,,1.5,,,,,,,,,,,,66.7,Easy
+Feleipe Franks,TE,CAR,0.3,0.0,0.0,12.3,0.3,15.1,145.4,1.1,False,,1.5,,,,,,,,,,,,86.5,Easy
 Chris Brazzell II,WR,CAR,0.0,0.0,0.0,2.3,0.0,14.4,194.6,0.8,True,35.0,1.5,,,,,,,,,,,,33.3,Tough
 Adam Randall,RB,BAL,0.0,0.0,0.0,166.5,0.9,8.6,69.3,0.0,True,44.0,1.5,,,,,,,,,,,,57.3,Neutral
-Blake Whiteheart,TE,CLE,0.2,0.0,0.0,1.0,0.0,15.8,141.3,1.2,False,,1.5,,,,,,,,,,,,40.6,Neutral
-Mike Washington Jr.,RB,LV,0.0,0.0,0.0,157.4,0.8,8.1,65.5,0.0,True,44.0,1.5,,,,,168.1,23.7,148.4,20.2,,,13.0,51.0,Neutral
-Johnny Mundt,TE,PHI,0.1,0.0,0.0,0.7,0.0,15.1,147.6,0.8,False,,1.5,,,,,,,,,,,,62.5,Neutral
-Jonah Coleman,RB,DEN,0.0,0.0,0.0,144.5,0.8,7.5,60.1,0.0,True,44.0,1.5,,,,,154.2,9.9,147.7,24.5,,,10.0,52.1,Neutral
-Adam Thielen,WR,MIN,0.1,0.0,0.0,1.1,0.0,13.0,151.6,0.7,False,,1.5,,,,,,,,,,,,77.1,Easy
-Chris Manhertz,TE,NYG,0.2,0.0,0.0,1.0,0.0,13.2,125.1,1.1,False,,1.5,,,,,,,,,,,,42.7,Neutral
+Blake Whiteheart,TE,CLE,0.2,0.0,0.0,1.0,0.0,15.8,140.9,1.2,False,,1.5,,,,,,,,,,,,40.6,Neutral
+Mike Washington Jr.,RB,LV,0.0,0.0,0.0,157.4,0.8,8.1,65.5,0.0,True,44.0,1.5,,,154.2,17.6,151.9,22.0,148.5,26.3,159.6,14.2,13.0,51.0,Neutral
+Johnny Mundt,TE,PHI,0.1,0.0,0.0,0.7,0.0,15.1,147.4,0.8,False,,1.5,,,,,,,,,,,,62.5,Neutral
+Jonah Coleman,RB,DEN,0.0,0.0,0.0,144.5,0.8,7.5,60.1,0.0,True,44.0,1.5,,,144.9,32.8,164.1,22.9,155.4,17.8,136.9,25.2,10.0,52.1,Neutral
+Adam Thielen,WR,MIN,0.1,0.0,0.0,1.1,0.0,13.0,151.5,0.7,False,,1.5,,,,,,,,,,,,77.1,Easy
+Chris Manhertz,TE,NYG,0.2,0.0,0.0,1.0,0.0,13.2,124.7,1.0,False,,1.5,,,,,,,,,,,,42.7,Neutral
 Nicholas Singleton,RB,TEN,0.0,0.0,0.0,131.4,0.7,6.8,54.7,0.0,True,44.0,1.5,hand,Buried behind Pollard right now -- late-round dart only if you own the guy ahead,,,,,,,,,,41.7,Neutral
 Will Kacmarek,TE,MIA,0.0,0.0,0.0,0.0,0.0,10.9,119.6,0.7,True,53.0,1.5,,,,,,,,,,,,17.7,Tough
-Eli Raridon,TE,NE,0.0,0.0,0.0,0.0,0.0,10.0,110.8,0.7,True,53.0,1.5,,,,,,,,,,,,53.1,Neutral
+Eli Raridon,TE,NE,0.0,0.0,0.0,0.0,0.0,10.0,110.3,0.7,True,53.0,1.5,,,,,,,,,,,,53.1,Neutral
 Josh Cuevas,TE,BAL,0.0,0.0,0.0,0.0,0.0,11.0,122.2,0.3,True,70.0,1.5,,,,,,,,,,,,77.1,Easy
 Matthew Hibner,TE,BAL,0.0,0.0,0.0,0.0,0.0,11.0,122.2,0.3,True,70.0,1.5,,,,,,,,,,,,77.1,Easy
 Patrick Ricard,RB,NYG,0.1,0.0,0.0,87.9,0.6,5.3,39.2,0.2,False,,1.5,,,,,,,,,,,,55.2,Neutral
@@ -591,41 +592,42 @@ Sam Roush,TE,CHI,0.0,0.0,0.0,0.0,0.0,7.9,86.6,0.5,True,53.0,1.5,,,,,,,,,,,,31.2,
 Joe Royer,TE,CLE,0.0,0.0,0.0,0.0,0.0,8.1,90.2,0.3,True,70.0,1.5,,,,,,,,,,,,40.6,Neutral
 Drew Allar,QB,PIT,364.5,0.0,0.7,8.3,0.0,0.0,0.0,0.0,True,54.0,1.5,,,,,,,,,,,,58.3,Neutral
 Justin Joly,TE,DEN,0.0,0.0,0.0,0.0,0.0,7.5,83.2,0.2,True,70.0,1.5,,,,,,,,,,,,28.1,Tough
+Ricky Pearsall,WR,SF,0.0,0.0,0.0,1.7,0.0,6.3,85.6,0.3,False,,1.5,fade,"Was the model's top WR value-gap, now superseded: ruled out for the season (PCL surgery), see manual_overrides.csv. Leaving the note for the record rather than deleting it -- the pre-injury value-gap read was correct at the time.",,,,,,,121.3,13.6,8.0,25.5,Tough
 Max Bredeson,TE,MIN,0.0,0.0,0.0,0.0,0.0,7.0,77.3,0.2,True,70.0,1.5,,,,,,,,,,,,76.0,Easy
-Zach Charbonnet,RB,SEA,0.0,0.0,0.0,56.0,0.8,2.4,18.0,0.1,False,,1.5,fade,"MANUAL OVERRIDE: tore ACL in Jan, will miss most of 2026 -- ignore the model's raw number, see manual_overrides.csv",135.9,14.8,134.2,21.9,139.1,18.4,136.7,22.4,11.0,59.4,Neutral
-Kaden Wetjen,WR,PIT,0.0,0.0,0.0,0.0,0.0,8.6,65.8,0.0,True,72.0,1.5,,,,,,,,,,,,72.4,Easy
-Skyler Bell,WR,BUF,0.0,0.0,0.0,0.0,0.0,8.4,64.2,0.0,True,72.0,1.5,,,,,,,,,,,,47.9,Neutral
+Zach Charbonnet,RB,SEA,0.0,0.0,0.0,56.0,0.8,2.4,18.0,0.1,False,,1.5,fade,"MANUAL OVERRIDE: tore ACL in Jan, will miss most of 2026 -- ignore the model's raw number, see manual_overrides.csv",129.7,14.6,131.3,15.2,135.8,15.5,140.4,19.4,11.0,59.4,Neutral
+Kaden Wetjen,WR,PIT,0.0,0.0,0.0,0.0,0.0,8.6,65.8,0.0,True,72.0,1.5,,,,,,,172.3,3.9,,,9.0,70.3,Easy
+Skyler Bell,WR,BUF,0.0,0.0,0.0,0.0,0.0,8.4,64.2,0.0,True,72.0,1.5,,,,,,,,,,,,51.0,Neutral
 Elijah Sarratt,WR,BAL,0.0,0.0,0.0,0.0,0.0,8.0,61.5,0.0,True,72.0,1.5,,,,,,,,,,,,39.6,Neutral
-Carson Beck,QB,ARI,285.7,0.0,0.6,6.5,0.0,0.0,0.0,0.0,True,54.0,1.5,,,,,,,,,142.6,7.9,14.0,59.4,Neutral
+Carson Beck,QB,ARI,282.2,0.0,0.6,6.4,0.0,0.0,0.0,0.0,True,54.0,1.5,,,,,,,,,142.5,7.6,14.0,59.4,Neutral
 Bryce Lance,WR,NO,0.0,0.0,0.0,0.0,0.0,7.6,59.1,0.0,True,72.0,1.5,,,,,,,,,,,,60.4,Neutral
-Kendrick Law,WR,DET,0.0,0.0,0.0,0.0,0.0,7.2,55.8,0.0,True,72.0,1.5,,,,,,,,,,,,53.1,Neutral
+Kendrick Law,WR,DET,0.0,0.0,0.0,0.0,0.0,7.2,55.8,0.0,True,72.0,1.5,,,,,,,,,,,,56.2,Neutral
 Reggie Virgil,WR,ARI,0.0,0.0,0.0,0.0,0.0,7.0,53.7,0.0,True,72.0,1.5,,,,,,,,,,,,53.1,Neutral
-Colbie Young,WR,CIN,0.0,0.0,0.0,0.0,0.0,6.4,49.3,0.0,True,72.0,1.5,,,,,,,,,,,,70.3,Easy
-Kaytron Allen,RB,WAS,0.0,0.0,0.0,10.3,0.0,0.6,2.5,0.0,True,77.0,1.5,,,,,,,,,,,,30.2,Tough
-Jam Miller,RB,NE,0.0,0.0,0.0,8.7,0.0,0.5,2.2,0.0,True,77.0,1.5,,,,,,,,,,,,40.6,Neutral
+Colbie Young,WR,CIN,0.0,0.0,0.0,0.0,0.0,6.4,49.3,0.0,True,72.0,1.5,,,,,,,,,,,,69.3,Easy
+Kaytron Allen,RB,WAS,0.0,0.0,0.0,10.3,0.0,0.6,2.5,0.0,True,77.0,1.5,,,,,,,,,168.6,1.9,7.0,30.2,Tough
 Seth McGowan,RB,IND,0.0,0.0,0.0,8.6,0.0,0.5,2.1,0.0,True,77.0,1.5,,,,,,,,,,,,68.8,Easy
+Jam Miller,RB,NE,0.0,0.0,0.0,8.7,0.0,0.5,2.2,0.0,True,77.0,1.5,,,,,,,,,,,,40.6,Neutral
 Demond Claiborne,RB,MIN,0.0,0.0,0.0,7.8,0.0,0.5,2.0,0.0,True,77.0,1.5,,,,,,,,,,,,71.9,Easy
 Kevin Coleman Jr.,WR,MIA,0.0,0.0,0.0,0.0,0.0,1.0,4.1,0.0,True,87.0,1.5,,,,,,,,,,,,34.4,Tough
-Deion Burks,WR,IND,0.0,0.0,0.0,0.0,0.0,1.0,4.0,0.0,True,87.0,1.5,,,,,,,,,,,,44.8,Neutral
-Josh Cameron,WR,JAX,0.0,0.0,0.0,0.0,0.0,0.9,3.6,0.0,True,87.0,1.5,,,,,,,,,,,,62.5,Neutral
-Cyrus Allen,WR,KC,0.0,0.0,0.0,0.0,0.0,0.9,4.1,0.0,True,87.0,1.5,,,,,,,161.8,18.3,,,5.0,43.8,Neutral
+Deion Burks,WR,IND,0.0,0.0,0.0,0.0,0.0,1.0,4.0,0.0,True,87.0,1.5,,,,,,,,,,,,42.7,Neutral
 CJ Williams,WR,JAX,0.0,0.0,0.0,0.0,0.0,0.9,3.6,0.0,True,87.0,1.5,,,,,,,,,,,,62.5,Neutral
+Cyrus Allen,WR,KC,0.0,0.0,0.0,0.0,0.0,0.9,4.1,0.0,True,87.0,1.5,,,,,159.8,20.5,150.6,23.5,,,5.0,43.8,Neutral
+Josh Cameron,WR,JAX,0.0,0.0,0.0,0.0,0.0,0.9,3.6,0.0,True,87.0,1.5,,,,,,,,,,,,62.5,Neutral
 Barion Brown,WR,NO,0.0,0.0,0.0,0.0,0.0,0.9,3.4,0.0,True,87.0,1.5,,,,,,,,,,,,60.4,Neutral
-Malik Benson,WR,LV,0.0,0.0,0.0,0.0,0.0,0.8,3.3,0.0,True,87.0,1.5,,,,,,,,,,,,52.1,Neutral
+Malik Benson,WR,LV,0.0,0.0,0.0,0.0,0.0,0.8,3.3,0.0,True,87.0,1.5,,,,,,,,,,,,50.0,Neutral
 Lewis Bond,WR,HOU,0.0,0.0,0.0,0.0,0.0,0.8,3.1,0.0,True,87.0,1.5,,,,,,,,,,,,41.7,Neutral
 CJ Daniels,WR,LA,0.0,0.0,0.0,0.0,0.0,0.7,3.0,0.0,True,87.0,1.5,,,,,,,,,,,,56.2,Neutral
-Anthony Smith,WR,DAL,0.0,0.0,0.0,0.0,0.0,0.7,3.1,0.0,True,87.0,1.5,,,,,,,,,,,,61.5,Neutral
 Emmanuel Henderson Jr.,WR,SEA,0.0,0.0,0.0,0.0,0.0,0.7,2.8,0.0,True,87.0,1.5,,,,,,,,,,,,38.0,Neutral
+Anthony Smith,WR,DAL,0.0,0.0,0.0,0.0,0.0,0.7,3.1,0.0,True,87.0,1.5,,,,,,,,,,,,61.5,Neutral
 Cade Klubnik,QB,NYJ,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,True,85.0,1.5,,,,,,,,,,,,33.3,Tough
-Jaren Kanak,TE,TEN,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,True,93.0,1.5,,,,,,,,,,,,59.4,Neutral
-Taylen Green,QB,CLE,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,True,89.0,1.5,,,,,,,,,,,,63.5,Neutral
-Carsen Ryan,TE,CLE,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,True,93.0,1.5,,,,,,,,,,,,40.6,Neutral
-Cole Payton,QB,PHI,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,True,89.0,1.5,,,,,,,,,,,,29.2,Tough
-Athan Kaliakmanis,QB,WAS,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,True,89.0,1.5,,,,,,,,,,,,33.3,Tough
 Jack Endries,TE,CIN,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,True,93.0,1.5,,,,,,,,,,,,51.0,Neutral
-Bauer Sharp,TE,TB,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,True,93.0,1.5,,,,,,,,,,,,34.4,Tough
+Taylen Green,QB,CLE,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,True,89.0,1.5,,,,,,,,,,,,63.5,Neutral
+Cole Payton,QB,PHI,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,True,89.0,1.5,,,,,,,,,,,,29.2,Tough
 Seydou Traore,TE,MIA,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,True,93.0,1.5,,,,,,,,,,,,17.7,Tough
+Athan Kaliakmanis,QB,WAS,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,True,89.0,1.5,,,,,,,,,,,,33.3,Tough
 Behren Morton,QB,NE,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,True,89.0,1.5,,,,,,,,,,,,53.1,Neutral
+Bauer Sharp,TE,TB,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,True,93.0,1.5,,,,,,,,,,,,34.4,Tough
+Jaren Kanak,TE,TEN,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,True,93.0,1.5,,,,,,,,,,,,59.4,Neutral
+Carsen Ryan,TE,CLE,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,True,93.0,1.5,,,,,,,,,,,,40.6,Neutral
 Garrett Nussmeier,QB,KC,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,True,89.0,1.5,,,,,,,,,,,,33.3,Tough
 Dallen Bentley,TE,DEN,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,True,93.0,1.5,,,,,,,,,,,,28.1,Tough
-Stefon Diggs,WR,WAS,0.0,0.0,0.0,0.0,0.0,83.0,930.0,6.0,False,,1.5,mod,"MANUAL ADDITION: real move to WAS confirmed but missing from nflverse's roster feed -- see manual_additions.csv, treat his numbers as an estimate",98.0,14.8,93.3,11.9,91.1,12.8,119.3,13.4,7.0,42.7,Neutral
+Stefon Diggs,WR,WAS,0.0,0.0,0.0,0.0,0.0,83.0,930.0,6.0,False,,1.5,mod,"MANUAL ADDITION: real move to WAS confirmed but missing from nflverse's roster feed -- see manual_additions.csv, treat his numbers as an estimate",96.2,9.1,95.3,9.1,91.4,8.9,116.7,13.9,7.0,42.7,Neutral
