@@ -5,16 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Draft War Room</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 :root {
-  --ink: #10161c; --panel: #18212a; --panel-2: #1f2b35;
-  --line: #2b3945; --line-soft: #222e38;
-  --text: #e6ecf2; --muted: #7f8f9d; --dim: #5b6a77;
-  --qb: #f2a65a; --rb: #46b47a; --wr: #5b9ee8; --te: #c07dd6; --flx: #8595a3;
-  --alert: #e8574a; --gold: #e8c46a;
-  --display: 'Barlow Condensed', 'Oswald', 'Arial Narrow', sans-serif;
-  --body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* ESPN-fantasy-inspired light theme: bright surfaces, navy masthead, red accent */
+  --ink: #f2f4f7; --panel: #ffffff; --panel-2: #eceef2;
+  --line: #dde1e7; --line-soft: #e8eaef;
+  --text: #12161c; --muted: #5b6472; --dim: #8a91a0;
+  --qb: #d97706; --rb: #16a34a; --wr: #2563eb; --te: #9333ea; --flx: #64748b;
+  --alert: #dc2626; --gold: #d5262c; --watch: #b9790a;
+  --navy: #0c1f3d; --navy-2: #132a52; --on-accent: #ffffff;
+  --display: 'Oswald', 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --body: 'Source Sans 3', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --mono: 'IBM Plex Mono', 'SF Mono', Menlo, Consolas, monospace;
 }
 * { box-sizing: border-box; }
@@ -31,35 +33,35 @@ input, select, textarea { font-family: inherit; }
 .shell { max-width: 1180px; margin: 0 auto; padding-bottom: 88px; }
 
 /* masthead */
-.top { position: sticky; top: 0; z-index: 30; background: rgba(16,22,28,.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.top { position: sticky; top: 0; z-index: 30; background: linear-gradient(180deg, var(--navy), var(--navy-2)); border-bottom: none; }
 .top-in { padding: 10px 14px 8px; display: flex; align-items: center; gap: 10px; }
-.mark { font-family: var(--display); font-weight: 700; font-size: 20px; letter-spacing: .06em; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+.mark { font-family: var(--display); font-weight: 700; font-size: 20px; letter-spacing: .06em; text-transform: uppercase; line-height: 1; white-space: nowrap; color: #fff; }
 .mark span { color: var(--gold); }
-.leaguesel { margin-left: auto; background: var(--panel-2); border: 1px solid var(--line); color: var(--text); border-radius: 6px; padding: 6px 8px; font-size: 13px; max-width: 46%; }
+.leaguesel { margin-left: auto; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.22); color: #fff; border-radius: 6px; padding: 6px 8px; font-size: 13px; max-width: 46%; }
 
-.clock { display: flex; border-top: 1px solid var(--line-soft); font-family: var(--display); }
-.cl { flex: 1; padding: 7px 10px 8px; border-right: 1px solid var(--line-soft); min-width: 0; }
+.clock { display: flex; border-top: 1px solid rgba(255,255,255,.12); font-family: var(--display); }
+.cl { flex: 1; padding: 7px 10px 8px; border-right: 1px solid rgba(255,255,255,.1); min-width: 0; }
 .cl:last-child { border-right: none; }
-.cl-k { font-family: var(--body); font-size: 9px; letter-spacing: .13em; text-transform: uppercase; color: var(--dim); font-weight: 600; }
-.cl-v { font-size: 21px; font-weight: 700; line-height: 1.05; }
+.cl-k { font-family: var(--body); font-size: 9px; letter-spacing: .13em; text-transform: uppercase; color: #93a0bc; font-weight: 600; }
+.cl-v { font-size: 21px; font-weight: 700; line-height: 1.05; color: #fff; }
 .cl-v.hot { color: var(--gold); } .cl-v.alert { color: var(--alert); }
-.cl-v small { font-size: 11px; color: var(--muted); font-weight: 500; margin-left: 3px; }
+.cl-v small { font-size: 11px; color: #93a0bc; font-weight: 500; margin-left: 3px; }
 
 /* tabs */
-.tabs { position: fixed; bottom: 0; left: 0; right: 0; z-index: 40; display: flex; background: rgba(16,22,28,.97); border-top: 1px solid var(--line); backdrop-filter: blur(8px); }
-.tab { flex: 1; padding: 11px 4px; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: var(--dim); border-top: 2px solid transparent; }
-.tab.on { color: var(--text); border-top-color: var(--gold); background: var(--panel); }
+.tabs { position: fixed; bottom: 0; left: 0; right: 0; z-index: 40; display: flex; background: var(--panel); border-top: 1px solid var(--line); }
+.tab { flex: 1; padding: 11px 4px; font-family: var(--display); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: var(--dim); border-top: 2px solid transparent; }
+.tab.on { color: var(--text); border-top-color: var(--gold); background: var(--panel-2); }
 
 .pane { padding: 14px; }
 .h { font-family: var(--display); font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 0 0 9px; display: flex; align-items: center; gap: 8px; }
 .h::after { content: ''; flex: 1; height: 1px; background: var(--line-soft); }
-.card { background: var(--panel); border: 1px solid var(--line); border-radius: 9px; padding: 13px; margin-bottom: 13px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 13px; margin-bottom: 13px; box-shadow: 0 1px 2px rgba(16,24,32,.04), 0 4px 14px rgba(16,24,32,.05); }
 .card.you { border-color: var(--gold); }
 .note { font-size: 12px; color: var(--muted); line-height: 1.55; }
 .note b { color: var(--text); font-weight: 600; }
 .btn { background: var(--panel-2); border: 1px solid var(--line); border-radius: 6px; padding: 8px 13px; font-size: 12.5px; font-weight: 600; color: var(--text); }
 .btn:hover:not([disabled]) { border-color: var(--dim); }
-.btn.pri { background: var(--gold); color: #1a1408; border-color: var(--gold); }
+.btn.pri { background: var(--gold); color: var(--on-accent); border-color: var(--gold); }
 .btn.warn { color: var(--alert); }
 .btn.sm { padding: 4px 9px; font-size: 11px; }
 .in { background: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; color: var(--text); font-size: 13px; width: 100%; }
@@ -67,8 +69,8 @@ input, select, textarea { font-family: inherit; }
 .row-btns { display: flex; gap: 7px; }
 
 .filters { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
-.chip { padding: 6px 11px; border-radius: 999px; border: 1px solid var(--line); font-size: 11px; font-weight: 700; letter-spacing: .07em; color: var(--muted); background: var(--panel); }
-.chip.on { color: var(--ink); }
+.chip { padding: 6px 11px; border-radius: 999px; border: 1px solid var(--line); font-family: var(--display); font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); background: var(--panel); }
+.chip.on { color: var(--on-accent); }
 .chip.on[data-p="ALL"] { background: var(--text); border-color: var(--text); }
 .chip.on[data-p="QB"] { background: var(--qb); border-color: var(--qb); }
 .chip.on[data-p="RB"] { background: var(--rb); border-color: var(--rb); }
@@ -86,9 +88,9 @@ input, select, textarea { font-family: inherit; }
 
 /* player row */
 .prow { display: flex; align-items: center; gap: 10px; padding: 9px 2px; border-bottom: 1px solid var(--line-soft); }
-.prow.lead { background: rgba(232,196,106,.06); }
+.prow.lead { background: rgba(213,38,44,.06); }
 .spark { width: 3px; border-radius: 2px; flex: none; opacity: .85; min-height: 14px; }
-.pos { font-family: var(--display); font-weight: 700; font-size: 12px; width: 34px; flex: none; text-align: center; padding: 3px 0; border-radius: 4px; color: var(--ink); }
+.pos { font-family: var(--display); font-weight: 700; font-size: 12px; width: 34px; flex: none; text-align: center; padding: 3px 0; border-radius: 6px; color: var(--on-accent); }
 .pos[data-p="QB"] { background: var(--qb); } .pos[data-p="RB"] { background: var(--rb); }
 .pos[data-p="WR"] { background: var(--wr); } .pos[data-p="TE"] { background: var(--te); }
 .pname { flex: 1; min-width: 0; }
@@ -97,15 +99,15 @@ input, select, textarea { font-family: inherit; }
 .tag { color: var(--gold); font-size: 11px; margin-left: 6px; font-weight: 600; }
 .tag.rookie { color: var(--flx); }
 .tag.scout { border-radius: 4px; padding: 1px 5px; }
-.tag.scout-high { color: var(--rb); background: rgba(70,180,122,.14); }
-.tag.scout-mod { color: var(--gold); background: rgba(232,196,106,.14); }
-.tag.scout-fade { color: var(--alert); background: rgba(232,87,74,.14); }
-.tag.scout-hand { color: var(--wr); background: rgba(91,158,232,.14); }
+.tag.scout-high { color: var(--rb); background: rgba(22,163,74,.14); }
+.tag.scout-mod { color: var(--watch); background: rgba(185,121,10,.14); }
+.tag.scout-fade { color: var(--alert); background: rgba(220,38,38,.12); }
+.tag.scout-hand { color: var(--wr); background: rgba(37,99,235,.12); }
 .tag.scout-round { color: var(--dim); font-weight: 600; border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
 .tag.scout-round.est { font-style: italic; }
 .pname-s .bust { color: var(--alert); }
 .vdelta { font-weight: 700; }
-.vdelta.up { color: var(--gold); }
+.vdelta.up { color: var(--rb); }
 .vdelta.down { color: var(--alert); }
 .prank { text-align: right; flex: none; min-width: 40px; }
 .prank-ovr { font-family: var(--mono); font-size: 15px; font-weight: 600; line-height: 1.1; }
@@ -119,7 +121,7 @@ input, select, textarea { font-family: inherit; }
 .why-s { color: var(--dim); font-size: 11px; }
 .acts { display: flex; gap: 5px; flex: none; }
 .act { width: 34px; height: 34px; border-radius: 6px; border: 1px solid var(--line); font-size: 15px; font-weight: 700; background: var(--panel-2); }
-.act.mine { color: var(--gold); } .act.mine:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+.act.mine { color: var(--rb); } .act.mine:hover { background: var(--rb); color: var(--on-accent); border-color: var(--rb); }
 .act.gone { color: var(--dim); } .act.gone:hover { background: var(--alert); color: #fff; border-color: var(--alert); }
 
 /* roster */
@@ -144,8 +146,8 @@ input, select, textarea { font-family: inherit; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 8px; }
 .fld { display: flex; flex-direction: column; gap: 4px; }
 .fld-k { font-size: 9.5px; letter-spacing: .11em; text-transform: uppercase; color: var(--dim); font-weight: 600; }
-.banner { display: flex; gap: 9px; align-items: flex-start; padding: 10px 12px; border-radius: 8px; font-size: 12px; line-height: 1.5; background: rgba(232,196,106,.09); border: 1px solid rgba(232,196,106,.3); color: #e9d6a4; margin-bottom: 13px; }
-.banner.ok { background: rgba(70,180,122,.1); border-color: rgba(70,180,122,.32); color: #a5dcbe; }
+.banner { display: flex; gap: 9px; align-items: flex-start; padding: 10px 12px; border-radius: 8px; font-size: 12px; line-height: 1.5; background: rgba(213,38,44,.07); border: 1px solid rgba(213,38,44,.28); color: #8a1518; margin-bottom: 13px; }
+.banner.ok { background: rgba(22,163,74,.08); border-color: rgba(22,163,74,.3); color: #14532d; }
 .empty { padding: 40px 20px; text-align: center; color: var(--dim); font-size: 13px; line-height: 1.6; }
 .kbd { font-family: var(--mono); font-size: 10.5px; background: var(--panel-2); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; color: var(--text); }
 
@@ -864,9 +866,16 @@ function playerRows(items, filter, tierField, withActs, need, scores) {
     // RB2" needs no explanation the way a bare "+142" does. The underlying
     // VOR still drives the sort and every tier break above; it just moved
     // into the Why panel as supporting detail instead of the headline.
-    var whyText = sc ? reasonFor(sc) : p.scoutNote;
+    var fitReason = sc ? reasonFor(sc) : null;
+    // A hand-verified scouting note is more specific than the generic
+    // roster-fit line, so it always leads when one exists — the fit reason
+    // still shows, just demoted into the stats line instead of silently
+    // getting overwritten by it (that was the previous bug: any player who
+    // was both scouted AND in the top-200 lost his scouting note entirely).
+    var whyText = p.scoutNote || fitReason;
     var whyStats = [];
     if (p.team) whyStats.push(esc(p.team) + (p.bye != null ? " (bye " + p.bye + ")" : ""));
+    if (p.scoutNote && fitReason) whyStats.push(fitReason);
     if (p.rookie && p.bustPct != null) whyStats.push(p.bustPct + "% bust rate");
     if (vDeltaNote) whyStats.push(vDeltaNote);
     if (sosNote) whyStats.push(sosNote);
@@ -929,11 +938,21 @@ function boardList() {
     return playerRows(items, S.filter, null, true, need, scores);
   }
   if (S.sort === "sleepers") {
+    var sleeperScores = {};
+    recommend(200).forEach(function (r) { sleeperScores[r.p.id] = r; });
     var withAdp = filtered().filter(function (p) { return p.vDelta != null; })
       .sort(function (a, b) { return b.vDelta - a.vDelta; });
-    return playerRows(withAdp, S.filter, null, true, need, {});
+    return playerRows(withAdp, S.filter, null, true, need, sleeperScores);
   }
-  return playerRows(filtered(), S.filter, S.filter === "ALL" ? "oTier" : "tier", true, need);
+  // Every view shares the same roster-aware reasoning in the Why panel now —
+  // recommend() already scores the whole board regardless of how it's sorted,
+  // so there's no reason the default Value Board should fall back to a bare
+  // "team (bye) + model value" line when a player has no hand-written scouting
+  // note. Only true bench depth (outside recommend()'s top 200) still falls
+  // back to that.
+  var boardScores = {};
+  recommend(200).forEach(function (r) { boardScores[r.p.id] = r; });
+  return playerRows(filtered(), S.filter, S.filter === "ALL" ? "oTier" : "tier", true, need, boardScores);
 }
 
 function recCard() {
