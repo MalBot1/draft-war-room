@@ -76,7 +76,7 @@ Rome Odunze,WR,CHI,0.1,0.0,0.0,7.3,0.0,67.4,945.8,7.8,False,,1.5,,,44.7,4.6,48.4
 Deshaun Watson,QB,CLE,2234.8,12.2,7.0,223.6,2.4,0.1,0.4,0.0,False,,1.5,,,,,,,,,136.9,26.9,11.0,63.5,Neutral
 Anthony Richardson,QB,IND,1968.0,10.4,10.6,342.1,4.8,1.8,7.4,0.4,False,,1.5,,,,,,,,,,,,58.3,Neutral
 Shedeur Sanders,QB,CLE,2468.8,14.0,14.5,201.7,1.1,0.1,0.3,0.0,False,,1.5,,,,,,,,,139.4,28.6,11.0,63.5,Neutral
-Justin Jefferson,WR,MIN,4.9,0.0,0.0,8.3,0.0,74.5,981.6,4.9,False,,1.5,mod,"Kyler Murray confirmed the real Vikings starting QB (won the job over McCarthy) -- real analysts expect a bounce-back after a McCarthy-led WR20 2025. Model's context grade for him is dragged down by team_profiles.csv, which is single-season (2025) and entirely predates the QB change (MIN pass_epa_pct 9th pctl, all under McCarthy) -- context math structurally can't see this yet, real signal says buy the bounce-back more than the raw number implies",16.2,2.8,14.4,2.5,11.7,2.3,28.8,6.6,6.0,77.1,Easy
+Justin Jefferson,WR,MIN,4.9,0.0,0.0,8.3,0.0,74.5,981.6,4.9,False,,1.5,high,"UPGRADED 2026-08-24 (was mod): Murray was named the real Week 1 starter on Aug 11, and real analysis now spells out exactly why the bounce-back case is strong -- his 2025 collapse to 11.9 PPG wasn't about his own play (still a 31% target share, 4th-highest) but the Vikings' passing offense falling from 1st/5th to 30th in yards/game under McCarthy. With Murray in, real sources put his floor back at 15+ PPG PPR with legitimate WR1 ceiling. Model's context grade still can't see this (team_profiles.csv is single-season, entirely pre-Murray), so the raw number understates him more than initially flagged.",16.2,2.8,14.4,2.5,11.7,2.3,28.8,6.6,6.0,77.1,Easy
 Christian Watson,WR,GB,0.1,0.0,0.0,14.4,0.1,57.6,965.4,7.7,False,,1.5,,,50.3,5.4,56.2,5.5,58.8,6.4,75.1,8.1,11.0,47.9,Neutral
 Christian McCaffrey,RB,SF,0.1,0.0,0.0,615.6,5.2,48.2,419.0,3.1,False,,1.5,,,6.8,2.0,6.5,1.5,6.6,1.6,10.3,2.8,8.0,35.4,Neutral
 Josh Jacobs,RB,GB,0.1,0.0,0.0,818.2,10.3,28.1,225.4,0.8,False,,1.5,,,20.9,3.0,25.1,3.4,30.6,3.6,34.6,6.1,11.0,52.1,Neutral
@@ -111,7 +111,7 @@ Ashton Jeanty,RB,LV,0.1,0.0,0.0,750.2,3.9,40.4,269.7,2.0,False,,1.5,,,15.1,3.4,1
 Michael Pittman,WR,PIT,0.1,0.0,0.0,2.1,0.0,71.0,754.2,5.2,False,,1.5,mod,"DOWNGRADED 2026-08-24 from high (was: 'Real trade confirmed, target-hog volume role'). Trade to PIT is still real, but current market rankings have him only WR30-45 range, and real analysis flags that neither Pittman nor DK Metcalf enters 2026 with a proven track record of winning the target share in this offense -- the confident 'target-hog' framing overstated how settled his role actually is. Still a real opportunity, not a clean 'volume locked in' bet.",88.8,10.4,80.9,8.0,74.8,7.8,108.7,8.9,9.0,70.3,Easy
 Courtland Sutton,WR,DEN,7.2,0.2,0.0,1.9,0.0,59.7,799.7,5.8,False,,1.5,,,60.4,6.5,58.9,5.7,59.6,6.4,79.3,8.3,10.0,43.8,Neutral
 Parker Washington,WR,JAX,0.1,0.0,0.0,24.8,0.1,59.8,820.3,5.2,False,,1.5,,,63.9,6.6,65.2,6.7,64.8,7.5,86.3,6.8,7.0,62.5,Neutral
-Emeka Egbuka,WR,TB,0.1,0.0,0.0,10.6,0.1,57.8,814.4,5.5,False,,1.5,mod,"Real breakout case: 4 games of 20+ fantasy points as a rookie, 68 rec/6 TD, now Tampa's clear top target with Evans gone. Baker Mayfield's aggressive style suits him",33.6,4.4,33.5,3.4,34.8,4.0,50.5,6.0,10.0,58.3,Neutral
+Emeka Egbuka,WR,TB,0.1,0.0,0.0,10.6,0.1,57.8,814.4,5.5,False,,1.5,high,"UPGRADED 2026-08-24 (was mod): multiple real sources now independently call him a potential top-10 WR in 2026, not just a value play -- door fully open as Tampa's true top target with Evans in SF, real analysts specifically flag him as positioned to beat his current ADP. Same underlying case (4 games of 20+ pts as a rookie, 68 rec/6 TD, Mayfield's aggressive style) but the real-world confirmation got a lot stronger.",33.6,4.4,33.5,3.4,34.8,4.0,50.5,6.0,10.0,58.3,Neutral
 DJ Moore,WR,BUF,1.4,0.6,0.0,67.3,0.3,58.8,704.3,5.4,False,,1.5,,,49.1,6.4,45.6,5.4,48.5,6.3,69.9,8.8,7.0,51.0,Neutral
 Wan'Dale Robinson,WR,TEN,0.1,0.0,0.0,13.0,0.1,75.1,770.9,3.1,False,,1.5,mod,"Confirmed floor role -- high-usage slot security blanket, WR3 range",101.2,9.6,93.4,8.3,85.9,8.3,123.6,12.4,9.0,77.1,Easy
 Jordyn Tyson,WR,NO,0.0,0.0,0.0,0.0,0.0,61.4,826.7,4.7,True,16.0,1.5,mod,"Real WR2 role in an ascending Shough-led passing game -- but real injury history, know the risk",143.6,22.1,151.2,17.2,139.8,25.5,112.4,21.0,8.0,60.4,Neutral
@@ -249,7 +249,7 @@ Josh Williams,RB,TB,0.3,0.0,0.0,470.7,3.2,23.2,169.0,0.9,False,,1.5,,,,,,,,,,,,3
 Dyami Brown,WR,WAS,0.1,0.0,0.0,30.8,0.1,40.3,459.8,3.6,False,,1.5,,,,,,,,,,,,42.7,Neutral
 Sean Tucker,RB,TB,0.1,0.0,0.0,409.5,6.7,15.0,107.2,0.7,False,,1.5,,,,,,,,,,,,39.6,Neutral
 Josh Palmer,WR,BUF,0.1,0.0,0.0,3.1,0.0,41.2,563.3,2.2,False,,1.5,,,,,,,,,,,,51.0,Neutral
-Colston Loveland,TE,CHI,0.2,0.0,0.0,2.3,0.0,41.8,474.1,3.6,False,,1.5,mod,"Real breakout profile (82 tgt, 8.03 Y/T) -- model conservative on one-season sample, real upside and risk",68.9,8.5,62.2,8.3,57.0,9.0,82.2,10.5,10.0,31.2,Tough
+Colston Loveland,TE,CHI,0.2,0.0,0.0,2.3,0.0,41.8,474.1,3.6,False,,1.5,high,"UPGRADED 2026-08-24 (was mod): closed his rookie year like a real top-5 TE -- 9+ targets in each of his final 4 games (playoffs included), averaging 94 yards. Now ranked 3rd among TEs in real 2026 rankings, up from a breakout-candidate projection. Strong enough real confirmation to move past 'watch the sample size' caution.",68.9,8.5,62.2,8.3,57.0,9.0,82.2,10.5,10.0,31.2,Tough
 Ulysses Bentley IV,RB,IND,0.3,0.0,0.0,487.6,3.4,21.8,158.6,0.7,False,,1.5,,,,,,,,,,,,68.8,Easy
 Kendric Pryor,WR,CIN,0.5,0.0,0.0,12.5,0.1,40.8,496.8,3.1,False,,1.5,,,,,,,,,,,,69.3,Easy
 Jared Wayne,WR,HOU,0.5,0.0,0.0,12.0,0.1,41.1,500.1,3.0,False,,1.5,,,,,,,,,,,,41.7,Neutral
@@ -285,7 +285,7 @@ Johnny Wilson,WR,PHI,0.2,0.0,0.0,6.3,0.0,32.7,378.6,5.4,False,,1.5,,,,,,,,,,,,27
 Nate Carter,RB,ATL,0.3,0.0,0.0,501.4,3.1,17.7,129.2,0.7,False,,1.5,,,,,,,,,,,,62.5,Neutral
 Blake Corum,RB,LA,0.1,0.0,0.0,565.4,4.5,11.2,75.3,0.1,False,,1.5,,,108.0,15.1,121.5,14.1,121.4,17.2,122.5,14.5,11.0,50.0,Neutral
 Ainias Smith,WR,CAR,0.4,0.0,0.0,25.0,0.1,38.6,425.4,3.1,False,,1.5,,,,,,,,,,,,33.3,Tough
-Derrick Henry,RB,BAL,0.1,0.0,0.0,566.9,5.4,6.7,57.9,0.2,False,,1.5,fade,RB age-cliff (age_mult ~0.46) while still drafted like his old self,7.3,1.7,9.7,1.7,17.6,2.6,10.8,2.7,13.0,57.3,Neutral
+Derrick Henry,RB,BAL,0.1,0.0,0.0,566.9,5.4,6.7,57.9,0.2,False,,1.5,mod,"DOWNGRADED 2026-08-24 from a clean fade: the age-cliff mechanism is real (age 32, entering Year 11), but real 2025 performance data doesn't show decline yet -- 21 carries of 15+ yards (2nd in NFL), 5.4 yards/touch (7th), analysts split between 'needs to defy history' and 'could be a real bargain.' Genuine disagreement between the model's age-curve math and his actual recent output, not a clean call either way.",7.3,1.7,9.7,1.7,17.6,2.6,10.8,2.7,13.0,57.3,Neutral
 Roschon Johnson,RB,CHI,0.1,0.0,0.0,302.8,6.5,17.8,125.7,0.5,False,,1.5,,,,,,,,,,,,50.0,Neutral
 Tez Johnson,WR,TB,0.2,0.0,0.0,29.5,0.1,34.8,413.7,3.8,False,,1.5,fade,"Real reporting: fighting for the WR4/5 spot in a deep, crowded room",,,,,,,,,,58.3,Neutral
 Treylon Burks,WR,WAS,0.2,0.0,0.0,9.1,0.0,33.2,408.8,4.5,False,,1.5,,,,,,,,,,,,42.7,Neutral
@@ -317,7 +317,7 @@ Devin Neal,RB,NO,0.2,0.0,0.0,408.5,2.2,24.2,166.9,0.2,False,,1.5,,,,,,,,,,,,66.7
 Kyle Allen,QB,BUF,987.5,6.4,2.9,86.0,0.9,0.1,0.3,0.0,False,,1.5,,,,,,,,,,,,61.5,Neutral
 Jarrett Stidham,QB,DEN,979.8,6.4,2.9,89.2,0.9,0.1,0.3,0.0,False,,1.5,,,,,,,,,,,,35.4,Neutral
 Justice Hill,RB,BAL,0.1,0.0,0.0,218.8,1.9,30.5,246.7,1.2,False,,1.5,,,,,171.4,14.7,168.4,12.2,,,13.0,57.3,Neutral
-Brian Robinson,RB,ATL,0.1,0.0,0.0,499.8,4.0,11.2,74.3,0.5,False,,1.5,hand,Buried behind Croskey-Merritt/White right now -- late-round dart only if you own the guy ahead,167.8,11.0,166.2,19.0,164.1,24.9,161.9,14.8,11.0,62.5,Neutral
+Brian Robinson,RB,ATL,0.1,0.0,0.0,499.8,4.0,11.2,74.3,0.5,False,,1.5,hand,"CORRECTED 2026-08-24: old note had him buried in Washington's backfield -- he's since moved to ATLANTA (already reflected in the model's team data), where real reporting has him as the Falcons' real handcuff behind Bijan Robinson (different player, same last name -- easy to mix up). Tier 1/2 handcuff per real analyst rankings, tempered slightly by real concerns about Atlanta's own offensive ceiling.",167.8,11.0,166.2,19.0,164.1,24.9,161.9,14.8,11.0,62.5,Neutral
 Jaydon Blue,RB,DAL,0.2,0.0,0.0,491.9,3.0,14.6,106.0,0.5,False,,1.5,,,,,,,167.6,13.2,,,14.0,43.8,Neutral
 Cole Kmet,TE,CHI,0.1,0.0,0.0,0.6,0.0,38.8,408.1,2.6,False,,1.5,,,,,,,,,,,,31.2,Tough
 Jalen Nailor,WR,LV,0.1,0.0,0.0,9.9,0.1,28.1,398.4,4.3,False,,1.5,,,134.5,11.4,144.5,14.7,155.4,15.9,154.1,14.7,13.0,50.0,Neutral
