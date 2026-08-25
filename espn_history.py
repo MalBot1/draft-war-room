@@ -21,12 +21,18 @@ USAGE
 
 CREDENTIALS
   ESPN has no official API. The v3 endpoints need your league ID and two cookies.
-  Set them as environment variables — never paste them into a file you might share:
+  Preferred: set them as environment variables, never in a file you might share:
 
     export ESPN_LEAGUE_ID=123456
     export ESPN_YEAR=2025
     export ESPN_S2='...'          # long token, no braces
     export ESPN_SWID='{...}'      # braces included
+
+  Alternative: a local .env file (KEY=value, one per line) in this folder.
+  Already covered by .gitignore so it can't get committed, but it's still a
+  plaintext file sitting on disk -- only use this if you're the only one
+  with access to this machine, and don't zip/share this folder afterward
+  without deleting it first.
 
   Find the cookies: log into fantasy.espn.com, open developer tools,
   Application (Chrome) or Storage (Firefox) -> Cookies -> fantasy.espn.com.
@@ -45,6 +51,24 @@ from collections import defaultdict
 
 VAL_POS = ["QB", "RB", "WR", "TE"]
 FLEX_ELIG = ["RB", "WR", "TE"]
+
+
+def _load_dotenv(path=".env"):
+    """Optional local-only alternative to `export`-ing credentials in a shell.
+    Only sets a variable if it isn't already in the real environment, so a
+    real `export`/`$env:` always wins. Already covered by .gitignore -- this
+    file is meant to never leave your machine."""
+    if not os.path.exists(path):
+        return
+    with open(path) as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, _, val = line.partition("=")
+            key, val = key.strip(), val.strip().strip('"').strip("'")
+            if key and key not in os.environ:
+                os.environ[key] = val
 
 
 # ----------------------------------------------------------------------------
@@ -452,6 +476,7 @@ def demo_data(seed=7):
 # ----------------------------------------------------------------------------
 
 def main():
+    _load_dotenv()
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--pull", action="store_true", help="fetch your season from ESPN")
     ap.add_argument("--demo", action="store_true", help="run on synthetic data")
