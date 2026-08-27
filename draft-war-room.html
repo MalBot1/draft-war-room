@@ -276,16 +276,20 @@ function newLeague(name, preset, teams, slot) {
 // not a placeholder to fix, this league draws slots live on draft day
 // (2026-08-29), so it's genuinely unknown until then. Set it in the League
 // tab right when the room draws slots, before the clock starts.
-// Scoring confirmed 2026-08-12 from the Yahoo league's settings page and
-// applied to both leagues by request (one shared ruleset, ESPN's own
-// settings never separately verified): full PPR, non-default passing rates
-// too — 20 yd/pt (not 25) and 6-pt passing TDs (not 4). Both meaningfully
-// boost QB value beyond a plain "ppr" preset, especially high-volume/
-// rushing QBs.
-var ESPN_LEAGUE = newLeague("ESPN League (Aug 29)", "ppr", 10, 1);
+// Yahoo scoring confirmed 2026-08-12 from Yahoo's own settings page: full
+// PPR, non-default passing rates — 20 yd/pt (not 25) and 6-pt passing TDs
+// (not 4). Both meaningfully boost QB value beyond a plain "ppr" preset,
+// especially high-volume/rushing QBs.
+// ESPN's settings were WRONGLY assumed to match Yahoo's back on 2026-08-12
+// ("one shared ruleset" — never actually verified against ESPN's own page).
+// Corrected 2026-08-27 from ESPN's real settings page: half PPR (not full),
+// default passing rates (0.04/yd, 4-pt TD, not 6), 2 dedicated QB starters
+// (not 1), 2 FLEX spots (not 1), and no starting DST slot at all.
+var ESPN_LEAGUE = newLeague("ESPN League (Aug 29)", "half", 10, 1);
 var YAHOO_LEAGUE = newLeague("Yahoo League (Sept 6)", "ppr", 12, 2);
-ESPN_LEAGUE.scoring.passYd = .05;
-ESPN_LEAGUE.scoring.passTD = 6;
+ESPN_LEAGUE.roster.QB = 2;
+ESPN_LEAGUE.roster.FLEX = 2;
+ESPN_LEAGUE.roster.DST = 0;
 YAHOO_LEAGUE.scoring.passYd = .05;
 YAHOO_LEAGUE.scoring.passTD = 6;
 // confirmed roster: QB1 RB2 WR2 TE1 FLEX(W-R-T)1 K1 DEF1 BN6 IR2 — this tool
@@ -330,6 +334,27 @@ function applyScoringFix(leagues) {
   });
   localStorage.setItem(SCORING_FIX_KEY, "1");
 }
+// ESPN's settings were never actually verified until 2026-08-27 — the
+// 2026-08-12 fix above wrongly copied Yahoo's full-PPR/6-pt-passTD rules
+// onto ESPN too. Runs once per browser, same pattern as applyScoringFix,
+// but on its own dated key so it fires even on a browser that already ran
+// the old (wrong) fix.
+var ESPN_FIX_KEY = "draftWarRoom.espnFix.2026-08-27";
+function applyEspnFix(leagues) {
+  if (localStorage.getItem(ESPN_FIX_KEY)) return;
+  leagues.forEach(function (lg) {
+    if (lg.name === "ESPN League (Aug 29)") {
+      lg.preset = "half";
+      lg.scoring.rec = .5;
+      lg.scoring.passYd = .04;
+      lg.scoring.passTD = 4;
+      lg.roster.QB = 2;
+      lg.roster.FLEX = 2;
+      lg.roster.DST = 0;
+    }
+  });
+  localStorage.setItem(ESPN_FIX_KEY, "1");
+}
 function load() {
   try {
     var raw = localStorage.getItem(KEY);
@@ -341,6 +366,7 @@ function load() {
     if (typeof d.usingDemo === "boolean") S.usingDemo = d.usingDemo;
     if (d.drafts) S.drafts = d.drafts;
     applyScoringFix(S.leagues);
+    applyEspnFix(S.leagues);
     save();
   } catch (e) { /* corrupt save — fall back to defaults */ }
 }
