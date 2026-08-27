@@ -1491,6 +1491,27 @@ function wireFiles() {
 load();
 if (!S.activeId) S.activeId = S.leagues[0].id;
 render();
+
+// Auto-load war_room_import.csv from the same folder on a brand-new device
+// (still on demo data) -- the exact case that just caused confusion: a
+// fresh browser/device shows demo players with no real ADP, so Sleepers
+// looks empty and nothing lines up with reality. Only runs while still on
+// demo, so it can never touch an in-progress draft's already-loaded player
+// set or silently reshuffle player ids mid-pick. Fails silently (stays on
+// demo) if opened via file:// or offline -- fetch() can't reach a relative
+// path there, and the existing manual Data-tab import still works either way.
+if (S.usingDemo) {
+  fetch("war_room_import.csv").then(function (r) {
+    if (!r.ok) throw new Error("no file");
+    return r.text();
+  }).then(function (text) {
+    if (!S.usingDemo) return; // user imported manually while this was in flight
+    var rows = parseCSV(text);
+    S.players = rows; S.usingDemo = false;
+    S.flash = "Auto-loaded " + rows.length + " players from war_room_import.csv.";
+    save(); render();
+  }).catch(function () { /* stay on demo -- manual import still works */ });
+}
 </script>
 </body>
 </html>
