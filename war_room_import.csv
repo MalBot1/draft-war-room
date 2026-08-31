@@ -81,7 +81,7 @@ Christian Watson,WR,GB,0.1,0.0,0.0,14.4,0.1,57.6,965.4,7.7,False,,1.5,,,49.5,5.4
 Christian McCaffrey,RB,SF,0.1,0.0,0.0,615.6,5.2,48.2,419.0,3.1,False,,1.5,,,6.9,2.0,7.0,1.9,6.6,1.7,9.9,2.8,8.0,35.4,Neutral
 Josh Jacobs,RB,GB,0.1,0.0,0.0,818.2,10.3,28.1,225.4,0.8,False,,1.5,,,20.5,3.1,28.1,3.5,31.6,3.7,35.0,5.9,11.0,52.1,Neutral
 Quentin Johnston,WR,LAC,0.1,0.0,0.0,13.8,0.1,62.5,850.5,8.1,False,,1.5,high,Allen's departed 122 targets confirmed real -- locked-in WR2 with WR1 upside,78.4,6.8,86.9,8.9,96.5,9.4,95.6,7.0,7.0,47.4,Neutral
-Alec Pierce,WR,IND,0.1,0.0,0.0,2.5,0.0,53.2,1031.6,6.9,False,,1.5,,,55.4,5.9,63.3,7.4,69.9,6.9,72.7,7.0,13.0,42.7,Neutral
+Alec Pierce,WR,IND,0.1,0.0,0.0,2.5,0.0,53.2,1031.6,6.9,False,,1.5,mod,"ADDED 2026-08-31 (post-cuts): real target -- finished 2nd in the league in yards/reception last season, real big-play role in Indianapolis. Model has him untagged/unremarkable; worth a real look as a field-stretcher value play.",55.4,5.9,63.3,7.4,69.9,6.9,72.7,7.0,13.0,42.7,Neutral
 Brian Thomas Jr.,WR,JAX,0.1,0.0,0.0,22.4,0.1,66.8,954.0,5.5,False,,1.5,mod,Strong team-passing-game context; no specific news dug up yet,70.7,6.3,71.5,7.7,72.8,7.5,89.5,6.4,7.0,62.5,Neutral
 Ladd McConkey,WR,LAC,0.1,0.0,0.0,2.4,0.0,70.9,894.4,6.2,False,,1.5,,,43.2,5.1,40.8,4.6,38.0,4.6,65.3,6.9,7.0,47.4,Neutral
 Omarion Hampton,RB,LAC,0.2,0.0,0.0,807.7,6.5,42.3,282.1,1.1,False,,1.5,,,23.6,4.4,23.1,4.3,22.6,4.2,38.8,6.4,7.0,56.2,Neutral
@@ -107,7 +107,7 @@ Andy Dalton,QB,PHI,2124.8,12.9,7.6,83.8,0.8,0.0,0.2,0.0,False,,1.5,,,,,,,,,,,,29
 Jaylen Warren,RB,PIT,0.1,0.0,0.0,726.0,4.5,41.0,326.4,1.3,False,,1.5,,,66.4,6.8,63.7,5.1,62.2,5.6,91.5,12.9,9.0,64.6,Neutral
 Jayden Reed,WR,GB,0.1,0.0,0.0,72.4,0.3,62.4,821.7,4.5,False,,1.5,,,88.4,5.9,87.8,9.3,94.7,8.3,104.8,8.2,11.0,47.9,Neutral
 Bam Knight,RB,ARI,0.2,0.0,0.0,549.7,8.2,36.9,268.6,1.9,False,,1.5,,,,,,,,,,,,68.8,Easy
-Ashton Jeanty,RB,LV,0.1,0.0,0.0,750.2,3.9,40.4,269.7,2.0,False,,1.5,,,26.3,5.8,22.8,4.0,21.0,4.7,31.2,8.3,13.0,51.0,Neutral
+Ashton Jeanty,RB,LV,0.1,0.0,0.0,750.2,3.9,40.4,269.7,2.0,False,,1.5,fade,"ADDED 2026-08-31 (post-cuts): real reporting has him as one of the biggest ADP fallers in the league right now over a real ankle injury and genuine Week 1 availability questions. Real rookie draft capital still means real talent, but there's real downside risk the model's point projection can't see -- know this before spending an early pick on him.",26.3,5.8,22.8,4.0,21.0,4.7,31.2,8.3,13.0,51.0,Neutral
 Michael Pittman,WR,PIT,0.1,0.0,0.0,2.1,0.0,71.0,754.2,5.2,False,,1.5,mod,"DOWNGRADED 2026-08-24 from high (was: 'Real trade confirmed, target-hog volume role'). Trade to PIT is still real, but current market rankings have him only WR30-45 range, and real analysis flags that neither Pittman nor DK Metcalf enters 2026 with a proven track record of winning the target share in this offense -- the confident 'target-hog' framing overstated how settled his role actually is. Still a real opportunity, not a clean 'volume locked in' bet.",90.2,8.2,81.2,7.4,75.8,7.5,109.1,8.8,9.0,70.3,Easy
 Courtland Sutton,WR,DEN,7.2,0.2,0.0,1.9,0.0,59.7,799.7,5.8,False,,1.5,,,60.5,6.0,61.0,7.0,60.9,6.6,80.2,8.2,10.0,43.8,Neutral
 Parker Washington,WR,JAX,0.1,0.0,0.0,24.8,0.1,59.8,820.3,5.2,False,,1.5,,,64.6,7.2,64.7,7.2,64.1,7.9,85.6,6.6,7.0,62.5,Neutral
@@ -196,7 +196,7 @@ Colby Parkinson,TE,LA,0.1,0.0,0.0,0.6,0.0,45.6,436.3,6.7,False,,1.5,,,155.8,3.8,
 Bhayshul Tuten,RB,JAX,0.1,0.0,0.0,490.8,6.7,19.2,142.2,1.0,False,,1.5,high,"UPGRADED 2026-08-24 (was mod): real reporting confirms Etienne left for New Orleans, opening a real, much bigger sophomore-year role -- he was only given short-yardage/kick-return work as a rookie 4th-rounder, that ceiling is gone now. Stacks on top of the existing signal (real lead back per market ADP 53, well ahead of Rodriguez at 164) rather than replacing it -- two independent real confirmations now, not one.",48.0,5.8,53.7,6.3,52.9,5.4,66.6,7.6,7.0,65.6,Easy
 Tre Tucker,WR,LV,0.1,0.0,0.0,38.2,0.2,46.7,563.8,3.4,False,,1.5,,,125.9,7.8,129.7,10.6,132.0,9.1,139.1,11.6,13.0,50.0,Neutral
 Tony Pollard,RB,TEN,0.1,0.0,0.0,695.6,3.1,23.6,152.8,0.2,False,,1.5,,,67.0,7.2,66.5,5.6,69.6,6.3,83.1,6.5,9.0,41.7,Neutral
-Travis Etienne,RB,NO,0.1,0.0,0.0,600.6,3.7,20.7,155.5,1.6,False,,1.5,,,38.0,4.5,37.1,4.9,37.3,5.1,56.7,7.0,8.0,66.7,Easy
+Travis Etienne,RB,NO,0.1,0.0,0.0,600.6,3.7,20.7,155.5,1.6,False,,1.5,high,"ADDED 2026-08-31 (post-cuts): real 4-year, ~$12M/year free agent signing in New Orleans, HC Kellen Moore has publicly described him and Kamara as a genuine two-back 'complementary' system, not a committee-in-name-only. Model has him at only #198 overall right now -- clearly still reflecting his old Jacksonville role, not this real, paid-for opportunity. Real value gap, not just camp buzz.",38.0,4.5,37.1,4.9,37.3,5.1,56.7,7.0,8.0,66.7,Easy
 Tyjae Spears,RB,TEN,0.1,0.0,0.0,379.1,2.8,41.2,269.7,0.7,False,,1.5,,,156.8,12.6,141.1,16.7,129.3,13.7,148.4,22.1,9.0,41.7,Neutral
 Jerry Jeudy,WR,CLE,0.1,0.0,0.0,4.3,0.0,50.1,634.1,2.2,False,,1.5,,,122.4,11.0,124.2,9.7,129.1,10.1,141.7,11.2,11.0,82.3,Easy
 Jacardia Wright,RB,SEA,0.3,0.0,0.0,557.2,3.7,25.1,183.1,0.9,False,,1.5,,,,,,,,,,,,59.4,Neutral
@@ -286,7 +286,7 @@ Nate Carter,RB,ATL,0.3,0.0,0.0,501.4,3.1,17.7,129.2,0.7,False,,1.5,,,,,,,,,,,,62
 Blake Corum,RB,LA,0.1,0.0,0.0,565.4,4.5,11.2,75.3,0.1,False,,1.5,,,105.2,13.7,121.0,16.0,122.9,16.1,122.3,14.6,11.0,50.0,Neutral
 Ainias Smith,WR,CAR,0.4,0.0,0.0,25.0,0.1,38.6,425.4,3.1,False,,1.5,,,,,,,,,,,,33.3,Tough
 Derrick Henry,RB,BAL,0.1,0.0,0.0,566.9,5.4,6.7,57.9,0.2,False,,1.5,mod,"DOWNGRADED 2026-08-24 from a clean fade: the age-cliff mechanism is real (age 32, entering Year 11), but real 2025 performance data doesn't show decline yet -- 21 carries of 15+ yards (2nd in NFL), 5.4 yards/touch (7th), analysts split between 'needs to defy history' and 'could be a real bargain.' Genuine disagreement between the model's age-curve math and his actual recent output, not a clean call either way.",7.6,1.7,10.1,1.4,16.7,2.4,10.3,2.5,13.0,57.3,Neutral
-Roschon Johnson,RB,CHI,0.1,0.0,0.0,302.8,6.5,17.8,125.7,0.5,False,,1.5,,,,,,,,,,,,50.0,Neutral
+Roschon Johnson,RB,CHI,0.1,0.0,0.0,302.8,6.5,17.8,125.7,0.5,False,,1.5,mod,"ADDED 2026-08-31 (post-cuts): real news has Kyle Monangai missing the start of the season, making Johnson Chicago's real RB2 behind D'Andre Swift with real goal-line vulture upside. Deep league/handcuff value, not a starter bet.",,,,,,,,,,50.0,Neutral
 Tez Johnson,WR,TB,0.2,0.0,0.0,29.5,0.1,34.8,413.7,3.8,False,,1.5,fade,"Real reporting: fighting for the WR4/5 spot in a deep, crowded room",,,,,,,,,,58.3,Neutral
 Treylon Burks,WR,WAS,0.2,0.0,0.0,9.1,0.0,33.2,408.8,4.5,False,,1.5,,,,,,,,,,,,42.7,Neutral
 Anthony Gould,WR,IND,0.4,0.0,0.0,9.9,0.0,38.7,454.5,2.8,False,,1.5,,,,,,,,,,,,42.7,Neutral
@@ -307,7 +307,7 @@ Emari Demercado,RB,KC,0.1,0.0,0.0,439.1,1.0,23.3,170.0,1.3,False,,1.5,,,,,,,141.
 Tyrell Shavers,WR,BUF,0.2,0.0,0.0,5.9,0.0,35.8,512.8,1.7,False,,1.5,,,,,,,,,,,,51.0,Neutral
 Lil'Jordan Humphrey,WR,DEN,0.1,0.0,0.0,3.3,0.0,36.7,416.2,3.2,False,,1.5,,,,,,,,,,,,43.8,Neutral
 Tutu Atwell,WR,MIA,0.1,0.0,0.0,6.0,0.0,34.6,540.6,1.4,False,,1.5,,,,,,,,,,,,34.4,Tough
-Alvin Kamara,RB,NO,0.1,0.0,0.0,399.7,1.7,26.4,181.7,0.5,False,,1.5,fade,RB age-cliff (age_mult ~0.5) while still drafted like his old self,158.1,18.0,157.8,19.6,151.9,17.6,151.1,18.2,8.0,66.7,Easy
+Alvin Kamara,RB,NO,0.1,0.0,0.0,399.7,1.7,26.4,181.7,0.5,False,,1.5,fade,"UPDATED 2026-08-31: original fade was pure age-cliff math (age_mult ~0.5). Real news adds a second reason -- Etienne signed a real 4-year/~$12M deal specifically to pair with him, HC calling it a genuine complementary two-back system. Two independent real reasons to discount him now, not just the age curve.",158.1,18.0,157.8,19.6,151.9,17.6,151.1,18.2,8.0,66.7,Easy
 Nick Westbrook-Ikhine,WR,IND,0.1,0.0,0.0,3.1,0.0,34.2,418.8,3.5,False,,1.5,,,,,,,,,,,,42.7,Neutral
 Brandon Johnson,WR,LV,0.4,0.0,0.0,10.4,0.1,35.7,435.8,2.7,False,,1.5,,,,,,,,,,,,50.0,Neutral
 Xavier Restrepo,WR,TEN,0.4,0.0,0.0,9.4,0.1,35.3,439.1,2.7,False,,1.5,,,,,,,,,,,,77.1,Easy
@@ -371,7 +371,7 @@ Tre Harris,WR,LAC,0.1,0.0,0.0,11.3,0.1,35.2,405.6,1.5,False,,1.5,,,,,174.8,19.1,
 Adonai Mitchell,WR,NYJ,5.3,0.0,0.0,8.6,0.0,31.3,414.5,2.1,False,,1.5,,,159.2,15.1,161.5,12.0,164.2,14.4,168.4,10.3,13.0,30.2,Tough
 KaVontae Turpin,WR,DAL,0.1,0.0,0.0,68.3,0.1,28.0,388.3,2.0,False,,1.5,,,,,,,,,,,,61.5,Neutral
 Austin Trammell,WR,JAX,0.3,0.0,0.0,7.6,0.0,31.0,398.2,2.4,False,,1.5,,,,,,,,,,,,62.5,Neutral
-Kyle Williams,WR,NE,0.2,0.0,0.0,14.4,0.1,27.8,405.9,2.5,False,,1.5,,,,,,,,,124.3,2.2,11.0,33.9,Tough
+Kyle Williams,WR,NE,0.2,0.0,0.0,14.4,0.1,27.8,405.9,2.5,False,,1.5,mod,"ADDED 2026-08-31 (post-cuts): real preseason production -- 6 catches, 184 yards, 3 TD in a single game -- puts him in real position to be New England's WR2. Small sample (one game), but a real, specific data point, not vague camp buzz.",,,,,,,124.3,2.2,11.0,33.9,Tough
 Sione Vaki,RB,DET,0.2,0.0,0.0,368.0,2.5,17.0,129.4,0.6,False,,1.5,,,,,,,,,,,,58.3,Neutral
 Xavier Hutchinson,WR,HOU,0.1,0.0,0.0,11.6,0.1,31.9,384.0,2.2,False,,1.5,,,,,,,189.6,14.4,,,8.0,41.7,Neutral
 Colson Yankoff,TE,WAS,0.4,0.0,0.0,2.3,0.0,35.5,339.2,2.5,False,,1.5,,,,,,,,,,,,35.4,Neutral
