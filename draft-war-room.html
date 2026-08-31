@@ -1501,7 +1501,7 @@ render();
 // demo) if opened via file:// or offline -- fetch() can't reach a relative
 // path there, and the existing manual Data-tab import still works either way.
 if (S.usingDemo) {
-  fetch("war_room_import.csv").then(function (r) {
+  fetch("war_room_import.csv", { cache: "no-store" }).then(function (r) {
     if (!r.ok) throw new Error("no file");
     return r.text();
   }).then(function (text) {
