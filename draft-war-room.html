@@ -819,6 +819,22 @@ function clockInfo() {
 }
 
 function renderClock() {
+  // This has to be impossible to miss: the previous version of this warning
+  // was a small card on the Board tab only, easy to scroll past mid-draft --
+  // that's exactly how a real draft got run on fake placeholder data. This
+  // replaces the whole sticky header clock (visible on every tab, every
+  // render, can't scroll away from it) with a loud, unmissable state instead
+  // of the normal round/pick info, for as long as real data hasn't loaded.
+  if (S.usingDemo) {
+    document.getElementById("clock").innerHTML =
+      '<div class="cl" style="flex:1;border-right:none;">' +
+        '<div class="cl-v alert" style="font-size:15px;line-height:1.3;">' +
+          '&#9888; NOT REAL DATA &mdash; this is placeholder data, not your real players. ' +
+          '<button class="btn sm" data-a="retryload" style="margin-left:6px;">Retry now</button> or use the Data tab.' +
+        '</div>' +
+      '</div>';
+    return;
+  }
   var c = clockInfo(), b = BOARD[0];
   var cls = c.until === 0 ? "hot" : (c.until != null && c.until <= 2 ? "alert" : "");
   document.getElementById("clock").innerHTML =
@@ -1395,6 +1411,7 @@ document.addEventListener("click", function (e) {
     }, null, 2), "application/json");
   }
   else if (a === "demo") { S.players = demoPlayers(); S.usingDemo = true; S.flash = "Back on the demo set."; save(); render(); }
+  else if (a === "retryload") { tryAutoLoad(); }
   else if (a === "loadpaste") {
     var box = document.getElementById("paste");
     try {
@@ -1493,14 +1510,19 @@ if (!S.activeId) S.activeId = S.leagues[0].id;
 render();
 
 // Auto-load war_room_import.csv from the same folder on a brand-new device
-// (still on demo data) -- the exact case that just caused confusion: a
-// fresh browser/device shows demo players with no real ADP, so Sleepers
-// looks empty and nothing lines up with reality. Only runs while still on
-// demo, so it can never touch an in-progress draft's already-loaded player
-// set or silently reshuffle player ids mid-pick. Fails silently (stays on
-// demo) if opened via file:// or offline -- fetch() can't reach a relative
-// path there, and the existing manual Data-tab import still works either way.
-if (S.usingDemo) {
+// (still on demo data) -- the exact case that caused a real draft to run on
+// placeholder data: a fresh browser/device shows demo players with no real
+// ADP, and nothing lines up with reality past the ~50 real names the demo
+// set seeds before it degrades into meaningless "POS depth N" filler.
+// Only runs while still on demo, so it can never touch an in-progress
+// draft's already-loaded player set or silently reshuffle player ids
+// mid-pick. Retries a few times (a single network blip shouldn't be fatal),
+// and if every attempt fails, renderClock()'s S.usingDemo branch keeps a
+// loud, unmissable warning up in the sticky header -- on every tab, every
+// render -- with its own manual retry button, instead of the old silent
+// fallback that gave zero indication anything had gone wrong.
+function tryAutoLoad(attemptsLeft) {
+  if (attemptsLeft == null) attemptsLeft = 3;
   fetch("war_room_import.csv", { cache: "no-store" }).then(function (r) {
     if (!r.ok) throw new Error("no file");
     return r.text();
@@ -1510,8 +1532,12 @@ if (S.usingDemo) {
     S.players = rows; S.usingDemo = false;
     S.flash = "Auto-loaded " + rows.length + " players from war_room_import.csv.";
     save(); render();
-  }).catch(function () { /* stay on demo -- manual import still works */ });
+  }).catch(function () {
+    if (attemptsLeft > 1) { setTimeout(function () { tryAutoLoad(attemptsLeft - 1); }, 1500); }
+    else { renderClock(); } // give up silently loading, but make sure the header warning is showing
+  });
 }
+if (S.usingDemo) tryAutoLoad();
 </script>
 </body>
 </html>
